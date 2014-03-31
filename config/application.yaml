@@ -1,0 +1,8 @@
+--- !DirTarget
+directoryToSaveModels: experiment/agm/manipulation/
+directoryToExportModels: experiment/agm/output/
+pathToTemplateModelsDirectory: agm/Papyrus/
+pathToProfile: agm/Papyrus/smarty.profile.uml
+pathToProfileConcern: agm/Papyrus/concerns.profile.uml
+pathToProfileRelationships: agm/Papyrus/relationships.profile.uml
+pathToProfilePatterns: agm/Papyrus/patterns.profile.uml
