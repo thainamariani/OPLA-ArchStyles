@@ -6,58 +6,38 @@
 package identification;
 
 import arquitetura.representation.Architecture;
-import arquitetura.representation.Class;
-import arquitetura.representation.Package;
-import arquitetura.representation.relationship.Relationship;
-import java.util.Set;
+import java.util.List;
+import pojo.Layer;
 
 /**
  *
  * @author Thainá
  */
-public class StylesIdentification {
+public abstract class StylesIdentification {
 
-    private Architecture architecture;
+    protected Architecture architecture;
 
     public StylesIdentification(Architecture architecture) {
         this.architecture = architecture;
     }
 
-    public void identify() {
-        Set<Package> packages = architecture.getAllPackages();
-        for (Package p : packages) {
-            Set<Class> classes = p.getAllClasses();
-            for (Class c : classes) {
-                Set<Relationship> relationshipsClass = c.getRelationships();
-                for (Relationship r : relationshipsClass) {
-                    System.out.println("Nome do relacionamento" + r.getName());
-                    System.out.println("Tipo do relacionamento:" + r.getType());
-                }
+    public boolean checkSuffixPrefix(String type, String sp) {
+        return false;
+    }
 
-            }
-
-            /*Set<Interface> interfaces = p.getAllInterfaces();
-             Set<Relationship> relationships = p.getRelationships();
-             for (Relationship r : relationships) {
-             System.out.println(r.getName());
-             } */
-        }
+    public boolean verifySuffix(String suffix) {
+        return false;
 
     }
 
-    //método provisório
-    private String getSuffix(Package comp) {
-        String suffix;
-        if (comp.getName().endsWith("Mgr")) {
-            suffix = "Mgr";
-        } else if (comp.getName().endsWith("Ctrl")) {
-            suffix = "Ctrl";
-        } else if (comp.getName().endsWith("GUI")) {
-            suffix = "GUI";
-        } else {
-            suffix = "";
-        }
-        return suffix;
+    public boolean verifyPrefix(String prefix) {
+        return false;
+    }
+
+    public void identify() {
+    }
+    
+    public void checkStyle(List<Layer> list) {
     }
 
     public Architecture getArchitecture() {

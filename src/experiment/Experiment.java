@@ -1,5 +1,6 @@
 package experiment;
 
+import identification.StylesIdentification;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -41,7 +42,7 @@ public class Experiment {
         File directory = new File("experiment/");
         if (!directory.exists()) {
             if (!directory.mkdirs()) {
-                System.out.println("N�o foi poss�vel criar o diret�rio do resultado");
+                System.out.println("Não foi poss�vel criar o diret�rio do resultado");
                 System.exit(0);
             }
         }
@@ -56,6 +57,8 @@ public class Experiment {
             OPLA problem = null;
             try {
                 problem = new OPLA(xmiFilePath);
+//                problem.architecture_ = new ArchitectureWithStyles(problem.architecture_);
+//                StylesIdentification.identify();
             } catch (Exception e) {
                 e.printStackTrace();
             }
