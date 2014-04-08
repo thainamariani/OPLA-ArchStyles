@@ -3,6 +3,7 @@ package util;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
+import arquitetura.representation.relationship.AbstractionRelationship;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.DependencyRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
@@ -21,9 +22,35 @@ public class RelationshipUtil {
         } else if (relationship instanceof DependencyRelationship) {
             DependencyRelationship dependency = (DependencyRelationship) relationship;
             supplier = dependency.getSupplier();
+        } else if (relationship instanceof AbstractionRelationship) {
+            AbstractionRelationship abstraction = (AbstractionRelationship) relationship;
+            supplier = abstraction.getSupplier();
+        } else if (relationship instanceof GeneralizationRelationship) {
+            GeneralizationRelationship generalization = (GeneralizationRelationship) relationship;
+            supplier = generalization.getParent();
+        } else if (relationship instanceof RealizationRelationship) {
+            RealizationRelationship realization = (RealizationRelationship) relationship;
+            supplier = realization.getSupplier();
         }
         return supplier;
     }
+
+//    //verifica se é unidirecional
+//    //processo ocorre se a associação for unidirecional (no caso existe supplier e client)
+//            AssociationRelationship association = (AssociationRelationship) relationship;
+//
+//            supplier = association.
+//    public static Element verifyUnidirectional(AssociationRelationship association) {
+//        List<AssociationEnd> participants = association.getParticipants();
+//        if ((participants.get(0).isAggregation() == false) && (participants.get(1).isAggregation() == false) && (participants.get(0).isComposite() == false) && (participants.get(1).isComposite() == false)) {
+//            if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
+//                return (Element) participants.get(0);
+//            } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
+//                return participants.get(1);
+//            }
+//        }
+//        return null;
+//    }
 
     public static Element getClientElementFromRelationship(Relationship relationship) {
         Element client = null;
@@ -33,6 +60,15 @@ public class RelationshipUtil {
         } else if (relationship instanceof DependencyRelationship) {
             DependencyRelationship dependency = (DependencyRelationship) relationship;
             client = dependency.getClient();
+        } else if (relationship instanceof AbstractionRelationship) {
+            AbstractionRelationship abstraction = (AbstractionRelationship) relationship;
+            client = abstraction.getClient();
+        } else if (relationship instanceof GeneralizationRelationship) {
+            GeneralizationRelationship generalization = (GeneralizationRelationship) relationship;
+            client = generalization.getChild();
+        } else if (relationship instanceof RealizationRelationship) {
+            RealizationRelationship realization = (RealizationRelationship) relationship;
+            client = realization.getClient();
         }
         return client;
     }

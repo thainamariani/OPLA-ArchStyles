@@ -5,13 +5,18 @@
  */
 package identification;
 
+import arquitetura.helpers.UtilResources;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
+import arquitetura.representation.Element;
 import arquitetura.representation.Package;
+import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
 import java.util.List;
 import java.util.Set;
 import pojo.Layer;
+import util.ElementUtil;
+import util.RelationshipUtil;
 
 /**
  *
@@ -56,24 +61,30 @@ public class LayerIdentification extends StylesIdentification {
 
     @Override
     public void checkStyle(List<Layer> camadas) {
-        
-    }
-
-    @Override
-    public void identify() {
         Set<Package> packages = architecture.getAllPackages();
         for (Package p : packages) {
+            System.out.println("--------------------------------------------------------------");
+            System.out.println("Pacote:" + p.getName());
             Set<Class> classes = p.getAllClasses();
             for (Class c : classes) {
                 Set<Relationship> relationshipsClass = c.getRelationships();
                 for (Relationship r : relationshipsClass) {
-                    System.out.println("Nome do relacionamento" + r.getName());
-                    System.out.println("Tipo do relacionamento:" + r.getType());
+                    if (!(r instanceof AssociationRelationship)) {
+                        System.out.println("Tipo do relacionamento:" + r.getType());
+                        Element used = RelationshipUtil.getUsedElementFromRelationship(r);
+                        Element client = RelationshipUtil.getClientElementFromRelationship(r);
+                        if (UtilResources.extractPackageName(client.getNamespace()).equals(p.getName())) {
+                            System.out.println("Classe " + client.getName() + "possui um relacionamento inválido para o estilo em camadas (layer 0)");
+
+                        }
+                    }
                 }
+
             }
-
-            break;
         }
+    }
 
+    @Override
+    public void identify() {
     }
 }

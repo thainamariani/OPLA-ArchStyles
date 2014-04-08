@@ -74,7 +74,6 @@ public class LayerIdentificationTest {
         }
 
         if (identify) {
-            //se a camada 1 não utiliza ngm: OK
             layerIdentification.checkStyle(camadas);
         }
 
