@@ -8,6 +8,7 @@ package identification;
 import arquitetura.representation.Architecture;
 import java.util.List;
 import pojo.Layer;
+import pojo.Style;
 
 /**
  *
@@ -21,7 +22,7 @@ public abstract class StylesIdentification {
         this.architecture = architecture;
     }
 
-    public boolean checkSuffixPrefix(String type, String sp) {
+    public boolean checkSuffixPrefix(List<Layer> style) {
         return false;
     }
 
@@ -34,7 +35,7 @@ public abstract class StylesIdentification {
         return false;
     }
 
-    public void identify() {
+    public void identify(List<Layer> list) {
     }
     
     public void checkStyle(List<Layer> list) {

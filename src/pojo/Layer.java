@@ -5,17 +5,20 @@
  */
 package pojo;
 
+import java.util.List;
 import java.util.Map;
+import arquitetura.representation.Package;
 
 /**
  *
  * @author Thainá
  */
-public class Layer {
+public class Layer extends Style {
 
     private int numero;
     //armazena o tipo (sufixo ou prefixo) e os respectivos sufixos e prefixos da camada;
     private Map<String, String> sp;
+    private List<Package> packages;
 
     public Layer() {
     }
@@ -39,6 +42,14 @@ public class Layer {
 
     public void setSp(Map<String, String> sp) {
         this.sp = sp;
+    }
+
+    public List<Package> getPackages() {
+        return packages;
+    }
+
+    public void setPackages(List<Package> packages) {
+        this.packages = packages;
     }
 
 }

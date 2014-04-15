@@ -4,12 +4,14 @@ import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.relationship.AbstractionRelationship;
+import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.DependencyRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
 import arquitetura.representation.relationship.RealizationRelationship;
 import arquitetura.representation.relationship.Relationship;
 import arquitetura.representation.relationship.UsageRelationship;
+import java.util.List;
 import java.util.UUID;
 
 public class RelationshipUtil {
@@ -31,26 +33,19 @@ public class RelationshipUtil {
         } else if (relationship instanceof RealizationRelationship) {
             RealizationRelationship realization = (RealizationRelationship) relationship;
             supplier = realization.getSupplier();
+        } else if (relationship instanceof AssociationRelationship) {
+            AssociationRelationship association = (AssociationRelationship) relationship;
+            List<AssociationEnd> participants = association.getParticipants();
+            if ((participants.get(0).isAggregation() == false) && (participants.get(1).isAggregation() == false) && (participants.get(0).isComposite() == false) && (participants.get(1).isComposite() == false)) {
+                if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
+                    supplier = participants.get(0).getCLSClass();
+                } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
+                    supplier = participants.get(1).getCLSClass();
+                }
+            }
         }
         return supplier;
     }
-
-//    //verifica se é unidirecional
-//    //processo ocorre se a associação for unidirecional (no caso existe supplier e client)
-//            AssociationRelationship association = (AssociationRelationship) relationship;
-//
-//            supplier = association.
-//    public static Element verifyUnidirectional(AssociationRelationship association) {
-//        List<AssociationEnd> participants = association.getParticipants();
-//        if ((participants.get(0).isAggregation() == false) && (participants.get(1).isAggregation() == false) && (participants.get(0).isComposite() == false) && (participants.get(1).isComposite() == false)) {
-//            if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
-//                return (Element) participants.get(0);
-//            } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
-//                return participants.get(1);
-//            }
-//        }
-//        return null;
-//    }
 
     public static Element getClientElementFromRelationship(Relationship relationship) {
         Element client = null;
@@ -71,6 +66,44 @@ public class RelationshipUtil {
             client = realization.getClient();
         }
         return client;
+    }
+
+    public static boolean VerifyAssociationRelationship(AssociationRelationship association) {
+        boolean isUnidirectional = true;
+        List<AssociationEnd> participants = association.getParticipants();
+        //verifica se é composição ou agregação (então é dado como bidirecional)
+        for (AssociationEnd participant : participants) {
+            if ((participant.isAggregation() == true) || (participant.isComposite() == true)) {
+                isUnidirectional = false;
+            }
+        }
+        if (isUnidirectional) {
+            //verifica se as duas pontas são false ou as duas são true (então é bidirecional)
+            if (((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == false)) || ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == true))) {
+                isUnidirectional = false;
+            }
+        }
+        return isUnidirectional;
+    }
+
+    public static Element getUsedElementFromAssociationRelationship(AssociationRelationship association) {
+        List<AssociationEnd> participants = association.getParticipants();
+        if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
+            return (Element) participants.get(0).getCLSClass();
+        } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
+            return (Element) participants.get(1).getCLSClass();
+        }
+        return null;
+    }
+
+    public static Element getClientElementFromAssociationRelationship(AssociationRelationship association) {
+        List<AssociationEnd> participants = association.getParticipants();
+        if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
+            return (Element) participants.get(1).getCLSClass();
+        } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
+            return (Element) participants.get(0).getCLSClass();
+        }
+        return null;
     }
 
     public static Interface getImplementedInterface(Relationship relationship) {

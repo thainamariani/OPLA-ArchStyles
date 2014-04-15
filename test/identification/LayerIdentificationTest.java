@@ -11,8 +11,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import org.junit.Test;
 import pojo.Layer;
+import pojo.Style;
 
 /**
  *
@@ -27,7 +29,7 @@ public class LayerIdentificationTest {
     public void testIdentify() throws Exception {
         //criação da arquitetura
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architecture = builder.create("agm/Papyrus/agm.uml");
+        Architecture architecture = builder.create("C:/Users/Thainá/workspace/AGM/agm.uml");
 
         LayerIdentification layerIdentification = new LayerIdentification(architecture);
 
@@ -56,25 +58,19 @@ public class LayerIdentificationTest {
         layer3.setSp(sp3);
         camadas.add(layer3);
 
-        //próximas linhas verificam se o sufixo (ou prefixo) existe na arquitetura
-        boolean exist;
-        boolean identify = true;
+        boolean identify = false;
+        identify = layerIdentification.checkSuffixPrefix(camadas);
 
-        for (Layer layer : camadas) {
-            for (Map.Entry<String, String> entry : layer.getSp().entrySet()) {
-                exist = layerIdentification.checkSuffixPrefix(entry.getValue(), entry.getKey());
-                //Assert.assertEquals(true, exist);
-                if (exist == false) {
-                    System.out.println(entry.getValue().equals("suffix") ? "Sufixo " + entry.getKey() + " não existe. Insira novamente" : "Prefixo " + entry.getKey() + " não existe. Insira novamente");
-                    identify = false;
-                    break;
-                }
-
-            }
-        }
-
+        //se todos os sufixos ou prefixos indicados existirem, cada pacote é alocado na camada correspondente
+        //... se houverem pacotes sem os sufixos ou prefixos adicionados a operação é abortada
         if (identify) {
-            layerIdentification.checkStyle(camadas);
+            //boolean result = layerIdentification.identify(camadas);
+            layerIdentification.identify(camadas);
+//            if (result == false) {
+//                System.out.println("Nem todos os pacotes possuem os sufixos ou prefixos informados. Favor analisar novamente");
+//            } else {
+//                
+//            }
         }
 
     }

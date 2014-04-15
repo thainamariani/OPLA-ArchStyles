@@ -1,8 +1,12 @@
 package util;
 
+import arquitetura.helpers.UtilResources;
+import arquitetura.representation.Architecture;
 import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
+import arquitetura.representation.Class;
 import arquitetura.representation.Interface;
+import arquitetura.representation.Package;
 import arquitetura.representation.Method;
 import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
@@ -376,6 +380,51 @@ public class ElementUtil {
 
     public static List<Element> getAllSuperElements(Element element) {
         return new ArrayList<>(CollectionUtils.union(getAllExtendedElements(element), getAllSuperInterfaces(element)));
+    }
+
+    //Métodos Thainá
+    //cria uma lista com todos as classes e interfaces existentes no pacote, e também com o próprio pacote
+    public static Set<Element> selectPackageClassesInterfaces(Package p) {
+        Set<Element> elements = new HashSet<>();
+        for (Class c : p.getAllClasses()) {
+            elements.add(c);
+        }
+        for (Interface i : p.getAllInterfaces()) {
+            elements.add(i);
+        }
+        for (Package pn : p.getNestedPackages()) {
+            for (Class cn : pn.getAllClasses()) {
+                elements.add(cn);
+            }
+            for (Interface in : pn.getAllInterfaces()) {
+                elements.add(in);
+            }
+            elements.add(pn);
+        }
+        elements.add(p);
+        return elements;
+    }
+
+    public static Set<Relationship> getRelationshipByElement(Element element) {
+        Set<Relationship> relationships = new HashSet<>();
+        if (element instanceof Class) {
+            relationships = ((Class) element).getRelationships();
+        } else if (element instanceof Interface) {
+            relationships = ((Interface) element).getRelationships();
+        } else {
+            relationships = ((Package) element).getRelationships();
+        }
+        return relationships;
+    }
+
+    public static Package getPackage(Element element, Architecture architecture) {
+        Package pckage = null;
+        if ((element instanceof Class) || (element instanceof Interface)) {
+            pckage = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+        } else if (element instanceof Package) {
+            pckage = (Package) element;
+        }
+        return pckage;
     }
 
     private ElementUtil() {
