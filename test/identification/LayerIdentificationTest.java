@@ -11,10 +11,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 import org.junit.Test;
 import pojo.Layer;
-import pojo.Style;
 
 /**
  *
@@ -58,20 +56,18 @@ public class LayerIdentificationTest {
         layer3.setSp(sp3);
         camadas.add(layer3);
 
-        boolean identify = false;
-        identify = layerIdentification.checkSuffixPrefix(camadas);
+        if (layerIdentification.repeatSuffixPrefix(camadas)) {
+            boolean identify = false;
+            identify = layerIdentification.checkSuffixPrefix(camadas);
 
-        //se todos os sufixos ou prefixos indicados existirem, cada pacote é alocado na camada correspondente
-        //... se houverem pacotes sem os sufixos ou prefixos adicionados a operação é abortada
-        if (identify) {
-            //boolean result = layerIdentification.identify(camadas);
-            layerIdentification.identify(camadas);
-//            if (result == false) {
-//                System.out.println("Nem todos os pacotes possuem os sufixos ou prefixos informados. Favor analisar novamente");
-//            } else {
-//                
-//            }
+            if (identify) {
+                boolean isCorrect = layerIdentification.identify(camadas);
+                if (isCorrect) {
+                    //chama os operadores
+                    HashMap parameters = new HashMap();
+                    parameters.put("probability", 1); //100% de probabilidade
+                }
+            }
         }
-
     }
 }

@@ -22,6 +22,10 @@ public abstract class StylesIdentification {
         this.architecture = architecture;
     }
 
+    public boolean repeatSuffixPrefix(List<Layer> style) {
+        return false;
+    }
+
     public boolean checkSuffixPrefix(List<Layer> style) {
         return false;
     }
@@ -35,10 +39,12 @@ public abstract class StylesIdentification {
         return false;
     }
 
-    public void identify(List<Layer> list) {
+    public boolean identify(List<Layer> list) {
+        return false;
     }
-    
-    public void checkStyle(List<Layer> list) {
+
+    public boolean checkStyle(List<Layer> list) {
+        return false;
     }
 
     public Architecture getArchitecture() {
