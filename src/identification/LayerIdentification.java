@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import pojo.Layer;
+import pojo.Style;
 import util.ElementUtil;
 import util.RelationshipUtil;
 import util.StyleUtil;
@@ -29,8 +30,18 @@ import util.StyleUtil;
  */
 public class LayerIdentification extends StylesIdentification {
 
+    public static List<Layer> LISTLAYERS = null;
+
     public LayerIdentification(Architecture architecture) {
         super(architecture);
+    }
+
+    public static List<Layer> getLISTLAYERS() {
+        return LISTLAYERS;
+    }
+
+    public static void setLISTLAYERS(List<Layer> LISTLAYERS) {
+        LayerIdentification.LISTLAYERS = LISTLAYERS;
     }
 
     @Override
@@ -109,8 +120,7 @@ public class LayerIdentification extends StylesIdentification {
     //método que verifica se o relacionamento existente entre as camadas está OK para o estilo arquitetural;
     //TODO: elaborar para association e testar com todos os relacionamentos..
     @Override
-    public boolean checkStyle(List<Layer> layers
-    ) {
+    public boolean checkStyle(List<Layer> layers) {
         boolean isCorrect = true;
         boolean isCorrectRelationship = true;
         //percorre cada camada
@@ -148,6 +158,7 @@ public class LayerIdentification extends StylesIdentification {
                 }
             }
         }
+        setLISTLAYERS(layers);
         return isCorrect;
     }
 

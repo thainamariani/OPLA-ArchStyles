@@ -38,11 +38,12 @@ public class PLAFeatureMutationConstraints extends Mutation {
         String scope = "sameComponent"; //"allComponents" usar "sameComponent" para que a troca seja realizada dentro do mesmo componente da arquitetura
         String scopeLevels = "allLevels"; //usar "oneLevel" para não verificar a presença de interesses nos atributos e métodos
 
-        int r = PseudoRandom.randInt(0, 5);
+        //int r = PseudoRandom.randInt(0, 5);
+        int r = PseudoRandom.randInt(0, 0);
         switch (r) {
             case 0:
                 MoveMethod moveMethod = new MoveMethod();
-                moveMethod.doMutation(probability, architecture);
+                moveMethod.doMutation(probability, architecture, style, list);
                 break;
 
 //                case 0:FeatureMutation(probability, solution, scopeLevels); break;

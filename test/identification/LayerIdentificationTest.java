@@ -11,6 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import operators.AddClass;
+import operators.MoveAttribute;
+import operators.MoveMethod;
 import org.junit.Test;
 import pojo.Layer;
 
@@ -65,7 +68,14 @@ public class LayerIdentificationTest {
                 if (isCorrect) {
                     //chama os operadores
                     HashMap parameters = new HashMap();
-                    parameters.put("probability", 1); //100% de probabilidade
+                    parameters.put("probability", 1.0); //100% de probabilidade
+
+                    //MoveMethod moveMethod = new MoveMethod();
+                    //moveMethod.doMutation((Double) parameters.get("probability"), architecture, "layer", LayerIdentification.getLISTLAYERS());
+                    //MoveAttribute moveAttribute = new MoveAttribute();
+                    //moveAttribute.doMutation((Double) parameters.get("probability"), architecture, "layer", LayerIdentification.getLISTLAYERS());
+                    AddClass addClass = new AddClass();
+                    addClass.doMutation((Double) parameters.get("probability"), architecture, "layer", LayerIdentification.getLISTLAYERS());
                 }
             }
         }

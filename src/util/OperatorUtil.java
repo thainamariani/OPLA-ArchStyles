@@ -22,7 +22,6 @@ import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
 import arquitetura.representation.relationship.RealizationRelationship;
 import arquitetura.representation.relationship.Relationship;
-import static experiment.Experiment.mutationProbability_;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -30,17 +29,27 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import jmetal.core.Solution;
 import jmetal.problems.OPLA;
-import jmetal.util.Configuration;
-import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import pojo.Layer;
 
 /**
  *
  * @author Thainá
  */
 public class OperatorUtil {
+
+    //add por thaina
+    public static Layer findPackageLayer(List<Layer> layers, Package sourcePackage) {
+        for (Layer layer : layers) {
+            for (Package pac : layer.getPackages()) {
+                if (pac == sourcePackage) {
+                    return layer;
+                }
+            }
+        }
+        return null;
+    }
 
     //--------------------------------------------------------------------------
     //método para verificar se algum dos relacionamentos recebidos é generalização
@@ -80,7 +89,7 @@ public class OperatorUtil {
         }
     }
 
-    public void moveMethodToNewClass(Architecture arch, Class sourceClass, List<Method> MethodsClass, Class newClass) throws Exception {
+    public static void moveMethodToNewClass(Architecture arch, Class sourceClass, List<Method> MethodsClass, Class newClass) throws Exception {
         Method targetMethod = randomObject(MethodsClass);
         sourceClass.moveMethodToClass(targetMethod, newClass);
         //if (targetMethod.isAbstract()) targetMethod.setAbstract(false);
@@ -104,7 +113,7 @@ public class OperatorUtil {
     //		AssociationRelationship newRelationship = new AssociationRelationship(newClass, sourceClass);
     //		arch.getAllRelationships().add(newRelationship);
     //	}
-    public void moveAttributeToNewClass(Architecture arch, Class sourceClass, List<Attribute> AttributesClass, Class newClass) throws Exception {
+    public static void moveAttributeToNewClass(Architecture arch, Class sourceClass, List<Attribute> AttributesClass, Class newClass) throws Exception {
         Attribute targetAttribute = randomObject(AttributesClass);
         sourceClass.moveAttributeToClass(targetAttribute, newClass);
         for (Concern con : targetAttribute.getOwnConcerns()) {

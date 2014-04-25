@@ -6,6 +6,7 @@
 package util;
 
 import arquitetura.representation.Architecture;
+import main.GenerateArchitecture;
 
 /**
  *
@@ -24,5 +25,10 @@ public class ArchitectureRepository {
 
     public static void setCurrentArchitecture(Architecture architecture) {
         CURRENT_ARCHITECTURE = architecture;
+    }
+
+    public static void generateArchitecture(String name) {
+        GenerateArchitecture generateArchitecture = new GenerateArchitecture();
+        generateArchitecture.generate(CURRENT_ARCHITECTURE, name);
     }
 }

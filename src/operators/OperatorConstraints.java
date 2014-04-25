@@ -6,7 +6,10 @@
 package operators;
 
 import arquitetura.representation.Architecture;
+import java.util.List;
 import jmetal.util.JMException;
+import pojo.Layer;
+import pojo.Style;
 
 /**
  *
@@ -14,10 +17,9 @@ import jmetal.util.JMException;
  */
 public interface OperatorConstraints {
 
-    public void doMutation(double probability, Architecture architecture) throws JMException ;
+    public void doMutation(double probability, Architecture architecture, String style, List<? extends Style> styles) throws JMException;
 
-    public void doMutationLayer(double probability, Architecture architecture, String scopeLevels);
+    public void doMutationLayer(double probability, Architecture architecture, List<Layer> list);
 
-    public void doMutationClientServer(double probability, Architecture architecture, String scopeLevels);
-
+    public void doMutationClientServer(double probability, Architecture architecture, List<Style> list);
 }
