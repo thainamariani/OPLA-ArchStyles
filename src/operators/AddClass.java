@@ -52,15 +52,12 @@ public class AddClass implements OperatorConstraints {
             //if (solution.getDecisionVariables()[0].getVariableType() == java.lang.Class.forName(Architecture.ARCHITECTURE_TYPE)) {
             //Architecture arch = ((Architecture) solution.getDecisionVariables()[0]);
             arquitetura.representation.Package sourceComp = randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-            System.out.println("Source package: "+sourceComp.getName());
             List<arquitetura.representation.Class> ClassesComp = new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
             removeClassesInPatternStructureFromArray(ClassesComp);
             if (ClassesComp.size() > 0) {
                 arquitetura.representation.Class sourceClass = randomObject(ClassesComp);
                 Layer layerSourcePackage = OperatorUtil.findPackageLayer(layers, sourceComp);
                 arquitetura.representation.Package targetPackage = OperatorUtil.randomObject(layerSourcePackage.getPackages());
-                System.out.println("Source class: "+sourceClass);
-                System.out.println("Target package: "+targetPackage);
                 
                 if ((sourceClass != null) && (!searchForGeneralizations(sourceClass))
                         && (sourceClass.getAllAttributes().size() > 1)
@@ -72,7 +69,6 @@ public class AddClass implements OperatorConstraints {
                         List<Attribute> AttributesClass = new ArrayList<Attribute>(sourceClass.getAllAttributes());
                         if (AttributesClass.size() >= 1) {
                             try {
-                                System.out.println("AQUI - Atributo");
                                 OperatorUtil.moveAttributeToNewClass(architecture, sourceClass, AttributesClass, targetPackage.createClass("Class" + OPLA.contClass_++, false));
                             } catch (Exception ex) {
                                 Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);
@@ -83,7 +79,6 @@ public class AddClass implements OperatorConstraints {
                         List<Method> MethodsClass = new ArrayList<Method>(sourceClass.getAllMethods());
                         if (MethodsClass.size() >= 1) {
                             try {
-                                System.out.println("AQUI Método");
                                 OperatorUtil.moveMethodToNewClass(architecture, sourceClass, MethodsClass, targetPackage.createClass("Class" + OPLA.contClass_++, false));
                             } catch (Exception ex) {
                                 Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);

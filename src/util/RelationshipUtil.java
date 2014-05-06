@@ -64,11 +64,21 @@ public class RelationshipUtil {
         } else if (relationship instanceof RealizationRelationship) {
             RealizationRelationship realization = (RealizationRelationship) relationship;
             client = realization.getClient();
+        } else if (relationship instanceof AssociationRelationship) {
+            AssociationRelationship association = (AssociationRelationship) relationship;
+            List<AssociationEnd> participants = association.getParticipants();
+            if ((participants.get(0).isAggregation() == false) && (participants.get(1).isAggregation() == false) && (participants.get(0).isComposite() == false) && (participants.get(1).isComposite() == false)) {
+                if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
+                    client = participants.get(1).getCLSClass();
+                } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
+                    client = participants.get(0).getCLSClass();
+                }
+            }
         }
         return client;
     }
 
-    public static boolean VerifyAssociationRelationship(AssociationRelationship association) {
+    public static boolean verifyAssociationRelationship(AssociationRelationship association) {
         boolean isUnidirectional = true;
         List<AssociationEnd> participants = association.getParticipants();
         //verifica se é composição ou agregação (então é dado como bidirecional)
@@ -84,26 +94,6 @@ public class RelationshipUtil {
             }
         }
         return isUnidirectional;
-    }
-
-    public static Element getUsedElementFromAssociationRelationship(AssociationRelationship association) {
-        List<AssociationEnd> participants = association.getParticipants();
-        if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
-            return (Element) participants.get(0).getCLSClass();
-        } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
-            return (Element) participants.get(1).getCLSClass();
-        }
-        return null;
-    }
-
-    public static Element getClientElementFromAssociationRelationship(AssociationRelationship association) {
-        List<AssociationEnd> participants = association.getParticipants();
-        if ((participants.get(0).isNavigable() == true) && (participants.get(1).isNavigable() == false)) {
-            return (Element) participants.get(1).getCLSClass();
-        } else if ((participants.get(0).isNavigable() == false) && (participants.get(1).isNavigable() == true)) {
-            return (Element) participants.get(0).getCLSClass();
-        }
-        return null;
     }
 
     public static Interface getImplementedInterface(Relationship relationship) {

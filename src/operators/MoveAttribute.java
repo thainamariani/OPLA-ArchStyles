@@ -52,12 +52,9 @@ public class MoveAttribute implements OperatorConstraints {
                     Layer layerSourcePackage = OperatorUtil.findPackageLayer(layers, sourceComp);
                     final arquitetura.representation.Package targetPackage = OperatorUtil.randomObject(layerSourcePackage.getPackages());
                     final arquitetura.representation.Class targetClass = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Class>(targetPackage.getAllClasses()));
-                    for(arquitetura.representation.Package p: layerSourcePackage.getPackages()){
-                        System.out.println("Package: "+p.getName());
+                    for (arquitetura.representation.Package p : layerSourcePackage.getPackages()) {
                     }
-                    System.out.println("Source Class: " +sourceClass);
-                    System.out.println("Target Package:" +targetPackage);
-                    System.out.println("Target Class: " +targetClass);
+
                     if ((sourceClass != null) && (!searchForGeneralizations(sourceClass))
                             && (sourceClass.getAllAttributes().size() > 1)
                             && (sourceClass.getAllMethods().size() > 1)
@@ -67,7 +64,6 @@ public class MoveAttribute implements OperatorConstraints {
                         if ((targetClass != null) && (!(targetClass.equals(sourceClass)))) {
                             List<Attribute> attributesClass = new ArrayList<Attribute>(sourceClass.getAllAttributes());
                             if (attributesClass.size() >= 1) {
-                                System.out.println("AQUI");
                                 if (sourceClass.moveAttributeToClass(randomObject(attributesClass), targetClass)) {
                                     OperatorUtil.createAssociation(architecture, targetClass, sourceClass);
                                 }

@@ -11,10 +11,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import operators.AddClass;
-import operators.MoveAttribute;
-import operators.MoveMethod;
+import org.junit.Assert;
 import org.junit.Test;
+import org.junit.BeforeClass;
 import pojo.Layer;
 
 /**
@@ -23,21 +22,23 @@ import pojo.Layer;
  */
 public class LayerIdentificationTest {
 
+    private static LayerIdentification layerIdentificationAgm;
+
     public LayerIdentificationTest() {
     }
 
-    @Test
-    public void testIdentify() throws Exception {
-        //criação da arquitetura
+    @BeforeClass
+    public static void before() throws Exception {
+        //instância agm
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architecture = builder.create("C:/Users/Thainá/workspace/AGM/agm.uml");
+        Architecture architectureAgm = builder.create("C:/Users/Thainá/workspace/AGM/agm.uml");
+        layerIdentificationAgm = new LayerIdentification(architectureAgm);
+    }
 
-        LayerIdentification layerIdentification = new LayerIdentification(architecture);
-
-        //valores abaixo (camadas, sufixos, prefixos) serão indicados pelo usuário (GUI)
-        //int qtdeCamadas = 3;
+    @Test
+    public void testRepeatSuffixPrefix() throws Exception {
+        //caso de teste agm
         List<Layer> camadas = new ArrayList<>();
-
         Layer layer1 = new Layer();
         layer1.setNumero(1);
         Map sp1 = new HashMap();
@@ -59,25 +60,154 @@ public class LayerIdentificationTest {
         layer3.setSp(sp3);
         camadas.add(layer3);
 
-        if (layerIdentification.repeatSuffixPrefix(camadas)) {
-            boolean identify = false;
-            identify = layerIdentification.checkSuffixPrefix(camadas);
-
-            if (identify) {
-                boolean isCorrect = layerIdentification.identify(camadas);
-                if (isCorrect) {
-                    //chama os operadores
-                    HashMap parameters = new HashMap();
-                    parameters.put("probability", 1.0); //100% de probabilidade
-
-                    //MoveMethod moveMethod = new MoveMethod();
-                    //moveMethod.doMutation((Double) parameters.get("probability"), architecture, "layer", LayerIdentification.getLISTLAYERS());
-                    //MoveAttribute moveAttribute = new MoveAttribute();
-                    //moveAttribute.doMutation((Double) parameters.get("probability"), architecture, "layer", LayerIdentification.getLISTLAYERS());
-                    AddClass addClass = new AddClass();
-                    addClass.doMutation((Double) parameters.get("probability"), architecture, "layer", LayerIdentification.getLISTLAYERS());
-                }
-            }
-        }
+        boolean repeatSuffixPrefix = layerIdentificationAgm.repeatSuffixPrefix(camadas);
+        Assert.assertTrue(repeatSuffixPrefix);
     }
+
+    @Test
+    public void testRepeatSuffixPrefix2() throws Exception {
+        //caso de teste agm
+        List<Layer> camadas = new ArrayList<>();
+        Layer layer1 = new Layer();
+        layer1.setNumero(1);
+        Map sp1 = new HashMap();
+        sp1.put("mgr", "prefix");
+        layer1.setSp(sp1);
+        camadas.add(layer1);
+
+        Layer layer2 = new Layer();
+        layer2.setNumero(2);
+        Map sp2 = new HashMap();
+        sp2.put("mgr", "prefix");
+        layer2.setSp(sp2);
+        camadas.add(layer2);
+
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        Map sp3 = new HashMap();
+        sp3.put("gUi", "suffix");
+        layer3.setSp(sp3);
+        camadas.add(layer3);
+
+        boolean repeatSuffixPrefix = layerIdentificationAgm.repeatSuffixPrefix(camadas);
+        Assert.assertFalse(repeatSuffixPrefix);
+
+    }
+
+    @Test
+    public void testCheckSuffixPrefix() {
+        //caso de teste agm
+        List<Layer> camadas = new ArrayList<>();
+        Layer layer1 = new Layer();
+        layer1.setNumero(1);
+        Map sp1 = new HashMap();
+        sp1.put("mgr", "suffix");
+        layer1.setSp(sp1);
+        camadas.add(layer1);
+
+        Layer layer2 = new Layer();
+        layer2.setNumero(2);
+        Map sp2 = new HashMap();
+        sp2.put("ctrl", "suffix");
+        layer2.setSp(sp2);
+        camadas.add(layer2);
+
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        Map sp3 = new HashMap();
+        sp3.put("gUi", "suffix");
+        layer3.setSp(sp3);
+        camadas.add(layer3);
+
+        boolean checkSuffixPrefix = layerIdentificationAgm.checkSuffixPrefix(camadas);
+        Assert.assertTrue(checkSuffixPrefix);
+    }
+
+    @Test
+    public void testCheckSuffixPrefix2() {
+        //caso de teste agm
+        List<Layer> camadas = new ArrayList<>();
+        Layer layer1 = new Layer();
+        layer1.setNumero(1);
+        Map sp1 = new HashMap();
+        sp1.put("mgr", "prefix");
+        layer1.setSp(sp1);
+        camadas.add(layer1);
+
+        Layer layer2 = new Layer();
+        layer2.setNumero(2);
+        Map sp2 = new HashMap();
+        sp2.put("ctrl", "suffix");
+        layer2.setSp(sp2);
+        camadas.add(layer2);
+
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        Map sp3 = new HashMap();
+        sp3.put("gUi", "suffix");
+        layer3.setSp(sp3);
+        camadas.add(layer3);
+
+        boolean checkSuffixPrefix = layerIdentificationAgm.checkSuffixPrefix(camadas);
+        Assert.assertFalse(checkSuffixPrefix);
+    }
+
+    @Test
+    public void testIdentify() {
+        //caso de teste agm
+        List<Layer> camadas = new ArrayList<>();
+        Layer layer1 = new Layer();
+        layer1.setNumero(1);
+        Map sp1 = new HashMap();
+        sp1.put("mgr", "suffix");
+        layer1.setSp(sp1);
+        camadas.add(layer1);
+
+        Layer layer2 = new Layer();
+        layer2.setNumero(2);
+        Map sp2 = new HashMap();
+        sp2.put("ctrl", "suffix");
+        layer2.setSp(sp2);
+        camadas.add(layer2);
+
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        Map sp3 = new HashMap();
+        sp3.put("gUi", "suffix");
+        layer3.setSp(sp3);
+        camadas.add(layer3);
+
+        boolean identify = layerIdentificationAgm.identify(camadas);
+        Assert.assertTrue(identify);
+    }
+
+    @Test
+    public void testIdentify2() {
+        //caso de teste agm
+        List<Layer> camadas = new ArrayList<>();
+        Layer layer1 = new Layer();
+        layer1.setNumero(1);
+        Map sp1 = new HashMap();
+        sp1.put("mg", "suffix");
+        layer1.setSp(sp1);
+        camadas.add(layer1);
+
+        Layer layer2 = new Layer();
+        layer2.setNumero(2);
+        Map sp2 = new HashMap();
+        sp2.put("ctrl", "suffix");
+        layer2.setSp(sp2);
+        camadas.add(layer2);
+
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        Map sp3 = new HashMap();
+        sp3.put("gUi", "suffix");
+        layer3.setSp(sp3);
+        camadas.add(layer3);
+
+        boolean identify = layerIdentificationAgm.identify(camadas);
+        Assert.assertFalse(identify);
+    }
+
 }

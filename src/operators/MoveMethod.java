@@ -44,10 +44,10 @@ public class MoveMethod implements OperatorConstraints {
         List<Class> ClassesComp = new ArrayList<Class>(sourceComp.getAllClasses());
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
         if (ClassesComp.size() > 0) {
+            final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
             Layer layerSourcePackage = OperatorUtil.findPackageLayer(layers, sourceComp);
             final Package targetPackage = OperatorUtil.randomObject(layerSourcePackage.getPackages());
             final Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(targetPackage.getAllClasses()));
-            final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
             if ((sourceClass != null) && (!OperatorUtil.searchForGeneralizations(sourceClass))
                     && (sourceClass.getAllAttributes().size() > 1)
                     && (sourceClass.getAllMethods().size() > 1)

@@ -1,6 +1,5 @@
 package experiment;
 
-import identification.StylesIdentification;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;

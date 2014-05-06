@@ -19,7 +19,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import pojo.Layer;
-import pojo.Style;
 import util.ElementUtil;
 import util.RelationshipUtil;
 import util.StyleUtil;
@@ -44,7 +43,20 @@ public class LayerIdentification extends StylesIdentification {
         LayerIdentification.LISTLAYERS = LISTLAYERS;
     }
 
+    public boolean isCorrect(List<Layer> layers) {
+        boolean isCorrect = false;
+        if (repeatSuffixPrefix(layers)) {
+            boolean identify = false;
+            identify = checkSuffixPrefix(layers);
+            if (identify) {
+                isCorrect = identify(layers);
+            }
+        }
+        return isCorrect;
+    }
+
     @Override
+    //retorna se está OK (ou seja, se não repete)
     public boolean repeatSuffixPrefix(List<Layer> camadas) {
         boolean existSomeone = true;
         boolean exist = true;
@@ -68,8 +80,7 @@ public class LayerIdentification extends StylesIdentification {
 
     //verifica se é sufixo ou prefixo
     @Override
-    public boolean checkSuffixPrefix(List<Layer> camadas
-    ) {
+    public boolean checkSuffixPrefix(List<Layer> camadas) {
         List<Layer> layers = (List<Layer>) camadas;
         boolean existSomeone = true;
         boolean exist = true;
@@ -91,8 +102,7 @@ public class LayerIdentification extends StylesIdentification {
 
 //verifica se o sufixo existe nos pacotes
     @Override
-    public boolean verifySuffix(String suffix
-    ) {
+    public boolean verifySuffix(String suffix) {
         Set<Package> allpackages = architecture.getAllPackages();
         for (Package p : allpackages) {
             if (p.getName().toLowerCase().endsWith(suffix.toLowerCase())) {
@@ -137,9 +147,9 @@ public class LayerIdentification extends StylesIdentification {
                         Element used = null;
                         Element client = null;
                         if (r instanceof AssociationRelationship) {
-                            if (RelationshipUtil.VerifyAssociationRelationship((AssociationRelationship) r)) {
-                                used = RelationshipUtil.getUsedElementFromAssociationRelationship((AssociationRelationship) r);
-                                client = RelationshipUtil.getClientElementFromAssociationRelationship((AssociationRelationship) r);
+                            if (RelationshipUtil.verifyAssociationRelationship((AssociationRelationship) r)) {
+                                used = RelationshipUtil.getUsedElementFromRelationship((AssociationRelationship) r);
+                                client = RelationshipUtil.getClientElementFromRelationship((AssociationRelationship) r);
                                 isCorrectRelationship = checkUnidirectionalRelationship(used, client, layer, layers, layerPackages, layerPackage, r);
                             } else {
                                 isCorrectRelationship = checkBidirectionalRelationship((AssociationRelationship) r, layerPackages);
@@ -167,7 +177,7 @@ public class LayerIdentification extends StylesIdentification {
         Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
         Package packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
         if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2)) || (!layerPackages.contains(packageElement3))) {
-            System.out.println("Elementos relacionados com a classe associativa" + association.getAssociationClass() + " devem estar na mesma camada");
+            System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " devem estar na mesma camada");
             return false;
         }
         return true;
@@ -246,5 +256,14 @@ public class LayerIdentification extends StylesIdentification {
             System.out.println("Erro ao verificar as camadas. Verifique se existem pacotes sem os sufixos ou prefixos informados, ou ainda, elementos na arquitetura que não pertençam a nenhum pacote.");
         }
         return isCorrect;
+    }
+
+    public static Layer getLayerByNumber(int number) {
+        for (Layer layer : LISTLAYERS) {
+            if (layer.getNumero() == number) {
+                return layer;
+            }
+        }
+        return null;
     }
 }
