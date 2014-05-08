@@ -20,6 +20,7 @@ import static util.OperatorUtil.isVarPoint;
 import static util.OperatorUtil.isVariant;
 import static util.OperatorUtil.randomObject;
 import static util.OperatorUtil.searchForGeneralizations;
+import util.ParametersRepository;
 
 /**
  *
@@ -64,7 +65,15 @@ public class MoveAttribute implements OperatorConstraints {
                         if ((targetClass != null) && (!(targetClass.equals(sourceClass)))) {
                             List<Attribute> attributesClass = new ArrayList<Attribute>(sourceClass.getAllAttributes());
                             if (attributesClass.size() >= 1) {
-                                if (sourceClass.moveAttributeToClass(randomObject(attributesClass), targetClass)) {
+                                Attribute attribute = randomObject(attributesClass);
+                                //add para adicionar a um log
+                                ParametersRepository.setTargetPackage(targetPackage);
+                                ParametersRepository.setTargetClass(targetClass);
+                                ParametersRepository.setSourcePackage(sourceComp);
+                                ParametersRepository.setSourceClass(sourceClass);
+                                ParametersRepository.setMoveAttribute(attribute);
+                                //--
+                                if (sourceClass.moveAttributeToClass(attribute, targetClass)) {
                                     OperatorUtil.createAssociation(architecture, targetClass, sourceClass);
                                 }
                             }
