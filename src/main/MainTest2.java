@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import operators.AddClass;
 import operators.MoveAttribute;
 import operators.MoveMethod;
 import pojo.Layer;
@@ -53,10 +54,12 @@ public class MainTest2 {
 
             //MoveMethod moveMethod = new MoveMethod();
             //moveMethod.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
-            MoveAttribute moveAttribute = new MoveAttribute();
-            moveAttribute.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+            //MoveAttribute moveAttribute = new MoveAttribute();
+            //moveAttribute.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+            AddClass addClass = new AddClass();
+            addClass.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("moveattribute", "archtest2");
+            ArchitectureRepository.saveArchitecture("addclass", "archtest2");
         }
     }
 }

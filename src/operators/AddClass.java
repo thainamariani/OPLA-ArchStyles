@@ -26,13 +26,14 @@ import static util.OperatorUtil.isVariant;
 import static util.OperatorUtil.randomObject;
 import static util.OperatorUtil.removeClassesInPatternStructureFromArray;
 import static util.OperatorUtil.searchForGeneralizations;
+import util.ParametersRepository;
 
 /**
  *
  * @author Thainá
  */
 public class AddClass implements OperatorConstraints {
-
+    
     @Override
     public void doMutation(double probability, Architecture architecture, String style, List<? extends Style> styles) throws JMException {
         if (PseudoRandom.randDouble() < probability) {
@@ -43,7 +44,7 @@ public class AddClass implements OperatorConstraints {
             }
         }
     }
-
+    
     @Override
     public void doMutationLayer(double probability, Architecture architecture, List<Layer> layers) {
         LOGGER.info("Executando AddClassMutation ");
@@ -69,7 +70,16 @@ public class AddClass implements OperatorConstraints {
                         List<Attribute> AttributesClass = new ArrayList<Attribute>(sourceClass.getAllAttributes());
                         if (AttributesClass.size() >= 1) {
                             try {
-                                OperatorUtil.moveAttributeToNewClass(architecture, sourceClass, AttributesClass, targetPackage.createClass("Class" + OPLA.contClass_++, false));
+                                Attribute targetAttribute = randomObject(AttributesClass);
+                                arquitetura.representation.Class newClass = targetPackage.createClass("Class" + OPLA.contClass_++, false);
+                                //add para adicionar a um log
+                                ParametersRepository.setTargetPackage(targetPackage);
+                                ParametersRepository.setTargetClass(newClass);
+                                ParametersRepository.setSourcePackage(sourceComp);
+                                ParametersRepository.setSourceClass(sourceClass);
+                                ParametersRepository.setMoveAttribute(targetAttribute);
+                                //--
+                                OperatorUtil.moveAttributeToNewClass(architecture, sourceClass, targetAttribute, newClass);
                             } catch (Exception ex) {
                                 Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -79,7 +89,15 @@ public class AddClass implements OperatorConstraints {
                         List<Method> MethodsClass = new ArrayList<Method>(sourceClass.getAllMethods());
                         if (MethodsClass.size() >= 1) {
                             try {
-                                OperatorUtil.moveMethodToNewClass(architecture, sourceClass, MethodsClass, targetPackage.createClass("Class" + OPLA.contClass_++, false));
+                                arquitetura.representation.Class newClass = targetPackage.createClass("Class" + OPLA.contClass_++, false);
+                                Method targetMethod = randomObject(MethodsClass);
+                                //add para adicionar a um log
+                                ParametersRepository.setTargetPackage(targetPackage);
+                                ParametersRepository.setTargetClass(newClass);
+                                ParametersRepository.setSourcePackage(sourceComp);
+                                ParametersRepository.setSourceClass(sourceClass);
+                                ParametersRepository.setMoveMethod(targetMethod);
+                                OperatorUtil.moveMethodToNewClass(architecture, sourceClass, targetMethod, newClass);
                             } catch (Exception ex) {
                                 Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -91,10 +109,10 @@ public class AddClass implements OperatorConstraints {
             ClassesComp.clear();
         }
     }
-
+    
     @Override
     public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+    
 }
