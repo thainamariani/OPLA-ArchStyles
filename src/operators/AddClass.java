@@ -89,9 +89,6 @@ public class AddClass implements OperatorConstraints {
                 }
             }
             ClassesComp.clear();
-            //TODO: Experimento: apagar duas linhas abaixo
-            ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.generateArchitecture("testAddClass");
         }
     }
 

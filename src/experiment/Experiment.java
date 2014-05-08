@@ -56,8 +56,6 @@ public class Experiment {
             OPLA problem = null;
             try {
                 problem = new OPLA(xmiFilePath);
-//                problem.architecture_ = new ArchitectureWithStyles(problem.architecture_);
-//                StylesIdentification.identify();
             } catch (Exception e) {
                 e.printStackTrace();
             }

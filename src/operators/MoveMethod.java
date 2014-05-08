@@ -15,9 +15,9 @@ import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 import pojo.Layer;
 import pojo.Style;
-import util.ArchitectureRepository;
 import util.OperatorUtil;
 import static util.OperatorUtil.randomObject;
+import util.ParametersRepository;
 
 /**
  *
@@ -57,7 +57,15 @@ public class MoveMethod implements OperatorConstraints {
                 if ((targetClass != null) && (!(targetClass.equals(sourceClass)))) {
                     final List<Method> MethodsClass = new ArrayList<Method>(sourceClass.getAllMethods());
                     if (MethodsClass.size() >= 1) {
-                        if (sourceClass.moveMethodToClass(randomObject(MethodsClass), targetClass)) {
+                        Method method = randomObject(MethodsClass);
+                        //add para adicionar a um log
+                        ParametersRepository.setTargetPackage(targetPackage);
+                        ParametersRepository.setTargetClass(targetClass);
+                        ParametersRepository.setSourcePackage(sourceComp);
+                        ParametersRepository.setSourceClass(sourceClass);
+                        ParametersRepository.setMoveMethod(method);
+                        //--
+                        if (sourceClass.moveMethodToClass(method, targetClass)) {
                             OperatorUtil.createAssociation(architecture, targetClass, sourceClass);
                         }
                     }
@@ -66,9 +74,6 @@ public class MoveMethod implements OperatorConstraints {
             }
         }
         ClassesComp.clear();
-        //TODO: Experimento: apagar duas linhas abaixo
-        ArchitectureRepository.setCurrentArchitecture(architecture);
-        ArchitectureRepository.generateArchitecture("testMoveMethod");
     }
 
     @Override

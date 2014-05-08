@@ -37,7 +37,7 @@ public class OperatorUtilTest {
     public static void before() throws Exception {
         //instância archteste
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/model.uml");
+        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
         layerIdentificationTest = new LayerIdentification(architectureTest);
         camadas = new ArrayList<>();
         Layer layer1 = new Layer();

@@ -74,15 +74,6 @@ public class MoveAttribute implements OperatorConstraints {
                     }
                 }
                 ClassesComp.clear();
-                //TODO: Experimento: apagar duas linhas abaixo
-                ArchitectureRepository.setCurrentArchitecture(architecture);
-                ArchitectureRepository.generateArchitecture("testMoveAttribute");
-//                } else {
-//                    Configuration.logger_.log(Level.SEVERE, "MoveAttributeMutation.doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());
-//                    java.lang.Class<String> cls = java.lang.String.class;
-//                    String name = cls.getName();
-//                    throw new JMException("Exception in " + name + ".doMutation()");
-//                }
             }
         } catch (Exception e) {
             e.printStackTrace();
