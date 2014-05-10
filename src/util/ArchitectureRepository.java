@@ -73,8 +73,9 @@ public class ArchitectureRepository {
             printMoveAttribute(file);
         } else if (operator.equals("addclass")) {
             printAddClass(file);
+        } else if (operator.equals("moveoperation")) {
+            printMoveOperation(file);
         }
-
     }
 
     public static void printMoveMethod(String path) {
@@ -140,6 +141,29 @@ public class ArchitectureRepository {
             bw.write("Método movido: " + ParametersRepository.getMoveMethod());
             bw.newLine();
             bw.write("Atributo movido: " + ParametersRepository.getMoveAttribute());
+
+            bw.close();
+        } catch (IOException e) {
+            Configuration.logger_.severe("Error acceding to the file");
+            e.printStackTrace();
+        }
+    }
+
+    public static void printMoveOperation(String path) {
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+
+            bw.write("Pacote origem: " + ParametersRepository.getSourcePackage());
+            bw.newLine();
+            bw.write("Interface origem: " + ParametersRepository.getSourceInterface());
+            bw.newLine();
+            bw.write("Pacote destino: " + ParametersRepository.getTargetPackage());
+            bw.newLine();
+            bw.write("Interface destino: " + ParametersRepository.getTargetInterface());
+            bw.newLine();
+            bw.write("Método movido: " + ParametersRepository.getMoveMethod());
 
             bw.close();
         } catch (IOException e) {

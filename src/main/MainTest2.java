@@ -15,6 +15,7 @@ import java.util.Map;
 import operators.AddClass;
 import operators.MoveAttribute;
 import operators.MoveMethod;
+import operators.MoveOperation;
 import pojo.Layer;
 import util.ArchitectureRepository;
 
@@ -51,15 +52,17 @@ public class MainTest2 {
         camadas.add(layer3);
 
         if (layerIdentification.isCorrect(camadas)) {
-
             //MoveMethod moveMethod = new MoveMethod();
             //moveMethod.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
             //MoveAttribute moveAttribute = new MoveAttribute();
             //moveAttribute.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
-            AddClass addClass = new AddClass();
-            addClass.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+            //AddClass addClass = new AddClass();
+            //addClass.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+            MoveOperation moveOperation = new MoveOperation();
+            moveOperation.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+            
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("addclass", "archtest2");
+            ArchitectureRepository.saveArchitecture("moveoperation", "archtest2");
         }
     }
 }

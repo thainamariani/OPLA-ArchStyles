@@ -24,6 +24,8 @@ public class ParametersRepository {
     public static Class targetClass = null;
     public static Method moveMethod = null;
     public static Attribute moveAttribute = null;
+    public static Interface sourceInterface = null;
+    public static Interface targetInterface = null;
 
     private ParametersRepository() {
     }
@@ -76,4 +78,21 @@ public class ParametersRepository {
         ParametersRepository.moveAttribute = moveAttribute;
     }
 
+    public static Interface getSourceInterface() {
+        return sourceInterface;
+    }
+
+    public static void setSourceInterface(Interface sourceInterface) {
+        ParametersRepository.sourceInterface = sourceInterface;
+    }
+
+    public static Interface getTargetInterface() {
+        return targetInterface;
+    }
+
+    public static void setTargetInterface(Interface targetInterface) {
+        ParametersRepository.targetInterface = targetInterface;
+    }
+
+    
 }

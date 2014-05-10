@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import jmetal.core.Solution;
-import jmetal.util.PseudoRandom;
 
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
