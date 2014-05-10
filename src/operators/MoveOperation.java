@@ -50,12 +50,15 @@ public class MoveOperation implements OperatorConstraints {
             List<Interface> InterfacesSourceComp = new ArrayList<Interface>();
             List<Interface> InterfacesTargetComp = new ArrayList<Interface>();
             Layer layer = OperatorUtil.findPackageLayer(list, sourceComp);
+            InterfacesSourceComp.addAll(sourceComp.getAllInterfaces());
 
             if (InterfacesSourceComp.size() >= 1) {
-                //Seleciona uma interface aleatória (interface destino)
-                InterfacesSourceComp.addAll(sourceComp.getAllInterfaces());
                 removeInterfacesInPatternStructureFromArray(InterfacesSourceComp);
+                //Seleciona uma interface aleatória (interface destino)
                 Interface sourceInterface = randomObject(InterfacesSourceComp);
+
+                ParametersRepository.setSourcePackage(sourceComp);
+                ParametersRepository.setSourceInterface(sourceInterface);
 
                 //seleciona as camadas dos implementadores
                 Set<Layer> layersImplementors = new HashSet<>();
@@ -69,8 +72,10 @@ public class MoveOperation implements OperatorConstraints {
                 //if - seleciona o targetPackage da mesma camada que a sourceInterface
                 //else - seleciona o targetPackage da mesma camada ou da inferior (caso haja) 
                 if (layersImplementors.size() >= 2) {
+                    System.out.println("AQUI 2");
                     targetComp = OperatorUtil.randomObject(layer.getPackages());
                 } else if (layersImplementors.size() == 1) {
+                    System.out.println("AQUI 1");
                     List<Package> packages = new ArrayList<>();
                     packages.addAll(layer.getPackages());
                     if (layersImplementors.iterator().next().getNumero() != 1) {
@@ -79,22 +84,19 @@ public class MoveOperation implements OperatorConstraints {
                     targetComp = OperatorUtil.randomObject(packages);
                 } else {
                     System.out.println("AQUI 0");
-                    targetComp = OperatorUtil.randomObject((List<Package>) architecture.getAllPackages());
+                    targetComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
                 }
 
                 InterfacesTargetComp.addAll(targetComp.getAllInterfaces());
 
                 if (InterfacesTargetComp.size() >= 1) {
                     Interface targetInterface = randomObject(InterfacesTargetComp);
-
                     if (targetInterface != sourceInterface) {
                         List<Method> OpsInterface = new ArrayList<Method>();
                         OpsInterface.addAll(sourceInterface.getOperations());
                         if (OpsInterface.size() >= 1) {
                             Method operation = randomObject(OpsInterface);
-                            ParametersRepository.setSourcePackage(sourceComp);
                             ParametersRepository.setTargetPackage(targetComp);
-                            ParametersRepository.setSourceInterface(sourceInterface);
                             ParametersRepository.setTargetInterface(targetInterface);
                             ParametersRepository.setMoveMethod(operation);
 

@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<notation:Diagram xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" measurementUnit="Pixel" name="NewDiagram" type="PapyrusUMLClassDiagram" xmi:id="_copSALmGEeKQQp7P9cQvNQ" xmi:version="2.0">
+  <styles xmi:id="_copSAbmGEeKQQp7P9cQvNQ" xmi:type="notation:DiagramStyle"/>
+  <element href="moveoperation2.uml#_cooD4LmGEeKQQp7P9cQvNQ" xmi:type="uml:Model"/>
+<children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2007" xmi:id="850a7f62-233e-4755-b1eb-268ac184a43e" xmi:type="notation:Shape">
+    <children type="5026" xmi:id="895be1d5-e0af-4956-97a2-98d868e8688a" xmi:type="notation:DecorationNode"/>
+    <children type="7016" xmi:id="bc4ab05d-f7a2-47f5-9cb5-9c9c2aa02745" xmi:type="notation:DecorationNode">
+      <styles xmi:id="bf8c01ba-0564-4e04-9971-805a1aec16e7" xmi:type="notation:TitleStyle"/>
+      <layoutConstraint xmi:id="4aed89ea-9aa0-4a0b-87fc-f95bc2cc97ae" xmi:type="notation:Bounds"/>
+    </children>
+    <element href="moveoperation2.uml#_AidEANbWEeO1RN9iqSRCJg" xmi:type="uml:Package"/>
+    <layoutConstraint height="630" width="450" x="863" xmi:id="1a4417a0-6471-4643-9339-e100ba14b209" xmi:type="notation:Bounds" y="146"/>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="d33073e0-80de-467c-99e2-53c07f6d1fe5" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="5889e2e2-e9fc-467a-b427-30192c56cf9f" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="33399b64-47e2-4fbe-866b-78c5769f0a71" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="391f47f5-2388-40df-8921-930e47328040" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="8a28ce52-2b9a-4dbc-8a54-4b5a67cb007f" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="8767f89c-f461-4bb8-b7e5-967128c7eb26" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="eb98c59b-318e-4770-ad20-35ad0a10e4df" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="d47e504b-684a-4d69-929d-34b2f941c012" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="070a8edf-b7e0-4579-b42c-6e3ad1cd64c5" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="e6f92306-af2e-4c35-b885-8b3890336d5f" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="b407fbb5-3aba-43df-b1cc-0221d36f1e2d" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="230e5cc5-4bd0-43ab-8e86-d195081855ac" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="b271b36a-96fd-45d7-ad7d-ddb70a8e99b5" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="8b8c158d-3f77-4f96-91b7-35cf6d6f757d" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="fc2c1a7c-bdb5-4bd4-b7f8-e0a7d46381ee" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e744f207-9606-4b32-8f0c-b7b36ecc0751" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_iv7iMNhQEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="de917233-4c03-424c-b221-2056492936ab" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="ab7ead7a-3bec-47aa-8ce7-dec11ea72204" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="e50f360f-43d5-4725-8565-dfa44badda97" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="31f9a23f-2c09-4818-9d3e-81f04ecc3da0" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_iKsHINhQEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="6c7b410c-f6cc-471f-a18a-f53bc20544b2" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="bc8d2ec1-23be-420a-9a43-e80ea4c8eb32" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_dRAbYNhQEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="e9a684e5-cda3-473a-a14a-98d51e25d0d5" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="4d195e23-8195-4395-9e6c-617466a0599d" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="9ef88665-22af-4449-a5d0-b075bfce269d" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="eb3cd068-27cb-4bdc-815d-6d67c435e151" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="6652139a-cdfc-48e2-9477-53489bc6386f" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="71a629d8-d649-4feb-bc31-2ddc9cd26e66" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="b58a1682-2738-4f70-8b6d-9011469ecd41" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="f8587ed4-55fa-4105-ac77-35a992958410" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="62d6a21b-b5f8-480c-ab3d-224e1b96de3c" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="e7680331-88e0-4ae9-a20b-6a7f7dda37b3" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="87e20b06-6ae4-4bfb-a727-3447d4dc62d2" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="902d59a5-09f5-4bdf-99b7-1b2e3717b931" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="70e9e0f3-b6ca-49ce-8a9d-e7ffaa7f3cb8" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="3547c88d-0822-433e-b6df-a97210f31b78" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="91570051-c0be-4f5e-8021-31601261314c" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="e2ebb3a1-e10b-42a6-b324-b7732da01d0b" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="61de4a22-8ecb-4ad5-a225-1719ab23655e" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="5372882f-f595-4b20-941c-324a0819803f" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="e2d73039-aba8-48f6-b360-c89a3658be0e" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="77ae328d-c7ba-4fb7-b49c-41429222ed66" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="a8026604-1112-407f-8ede-648d1e298bd3" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="b67d71fb-18fd-4d78-a72e-133f6f33029c" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#7df595a6-3558-4ab1-aa28-5d708d948c75" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="29e460c9-7353-4a9e-a8da-f673e10de7c6" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="f9f4aa57-185f-4e9f-bde4-83826f576a01" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="5a24de4a-022c-4a0c-82a5-f55f710608c0" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="82130183-de91-49f9-8406-64798e041b8e" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#e79020b4-ab86-4a24-8e2e-5f800c416845" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="ad9ca936-cd2c-427e-9bc0-8760e18c6ffd" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="504ca776-8150-4702-b6f6-b2ff2e23486a" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="5505cf87-a2e1-42ee-b891-bbc484953fe6" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="086fc2fe-6b3a-44a2-bf76-e11092f419bf" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="556223f0-dc04-4173-9079-a2974f31a735" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="0ede0c32-9460-409e-b0d5-eed07811593e" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="ce2ca354-191c-4d48-9f64-e9eabd91a185" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="f222d973-f384-4953-9473-7a6b3b20b89a" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="e98409a9-f694-403c-a11a-525c0421577e" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e12bc13d-0411-4fb7-9d44-8775dc9f1dc8" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_modxwNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="769e3ba3-b45e-431a-842f-074e444f5679" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="76eb998f-237c-4282-a6d3-13e6ab8c1597" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="f7611ece-4c33-4765-abb4-cd4912c568bc" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="c206d557-8a84-48a5-b76e-6440f9c5060e" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_mRUdENbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="39536c34-05e4-488a-8808-afb08cadcb3e" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="6edbd397-ae49-4154-aab6-14f092646b20" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_OQUiMNbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+  </children>
+  <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2007" xmi:id="64eefd16-5523-4c87-84c4-ac5704f0ad3e" xmi:type="notation:Shape">
+    <children type="5026" xmi:id="a9cb28b7-6f9a-412f-9da8-523f110e4f20" xmi:type="notation:DecorationNode"/>
+    <children type="7016" xmi:id="86123b3d-2cef-4c54-ad2b-c7873b67861e" xmi:type="notation:DecorationNode">
+      <styles xmi:id="f71dbe29-bb87-4d4f-819b-6087b125b1b0" xmi:type="notation:TitleStyle"/>
+      <layoutConstraint xmi:id="7490b073-8669-4b73-bdb4-74561fc0c98b" xmi:type="notation:Bounds"/>
+    </children>
+    <element href="moveoperation2.uml#_8HtXANbVEeO1RN9iqSRCJg" xmi:type="uml:Package"/>
+    <layoutConstraint height="630" width="450" x="881" xmi:id="2958f321-e13b-4241-9cfe-5428af280b03" xmi:type="notation:Bounds" y="874"/>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="d9ac9c43-6e31-43db-9f08-69dd4c508832" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="c6aa0bef-35a8-4b8c-8bdb-c327baddb553" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="4020fbc1-4953-4d4a-9a49-afbfe82afbc7" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="e3356a73-ceae-4109-88f9-97ee82ed73de" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="66510315-b759-4989-9da2-c8af31c6eb78" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="8be26e63-2091-4f4c-ad6b-097317dd5d39" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="9091e7ff-8a3a-405b-a83a-429b43227124" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="5304ca61-f13e-43bc-9caf-079aee430bbb" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="382f5965-6309-4eec-9289-81d0288ca2dd" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="779c42ac-5442-4b9a-8ee9-9ce23f19ad86" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#e05e38a4-236e-475d-a215-fe4420a095ad" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="1c15c8b0-fc37-4205-8816-96f117cb58dc" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="a526ddc5-d091-45ba-a0c9-de618b371198" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="4226ef15-1006-4ef9-8db1-12d5399ddd08" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="4bdd4818-87a7-4eb4-a9eb-a6af91b1464b" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#56eae15b-853e-432c-93ee-a5bf402c1eb8" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="86610002-e70a-4087-92d6-f5b598467202" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="20ce90d4-3a22-47cb-b027-42f3ee92d3ab" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="e7373138-88f7-4269-a945-d465ab11ecfa" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="b2cda5f1-521f-43f1-8b45-0707b07606e5" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="fe0ee698-3721-471e-89fb-6efe5e287c84" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="37374468-ed71-493d-987d-3457ad366aec" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="2408c381-3728-4569-8214-8decf29f3b12" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="a5e6ca61-41aa-46eb-9c9c-1eeea0d2e16b" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="bf46e2a5-d81f-454f-a02a-a07eb8c09532" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e05599fb-811d-42d4-8e43-b11da9de6736" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_frbHINbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="c6c585dc-39d3-407b-bd17-ac0ca9a349e2" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="2861cfa1-d2bc-4916-b998-5d62451eacad" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="cae64783-ecd8-4c1b-b94b-656ac51560a4" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="23ed8184-b2dd-4b1f-8f06-0d4fe46177c9" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_hGpH8NbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="214ba691-f948-4958-9c64-dc448c62363a" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="784f5992-5b61-409f-b25f-3f228b848284" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_VNxcgNbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="42f0bece-ee10-49ed-bbcc-f41bd567af47" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="3d54f5a3-f799-4473-9335-91a2168172dc" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="6eeb1ef0-2002-484a-9a3f-d5bb37e09f51" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="ab7ea02c-6b90-4ff7-8a43-a0de6e7f5dc5" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="b2938bad-9c50-4cdb-94c2-01b89dd17f90" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="e75060ec-c1cb-426a-b65d-dba0fe823bd3" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="fc5c5753-6adf-4178-8351-168156c7b572" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="fa432f91-2337-48a9-83c8-dd330f8547fe" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="841683f9-8971-4e84-84b1-f707e5b3fc1a" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="135aa7d8-a265-4a11-abd8-cb7faa421c6a" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="ff06c5e2-e5a2-4da5-8af6-16ad7c7ae1a6" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="baa7b052-6e65-4eba-82a1-cace2c1e5c62" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="c1ce35a5-a497-4d33-b05f-15a5dc3f917b" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="df5c4184-4ebf-44a4-8367-21f8f9b75dbd" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="0019d6cd-4c9a-4483-807e-b38172a4791a" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="f49a71a0-32f8-4cbf-b7ab-2075a09f7647" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_77F_kNhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="d1a7ba45-e162-4fc1-a94b-6cb91fbe6f96" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="ca29002c-e603-4da8-a827-92a59fab13a8" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_348YwNhPEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="b16f6c50-3c09-4216-91a8-cc2d9ddc91ef" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="bf9599ac-6dc8-478f-92df-ff9d3e87eaf2" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="39d10ceb-fbbd-45a1-bcc4-6f5b52d1be4c" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="a4e2bcca-f6df-4c70-8c74-c0ca23c7a885" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="52678742-2be2-4014-a6a1-c91a57282af3" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="7adf8839-22b3-4ba3-8ec4-f14b2ff52e28" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="528a9a9c-dd9a-4faf-aad1-08979efaff99" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="b8acd979-1098-4601-b07b-2210d019f998" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="1fde0566-ef6a-442b-809f-8dc4f7be08c8" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="9471f2ac-7d54-43f3-8d06-769715c33b2e" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="406e5b7e-11c8-4b52-ae3f-93671cfce31d" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="a05f205e-dacd-487b-b1ed-39ed467bcac3" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+  </children>
+  <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2007" xmi:id="879be5c9-0f20-41fd-b926-0650f41dac80" xmi:type="notation:Shape">
+    <children type="5026" xmi:id="998b81c1-286f-445c-9c4f-c18b3d9a2097" xmi:type="notation:DecorationNode"/>
+    <children type="7016" xmi:id="893c9838-1ce3-4e50-a1c2-3e9f2545a575" xmi:type="notation:DecorationNode">
+      <styles xmi:id="870bd83b-61cf-44be-8175-f62c56bf54d2" xmi:type="notation:TitleStyle"/>
+      <layoutConstraint xmi:id="cfdbb23b-fffa-4304-88a3-ecdeab706030" xmi:type="notation:Bounds"/>
+    </children>
+    <element href="moveoperation2.uml#_BS63oNbWEeO1RN9iqSRCJg" xmi:type="uml:Package"/>
+    <layoutConstraint height="630" width="450" x="585" xmi:id="b9e8b1b5-ad1d-4cdb-8572-624adfba6900" xmi:type="notation:Bounds" y="47"/>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="3b1078b6-7c95-4170-b370-deb2a1d56d85" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="1d3ad1c8-470e-421a-986b-ba3594356727" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="5bf3be6e-1d7e-4223-8a38-46f9ed892736" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="efa3ef40-368e-4fce-b882-d60e61b85bf0" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="34469599-a2d0-4cc0-9cee-e138186b1a97" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="2178c4f7-a7f4-4ae4-8a57-01ebb3df4ed4" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="8f237245-64ce-4b22-b064-97a4bc23f571" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="a19e91d1-7ed3-4e2c-ba4c-fa931402e805" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="06a7ec84-2fa7-47fc-ab94-d17f2ae8f332" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="71dedf25-fed6-4315-9459-c088ce50f257" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#12cabbe4-bfe5-4fe2-8367-528e53a78f7e" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="7d9b4c03-63b9-4dd3-bec0-f17e84354163" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="aa6ac855-aed0-48e9-bf48-a8ca959c54d4" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="1bed0742-fcf3-4986-adf0-dd487e4479d2" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="79d67a76-4f8c-473d-a700-83f71439fd07" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#907ad39f-c751-4e7e-8feb-2461c3c4d0df" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="266432fa-e82a-46f2-8ad8-e22af31483d6" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="adea63c1-70cb-497b-8454-4b0fc3c5f05e" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="4dd5f0ac-00d4-459e-99c7-327a4ce9956a" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="543d2177-39e1-4c0a-a093-0347eaa18712" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="efb20b13-d26c-49fc-85c1-3b29327f3e8d" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="ab1e3598-1e60-4a04-ac51-22280e49c4a8" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="c549316e-bd20-4490-bbcb-f7358bfecfe1" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="ba182ef4-87f5-4a9a-b228-b1743bbef060" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="65e76724-1f8b-48b6-a4fb-855a7626abe6" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="01b6c9b8-32b3-419b-80d9-5e9dfbec5589" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_nVLGwNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="b0f93e25-1d05-48a1-96d3-9334b40694b1" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="dcdfe141-543f-4af2-86c2-9d25fd698841" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="826ede87-e7c2-4473-98a7-893dc6aa8aa0" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="a3fde89b-c24f-4c94-9036-d6ace85fc434" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_nAGOoNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="da376ce0-b107-4018-bc0c-3441297766cf" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="49bdc5a4-6c4c-4bf7-90d7-a9c98891bafa" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_QyTWwNbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="7300e2fe-532e-48b2-8e5a-9b35a9d0331b" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="4726e44d-96b9-4de5-9225-211242da758d" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="5acfbc09-c442-4e47-9774-a241900cff22" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="42a7cbc3-e6b7-4d2b-9566-c004d0816884" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="178c7aab-ded1-4c2a-a157-d748f651e6a8" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="1fab7b78-2b57-46cf-aa23-30391026ac55" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="be8a01e6-0bae-4eea-85d6-6bc0365b8c69" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="66d68c9f-086a-4213-89c9-23b8f532fdd3" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="c0e6b9ca-83ef-4cbe-8963-f4827b21578e" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="d343bb92-2348-4179-859e-418319a925a7" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="664f41ee-3113-4222-8be3-76b68a9e7f68" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="42466fa5-3461-4607-8d8c-a3f48ac312e9" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="5e61eb54-8c13-4691-8788-156c3d083493" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="62d7d963-f8aa-4a59-ab37-017cda59ae83" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_UrbFoNhQEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="a2120c5d-a868-4c16-bcb1-e2b197cb4df7" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="f4802247-546c-45d1-ae30-d23065fb9a07" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="778adf40-5b9e-4a65-9379-8280106c3020" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="2e8d3286-4e69-490e-8784-7f2a80c01b27" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="a7c5fb86-32b5-49f3-92bc-70dbb01e929a" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="6c361af4-402a-4f45-bf11-3d9577d9b3ce" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="f2abea47-6300-41f9-b6be-3490e6ddd267" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="36c4edd1-f229-48b4-bdeb-cfa585d8298d" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="a3c54daf-1d58-4d1e-95bb-e1b0fdd36638" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="b58daa36-72fb-4e4a-8553-261dbc75d478" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="01f8821e-65a2-474b-a282-029c2e2d8dd0" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="9384ad77-9830-4f03-b416-23984d628eb6" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="935a9e8c-8aac-4b31-8a07-fed5bcd687aa" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="93c139ed-36fc-41f1-a922-4cc0df385c02" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="a4e658ce-adda-4bb2-9e9f-50d0e8cb26e9" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="45470198-819c-47d6-93b1-8e1e8eae45d3" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="e75caf0a-9b41-4280-b420-d6c4f4f750d2" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="df6d21cc-60a9-45ef-93bc-41f49f820235" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="c74a37b8-109e-41ec-89bf-ecafd4e21284" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="7521809a-511a-4e3a-9983-f365800f5f5a" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="8ae7972d-0c86-41cf-88c9-a39b58298dfe" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="cfc8a205-9f06-421c-b2c1-e8ea5bc42156" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#e693d497-21f5-4a3c-885e-3ff545ebf943" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="a878ca88-5a45-4b53-a400-377f052da7eb" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="63dba3f5-1096-40d4-a1b2-c25d8fd5d821" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="ec1e4efb-2ee7-4e9a-85d8-ab1a25794873" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e2427931-82a0-4d4c-9076-fa99b4100911" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#14229053-4405-4416-9889-acbdf4122af8" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="1ecbe368-0cfd-48c5-8f31-6339f9afff51" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="2aa342bb-dabf-41cd-a0d7-b2188bb19f97" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="b80d80b1-af56-480c-9924-3c97614007a1" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="46569ad3-f735-4c9f-b3f8-af9d81b01f73" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="f165634c-b97e-44d6-8958-1eb86b82149a" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="2b4d5aa2-f7a5-4820-8d5b-865603b13f7c" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="f575afbc-e126-4e06-a956-6aeeedbe640b" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="e3d73620-6e20-4c18-a3ce-c8ca92dcb05f" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="f0033de6-6935-4a36-afcf-115d2993a577" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="df2dff55-3f04-436f-ad19-c52cf5abb1bc" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_oLbZUNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="226370e3-99ec-440d-8d14-4c91b6aeeb15" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="9fb2d4e0-71e7-44c2-8735-c5b73e60afe4" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="ca4fc6c5-9a62-442b-bb0e-c67c78376448" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e2497796-14ab-4ad2-819a-3ed58d3091b1" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_ntzCINbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="df5ed53e-03d1-4b26-af05-d26cd67135f8" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="41fb12a5-4a66-47d8-833f-3c2e9a4d4728" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_R8JTsNbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+  </children>
+  <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2007" xmi:id="41a4f1c3-b3bb-4ba5-9261-57b06fe140ca" xmi:type="notation:Shape">
+    <children type="5026" xmi:id="a7edc8dd-6d52-41db-b6bb-e7b15403993f" xmi:type="notation:DecorationNode"/>
+    <children type="7016" xmi:id="27a3cdaf-06b9-43b3-99c9-b42ac815fae7" xmi:type="notation:DecorationNode">
+      <styles xmi:id="c60fc87a-10f4-4f6e-a70f-92c7ea8481a1" xmi:type="notation:TitleStyle"/>
+      <layoutConstraint xmi:id="b738f9fe-25a2-461f-b3f3-068fe820a049" xmi:type="notation:Bounds"/>
+    </children>
+    <element href="moveoperation2.uml#_89hksNbVEeO1RN9iqSRCJg" xmi:type="uml:Package"/>
+    <layoutConstraint height="630" width="450" x="10" xmi:id="e21e1d1d-b9ec-4e37-9eea-a9f61367cee2" xmi:type="notation:Bounds" y="897"/>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="f93fc91c-7b58-4a39-9390-75d364dbd73b" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="70def0b4-fd0b-4924-8143-c6b04a5c2925" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="a4b00b0f-e668-47c0-ba13-1a59847b49a1" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="1bf3285e-b39c-44ca-8321-26d12c96dcc1" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="b251d962-12ec-4028-a66b-c747f9bfb395" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="9e12747a-45c8-494c-81e4-da258aae58b8" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="1ad03e6f-3620-4dd4-be39-241e3d81b074" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="f42ca061-07f7-428f-9024-27b13f6cb81c" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="a5df070b-d21e-40c5-bcb3-a5ff13343864" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="35d8c3d2-d459-4166-becf-d3add99117db" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#efed5689-f1ab-490a-a49c-e7710872b44c" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="f4c9ed24-7975-4777-b4b3-48de0f78a64e" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="584b44fa-03f7-4483-a427-56cc4e020a6d" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="3a9aad36-5c3e-4186-b2d6-e13b99b72ac9" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="3a8f0cc9-601b-4283-87a7-b133a15501cd" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#30b72c60-0300-41ac-afbe-a0a9cb87283a" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="ac3e0d91-91bd-4b7f-a237-c7853f0e0d6e" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="7b1f2b76-b939-4b94-8678-59a8db2cfda5" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="5af60ccf-602a-41f0-9ae7-789626a8df97" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="aa3b2eda-5240-4c77-ada8-3164c03e1214" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="85cc6a65-103f-4352-b50d-e3717495c6f1" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="1b8f3c5a-b0e4-44b8-bfa9-c9138f8e158d" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="52072ec2-74cf-45a7-b653-a1500f8ff37c" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="5ff6458b-f6f4-4b88-a864-b9f066b1eb28" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="3c8b7588-914a-4030-9edd-7ffaec3cb5e2" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="35835f5b-b11a-446f-9830-b43bd4c85acc" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_lAo4UNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="11cff597-43d9-4094-8948-1404179e8437" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="7624c821-e5b2-493e-b4d6-9bfd7acc7d0e" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="10aeaaf5-3c61-4011-aa3f-cf1fc7838c54" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="2c501824-d553-4ec9-9195-1f2d77bd6899" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_lZvU0NbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="97242198-70a6-4919-b1fa-855a14a40ab7" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="c9e94eda-9fe6-4a44-897b-1bd0e726b338" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_WTfHYNbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="56afcada-42cf-427f-816a-a192b6933754" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="fd8779e1-6842-409d-819d-c0c65b8554c4" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="152e6eb0-5c2e-4e3c-8ef2-f2138b860253" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="9d8f6e27-584a-4c2e-a914-83c2f43f5dc6" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="1e29dc8c-c9ad-4ba8-b977-9327fdef4ab2" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="ba428b0d-76dc-428e-b05a-84223cca9290" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="8aefcae5-90e6-4a70-b36c-a2c0a2dacbb1" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="d0d42a00-8720-4de3-a86d-5ad2b011ea21" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="063a6b58-eca5-45a3-a9ba-7af0859f1089" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="3e8a6a3d-1d89-477d-93c2-8d612ce7b08c" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="89be2a48-f35a-41c7-9e6a-d18d45114d80" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="97d7c095-f9eb-49f8-a475-d93ff40b42e0" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="51414661-88fd-4da4-bcc2-0cf7d0eaa86c" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="4abaa7ed-42b6-4d19-ad5f-a5c16f08699c" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="c062e2d0-6389-467f-bd11-e4321f97e8b5" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e588ce85-3afc-4e38-8d97-c6407fe644ad" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_KeRxoNhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="bb373b00-b2a7-4416-b5ad-55aedc46b440" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="8bf1372a-bc2d-4c42-9e2f-aa2e72e1554f" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="e88ff7ac-4c0e-475d-a1ff-43cec55b2892" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="a62c5ef0-9d98-4dcd-adf6-8e612856b257" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_KBXMINhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="d5ba20d0-7139-4495-9977-950b82cab913" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="eec95ea6-d58f-4710-a9f8-d841bdae78fb" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="51491e13-b029-4e7f-b421-1bf7aeae1786" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="9bcc44d1-187a-4a84-afc1-716213a76a08" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_j0hBINhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="22fc945f-1f9b-4d98-9d48-c6d21b8db293" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="fc4d2e7d-6162-4dd1-8ba0-c3f205798e84" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="232ad790-fc4a-40ca-8ca6-32f08b072d15" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="ef413e36-53ff-46e0-bffe-1115512cdc46" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_kQUzYNhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="fb4b6c1e-f1ab-4fc0-aaf8-1ae86876af11" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="b510b0e5-8c11-4ce5-8849-0249f8b1dc94" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_GEbKANfiEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="fb3b82ad-e8ea-4206-8bbe-d4a6c232c69d" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="c840cc46-ee65-4beb-be3b-310acee0b8c0" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="f860a89a-0090-485d-9c20-9663a828127c" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="670079b2-b180-42f3-85af-c2f7d217c047" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="13ab3047-05e1-4e7b-b138-9c741fe7b2f3" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="8f24f739-d864-4fcc-8809-260f4da619fe" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="0d4709e0-f8c8-4b84-8977-2e1a0e01212f" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="850f9c0b-4d51-4d23-abd4-bb20404da023" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="c581cde7-e320-46ef-919e-a4030c134e14" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="6b037e97-e47a-4f5b-9c51-b74d588e1c06" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="a9c9831c-8dbc-4561-aa59-40a1441f1618" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="1d521fbc-c612-4e87-ae82-43b31d91369d" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="44885ff4-c808-4217-8b93-39ac942cca65" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="bebc5781-341e-4044-b490-02387206f2cd" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="e5571f7f-dd27-4a11-811b-6c50ecfeb6e2" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="466b907a-f840-40f4-899b-167016cac3e0" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="69fc7a37-791e-400e-aa24-9e89d2659fc1" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="5dba881d-1e0c-4135-81a4-f6c5cbf280df" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="beea387b-22c6-4084-a731-653e27de5864" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="e38a2bf8-3f0a-4f34-bd69-cc3bcbd7fdd7" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="e3878e70-cb11-4244-b1cf-72ce1fb56efd" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="75bbe38b-24b4-44b6-acb1-1a1e788745d6" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="f6f6154f-56a1-4ff3-b0c4-eabc3b0d26b1" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="3ca89f39-34fe-4c57-83ce-40f434f88b57" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="46221831-1782-4bc4-8149-a0f70cc0c5e6" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="311982a6-78d5-4523-b445-f26cb8563e97" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="6edfba7d-90c9-475a-beea-0f9075a696f2" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="14edddd9-faef-4f8f-ba84-6874a117c1ba" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_l1Pg0NehEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="dbed8c23-58c9-4ece-a942-40d9739c207a" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="0842edb7-4feb-4b1c-bd15-a302624f74b1" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="2ec91bb2-948f-4563-938d-4220df67b681" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="9383226b-28bd-43dc-9389-e479ec1973e3" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_pGXTUNehEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="84ee684a-26bb-4e06-97f5-172706647aa2" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="a40cc21c-d8a8-49ff-a04b-f03f78d4ca50" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="1ba5eea2-c6b2-4360-93d3-a43011eb7dd7" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="78ba4529-3a84-4e1e-8afe-78ffbf4abf96" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_kPPMUNehEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="c5449eaf-a98e-4908-afe9-d5886137e98c" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="ab64a493-87e8-42bb-8858-c2ba27921ae2" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_MjYQcNegEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="dda07772-118f-4f37-9d28-9493f1e45d89" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="6258081f-dfe0-407a-93ee-fbe58eff757a" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="08b6a15c-036e-49c3-9364-895139221088" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="8fc32bac-a34b-45ec-baa2-2ee816745935" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="3b63d2f1-3f16-42c6-983c-896c261e4937" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="ea60d816-5b57-4f98-912c-0f3970756f2f" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="b502e495-3579-43bf-ad8f-388201832b91" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="aa49f103-6b87-44f7-bbe9-b77573fb51e2" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="e756ddb2-1a4b-4025-acc0-9c449b1d226a" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="c07e077c-4725-42ac-a785-ad5d65175009" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="6e4644ad-ddc3-426b-bef6-32c1e02bcd5b" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="0a5a2bb2-f11a-4338-9d26-a759d890e20f" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+  </children>
+  <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2007" xmi:id="8cd9b88e-ca48-494b-bc52-5a2a8bfab7ec" xmi:type="notation:Shape">
+    <children type="5026" xmi:id="5f4bfa50-9e51-433d-a9e8-da026bb66e22" xmi:type="notation:DecorationNode"/>
+    <children type="7016" xmi:id="cebf2806-8be2-42c3-ab3f-35e9f2fcb30e" xmi:type="notation:DecorationNode">
+      <styles xmi:id="5d2926cb-2530-4ddf-ba60-4efc5f9e18ca" xmi:type="notation:TitleStyle"/>
+      <layoutConstraint xmi:id="c3cc4d71-1088-4415-aacb-9c99df210f2d" xmi:type="notation:Bounds"/>
+    </children>
+    <element href="moveoperation2.uml#_663wcNbVEeO1RN9iqSRCJg" xmi:type="uml:Package"/>
+    <layoutConstraint height="630" width="450" x="198" xmi:id="22648782-eb2e-4752-a8bb-7fe025288417" xmi:type="notation:Bounds" y="944"/>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="b272190e-b44a-48fb-b5a5-f27420f40010" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="1a8ea9e9-b49d-4a5e-8f9e-427a72cbe7b1" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="64f9bdb3-384e-4f92-8af2-10df6820c86a" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="8c87db05-0009-45b4-80b7-e815f4c60023" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="33c012e1-ba25-4898-be40-9b809a9327c3" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="4321d5e0-a414-4db9-b6b4-b06364e48091" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="8e354305-ea8a-4582-ba2f-40c89330f827" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="cefb2e9f-88aa-476c-a565-27b5c69d3ffd" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="48829957-3a9d-4625-add7-60264779ad11" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="48c4902a-47c7-4052-9472-a1c140c8d718" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#cd5f736c-543e-4121-98f1-0519b7230bcf" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="ef6cbd50-b137-4c7d-82fe-1f27d1ec51b5" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="3b930065-3f45-4671-a70d-3d0110ba071e" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="6f1d2c53-52cc-4eef-afaf-53976846eff0" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="61f06ba4-beaa-435c-8143-c23bd651b4e3" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#2efdb0db-db4e-42bb-a7b9-37df1581a637" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="8af00ba7-1183-40ee-8866-aeffb3e59f0e" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="73b96446-0c75-4b47-b860-d9985c3671fd" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="567dbdd3-df5f-40c8-9b0d-25c150ceb247" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="7d8768ce-5734-44a8-8715-6dec7c4ec95d" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="f66919ba-945a-4786-90ed-83f6c378f59a" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="8c5dbc25-c4d6-499c-844c-644b31dc7bfb" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="5468c2f4-82fc-4413-b3d9-52c4cc6fb777" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="a27916db-848f-484f-8741-df2ad0c04b5a" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="50e9b028-3927-489d-83a6-910e5a057868" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="221114de-70e1-40ef-917b-d7b0b279a778" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_jFGYsNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="8440b1df-1040-4b10-988f-a48a21336ae5" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="8b1a8b53-f457-46af-ad26-3cc06563e1d0" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="39717a75-045d-4d42-b4be-0f1fd071bfe9" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="1f4d5eb1-3842-485f-9426-a6f088695402" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_iu7UYNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="6ffe8486-2b4f-4595-bd6b-b4c7249a3deb" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="6ca968b3-7573-45b8-b4e2-c99572a4083b" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_btob4NbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="1deb325a-7609-444f-9ac1-7b4b2fd69f6f" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="e2cbaf58-8437-4981-be55-d78a554095b1" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="13c18550-87aa-4b05-8bdd-8ad67909fc4a" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="ef17958d-be6a-4ad8-ae0d-c15238383417" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="87b91641-d85c-4f27-94d7-ab7bc590296d" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="abbbfc7e-1678-4ef6-9998-7ccf36151cc2" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="31265e58-6465-412f-ad1f-dd4be0707993" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="7fec6844-4ce8-4b44-9cd9-bae0fdf7d7da" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="4b1ada4e-3bce-4533-b26c-6fd9bc3c6542" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="4c6bd1f9-701d-4a0e-b445-b11ff2c17638" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="23dda6ac-815a-4eab-b03d-329f1417a509" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="1c877ae7-6fc2-4622-92ea-ff70e35a96f2" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="fd35b021-cccc-42f1-b17c-533685ff1791" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="173bf81b-a344-4336-a4bc-d748f66b0bc0" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="ba3a8743-fd0a-45b3-ac3a-162e51e975fb" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="aa071023-7c25-46f6-8a34-f3467ee3df5e" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_nJ_tQNehEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="af94a7ab-af48-4192-900f-aa20cf0c95ed" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="9d3a265c-d6f4-4695-a40c-1e9ce6a83926" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="c2a64a29-1ca9-40ea-ac64-f5c4599b1ffe" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="9faab090-4535-452d-9806-db2dcadcf9d9" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_ontBYNehEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="b50dab3b-0b6d-413c-8e6f-e9c80dd7f524" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="f594b23e-bb18-4585-88f3-c4b1f2ad942a" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="a92645d3-2db8-434b-a494-5bc8e622557b" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="e44b0192-3624-4682-acea-fb9174601071" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_8gEU4NhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="d8c68073-1c4d-432c-ae10-13ca2ccb41a3" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="9e6cc26d-9da2-4304-9fd3-0a546bf813fe" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="5c5a7f99-53bb-4e0a-be1f-0993fa483c04" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="3cf993e4-46d5-495a-8bc9-0ff0960c37a8" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_k0cLINehEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="c152ef9c-85eb-4bd3-9f9f-6a3ab16d1355" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="76f62bb1-e883-4484-b5e6-e8ddc0737968" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_MzqSsNehEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="c8688d02-7c93-4745-96bb-fc5a116a63d9" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="31451cb4-7348-4242-b768-9a74c976f54c" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="43dd72e2-3200-42cd-9e92-3d1c5ab96b1f" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="3e91be20-271d-461c-8b1a-aa6e4e5616c4" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="fc99f70a-1dde-4036-b895-f51c3fd974ae" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="5ff988c4-9f30-45e6-80a6-fe8438e3db9a" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="655952c6-dc49-4d64-93ff-fc13ff236f5d" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="448385b3-93c4-425d-aa73-a7934f4f3885" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="33a51840-90d0-4565-aa51-290f0f809dc6" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="e175feab-02af-4e81-b08c-2685b5c6b3cf" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="04fbfdfc-6ff0-4dde-bf44-b7a25333ad89" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="5dd17cce-13f0-47a3-a283-a627782f1b4d" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+  </children>
+  <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2007" xmi:id="4059521d-3e82-4d15-9155-20b54036e07f" xmi:type="notation:Shape">
+    <children type="5026" xmi:id="13ab9887-cf62-4b9d-ba8d-954f8a48fc80" xmi:type="notation:DecorationNode"/>
+    <children type="7016" xmi:id="4eb73bf1-3a9a-4d67-8eb0-659c786b121e" xmi:type="notation:DecorationNode">
+      <styles xmi:id="89de9fcc-4875-4b1d-bd65-41a5014de6c9" xmi:type="notation:TitleStyle"/>
+      <layoutConstraint xmi:id="d9a2960a-8c83-4599-a461-ca6ce2c36224" xmi:type="notation:Bounds"/>
+    </children>
+    <element href="moveoperation2.uml#_5hfisNbVEeO1RN9iqSRCJg" xmi:type="uml:Package"/>
+    <layoutConstraint height="630" width="450" x="706" xmi:id="9b946a98-7684-43a0-8e73-d8d385805a7d" xmi:type="notation:Bounds" y="19"/>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="f6a6afd6-cd8c-4646-ad26-4a748f5d2f1a" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="3d4c4ef3-fb91-48a8-b355-d07e4d0ef1b5" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="5019f4d0-b92d-48d5-a65e-74ce514b92c9" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="15f59883-3396-4b9f-87ab-39f79396433f" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="9659b840-0260-4dca-b10c-e25f2aba4518" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="d08769f5-d13a-47e7-bf23-a8e29ae72ba7" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="e7190f91-2bca-4ac5-9421-4d41a3966e39" xmi:type="notation:Bounds"/>
+      </children>
+      <layoutConstraint x="10" xmi:id="39486df7-b8c9-4d12-88bb-c5e396851895" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="192e5682-c399-4003-8d0d-453c25a84de1" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="7ecdb7df-cdd4-4305-afa2-dbb4eed1617b" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="8242e11c-0fda-4e24-a4cd-b3d465baf8bc" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="7d35b5b2-9c52-4f85-b7c8-4bdc362ccf59" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="6db1d2fd-426f-4ade-a3b6-94e35f9cdb3b" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="ba97eca0-36a6-45b8-a5f6-bae3c3f00322" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="f2405c78-fa5f-4530-af54-95132d44c360" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="886ef55d-7f10-456e-bcc7-03559aab6236" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_zRQb8NhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="79046e39-019f-4d43-ae8c-19e803e6d5b1" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="2b98c823-7845-42ed-8c3e-a9759373601c" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="10507e99-c806-42c6-a50e-3b8a7ad4e651" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="056f2b59-fbcc-445b-a194-371b8fdcf46c" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_x-aUANhPEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="1fd89dba-aa14-4170-a7cc-9f92a8b636c7" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="6cdb85bc-8b0c-49f3-9ec6-6b5663ceb868" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_rd9ewNhPEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+      <eAnnotations source="Stereotype_Annotation" xmi:id="3374dcd4-efa5-4f71-bec9-1c97f515f54b" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="f24ec196-7ca3-4b38-885b-cd85d7ac782e" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="8731d35c-1c9d-45eb-9b04-85fa74bca3d2" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="765e849d-275b-4a8d-af4e-35c770d4cc71" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="77239210-2fec-4863-95e0-466048dac1ee" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="5930ef11-2e73-4910-96e7-0ec88c373638" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+      <eAnnotations source="ecore:Stereotype_Annotation" xmi:id="fbe2fa24-9cb7-424e-9edc-833a23a2e3c9" xmi:type="ecore:EAnnotation">
+        <details key="StereotypeWithQualifiedNameList" value="" xmi:id="4aee6f68-f2d4-4f81-ae90-be134dc065c9" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypeList" value="smarty::interface" xmi:id="e95a4cd6-65df-4db9-8ff4-53598b66dc42" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="Stereotype_Presentation_Kind" value="HorizontalStereo" xmi:id="cca750c6-b8c8-4975-9abe-0fab03d3cafb" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="PropStereoDisplay" value="" xmi:id="3c23aa23-bd9e-437e-8ef6-de0e0297f71a" xmi:type="ecore:EStringToStringMapEntry"/>
+        <details key="StereotypePropertyLocation" value="Compartment" xmi:id="64a2b1ea-b221-4ef4-adf5-f642e0dacf91" xmi:type="ecore:EStringToStringMapEntry"/>
+      </eAnnotations>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="fa0c3ad2-05c4-4e17-a49d-bb67138dd1cf" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="71db5c08-ff01-4bf0-9a95-99ecfc5410cc" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="c7382e7c-59e6-43a5-a160-2bd1e90e859c" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="f193ba1d-8f3d-44b4-a864-7b166d4c07b2" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="2873ae02-453b-4de5-be47-9749b61e5025" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="14f5aaf1-7d4c-4ab3-99c0-90323fd0a67c" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="e676d38f-1434-4f95-93d8-197cbeb3339d" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="71de209f-a418-4fff-b3cb-19bff8af1612" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="00208d13-64ba-4c87-9d48-a5fe5341ca5d" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="bc8c0268-2209-4162-b6b9-0ccdc3b42204" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#54699fc6-c8e8-4a90-9e4b-48f93369ded4" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="02804ff3-9628-46e9-85df-f6f327edd055" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="3878cbc4-1cf9-4c70-9b63-521accf634c4" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="34f43c73-c806-42ff-9a44-8f4d654be589" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="f4bb4391-54c1-429f-b517-591f577919bc" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#1dd7e494-b05c-4519-89b1-24eedc8fd2ab" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="85a0d0bc-f033-4b0d-a6c9-0e0825ea0d19" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="e65c5574-1f4e-4964-869d-e51bfd0e6a9f" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="0c8a52b3-a042-4964-bf4e-2647c3d249c9" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="ff366acf-bc6f-4b45-ad4e-a2d19dfd002e" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="70cb6961-b65e-4120-bb6f-16f87d726136" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="b0803faf-f676-4418-890a-761ee833e11a" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="8478c0cc-beab-48cd-b4ad-5e3448071711" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="ae297223-46a5-4813-962a-2c0a01696355" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="6e09edbc-db48-4b75-89e9-4dbe67abb52f" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="fe5e1e80-5f31-4fd2-8527-2e50a56f8630" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_kLv3sNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="8619cb9a-ad99-4986-8d1a-ab1447865435" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="78570cf7-ed2d-483c-89a3-f0dc8ca56012" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="43ec7a69-8a6d-4f55-b788-ab9f358c3518" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="747ce8c2-bc38-4e24-ba36-37e19107f2a0" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_kkXMANbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="005ba6b3-8d30-49de-be41-593dc936ace1" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="8c2ac6d0-6f8c-4f9e-b6ca-971dd2e0a9c3" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_YeGk0NbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+    <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="2008" xmi:id="ec0670e7-4576-449b-b8fb-d6631818b825" xmi:type="notation:Shape">
+      <children type="5029" xmi:id="c915734c-0af3-46eb-9266-34d3e2dca2a1" xmi:type="notation:DecorationNode"/>
+      <children type="7017" xmi:id="a8b44fa3-8617-4210-9a07-9bd8245f0dfc" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="97e62a9d-641c-49b1-9ff8-52e98b130127" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="af1105af-2329-4e59-b671-0215c7433685" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="756c2861-5009-433c-9b55-36d68756000a" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="9ebe1d29-0610-4433-a025-85a2565b6994" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="19efeb13-6234-45ad-8c4f-41ce12c12e54" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="f98c870e-f7eb-475e-b8fa-e8b38525ad8d" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="50c93d67-2ef5-42b7-9180-c8e0c1ed4d2b" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#3f8f420a-6796-4d95-b865-c717134f1181" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="edbbf9e0-b13a-4e59-8719-87e140d4deae" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3012" xmi:id="7f072822-6744-4fd8-bce2-d5411b3b42ab" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="74e57fb2-b1ff-42ff-b0b4-b8554ca66e20" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="7dcffd7a-3781-4eac-872f-38ef402e9e5d" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#e5c55342-cbce-4d1d-993b-84b9623502a4" xmi:type="uml:Property"/>
+          <layoutConstraint xmi:id="9578bb64-a8c8-4232-930a-a6512111b8ea" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="7c763e0a-b0f9-4320-9af1-5bc3a18a78a9" xmi:type="notation:Bounds" y="10"/>
+      <children type="7018" xmi:id="ce636562-e7c8-4ecf-b7a0-26cfcd3f6373" xmi:type="notation:BasicCompartment">
+        <styles xmi:id="e7af4558-3a02-4080-8830-b1c6561b76c8" xmi:type="notation:TitleStyle"/>
+        <styles xmi:id="e9923127-1f4b-4efd-a1ba-c3012ab230b4" xmi:type="notation:SortingStyle"/>
+        <styles xmi:id="78900587-1043-465d-9e40-4d8334668b45" xmi:type="notation:FilteringStyle"/>
+        <layoutConstraint xmi:id="d6380b4f-fe67-4e2c-a9da-534cda2c7e72" xmi:type="notation:Bounds"/>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="bf230c8c-e432-4b71-b8d9-48e322fb0aad" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="2a946bb9-affe-43ca-acfe-190684c157c5" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="6468ee9d-4e90-4445-b32a-22e45a032e40" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_jyo0INbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="6a00425a-dd93-415c-bd80-cfbfe6b6eef2" xmi:type="notation:Location"/>
+        </children>
+        <children fontHeight="11" fontName="Lucida Grande" lineColor="0" type="3013" xmi:id="83bd8771-3ce9-499c-9e42-1cd4e77c5e62" xmi:type="notation:Shape">
+          <eAnnotations source="CustomAppearance_Annotation" xmi:id="b0b932ca-d561-4069-a8c2-55b4d8d113a4" xmi:type="ecore:EAnnotation">
+            <details key="CustomAppearance_MaskValue" value="7066" xmi:id="3b12d7bf-deb0-490f-992b-f4eb1a805aef" xmi:type="ecore:EStringToStringMapEntry"/>
+          </eAnnotations>
+          <element href="moveoperation2.uml#_jbffcNbWEeO1RN9iqSRCJg" xmi:type="uml:Operation"/>
+          <layoutConstraint xmi:id="1224efd1-8eb7-4391-bfcf-9d6a0339700c" xmi:type="notation:Location"/>
+        </children>
+      </children>
+      <layoutConstraint x="10" xmi:id="98bb89b3-d285-4e8d-8dc3-e25c0a4c227b" xmi:type="notation:Bounds" y="10"/>
+      <element href="moveoperation2.uml#_aYJPoNbWEeO1RN9iqSRCJg" xmi:type="uml:Class"/>
+    </children>
+  </children>
+  <edges lineColor="0" source="f93fc91c-7b58-4a39-9390-75d364dbd73b" target="44885ff4-c808-4217-8b93-39ac942cca65" type="4005" xmi:id="c3d576ef-6441-4b67-b2d0-0eb849912651" xmi:type="notation:Connector">
+    <children type="6012" xmi:id="cd173e4d-c3d5-4de9-91e6-e61db8f21368" xmi:type="notation:DecorationNode">
+      <layoutConstraint xmi:id="befa3815-ebfb-4ee6-80be-7c1eb45520aa" xmi:type="notation:Location" y="20"/>
+    </children>
+    <element href="moveoperation2.uml#68f7d6e1-dd26-4919-92d4-02e66b1249f5" xmi:type="uml:Realization"/>
+    <bendpoints points="[0, 0, 476, 181]$[-467, -170, 9, 11]" xmi:id="92e244c2-5604-49b5-8267-1c42feeb4571" xmi:type="notation:RelativeBendpoints"/>
+  </edges>
+  <edges lineColor="0" source="d9ac9c43-6e31-43db-9f08-69dd4c508832" target="56afcada-42cf-427f-816a-a192b6933754" type="4005" xmi:id="642816dc-6d20-461d-80ad-a3da03409339" xmi:type="notation:Connector">
+    <children type="6012" xmi:id="2441dd44-2c0f-4213-81b5-4ac5a5cda66a" xmi:type="notation:DecorationNode">
+      <layoutConstraint xmi:id="e58a212d-dede-4015-ad2c-c7117016ce34" xmi:type="notation:Location" y="20"/>
+    </children>
+    <element href="moveoperation2.uml#4986e38c-0e24-4228-aa6b-61645ec402be" xmi:type="uml:Realization"/>
+    <bendpoints points="[0, 0, 476, 181]$[-467, -170, 9, 11]" xmi:id="86caf725-e3ba-4750-a3ca-4e8ddc4a595e" xmi:type="notation:RelativeBendpoints"/>
+  </edges>
+  <edges lineColor="0" source="b272190e-b44a-48fb-b5a5-f27420f40010" target="1deb325a-7609-444f-9ac1-7b4b2fd69f6f" type="4005" xmi:id="f41d81b7-6158-4762-b98d-c0c62be41450" xmi:type="notation:Connector">
+    <children type="6012" xmi:id="cf90b476-593b-476f-89f1-348d9d3d0c69" xmi:type="notation:DecorationNode">
+      <layoutConstraint xmi:id="6f817b33-30de-4cf0-a54b-700f855a349c" xmi:type="notation:Location" y="20"/>
+    </children>
+    <element href="moveoperation2.uml#38a23afa-6347-41bb-a571-0434acea12d9" xmi:type="uml:Realization"/>
+    <bendpoints points="[0, 0, 476, 181]$[-467, -170, 9, 11]" xmi:id="8ebb69cb-5688-4bdd-8d25-3cf2def23cd6" xmi:type="notation:RelativeBendpoints"/>
+  </edges>
+  <edges lineColor="0" source="3b1078b6-7c95-4170-b370-deb2a1d56d85" target="44885ff4-c808-4217-8b93-39ac942cca65" type="4005" xmi:id="421cd759-d2a5-4855-8cef-1ca19572da42" xmi:type="notation:Connector">
+    <children type="6012" xmi:id="f1399485-543d-4cf3-8ff9-2e2e1177e860" xmi:type="notation:DecorationNode">
+      <layoutConstraint xmi:id="1bd8147b-8922-48a4-9cfb-4272ca9f4e75" xmi:type="notation:Location" y="20"/>
+    </children>
+    <element href="moveoperation2.uml#30ff9497-f5d0-4406-b17a-411f8e3b76e6" xmi:type="uml:Realization"/>
+    <bendpoints points="[0, 0, 476, 181]$[-467, -170, 9, 11]" xmi:id="186e35da-1fbe-4c38-975e-9640110d2841" xmi:type="notation:RelativeBendpoints"/>
+  </edges>
+  <edges lineColor="0" source="ec0670e7-4576-449b-b8fb-d6631818b825" target="1deb325a-7609-444f-9ac1-7b4b2fd69f6f" type="4005" xmi:id="163facfb-9241-4028-8424-580b92ae4e58" xmi:type="notation:Connector">
+    <children type="6012" xmi:id="3993185f-60d2-4743-829e-6f13ca4b38dd" xmi:type="notation:DecorationNode">
+      <layoutConstraint xmi:id="4ef71ce7-d807-4a0b-991b-8e26409c8a35" xmi:type="notation:Location" y="20"/>
+    </children>
+    <element href="moveoperation2.uml#6aecc64e-1413-4870-a8a6-2281e3ba446b" xmi:type="uml:Realization"/>
+    <bendpoints points="[0, 0, 476, 181]$[-467, -170, 9, 11]" xmi:id="1d4d87e7-f573-456e-9680-8a430dfafdeb" xmi:type="notation:RelativeBendpoints"/>
+  </edges>
+  <edges lineColor="0" source="935a9e8c-8aac-4b31-8a07-fed5bcd687aa" target="44885ff4-c808-4217-8b93-39ac942cca65" type="4005" xmi:id="89dfdb16-ecc4-4561-8113-61212a213f00" xmi:type="notation:Connector">
+    <children type="6012" xmi:id="30ca90ff-c8ec-46a0-b397-a44a101a212e" xmi:type="notation:DecorationNode">
+      <layoutConstraint xmi:id="ca2747ca-3a2b-4813-9214-95dfd8a4b356" xmi:type="notation:Location" y="20"/>
+    </children>
+    <element href="moveoperation2.uml#7e45c69d-66a6-480b-9f49-f9deab81615e" xmi:type="uml:Realization"/>
+    <bendpoints points="[0, 0, 476, 181]$[-467, -170, 9, 11]" xmi:id="f3ac5df9-a769-4288-a7a1-1499e3df8f5d" xmi:type="notation:RelativeBendpoints"/>
+  </edges>
+</notation:Diagram>
