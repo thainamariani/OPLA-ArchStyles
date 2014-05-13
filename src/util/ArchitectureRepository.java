@@ -14,7 +14,6 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import jmetal.util.Configuration;
 import main.GenerateArchitecture;
-import org.apache.log4j.lf5.util.ResourceUtils;
 
 /**
  *
@@ -75,6 +74,8 @@ public class ArchitectureRepository {
             printAddClass(file);
         } else if (operator.equals("moveoperation")) {
             printMoveOperation(file);
+        } else if (operator.equals("addpackage")) {
+            printAddPackage(file);
         }
     }
 
@@ -162,6 +163,29 @@ public class ArchitectureRepository {
             bw.write("Pacote destino: " + ParametersRepository.getTargetPackage());
             bw.newLine();
             bw.write("Interface destino: " + ParametersRepository.getTargetInterface());
+            bw.newLine();
+            bw.write("Método movido: " + ParametersRepository.getMoveMethod());
+
+            bw.close();
+        } catch (IOException e) {
+            Configuration.logger_.severe("Error acceding to the file");
+            e.printStackTrace();
+        }
+    }
+
+    public static void printAddPackage(String path) {
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+
+            bw.write("Pacote origem: " + ParametersRepository.getSourcePackage());
+            bw.newLine();
+            bw.write("Interface origem: " + ParametersRepository.getSourceInterface());
+            bw.newLine();
+            bw.write("Novo Pacote: " + ParametersRepository.getTargetPackage());
+            bw.newLine();
+            bw.write("Nova Interface: " + ParametersRepository.getTargetInterface());
             bw.newLine();
             bw.write("Método movido: " + ParametersRepository.getMoveMethod());
 

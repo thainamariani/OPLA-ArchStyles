@@ -13,21 +13,17 @@ import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import jmetal.problems.OPLA;
-import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 import pojo.Layer;
 import pojo.Style;
 import util.OperatorUtil;
-import static util.OperatorUtil.getSuffix;
 import static util.OperatorUtil.randomObject;
 import util.ParametersRepository;
 import util.StyleUtil;
@@ -68,17 +64,26 @@ public class AddPackage implements OperatorConstraints {
                 ParametersRepository.setSourceInterface(sourceInterface);
                 //--
 
-                getSuffixPrefix(sourceInterface, architecture, list, layer);
+                String name = getSuffixPrefix(sourceInterface, architecture, list, layer);
 
                 List<Method> OpsInterface = new ArrayList<Method>();
                 OpsInterface.addAll(sourceInterface.getOperations());
                 if (OpsInterface.size() >= 1) {
                     Method op = randomObject(OpsInterface);
-
-                    arquitetura.representation.Package newComp = architecture.createPackage("Package" + OPLA.contComp_ + getSuffix(sourceComp));
+                    arquitetura.representation.Package newComp = null;
+                    if (suffix) {
+                        newComp = architecture.createPackage("Package" + OPLA.contComp_ + name);
+                    } else {
+                        newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
+                    }
                     OPLA.contComp_++;
                     Interface newInterface = newComp.createInterface("Interface" + OPLA.contInt_++);
 
+                    //add log
+                    ParametersRepository.setTargetPackage(newComp);
+                    ParametersRepository.setTargetInterface(newInterface);
+                    ParametersRepository.setMoveMethod(op);
+                    //--
                     sourceInterface.moveOperationToInterface(op, newInterface);
 
                     for (Element implementor : sourceInterface.getImplementors()) {
@@ -109,7 +114,7 @@ public class AddPackage implements OperatorConstraints {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    public void getSuffixPrefix(Interface sourceInterface, Architecture architecture, List<Layer> list, Layer layer) {
+    public String getSuffixPrefix(Interface sourceInterface, Architecture architecture, List<Layer> list, Layer layer) {
         //seleciona as camadas dos implementadores
         Set<Layer> layersImplementors = new HashSet<>();
         for (Element element : sourceInterface.getImplementors()) {
@@ -156,9 +161,7 @@ public class AddPackage implements OperatorConstraints {
             name = OperatorUtil.randomObject(layerSelect.getPrefixos());
         }
 
-        System.out.println("Source Interface:" +sourceInterface);
-        System.out.println("LayerSelect: " + layerSelect.getNumero());
-        System.out.println("Sufixo/Prefixo:" + name);
+        return name;
 
     }
 

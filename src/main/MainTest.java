@@ -9,11 +9,10 @@ import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import identification.LayerIdentification;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import operators.AddPackage;
 import pojo.Layer;
+import util.ArchitectureRepository;
 
 /**
  *
@@ -65,8 +64,8 @@ public class MainTest {
             AddPackage addPackage = new AddPackage();
             addPackage.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
 
-            //ArchitectureRepository.setCurrentArchitecture(architecture);
-            //ArchitectureRepository.saveArchitecture("moveoperation", "archtest2");
+            ArchitectureRepository.setCurrentArchitecture(architecture);
+            ArchitectureRepository.saveArchitecture("addpackage", "archtest2");
         }
     }
 }
