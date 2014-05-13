@@ -41,23 +41,30 @@ public class MoveOperationTest {
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("L1", "suffix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("L1");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("L2", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("L2");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
         Map sp3 = new HashMap();
-        sp3.put("L3", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos.add("L3");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         if (layerIdentification.isCorrect(camadas)) {

@@ -41,23 +41,29 @@ public class LayerIdentificationTest {
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("mgr", "suffix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("mgr");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("ctrl", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("ctrl");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
-        Map sp3 = new HashMap();
-        sp3.put("gUi", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("gui");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         boolean repeatSuffixPrefix = layerIdentificationAgm.repeatSuffixPrefix(camadas);
@@ -70,23 +76,29 @@ public class LayerIdentificationTest {
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("mgr", "prefix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        prefixos.add("mGr");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("mgr", "prefix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        prefixos2.add("mGr");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
-        Map sp3 = new HashMap();
-        sp3.put("gUi", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("gui");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         boolean repeatSuffixPrefix = layerIdentificationAgm.repeatSuffixPrefix(camadas);
@@ -96,27 +108,33 @@ public class LayerIdentificationTest {
 
     @Test
     public void testCheckSuffixPrefix() {
-        //caso de teste agm
+//caso de teste agm
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("mgr", "suffix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("mgr");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("ctrl", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("ctrl");
+        layer2.setPrefixos(prefixos2);
+        layer2.setSufixos(sufixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
-        Map sp3 = new HashMap();
-        sp3.put("gUi", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("gui");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         boolean checkSuffixPrefix = layerIdentificationAgm.checkSuffixPrefix(camadas);
@@ -129,23 +147,30 @@ public class LayerIdentificationTest {
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("mgr", "prefix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        prefixos.add("mGr");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("ctrl", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("ctrl");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
         Map sp3 = new HashMap();
-        sp3.put("gUi", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        prefixos3.add("Gui");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         boolean checkSuffixPrefix = layerIdentificationAgm.checkSuffixPrefix(camadas);
@@ -158,23 +183,29 @@ public class LayerIdentificationTest {
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("mgr", "suffix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("Mgr");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("ctrl", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("Ctrl");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
-        Map sp3 = new HashMap();
-        sp3.put("gUi", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("Gui");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         boolean identify = layerIdentificationAgm.identify(camadas);
@@ -187,23 +218,29 @@ public class LayerIdentificationTest {
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("mg", "suffix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("mG");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("ctrl", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("ctrl");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         Layer layer3 = new Layer();
         layer3.setNumero(3);
-        Map sp3 = new HashMap();
-        sp3.put("gUi", "suffix");
-        layer3.setSp(sp3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("gui");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
         boolean identify = layerIdentificationAgm.identify(camadas);

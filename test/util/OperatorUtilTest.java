@@ -7,8 +7,6 @@ package util;
 
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
-import arquitetura.representation.Package;
-import arquitetura.representation.Class;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +14,6 @@ import java.util.List;
 import java.util.Map;
 import junit.framework.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import org.junit.BeforeClass;
 import pojo.Layer;
 
@@ -42,16 +39,20 @@ public class OperatorUtilTest {
         camadas = new ArrayList<>();
         Layer layer1 = new Layer();
         layer1.setNumero(1);
-        Map sp1 = new HashMap();
-        sp1.put("L1", "suffix");
-        layer1.setSp(sp1);
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("L1");
+        layer1.setSufixos(sufixos);
+        layer1.setPrefixos(prefixos);
         camadas.add(layer1);
 
         Layer layer2 = new Layer();
         layer2.setNumero(2);
-        Map sp2 = new HashMap();
-        sp2.put("L2", "suffix");
-        layer2.setSp(sp2);
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("L2");
+        layer2.setSufixos(sufixos2);
+        layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
         //popular as camadas com os pacotes

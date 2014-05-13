@@ -23,4 +23,13 @@ public class StyleUtil {
         return null;
     }
 
+    public static Layer returnLayerNumber(int numLayer, List<Layer> layers) {
+        for (Layer layer : layers) {
+            if (layer.getNumero() == numLayer) {
+                return layer;
+            }
+        }
+        return null;
+    }
+
 }

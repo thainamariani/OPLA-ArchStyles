@@ -72,10 +72,8 @@ public class MoveOperation implements OperatorConstraints {
                 //if - seleciona o targetPackage da mesma camada que a sourceInterface
                 //else - seleciona o targetPackage da mesma camada ou da inferior (caso haja) 
                 if (layersImplementors.size() >= 2) {
-                    System.out.println("AQUI 2");
                     targetComp = OperatorUtil.randomObject(layer.getPackages());
                 } else if (layersImplementors.size() == 1) {
-                    System.out.println("AQUI 1");
                     List<Package> packages = new ArrayList<>();
                     packages.addAll(layer.getPackages());
                     if (layersImplementors.iterator().next().getNumero() != 1) {
@@ -83,7 +81,6 @@ public class MoveOperation implements OperatorConstraints {
                     }
                     targetComp = OperatorUtil.randomObject(packages);
                 } else {
-                    System.out.println("AQUI 0");
                     targetComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
                 }
 

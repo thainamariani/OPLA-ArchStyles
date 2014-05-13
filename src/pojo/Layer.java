@@ -17,15 +17,18 @@ public class Layer extends Style {
 
     private int numero;
     //armazena o tipo (sufixo ou prefixo) e os respectivos sufixos e prefixos da camada;
-    private Map<String, String> sp;
+    private List<String> sufixos;
+    private List<String> prefixos;
     private List<Package> packages;
 
     public Layer() {
     }
 
-    public Layer(int numero, Map<String, String> sp) {
+    public Layer(int numero, List<String> sufixos, List<String> prefixos, List<Package> packages) {
         this.numero = numero;
-        this.sp = sp;
+        this.sufixos = sufixos;
+        this.prefixos = prefixos;
+        this.packages = packages;
     }
 
     public int getNumero() {
@@ -36,12 +39,20 @@ public class Layer extends Style {
         this.numero = numero;
     }
 
-    public Map<String, String> getSp() {
-        return sp;
+    public List<String> getSufixos() {
+        return sufixos;
     }
 
-    public void setSp(Map<String, String> sp) {
-        this.sp = sp;
+    public void setSufixos(List<String> sufixos) {
+        this.sufixos = sufixos;
+    }
+
+    public List<String> getPrefixos() {
+        return prefixos;
+    }
+
+    public void setPrefixos(List<String> prefixos) {
+        this.prefixos = prefixos;
     }
 
     public List<Package> getPackages() {

@@ -60,12 +60,27 @@ public class LayerIdentification extends StylesIdentification {
     public boolean repeatSuffixPrefix(List<Layer> camadas) {
         boolean existSomeone = true;
         boolean exist = true;
-        for (Layer layer : camadas) {
-            for (Map.Entry<String, String> entry : layer.getSp().entrySet()) {
-                for (Layer layer2 : camadas) {
-                    for (Map.Entry<String, String> entry2 : layer2.getSp().entrySet()) {
-                        if ((entry != entry2) && (entry.getValue().toLowerCase().equals(entry2.getValue().toLowerCase())) && (entry.getKey().toLowerCase().equals(entry2.getKey().toLowerCase()))) {
-                            System.out.println(entry.getValue() + " " + entry.getKey() + " está repetido.");
+
+        for (int i = 0; i < camadas.size(); i++) {
+            Layer layer = camadas.get(i);
+            for (String sufixo : layer.getSufixos()) {
+                for (int j = i + 1; j < camadas.size(); j++) {
+                    Layer layer2 = camadas.get(j);
+                    for (String sufixo2 : layer2.getSufixos()) {
+                        if ((sufixo.equalsIgnoreCase(sufixo2))) {
+                            System.out.println("O sufixo " + sufixo + " está repetido.");
+                            exist = false;
+                        }
+                    }
+                }
+            }
+
+            for (String prefixo : layer.getPrefixos()) {
+                for (int j = i + 1; j < camadas.size(); j++) {
+                    Layer layer2 = camadas.get(j);
+                    for (String prefixo2 : layer2.getPrefixos()) {
+                        if (prefixo.equalsIgnoreCase(prefixo2)) {
+                            System.out.println("O prefixo " + prefixo + " está repetido.");
                             exist = false;
                         }
                     }
@@ -75,6 +90,21 @@ public class LayerIdentification extends StylesIdentification {
                 }
             }
         }
+//        for (Layer layer : camadas) {
+//            for (Map.Entry<String, String> entry : layer.getSp().entrySet()) {
+//                for (Layer layer2 : camadas) {
+//                    for (Map.Entry<String, String> entry2 : layer2.getSp().entrySet()) {
+//                        if ((entry != entry2) && (entry.getValue().toLowerCase().equals(entry2.getValue().toLowerCase())) && (entry.getKey().toLowerCase().equals(entry2.getKey().toLowerCase()))) {
+//                            System.out.println(entry.getValue() + " " + entry.getKey() + " está repetido.");
+//                            exist = false;
+//                        }
+//                    }
+//                }
+//                if (exist == false) {
+//                    existSomeone = false;
+//                }
+//            }
+//        }
         return existSomeone;
     }
 
@@ -85,16 +115,15 @@ public class LayerIdentification extends StylesIdentification {
         boolean existSomeone = true;
         boolean exist = true;
         for (Layer layer : layers) {
-            for (Map.Entry<String, String> entry : layer.getSp().entrySet()) {
-                if (entry.getValue().equals("suffix")) {
-                    exist = verifySuffix(entry.getKey());
-                } else {
-                    exist = verifyPrefix(entry.getKey());
-                }
+            for (String sufixo : layer.getSufixos()) {
+                exist = verifySuffix(sufixo);
+            }
+            for (String prefixo : layer.getPrefixos()) {
+                exist = verifyPrefix(prefixo);
+            }
 
-                if (exist == false) {
-                    existSomeone = false;
-                }
+            if (exist == false) {
+                existSomeone = false;
             }
         }
         return existSomeone;
@@ -228,12 +257,24 @@ public class LayerIdentification extends StylesIdentification {
         int sizePackages = 0;
         for (Layer layer : layers) {
             List<Package> layerPackages = new ArrayList<>();
-            for (Map.Entry<String, String> entry : layer.getSp().entrySet()) {
-                String tipo = entry.getValue().toLowerCase();
-                String name = entry.getKey().toLowerCase();
+            for (String sufixo : layer.getSufixos()) {
                 for (Package p : packages) {
                     String packageName = p.getName().toLowerCase();
-                    if (((tipo.equals("suffix")) && (packageName.endsWith(name))) || ((tipo.equals("prefix")) && (packageName.startsWith(name)))) {
+                    if (packageName.endsWith(sufixo.toLowerCase())) {
+                        layerPackages.add(p);
+                        Set<Package> nestedPackages = p.getNestedPackages();
+                        for (Package np : nestedPackages) {
+                            layerPackages.add(np);
+                            sizePackages++;
+                        }
+                        sizePackages++;
+                    }
+                }
+            }
+            for (String prefixo : layer.getPrefixos()) {
+                for (Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.startsWith(prefixo.toLowerCase())) {
                         layerPackages.add(p);
                         Set<Package> nestedPackages = p.getNestedPackages();
                         for (Package np : nestedPackages) {
