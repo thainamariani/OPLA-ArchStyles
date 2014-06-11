@@ -3,6 +3,7 @@ package operators;
 import arquitetura.representation.Architecture;
 import java.util.HashMap;
 import java.util.List;
+import java.util.logging.Level;
 
 import jmetal.core.Solution;
 
@@ -35,11 +36,20 @@ public class PLAFeatureMutationConstraints extends Mutation {
         }
     }
 
+    //TODO (verificar esse if na hora de fazer o experimento)
+    //if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
+    //final Architecture arch = ((Architecture) solution.getDecisionVariables()[0]);
+//    else {
+//      Configuration.logger_.log(Level.SEVERE, "FeatureMutation.doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());
+//	java.lang.Class<String> cls = java.lang.String.class;
+//	String name = cls.getName();
+//	throw new JMException("Exception in " + name + ".doMutation()");
+//	}
     public void doMutation(double probability, Solution solution) throws Exception {
         Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
         MoveMethod moveMethod = new MoveMethod();
         moveMethod.doMutation(probability, architecture, style, list);
-        
+
 //        String scope = "sameComponent"; //"allComponents" usar "sameComponent" para que a troca seja realizada dentro do mesmo componente da arquitetura
 //        String scopeLevels = "allLevels"; //usar "oneLevel" para não verificar a presença de interesses nos atributos e métodos
 //
