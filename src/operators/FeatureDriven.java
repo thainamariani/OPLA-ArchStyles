@@ -7,6 +7,7 @@ package operators;
 
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Concern;
+import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -23,6 +24,8 @@ import util.OperatorUtil;
  * @author Thainá
  */
 public class FeatureDriven implements OperatorConstraints {
+
+    private boolean suffix;
 
     @Override
     public void doMutation(double probability, Architecture architecture, String style, List<? extends Style> styles) throws JMException {
@@ -42,21 +45,50 @@ public class FeatureDriven implements OperatorConstraints {
             if (!allComponents.isEmpty()) {
                 final arquitetura.representation.Package selectedComp = OperatorUtil.randomObject(allComponents);
                 List<Concern> concernsSelectedComp = new ArrayList<Concern>(selectedComp.getAllConcerns());
-                
+
                 if (concernsSelectedComp.size() > 1) {
+                    //interesse selecionado
                     final Concern selectedConcern = OperatorUtil.randomObject(concernsSelectedComp);
-                    List<arquitetura.representation.Package> allComponentsAssignedOnlyToConcern = new ArrayList<arquitetura.representation.Package>(OperatorUtil.searchComponentsAssignedToConcern(selectedConcern, allComponents));
-                    if (allComponentsAssignedOnlyToConcern.isEmpty()) {
-                        OPLA.contComp_++;
-                        OperatorUtil.modularizeConcernInComponent(allComponents, architecture.createPackage("Package" + OPLA.contComp_ + OperatorUtil.getSuffix(selectedComp)), selectedConcern, architecture);
-                    } else {
-                        if (allComponentsAssignedOnlyToConcern.size() == 1) {
-                            OperatorUtil.modularizeConcernInComponent(allComponents, allComponentsAssignedOnlyToConcern.get(0), selectedConcern, architecture);
+                    //pacotes associados exclusivamente ao interesse
+                    //comentado para teste
+                    //List<arquitetura.representation.Package> allComponentsAssignedOnlyToConcern = new ArrayList<arquitetura.representation.Package>(OperatorUtil.searchComponentsAssignedToConcern(selectedConcern, allComponents));
+                    //Pacotes associados por camadas
+
+                    //adicionado: cria ou seleciona um pacote de modularização para cada camada
+                    for (Layer layer : list) {
+                        List<arquitetura.representation.Package> packagesLayerAssignedOnlyToConcern = new ArrayList<arquitetura.representation.Package>(OperatorUtil.searchComponentsAssignedToConcern(selectedConcern, layer.getPackages()));
+                        if (packagesLayerAssignedOnlyToConcern.isEmpty()) {
+                            arquitetura.representation.Package newComp = null;
+                            String name = getSuffixPrefix(layer);
+                            if (suffix) {
+                                newComp = architecture.createPackage("Package" + OPLA.contComp_ + name);
+                            } else {
+                                newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
+                            }
+                            OPLA.contComp_++;
+                            OperatorUtil.modularizeConcernInComponent(allComponents, newComp, selectedConcern, architecture);
                         } else {
-                            OperatorUtil.modularizeConcernInComponent(allComponents, OperatorUtil.randomObject(allComponentsAssignedOnlyToConcern), selectedConcern, architecture);
+                            if (packagesLayerAssignedOnlyToConcern.size() == 1) {
+                                OperatorUtil.modularizeConcernInComponent(allComponents, packagesLayerAssignedOnlyToConcern.get(0), selectedConcern, architecture);
+                            } else {
+                                OperatorUtil.modularizeConcernInComponent(allComponents, OperatorUtil.randomObject(packagesLayerAssignedOnlyToConcern), selectedConcern, architecture);
+                            }
                         }
+                        packagesLayerAssignedOnlyToConcern.clear();
                     }
-                    allComponentsAssignedOnlyToConcern.clear();
+
+                    //comentado para teste
+//                    if (allComponentsAssignedOnlyToConcern.isEmpty()) {
+//                        OPLA.contComp_++;
+//                        OperatorUtil.modularizeConcernInComponent(allComponents, architecture.createPackage("Package" + OPLA.contComp_ + OperatorUtil.getSuffix(selectedComp)), selectedConcern, architecture);
+//                    } else {
+//                        if (allComponentsAssignedOnlyToConcern.size() == 1) {
+//                            OperatorUtil.modularizeConcernInComponent(allComponents, allComponentsAssignedOnlyToConcern.get(0), selectedConcern, architecture);
+//                        } else {
+//                            OperatorUtil.modularizeConcernInComponent(allComponents, OperatorUtil.randomObject(allComponentsAssignedOnlyToConcern), selectedConcern, architecture);
+//                        }
+//                    }
+//                    allComponentsAssignedOnlyToConcern.clear();
                 }
                 concernsSelectedComp.clear();
                 allComponents.clear();
@@ -67,7 +99,29 @@ public class FeatureDriven implements OperatorConstraints {
     }
 
     @Override
-    public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
+    public void doMutationClientServer(double probability, Architecture architecture, List<Style> list
+    ) {
+    }
+
+    //métodos adicionais
+    public String getSuffixPrefix(Layer layerSelect) {
+        String name = "";
+        int result = PseudoRandom.randInt(0, 1);
+        if (layerSelect.getSufixos().isEmpty()) {
+            result = 1;
+        } else if (layerSelect.getPrefixos().isEmpty()) {
+            result = 0;
+        }
+
+        if (result == 0) {
+            suffix = true;
+            name = OperatorUtil.randomObject(layerSelect.getSufixos());
+        } else {
+            suffix = false;
+            name = OperatorUtil.randomObject(layerSelect.getPrefixos());
+        }
+
+        return name;
     }
 
 }
