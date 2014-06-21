@@ -12,6 +12,7 @@ import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
+import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -35,6 +36,7 @@ import util.StyleUtil;
 public class AddPackage implements OperatorConstraints {
 
     private boolean suffix;
+    private Layer layerSelect;
 
     @Override
     public void doMutation(double probability, Architecture architecture, String style, List<? extends Style> styles) throws JMException {
@@ -85,6 +87,14 @@ public class AddPackage implements OperatorConstraints {
                     ParametersRepository.setMoveMethod(op);
                     //--
                     sourceInterface.moveOperationToInterface(op, newInterface);
+
+                    //adiciona o novo pacote na lista de camadas
+                    layerSelect.getPackages().add(newComp);
+                    for (Layer l : LayerIdentification.getLISTLAYERS()) {
+                        if (l.getNumero() == layerSelect.getNumero()) {
+                            l = layerSelect;
+                        }
+                    }
 
                     for (Element implementor : sourceInterface.getImplementors()) {
                         if (implementor instanceof arquitetura.representation.Package) {
@@ -142,7 +152,7 @@ public class AddPackage implements OperatorConstraints {
             }
         }
 
-        Layer layerSelect = OperatorUtil.randomObject(layersSelect);
+        layerSelect = OperatorUtil.randomObject(layersSelect);
 
         //posiveis sufixos ou prefixos (0 = sufixo, 1 = prefixo);
         String name = "";

@@ -64,6 +64,14 @@ public class MainTest {
             AddPackage addPackage = new AddPackage();
             addPackage.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
 
+            //verificação se o novo pacote foi adicionado à camada
+            for(Layer layer: LayerIdentification.getLISTLAYERS()){
+                System.out.println("Camada: " +layer.getNumero());
+                for(arquitetura.representation.Package pac: layer.getPackages()){
+                    System.out.println("Pacote: " +pac.getName());
+                }
+            }
+            
             ArchitectureRepository.setCurrentArchitecture(architecture);
             ArchitectureRepository.saveArchitecture("addpackage", "archtest2");
         }
