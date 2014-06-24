@@ -324,6 +324,13 @@
         <children xmi:type="notation:DecorationNode" xmi:id="_VN3jJtbWEeO1RN9iqSRCJg" type="5014"/>
         <children xmi:type="notation:BasicCompartment" xmi:id="_VN3jJ9bWEeO1RN9iqSRCJg" type="7011">
           <children xmi:type="notation:Shape" xmi:id="_x1jqYNbYEeO1RN9iqSRCJg" type="3012" fontName="Segoe UI" lineColor="0">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_y9aZ8PvdEeOnQOzWTuRL1w" source="Stereotype_Annotation">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9aZ8fvdEeOnQOzWTuRL1w" key="StereotypeWithQualifiedNameList" value=""/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9aZ8vvdEeOnQOzWTuRL1w" key="StereotypeList" value="concerns::play"/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9aZ8_vdEeOnQOzWTuRL1w" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9aZ9PvdEeOnQOzWTuRL1w" key="PropStereoDisplay" value=""/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_y9aZ9fvdEeOnQOzWTuRL1w" key="StereotypePropertyLocation" value="Compartment"/>
+            </eAnnotations>
             <element xmi:type="uml:Property" href="model.uml#_x1fY8NbYEeO1RN9iqSRCJg"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_x1jqYdbYEeO1RN9iqSRCJg"/>
           </children>
@@ -556,6 +563,13 @@
         </children>
         <children xmi:type="notation:BasicCompartment" xmi:id="_GEgCh9fiEeO1RN9iqSRCJg" type="7012">
           <children xmi:type="notation:Shape" xmi:id="_j0krgNhPEeO1RN9iqSRCJg" type="3013" fontName="Segoe UI" lineColor="0">
+            <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_xhPW4PvdEeOnQOzWTuRL1w" source="Stereotype_Annotation">
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xhPW4fvdEeOnQOzWTuRL1w" key="StereotypeWithQualifiedNameList" value=""/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xhPW4vvdEeOnQOzWTuRL1w" key="StereotypeList" value="concerns::play"/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xhPW4_vdEeOnQOzWTuRL1w" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xhPW5PvdEeOnQOzWTuRL1w" key="PropStereoDisplay" value=""/>
+              <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_xhPW5fvdEeOnQOzWTuRL1w" key="StereotypePropertyLocation" value="Compartment"/>
+            </eAnnotations>
             <element xmi:type="uml:Operation" href="model.uml#_j0hBINhPEeO1RN9iqSRCJg"/>
             <layoutConstraint xmi:type="notation:Location" xmi:id="_j0krgdhPEeO1RN9iqSRCJg"/>
           </children>
@@ -953,10 +967,34 @@
       <layoutConstraint xmi:type="notation:Location" xmi:id="_QdDKsdfiEeO1RN9iqSRCJg" y="40"/>
     </children>
     <children xmi:type="notation:DecorationNode" xmi:id="_QdDKstfiEeO1RN9iqSRCJg" type="6013">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_QdDKs9fiEeO1RN9iqSRCJg" y="60"/>
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_QdDKs9fiEeO1RN9iqSRCJg" x="15" y="33"/>
     </children>
     <styles xmi:type="notation:FontStyle" xmi:id="_QdB8kdfiEeO1RN9iqSRCJg" fontName="Segoe UI"/>
     <element xmi:type="uml:Realization" href="model.uml#_Qc0hMNfiEeO1RN9iqSRCJg"/>
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_QdB8ktfiEeO1RN9iqSRCJg" points="[83, 3, -614, -17]$[647, 21, -50, 1]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Y7GAMPvgEeOnQOzWTuRL1w" type="4005" source="_BS9T4NbWEeO1RN9iqSRCJg" target="_GEfbcNfiEeO1RN9iqSRCJg" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_Y7HOUPvgEeOnQOzWTuRL1w" type="6012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Y7HOUfvgEeOnQOzWTuRL1w" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_Y7H1YPvgEeOnQOzWTuRL1w" type="6013">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_Y7H1YfvgEeOnQOzWTuRL1w" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_Y7GAMfvgEeOnQOzWTuRL1w" fontName="Segoe UI"/>
+    <element xmi:type="uml:Realization" href="model.uml#_Y7CV0PvgEeOnQOzWTuRL1w"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Y7GAMvvgEeOnQOzWTuRL1w" points="[1, 6, -25, -124]$[18, 85, -8, -45]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_Y7S0gPvgEeOnQOzWTuRL1w" id="(0.7775974025974026,0.9715639810426541)"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_ye8vwPvyEeOnQOzWTuRL1w" type="4005" source="_8HvzQNbVEeO1RN9iqSRCJg" target="_reBJINhPEeO1RN9iqSRCJg" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_ye994PvyEeOnQOzWTuRL1w" type="6012">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ye994fvyEeOnQOzWTuRL1w" y="40"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_ye994vvyEeOnQOzWTuRL1w" type="6013">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_ye994_vyEeOnQOzWTuRL1w" y="60"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_ye8vwfvyEeOnQOzWTuRL1w" fontName="Segoe UI"/>
+    <element xmi:type="uml:Realization" href="model.uml#_ye3QMPvyEeOnQOzWTuRL1w"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ye8vwvvyEeOnQOzWTuRL1w" points="[-3, 11, 51, -255]$[-60, 216, -6, -50]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_yfF5sPvyEeOnQOzWTuRL1w" id="(0.44329896907216493,0.9271523178807947)"/>
   </edges>
 </notation:Diagram>

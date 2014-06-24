@@ -70,7 +70,7 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Realization" xmi:id="_oKXSMNeuEeO1RN9iqSRCJg" name="Realization1" client="_btob4NbWEeO1RN9iqSRCJg" supplier="_MzqSsNehEeO1RN9iqSRCJg"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_8HtXANbVEeO1RN9iqSRCJg" name="Package1L2">
+    <packagedElement xmi:type="uml:Package" xmi:id="_8HtXANbVEeO1RN9iqSRCJg" clientDependency="_ye3QMPvyEeOnQOzWTuRL1w" name="Package1L2">
       <packagedElement xmi:type="uml:Class" xmi:id="_VNxcgNbWEeO1RN9iqSRCJg" clientDependency="_Qc0hMNfiEeO1RN9iqSRCJg" name="Class1L2">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_x1fY8NbYEeO1RN9iqSRCJg" name="Property1" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_yGBIQNbYEeO1RN9iqSRCJg" value="1"/>
@@ -94,6 +94,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_77F_kNhPEeO1RN9iqSRCJg" name="Operation1"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_8gEU4NhPEeO1RN9iqSRCJg" name="Operation2"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_ye3QMPvyEeOnQOzWTuRL1w" name="Realization2" client="_8HtXANbVEeO1RN9iqSRCJg" supplier="_rd9ewNhPEeO1RN9iqSRCJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_89hksNbVEeO1RN9iqSRCJg" name="Package2L2">
       <packagedElement xmi:type="uml:Class" xmi:id="_WTfHYNbWEeO1RN9iqSRCJg" clientDependency="_mPmEENetEeO1RN9iqSRCJg" name="Class2L2">
@@ -152,7 +153,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_iv7iMNhQEeO1RN9iqSRCJg" name="Operation2"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_BS63oNbWEeO1RN9iqSRCJg" name="Package2L3">
+    <packagedElement xmi:type="uml:Package" xmi:id="_BS63oNbWEeO1RN9iqSRCJg" clientDependency="_Y7CV0PvgEeOnQOzWTuRL1w" name="Package2L3">
       <packagedElement xmi:type="uml:Class" xmi:id="_QyTWwNbWEeO1RN9iqSRCJg" clientDependency="_0xsqUNenEeO1RN9iqSRCJg" name="Class2L3">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_v8iTQNbYEeO1RN9iqSRCJg" name="Property1" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wJvo0NbYEeO1RN9iqSRCJg" value="1"/>
@@ -195,6 +196,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_hQ8bsNhQEeO1RN9iqSRCJg" name="Operation1"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_ht9u4NhQEeO1RN9iqSRCJg" name="Operation2"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_Y7CV0PvgEeOnQOzWTuRL1w" name="Realization3" client="_BS63oNbWEeO1RN9iqSRCJg" supplier="_GEbKANfiEeO1RN9iqSRCJg"/>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_zSK60NVCEeO1RN9iqSRCJg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_zSNXENVCEeO1RN9iqSRCJg" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -224,4 +226,6 @@
   <concerns:play xmi:id="_8yRZYPrkEeOnQOzWTuRL1w" base_Class="_rd9ewNhPEeO1RN9iqSRCJg"/>
   <concerns:play xmi:id="_-TGS8PrkEeOnQOzWTuRL1w" base_Class="_btob4NbWEeO1RN9iqSRCJg"/>
   <concerns:play xmi:id="_JJxIQPrqEeOnQOzWTuRL1w" base_Class="_MzqSsNehEeO1RN9iqSRCJg"/>
+  <concerns:play xmi:id="_xgvAkPvdEeOnQOzWTuRL1w" base_Operation="_j0hBINhPEeO1RN9iqSRCJg"/>
+  <concerns:play xmi:id="_y80kEPvdEeOnQOzWTuRL1w" base_Property="_x1fY8NbYEeO1RN9iqSRCJg"/>
 </xmi:XMI>

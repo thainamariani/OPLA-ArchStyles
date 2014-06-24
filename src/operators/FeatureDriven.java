@@ -49,6 +49,7 @@ public class FeatureDriven implements OperatorConstraints {
                 if (concernsSelectedComp.size() > 1) {
                     //interesse selecionado
                     final Concern selectedConcern = OperatorUtil.randomObject(concernsSelectedComp);
+                    System.out.println("Selected concern: " + selectedConcern.getName());
                     //pacotes associados exclusivamente ao interesse
                     //comentado para teste
                     //List<arquitetura.representation.Package> allComponentsAssignedOnlyToConcern = new ArrayList<arquitetura.representation.Package>(OperatorUtil.searchComponentsAssignedToConcern(selectedConcern, allComponents));
@@ -66,12 +67,12 @@ public class FeatureDriven implements OperatorConstraints {
                                 newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
                             }
                             OPLA.contComp_++;
-                            OperatorUtil.modularizeConcernInComponent(allComponents, newComp, selectedConcern, architecture);
+                            OperatorUtil.modularizeConcernInComponent(layer.getPackages(), newComp, selectedConcern, architecture);
                         } else {
                             if (packagesLayerAssignedOnlyToConcern.size() == 1) {
-                                OperatorUtil.modularizeConcernInComponent(allComponents, packagesLayerAssignedOnlyToConcern.get(0), selectedConcern, architecture);
+                                OperatorUtil.modularizeConcernInComponent(layer.getPackages(), packagesLayerAssignedOnlyToConcern.get(0), selectedConcern, architecture);
                             } else {
-                                OperatorUtil.modularizeConcernInComponent(allComponents, OperatorUtil.randomObject(packagesLayerAssignedOnlyToConcern), selectedConcern, architecture);
+                                OperatorUtil.modularizeConcernInComponent(layer.getPackages(), OperatorUtil.randomObject(packagesLayerAssignedOnlyToConcern), selectedConcern, architecture);
                             }
                         }
                         packagesLayerAssignedOnlyToConcern.clear();

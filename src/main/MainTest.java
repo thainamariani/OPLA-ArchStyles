@@ -10,7 +10,7 @@ import arquitetura.representation.Architecture;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.List;
-import operators.AddPackage;
+import operators.FeatureDriven;
 import pojo.Layer;
 import util.ArchitectureRepository;
 
@@ -22,7 +22,7 @@ public class MainTest {
 
     public static void main(String[] args) throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest2/model.uml");
+        Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest3/model.uml");
         LayerIdentification layerIdentification = new LayerIdentification(architecture);
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();
@@ -61,19 +61,13 @@ public class MainTest {
             //addClass.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
             //MoveOperation moveOperation = new MoveOperation();
             //moveOperation.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
-            AddPackage addPackage = new AddPackage();
-            addPackage.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
-
-            //verificação se o novo pacote foi adicionado à camada
-            for(Layer layer: LayerIdentification.getLISTLAYERS()){
-                System.out.println("Camada: " +layer.getNumero());
-                for(arquitetura.representation.Package pac: layer.getPackages()){
-                    System.out.println("Pacote: " +pac.getName());
-                }
-            }
+            //AddPackage addPackage = new AddPackage();
+            //addPackage.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+            FeatureDriven featureDriven = new FeatureDriven();
+            featureDriven.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
             
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("addpackage", "archtest2");
+            ArchitectureRepository.saveArchitecture("featuredriven", "archtest3");
         }
     }
 }

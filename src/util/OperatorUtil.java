@@ -150,9 +150,10 @@ public class OperatorUtil {
             Iterator<Package> itrComp = allComponents.iterator();
             while (itrComp.hasNext()) {
                 Package comp = itrComp.next();
-                if (!comp.equals(targetComponent) && checkSameLayer(comp, targetComponent)) {
+                if (!comp.equals(targetComponent)){
+                    //&& checkSameLayer(comp, targetComponent)) {
                     final Set<Interface> allInterfaces = new HashSet<Interface>(comp.getAllInterfaces());
-                    allInterfaces.addAll(comp.getImplementedInterfaces());
+                    //allInterfaces.addAll(comp.getImplementedInterfaces());
 
                     Iterator<Interface> itrInterface = allInterfaces.iterator();
                     while (itrInterface.hasNext()) {

@@ -59,7 +59,7 @@ public class ArchitectureRepository {
             System.exit(0);
         }
 
-        ReaderConfig.setDirExportTarget("test/models/archtest2/experiment/" + operator + "/" + operator + i + "/");
+        ReaderConfig.setDirExportTarget("test/models/" +archname+ "/experiment/" + operator + "/" + operator + i + "/");
         ArchitectureRepository.generateArchitecture(operator + i);
 
         verifyOperator(operator, file.getPath());
