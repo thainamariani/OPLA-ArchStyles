@@ -145,28 +145,28 @@ public class OperatorUtil {
         return listOfOwnedConcern;
     }
 
-    public static void modularizeConcernInComponent(List<Package> allComponents, Package targetComponent, Concern concern, Architecture arch) {
+    public static void modularizeConcernInComponent(List<Layer> layers, Layer layer, Package targetComponent, Concern concern, Architecture arch) {
         try {
+            List<Package> allComponents = layer.getPackages();
             Iterator<Package> itrComp = allComponents.iterator();
             while (itrComp.hasNext()) {
                 Package comp = itrComp.next();
-                if (!comp.equals(targetComponent)){
+                if (!comp.equals(targetComponent)) {
                     //&& checkSameLayer(comp, targetComponent)) {
                     final Set<Interface> allInterfaces = new HashSet<Interface>(comp.getAllInterfaces());
                     //allInterfaces.addAll(comp.getImplementedInterfaces());
-
                     Iterator<Interface> itrInterface = allInterfaces.iterator();
                     while (itrInterface.hasNext()) {
                         Interface interfaceComp = itrInterface.next();
                         if (interfaceComp.getOwnConcerns().size() == 1 && interfaceComp.containsConcern(concern)) {
-                            moveInterfaceToComponent(interfaceComp, targetComponent, comp, arch, concern); // EDIPO TESTADO
+                            moveInterfaceToComponent(layers, layer, interfaceComp, targetComponent, comp, arch, concern); // EDIPO TESTADO
                         } else if (!interfaceComp.getPatternsOperations().hasPatternApplied()) {
                             List<Method> operationsInterfaceComp = new ArrayList<Method>(interfaceComp.getOperations());
                             Iterator<Method> itrOperation = operationsInterfaceComp.iterator();
                             while (itrOperation.hasNext()) {
                                 Method operation = itrOperation.next();
                                 if (operation.getOwnConcerns().size() == 1 && operation.containsConcern(concern)) {
-                                    moveOperationToComponent(operation, interfaceComp, targetComponent, comp, arch, concern);
+                                    moveOperationToComponent(layers, layer, operation, interfaceComp, targetComponent, comp, arch, concern);
                                 }
                             }
                         }
@@ -253,7 +253,7 @@ public class OperatorUtil {
         return targetClass;
     }
 
-    public static void moveInterfaceToComponent(Interface interfaceComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concernSelected) {
+    public static void moveInterfaceToComponent(List<Layer> layers, Layer layer, Interface interfaceComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concernSelected) {
         if (!sourceComp.moveInterfaceToPackage(interfaceComp, targetComp)) {
             architecture.moveElementToPackage(interfaceComp, targetComp);
         }
@@ -279,7 +279,17 @@ public class OperatorUtil {
                     return;
                 } else {
                     //Busca na arquitetura como um todo
-                    final List<Class> targetClasses = allClassesWithConcerns(concernSelected, architecture.getAllClasses());
+                    //Alterado: busca na mesma camada e na camada superior
+                    List<arquitetura.representation.Package> packages = new ArrayList<>();
+                    packages.addAll(layer.getPackages());
+                    if (layer.getNumero() < layers.size()) {
+                        packages.addAll(StyleUtil.returnPackagesLayerNumber(layer.getNumero() + 1, layers));
+                    }
+
+                    final List<Class> targetClasses = new ArrayList<>();
+                    for (Package pac : packages) {
+                        targetClasses.addAll(allClassesWithConcerns(concernSelected, pac.getAllClasses()));
+                    }
                     final Class klass = randonClass(targetClasses);
                     architecture.removeImplementedInterface(interfaceComp, sourceComp);
                     addExternalInterface(targetComp, architecture, interfaceComp);
@@ -314,7 +324,7 @@ public class OperatorUtil {
         return klasses;
     }
 
-    public static void moveOperationToComponent(Method operation, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
+    public static void moveOperationToComponent(List<Layer> layers, Layer layer, Method operation, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
         Interface targetInterface = null;
         targetInterface = searchForInterfaceWithConcern(concern, targetComp);
 
@@ -326,10 +336,10 @@ public class OperatorUtil {
             sourceInterface.moveOperationToInterface(operation, targetInterface);
         }
 
-        addRelationship(sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
+        addRelationship(layers, layer, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
     }
 
-    public static void addRelationship(Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern, Interface targetInterface) {
+    public static void addRelationship(List<Layer> layers, Layer layer, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern, Interface targetInterface) {
         for (Element implementor : sourceInterface.getImplementors()) {
             // Se quem estiver implementando a interface que teve a operacao movida for um pacote.
             if (implementor instanceof Package) {
@@ -361,9 +371,21 @@ public class OperatorUtil {
                     /**
                      * Caso o pacote for vazio, faz um busca nas classes da arquitetura como um todo.
                      */
-                    final List<Class> targetClasses = allClassesWithConcerns(concern, architecture.getAllClasses());
-                    final Class klass = randonClass(targetClasses);
-                    if (klass != null) {
+                    //Alterado: busca na mesma camada e na camada superior
+                    List<arquitetura.representation.Package> packages = new ArrayList<>();
+                    packages.addAll(layer.getPackages());
+                    if (layer.getNumero() < layers.size()) {
+                        packages.addAll(StyleUtil.returnPackagesLayerNumber(layer.getNumero() + 1, layers));
+                    }
+
+                    final List<Class> targetClasses = new ArrayList<>();
+                    for (Package pac : packages) {
+                        targetClasses.addAll(allClassesWithConcerns(concern, pac.getAllClasses()));
+                    }
+                    Class klass = null;
+                    //final List<Class> targetClasses = allClassesWithConcerns(concern, architecture.getAllClasses());
+                    if (!targetClasses.isEmpty()) {
+                        klass = randonClass(targetClasses);
                         architecture.removeImplementedInterface(sourceInterface, sourceComp);
                         addExternalInterface(targetComp, architecture, targetInterface);
                         addImplementedInterface(targetComp, architecture, targetInterface, klass);

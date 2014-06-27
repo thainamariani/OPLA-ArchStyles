@@ -59,7 +59,7 @@ public class ArchitectureRepository {
             System.exit(0);
         }
 
-        ReaderConfig.setDirExportTarget("test/models/" +archname+ "/experiment/" + operator + "/" + operator + i + "/");
+        ReaderConfig.setDirExportTarget("test/models/" + archname + "/experiment/" + operator + "/" + operator + i + "/");
         ArchitectureRepository.generateArchitecture(operator + i);
 
         verifyOperator(operator, file.getPath());
@@ -76,6 +76,8 @@ public class ArchitectureRepository {
             printMoveOperation(file);
         } else if (operator.equals("addpackage")) {
             printAddPackage(file);
+        } else if (operator.equals("featuredriven")) {
+            printFeatureDriven(file);
         }
     }
 
@@ -188,6 +190,27 @@ public class ArchitectureRepository {
             bw.write("Nova Interface: " + ParametersRepository.getTargetInterface());
             bw.newLine();
             bw.write("Método movido: " + ParametersRepository.getMoveMethod());
+
+            bw.close();
+        } catch (IOException e) {
+            Configuration.logger_.severe("Error acceding to the file");
+            e.printStackTrace();
+        }
+    }
+
+    private static void printFeatureDriven(String path) {
+        try {
+            FileOutputStream fos = new FileOutputStream(path);
+            OutputStreamWriter osw = new OutputStreamWriter(fos);
+            BufferedWriter bw = new BufferedWriter(osw);
+
+            bw.write("Feature selecionada: " + ParametersRepository.getSelectedConcern());
+            bw.newLine();
+
+            for (arquitetura.representation.Package pac : ParametersRepository.getModularizationPackages()) {
+                bw.write("Pacote: " + pac.getName());
+                bw.newLine();
+            }
 
             bw.close();
         } catch (IOException e) {

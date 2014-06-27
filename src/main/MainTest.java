@@ -65,7 +65,7 @@ public class MainTest {
             //addPackage.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
             FeatureDriven featureDriven = new FeatureDriven();
             featureDriven.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
-            
+
             ArchitectureRepository.setCurrentArchitecture(architecture);
             ArchitectureRepository.saveArchitecture("featuredriven", "archtest3");
         }

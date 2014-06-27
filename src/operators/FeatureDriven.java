@@ -7,17 +7,17 @@ package operators;
 
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Concern;
+import arquitetura.representation.Package;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import jmetal.problems.OPLA;
-import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 import pojo.Layer;
 import pojo.Style;
 import util.OperatorUtil;
+import util.ParametersRepository;
 
 /**
  *
@@ -49,17 +49,14 @@ public class FeatureDriven implements OperatorConstraints {
                 if (concernsSelectedComp.size() > 1) {
                     //interesse selecionado
                     final Concern selectedConcern = OperatorUtil.randomObject(concernsSelectedComp);
-                    System.out.println("Selected concern: " + selectedConcern.getName());
-                    //pacotes associados exclusivamente ao interesse
-                    //comentado para teste
-                    //List<arquitetura.representation.Package> allComponentsAssignedOnlyToConcern = new ArrayList<arquitetura.representation.Package>(OperatorUtil.searchComponentsAssignedToConcern(selectedConcern, allComponents));
-                    //Pacotes associados por camadas
+                    ParametersRepository.setSelectedConcern(selectedConcern);
 
                     //adicionado: cria ou seleciona um pacote de modularização para cada camada
+                    List<arquitetura.representation.Package> modularizationPackages = new ArrayList<>();
                     for (Layer layer : list) {
+                        arquitetura.representation.Package newComp = null;
                         List<arquitetura.representation.Package> packagesLayerAssignedOnlyToConcern = new ArrayList<arquitetura.representation.Package>(OperatorUtil.searchComponentsAssignedToConcern(selectedConcern, layer.getPackages()));
                         if (packagesLayerAssignedOnlyToConcern.isEmpty()) {
-                            arquitetura.representation.Package newComp = null;
                             String name = getSuffixPrefix(layer);
                             if (suffix) {
                                 newComp = architecture.createPackage("Package" + OPLA.contComp_ + name);
@@ -67,29 +64,35 @@ public class FeatureDriven implements OperatorConstraints {
                                 newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
                             }
                             OPLA.contComp_++;
-                            OperatorUtil.modularizeConcernInComponent(layer.getPackages(), newComp, selectedConcern, architecture);
+                            OperatorUtil.modularizeConcernInComponent(list, layer, newComp, selectedConcern, architecture);
                         } else {
                             if (packagesLayerAssignedOnlyToConcern.size() == 1) {
-                                OperatorUtil.modularizeConcernInComponent(layer.getPackages(), packagesLayerAssignedOnlyToConcern.get(0), selectedConcern, architecture);
+                                modularizationPackages.add(packagesLayerAssignedOnlyToConcern.get(0));
+                                OperatorUtil.modularizeConcernInComponent(list, layer, packagesLayerAssignedOnlyToConcern.get(0), selectedConcern, architecture);
                             } else {
-                                OperatorUtil.modularizeConcernInComponent(layer.getPackages(), OperatorUtil.randomObject(packagesLayerAssignedOnlyToConcern), selectedConcern, architecture);
+                                Package pac = OperatorUtil.randomObject(packagesLayerAssignedOnlyToConcern);
+                                modularizationPackages.add(pac);
+                                OperatorUtil.modularizeConcernInComponent(list, layer, pac, selectedConcern, architecture);
                             }
                         }
                         packagesLayerAssignedOnlyToConcern.clear();
-                    }
 
-                    //comentado para teste
-//                    if (allComponentsAssignedOnlyToConcern.isEmpty()) {
-//                        OPLA.contComp_++;
-//                        OperatorUtil.modularizeConcernInComponent(allComponents, architecture.createPackage("Package" + OPLA.contComp_ + OperatorUtil.getSuffix(selectedComp)), selectedConcern, architecture);
-//                    } else {
-//                        if (allComponentsAssignedOnlyToConcern.size() == 1) {
-//                            OperatorUtil.modularizeConcernInComponent(allComponents, allComponentsAssignedOnlyToConcern.get(0), selectedConcern, architecture);
-//                        } else {
-//                            OperatorUtil.modularizeConcernInComponent(allComponents, OperatorUtil.randomObject(allComponentsAssignedOnlyToConcern), selectedConcern, architecture);
-//                        }
-//                    }
-//                    allComponentsAssignedOnlyToConcern.clear();
+                        if (newComp != null) {
+                            if (newComp.getElements().isEmpty()) {
+                                architecture.removePackage(newComp);
+                            } else {
+                                //adiciona o novo pacote na lista de camadas
+                                layer.getPackages().add(newComp);
+                                for (Layer l : LayerIdentification.getLISTLAYERS()) {
+                                    if (l.getNumero() == layer.getNumero()) {
+                                        l = layer;
+                                    }
+                                }
+                                modularizationPackages.add(newComp);
+                            }
+                        }
+                    }
+                    ParametersRepository.setModularizationPackages(modularizationPackages);
                 }
                 concernsSelectedComp.clear();
                 allComponents.clear();

@@ -5,12 +5,14 @@
  */
 package util;
 
-import arquitetura.representation.Architecture;
 import arquitetura.representation.Package;
 import arquitetura.representation.Class;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import arquitetura.representation.Attribute;
+import arquitetura.representation.Concern;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -26,6 +28,8 @@ public class ParametersRepository {
     public static Attribute moveAttribute = null;
     public static Interface sourceInterface = null;
     public static Interface targetInterface = null;
+    public static Concern selectedConcern = null;
+    public static List<arquitetura.representation.Package> modularizationPackages = new ArrayList<Package>();
 
     private ParametersRepository() {
     }
@@ -94,5 +98,20 @@ public class ParametersRepository {
         ParametersRepository.targetInterface = targetInterface;
     }
 
-    
+    public static Concern getSelectedConcern() {
+        return selectedConcern;
+    }
+
+    public static void setSelectedConcern(Concern selectedConcern) {
+        ParametersRepository.selectedConcern = selectedConcern;
+    }
+
+    public static List<Package> getModularizationPackages() {
+        return modularizationPackages;
+    }
+
+    public static void setModularizationPackages(List<Package> modularizationPackages) {
+        ParametersRepository.modularizationPackages = modularizationPackages;
+    }
+
 }

@@ -1,0 +1,36 @@
+Concern: Play
+
+Layer 3:
+
+Package1L3: Interface2L3, Class2L3 OK
+
+ou
+
+Package2L3: Interface1L3
+
+-------------------------------------------------------------------------------
+Layer 2:
+
+Novo Pacote:
+
+Nova Classe: Property1. Relacionamento bidirecional com Class1L2 (Pac1L2)
+Nova Interface: OperationX com alguma classe a implementando(verificar a camada). (Interface2L2 sem nenhum implementador) OK
+-------------------------------------------------------------------------------
+Layer 1:
+
+Package2L1:
+
+Interface2L1: relacionamento com pacote e implementada por alguma classe (verificar camadas) OK
+
+
+-------------------------------------------------------------------------------
+Concern: Brickles
+
+Layer 3:
+Criar pacote e apagar OK
+
+Layer 2:OK
+
+
+Layer 1:
+Novo pacote: Nova Classe com Operation1() e relacionamento com Class2L1 OK
