@@ -11,13 +11,13 @@ import java.util.List;
  *
  * @author Thainá
  */
-public abstract class Style {
+public class Server extends Style {
 
     private List<String> sufixos;
     private List<String> prefixos;
     private List<arquitetura.representation.Package> packages;
 
-    public Style() {
+    public Server() {
     }
 
     public List<String> getSufixos() {
@@ -43,5 +43,4 @@ public abstract class Style {
     public void setPackages(List<arquitetura.representation.Package> packages) {
         this.packages = packages;
     }
-
 }

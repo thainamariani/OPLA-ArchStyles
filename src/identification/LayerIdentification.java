@@ -19,6 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import pojo.Layer;
+import pojo.Style;
 import util.ElementUtil;
 import util.RelationshipUtil;
 import util.StyleUtil;
@@ -57,15 +58,15 @@ public class LayerIdentification extends StylesIdentification {
 
     @Override
     //retorna se está OK (ou seja, se não repete)
-    public boolean repeatSuffixPrefix(List<Layer> camadas) {
+    public boolean repeatSuffixPrefix(List<? extends Style> camadas) {
         boolean existSomeone = true;
         boolean exist = true;
 
         for (int i = 0; i < camadas.size(); i++) {
-            Layer layer = camadas.get(i);
+            Layer layer = (Layer) camadas.get(i);
             for (String sufixo : layer.getSufixos()) {
                 for (int j = i + 1; j < camadas.size(); j++) {
-                    Layer layer2 = camadas.get(j);
+                    Layer layer2 = (Layer) camadas.get(j);
                     for (String sufixo2 : layer2.getSufixos()) {
                         if ((sufixo.equalsIgnoreCase(sufixo2))) {
                             System.out.println("O sufixo " + sufixo + " está repetido.");
@@ -77,7 +78,7 @@ public class LayerIdentification extends StylesIdentification {
 
             for (String prefixo : layer.getPrefixos()) {
                 for (int j = i + 1; j < camadas.size(); j++) {
-                    Layer layer2 = camadas.get(j);
+                    Layer layer2 = (Layer) camadas.get(j);
                     for (String prefixo2 : layer2.getPrefixos()) {
                         if (prefixo.equalsIgnoreCase(prefixo2)) {
                             System.out.println("O prefixo " + prefixo + " está repetido.");
@@ -85,9 +86,9 @@ public class LayerIdentification extends StylesIdentification {
                         }
                     }
                 }
-                if (exist == false) {
-                    existSomeone = false;
-                }
+            }
+            if (exist == false) {
+                existSomeone = false;
             }
         }
 //        for (Layer layer : camadas) {
@@ -110,7 +111,7 @@ public class LayerIdentification extends StylesIdentification {
 
     //verifica se é sufixo ou prefixo
     @Override
-    public boolean checkSuffixPrefix(List<Layer> camadas) {
+    public boolean checkSuffixPrefix(List<? extends Style> camadas) {
         List<Layer> layers = (List<Layer>) camadas;
         boolean existSomeone = true;
         boolean exist = true;
@@ -159,10 +160,11 @@ public class LayerIdentification extends StylesIdentification {
     //método que verifica se o relacionamento existente entre as camadas está OK para o estilo arquitetural;
     //TODO: elaborar para association e testar com todos os relacionamentos..
     @Override
-    public boolean checkStyle(List<Layer> layers) {
+    public boolean checkStyle(List<? extends Style> camadas) {
         boolean isCorrect = true;
         boolean isCorrectRelationship = true;
         //percorre cada camada
+        List<Layer> layers = (List<Layer>) camadas;
         for (Layer layer : layers) {
             List<Package> layerPackages = layer.getPackages();
             //percorre cada pacote da camada
@@ -252,9 +254,10 @@ public class LayerIdentification extends StylesIdentification {
     //método que identifica quais pacotes são de qual camada com base nos sufixos e prefixos,
     //..retorna false se forem encontrados pacotes sem camadas (sem os sufixos ou prefixos informados)
     @Override
-    public boolean identify(List<Layer> layers) {
+    public boolean identify(List<? extends Style> camadas) {
         Set<Package> packages = architecture.getAllPackages();
         int sizePackages = 0;
+        List<Layer> layers = (List<Layer>) camadas;
         for (Layer layer : layers) {
             List<Package> layerPackages = new ArrayList<>();
             for (String sufixo : layer.getSufixos()) {

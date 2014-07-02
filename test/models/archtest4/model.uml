@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_qCEUcP-fEeOVmYnmooAGrg" name="model">
+  <packagedElement xmi:type="uml:Package" xmi:id="_VTOBoP-xEeOVmYnmooAGrg" name="PacoteServer1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_41RdgP-0EeOVmYnmooAGrg" name="Class1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" name="Class2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_YXj8YP-xEeOVmYnmooAGrg" name="PacoteServer2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_7DdMUP-0EeOVmYnmooAGrg" name="Class1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" name="Class2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" name="PacoteClient1"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_eBq_gP-xEeOVmYnmooAGrg" name="PacoteClient1"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="PacoteClient2"/>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9vF4sP-fEeOVmYnmooAGrg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9vI8AP-fEeOVmYnmooAGrg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="file:/C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/config/concerns.profile.uml#_RMC1UJ1jEeOLoqRf7Zycww"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="file:/C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/config/concerns.profile.uml#_9v_84HqaEeK1gM_kVgXLQw"/>
+  </profileApplication>
+  <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9vKxMP-fEeOVmYnmooAGrg">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9vLYQP-fEeOVmYnmooAGrg" source="http://www.eclipse.org/uml2/2.0.0/UML">
+      <references xmi:type="ecore:EPackage" href="file:/C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/config/smarty.profile.uml#_cl7m0I9OEeO5S8PTmh49hw"/>
+    </eAnnotations>
+    <appliedProfile xmi:type="uml:Profile" href="file:/C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/config/smarty.profile.uml#_9ppH0MeqEeK-FvYCaEYIKA"/>
+  </profileApplication>
+</uml:Model>

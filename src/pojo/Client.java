@@ -5,19 +5,20 @@
  */
 package pojo;
 
+import arquitetura.representation.Package;
 import java.util.List;
 
 /**
  *
  * @author Thainá
  */
-public abstract class Style {
+public class Client extends Style {
 
     private List<String> sufixos;
     private List<String> prefixos;
     private List<arquitetura.representation.Package> packages;
 
-    public Style() {
+    public Client() {
     }
 
     public List<String> getSufixos() {
@@ -36,11 +37,11 @@ public abstract class Style {
         this.prefixos = prefixos;
     }
 
-    public List<arquitetura.representation.Package> getPackages() {
+    public List<Package> getPackages() {
         return packages;
     }
 
-    public void setPackages(List<arquitetura.representation.Package> packages) {
+    public void setPackages(List<Package> packages) {
         this.packages = packages;
     }
 
