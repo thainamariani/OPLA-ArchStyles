@@ -6,6 +6,7 @@
 package identification;
 
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Interface;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -157,7 +158,55 @@ public class ClientServerIdentification extends StylesIdentification {
         return false;
     }
 
-    public boolean identify(List<Client> clients, List<Server> servers) {
+    @Override
+    public boolean identify(List<? extends Style> clientsservers) {
+        Set<arquitetura.representation.Package> packages = architecture.getAllPackages();
+        int sizePackages = 0;
+        for (Style clientserver : clientsservers) {
+            List<arquitetura.representation.Package> csPackages = new ArrayList<>();
+            for (String sufixo : clientserver.getSufixos()) {
+                for (arquitetura.representation.Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.endsWith(sufixo.toLowerCase())) {
+                        csPackages.add(p);
+                        Set<arquitetura.representation.Package> nestedPackages = p.getNestedPackages();
+                        for (arquitetura.representation.Package np : nestedPackages) {
+                            csPackages.add(np);
+                            sizePackages++;
+                        }
+                        sizePackages++;
+                    }
+                }
+            }
+            for (String prefixo : clientserver.getPrefixos()) {
+                for (arquitetura.representation.Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.startsWith(prefixo.toLowerCase())) {
+                        csPackages.add(p);
+                        Set<arquitetura.representation.Package> nestedPackages = p.getNestedPackages();
+                        for (arquitetura.representation.Package np : nestedPackages) {
+                            csPackages.add(np);
+                            sizePackages++;
+                        }
+                        sizePackages++;
+                    }
+                }
+            }
+            clientserver.setPackages(csPackages);
+        }
+
+        Set<Interface> interfacesArch = architecture.getInterfaces();
+        Set<arquitetura.representation.Class> classesArch = architecture.getClasses();
+        boolean isCorrect = false;
+        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == packages.size())) {
+            isCorrect = checkStyle(clientsservers);
+        } else {
+            System.out.println("Erro ao verificar os clientes e servidores. Verifique se existem pacotes sem os sufixos ou prefixos informados, ou ainda, elementos na arquitetura que não pertençam a nenhum pacote.");
+        }
+        return isCorrect;
+    }
+
+    public boolean checkStyle(List<? extends Style> list) {
         return false;
     }
 
