@@ -1,16 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_qCEUcP-fEeOVmYnmooAGrg" name="model">
   <packagedElement xmi:type="uml:Package" xmi:id="_VTOBoP-xEeOVmYnmooAGrg" name="PacoteServer1">
-    <packagedElement xmi:type="uml:Class" xmi:id="_41RdgP-0EeOVmYnmooAGrg" name="Class1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_41RdgP-0EeOVmYnmooAGrg" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_iO9hkAPeEeSVmYnmooAGrg" name="class1" type="_f722gAPeEeSVmYnmooAGrg" association="_iPLkAAPeEeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iO9hkQPeEeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iO9hkgPeEeSVmYnmooAGrg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
     <packagedElement xmi:type="uml:Class" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" name="Class2"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_iPLkAAPeEeSVmYnmooAGrg" name="class1_class1_1" memberEnd="_iPLkAQPeEeSVmYnmooAGrg _iO9hkAPeEeSVmYnmooAGrg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_iPLkAQPeEeSVmYnmooAGrg" name="class1" type="_41RdgP-0EeOVmYnmooAGrg" association="_iPLkAAPeEeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iPLkAgPeEeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iPLkAwPeEeSVmYnmooAGrg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_YXj8YP-xEeOVmYnmooAGrg" name="PacoteServer2">
     <packagedElement xmi:type="uml:Class" xmi:id="_7DdMUP-0EeOVmYnmooAGrg" name="Class1"/>
     <packagedElement xmi:type="uml:Class" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" name="Class2"/>
   </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" name="PacoteClient1"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_eBq_gP-xEeOVmYnmooAGrg" name="PacoteClient1"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="PacoteClient2"/>
+  <packagedElement xmi:type="uml:Package" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" name="PacoteClient1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_f722gAPeEeSVmYnmooAGrg" name="Class1"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_eBq_gP-xEeOVmYnmooAGrg" name="PacoteClient1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_k5YrAAPfEeSVmYnmooAGrg" name="Class1">
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_mgZFEAPfEeSVmYnmooAGrg" name="class1" type="_lIO_UAPfEeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_mgZFEQPfEeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_mgZFEgPfEeSVmYnmooAGrg" value="1"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_02vfkAPfEeSVmYnmooAGrg" name="class1" type="_lIO_UAPfEeSVmYnmooAGrg" association="_02wtsAPfEeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_02vfkQPfEeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_02vfkgPfEeSVmYnmooAGrg" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Association" xmi:id="_02wtsAPfEeSVmYnmooAGrg" name="class1_class1_1" memberEnd="_02wtsQPfEeSVmYnmooAGrg _02vfkAPfEeSVmYnmooAGrg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_02wtsQPfEeSVmYnmooAGrg" name="class1" type="_k5YrAAPfEeSVmYnmooAGrg" association="_02wtsAPfEeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_02wtsgPfEeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_02wtswPfEeSVmYnmooAGrg" value="1"/>
+      </ownedEnd>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="PacoteClient2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_lIO_UAPfEeSVmYnmooAGrg" name="Class1"/>
+  </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9vF4sP-fEeOVmYnmooAGrg">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9vI8AP-fEeOVmYnmooAGrg" source="http://www.eclipse.org/uml2/2.0.0/UML">
       <references xmi:type="ecore:EPackage" href="file:/C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/config/concerns.profile.uml#_RMC1UJ1jEeOLoqRf7Zycww"/>

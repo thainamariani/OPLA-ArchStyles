@@ -158,7 +158,6 @@ public class LayerIdentification extends StylesIdentification {
     }
 
     //método que verifica se o relacionamento existente entre as camadas está OK para o estilo arquitetural;
-    //TODO: elaborar para association e testar com todos os relacionamentos..
     @Override
     public boolean checkStyle(List<? extends Style> camadas) {
         boolean isCorrect = true;

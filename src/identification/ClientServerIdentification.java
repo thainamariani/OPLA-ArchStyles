@@ -6,7 +6,13 @@
 package identification;
 
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
+import arquitetura.representation.relationship.AssociationClassRelationship;
+import arquitetura.representation.relationship.AssociationEnd;
+import arquitetura.representation.relationship.AssociationRelationship;
+import arquitetura.representation.relationship.Relationship;
+import static identification.LayerIdentification.setLISTLAYERS;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -14,6 +20,9 @@ import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
 import pojo.Style;
+import util.ElementUtil;
+import util.RelationshipUtil;
+import util.StyleUtil;
 
 /**
  *
@@ -206,8 +215,80 @@ public class ClientServerIdentification extends StylesIdentification {
         return isCorrect;
     }
 
-    public boolean checkStyle(List<? extends Style> list) {
-        return false;
+    @Override
+    public boolean checkStyle(List<? extends Style> clientsservers) {
+        boolean isCorrect = true;
+        boolean isCorrectRelationship = true;
+
+        for (Style clientserver : clientsservers) {
+            List<arquitetura.representation.Package> csPackages = clientserver.getPackages();
+            for (arquitetura.representation.Package csPackage : csPackages) {
+                Set<Element> elements = ElementUtil.selectPackageClassesInterfaces(csPackage);
+                //percorre cada elemento (classe, interface, pacote) do pacote
+                for (Element element : elements) {
+                    Set<Relationship> relationships = ElementUtil.getRelationshipByElement(element);
+                    //percorre cada relacionamento do elemento
+                    for (Relationship r : relationships) {
+                        Element used = null;
+                        Element client = null;
+                        if (r instanceof AssociationRelationship) {
+                            if (RelationshipUtil.verifyAssociationRelationship((AssociationRelationship) r)) {
+                                used = RelationshipUtil.getUsedElementFromRelationship((AssociationRelationship) r);
+                                client = RelationshipUtil.getClientElementFromRelationship((AssociationRelationship) r);
+                                isCorrectRelationship = checkUnidirectionalRelationship(used, client, clientserver, clientsservers, csPackages, csPackage, r);
+                            } else {
+                                //isCorrectRelationship = checkBidirectionalRelationship((AssociationRelationship) r, csPackages);
+                            }
+                        } else if (r instanceof AssociationClassRelationship) {
+                            //isCorrectRelationship = checkAssociationClassRelationship((AssociationClassRelationship) r, layerPackages);
+                        } else {
+                            used = RelationshipUtil.getUsedElementFromRelationship(r);
+                            client = RelationshipUtil.getClientElementFromRelationship(r);
+                            isCorrectRelationship = checkUnidirectionalRelationship(used, client, clientserver, clientsservers, csPackages, csPackage, r);
+                        }
+                    }
+                    if (isCorrectRelationship == false) {
+                        isCorrect = false;
+                    }
+                }
+            }
+        }
+        //setLISTLAYERS(layers);
+        return isCorrect;
+    }
+
+//    public boolean checkAssociationClassRelationship(AssociationClassRelationship association, List<arquitetura.representation.Package> layerPackages) {
+//        arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(association.getAssociationClass(), architecture);
+//        arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
+//        arquitetura.representation.Package packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
+//        if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2)) || (!layerPackages.contains(packageElement3))) {
+//            System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " devem estar na mesma camada");
+//            return false;
+//        }
+//        return true;
+//    }
+//    public boolean checkBidirectionalRelationship(AssociationRelationship association, List<arquitetura.representation.Package> csPackages) {
+//        List<AssociationEnd> participants = association.getParticipants();
+//        arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(participants.get(0).getCLSClass(), architecture);
+//        arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(participants.get(1).getCLSClass(), architecture);
+//        if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2))) {
+//            System.out.println("Elementos " + participants.get(0).getCLSClass() + " e " + participants.get(1).getCLSClass() + " devem estar na mesma camada");
+//            return false;
+//        }
+//        return true;
+//    }
+    public boolean checkUnidirectionalRelationship(Element used, Element client, Style clientserver, List<? extends Style> clientsservers, List<arquitetura.representation.Package> csPackages, arquitetura.representation.Package csPackage, Relationship r) {
+        arquitetura.representation.Package usedPackage = ElementUtil.getPackage(used, architecture);
+        arquitetura.representation.Package clientPackage = ElementUtil.getPackage(client, architecture);
+
+        //TODO: GUI: mudar mensagens quando tiver a GUI
+        if (clientserver instanceof Client) {
+            if (usedPackage.equals(csPackage) && !csPackages.contains(clientPackage)) {
+                System.out.println("Relacionamento " + r.getName() + " entre o elemento " + client + " pertencente ao pacote " + clientPackage + " e o elemento " + used + " pertencente ao pacote " + usedPackage + " é inválido para o estilo arquitetural cliente/servidor.");
+                return false;
+            }
+        }
+        return true;
     }
 
 }
