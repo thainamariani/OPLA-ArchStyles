@@ -7,6 +7,7 @@ package util;
 
 import java.util.List;
 import pojo.Layer;
+import pojo.Style;
 
 /**
  *
@@ -27,6 +28,17 @@ public class StyleUtil {
         for (Layer layer : layers) {
             if (layer.getNumero() == numLayer) {
                 return layer;
+            }
+        }
+        return null;
+    }
+
+    public static Style returnClientServer(arquitetura.representation.Package pacote, List<Style> clientsservers) {
+        for (Style clientserver : clientsservers) {
+            for (arquitetura.representation.Package pac : clientserver.getPackages()) {
+                if (pac.equals(pacote)) {
+                    return clientserver;
+                }
             }
         }
         return null;

@@ -30,26 +30,26 @@ import util.StyleUtil;
  */
 public class ClientServerIdentification extends StylesIdentification {
 
-    public static List<Layer> LISTCLIENTS = null;
-    public static List<Layer> LISTSERVERS = null;
+    public static List<Client> LISTCLIENTS = new ArrayList<>();
+    public static List<Server> LISTSERVERS = new ArrayList<>();
 
     public ClientServerIdentification(Architecture architecture) {
         super(architecture);
     }
 
-    public static List<Layer> getLISTCLIENTS() {
+    public static List<Client> getLISTCLIENTS() {
         return LISTCLIENTS;
     }
 
-    public static void setLISTCLIENTS(List<Layer> LISTCLIENTS) {
+    public static void setLISTCLIENTS(List<Client> LISTCLIENTS) {
         ClientServerIdentification.LISTCLIENTS = LISTCLIENTS;
     }
 
-    public static List<Layer> getLISTSERVERS() {
+    public static List<Server> getLISTSERVERS() {
         return LISTSERVERS;
     }
 
-    public static void setLISTSERVERS(List<Layer> LISTSERVERS) {
+    public static void setLISTSERVERS(List<Server> LISTSERVERS) {
         ClientServerIdentification.LISTSERVERS = LISTSERVERS;
     }
 
@@ -237,10 +237,10 @@ public class ClientServerIdentification extends StylesIdentification {
                                 client = RelationshipUtil.getClientElementFromRelationship((AssociationRelationship) r);
                                 isCorrectRelationship = checkUnidirectionalRelationship(used, client, clientserver, clientsservers, csPackages, csPackage, r);
                             } else {
-                                //isCorrectRelationship = checkBidirectionalRelationship((AssociationRelationship) r, csPackages);
+                                isCorrectRelationship = checkBidirectionalRelationship((AssociationRelationship) r, csPackages, clientserver, clientsservers);
                             }
                         } else if (r instanceof AssociationClassRelationship) {
-                            //isCorrectRelationship = checkAssociationClassRelationship((AssociationClassRelationship) r, layerPackages);
+                            isCorrectRelationship = checkAssociationClassRelationship((AssociationClassRelationship) r, csPackages, clientserver, clientsservers);
                         } else {
                             used = RelationshipUtil.getUsedElementFromRelationship(r);
                             client = RelationshipUtil.getClientElementFromRelationship(r);
@@ -253,30 +253,47 @@ public class ClientServerIdentification extends StylesIdentification {
                 }
             }
         }
-        //setLISTLAYERS(layers);
+        setClientsServers(clientsservers);
         return isCorrect;
     }
 
-//    public boolean checkAssociationClassRelationship(AssociationClassRelationship association, List<arquitetura.representation.Package> layerPackages) {
-//        arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(association.getAssociationClass(), architecture);
-//        arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
-//        arquitetura.representation.Package packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
-//        if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2)) || (!layerPackages.contains(packageElement3))) {
-//            System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " devem estar na mesma camada");
-//            return false;
-//        }
-//        return true;
-//    }
-//    public boolean checkBidirectionalRelationship(AssociationRelationship association, List<arquitetura.representation.Package> csPackages) {
-//        List<AssociationEnd> participants = association.getParticipants();
-//        arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(participants.get(0).getCLSClass(), architecture);
-//        arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(participants.get(1).getCLSClass(), architecture);
-//        if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2))) {
-//            System.out.println("Elementos " + participants.get(0).getCLSClass() + " e " + participants.get(1).getCLSClass() + " devem estar na mesma camada");
-//            return false;
-//        }
-//        return true;
-//    }
+    public boolean checkAssociationClassRelationship(AssociationClassRelationship association, List<arquitetura.representation.Package> csPackages, Style cs, List<? extends Style> clientsservers) {
+        arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(association.getAssociationClass(), architecture);
+        arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
+        arquitetura.representation.Package packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
+        if ((cs instanceof Client) && !csPackages.contains(packageElement1) && !csPackages.contains(packageElement2) && !csPackages.contains(packageElement3)) {
+            System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " não podem estar em diferentes cliente");
+            return false;
+        } else {
+            Style pac1 = StyleUtil.returnClientServer(packageElement1, (List<Style>) clientsservers);
+            Style pac2 = StyleUtil.returnClientServer(packageElement2, (List<Style>) clientsservers);
+            Style pac3 = StyleUtil.returnClientServer(packageElement2, (List<Style>) clientsservers);
+            if (pac1 instanceof Client || pac2 instanceof Client || pac3 instanceof Client) {
+                System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " não podem estar entre clientes e servidores");
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean checkBidirectionalRelationship(AssociationRelationship association, List<arquitetura.representation.Package> csPackages, Style cs, List<? extends Style> clientsservers) {
+        List<AssociationEnd> participants = association.getParticipants();
+        arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(participants.get(0).getCLSClass(), architecture);
+        arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(participants.get(1).getCLSClass(), architecture);
+        if ((cs instanceof Client) && !csPackages.contains(packageElement1) && !csPackages.contains(packageElement2)) {
+            System.out.println("Elementos " + participants.get(0).getCLSClass() + " e " + participants.get(1).getCLSClass() + " não podem estar entre diferentes clientes");
+            return false;
+        } else {
+            Style pac1 = StyleUtil.returnClientServer(packageElement1, (List<Style>) clientsservers);
+            Style pac2 = StyleUtil.returnClientServer(packageElement2, (List<Style>) clientsservers);
+            if (pac1 instanceof Client || pac2 instanceof Client) {
+                System.out.println("Elementos " + participants.get(0).getCLSClass() + " e " + participants.get(1).getCLSClass() + " não podem estar entre clientes e servidores");
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean checkUnidirectionalRelationship(Element used, Element client, Style clientserver, List<? extends Style> clientsservers, List<arquitetura.representation.Package> csPackages, arquitetura.representation.Package csPackage, Relationship r) {
         arquitetura.representation.Package usedPackage = ElementUtil.getPackage(used, architecture);
         arquitetura.representation.Package clientPackage = ElementUtil.getPackage(client, architecture);
@@ -289,6 +306,20 @@ public class ClientServerIdentification extends StylesIdentification {
             }
         }
         return true;
+    }
+
+    public void setClientsServers(List<? extends Style> clientsservers) {
+        List<Client> clients = new ArrayList<>();
+        List<Server> servers = new ArrayList<>();
+        for (Style clientserver : clientsservers) {
+            if (clientserver instanceof Client) {
+                clients.add((Client) clientserver);
+            } else {
+                servers.add((Server) clientserver);
+            }
+        }
+        setLISTCLIENTS(clients);
+        setLISTSERVERS(servers);
     }
 
 }
