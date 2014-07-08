@@ -1,46 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="_qCEUcP-fEeOVmYnmooAGrg" name="model">
   <packagedElement xmi:type="uml:Package" xmi:id="_VTOBoP-xEeOVmYnmooAGrg" name="Pacote1Server1">
-    <packagedElement xmi:type="uml:Class" xmi:id="_41RdgP-0EeOVmYnmooAGrg" name="Class1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_41RdgP-0EeOVmYnmooAGrg" name="ClassS1-1">
       <ownedAttribute xmi:type="uml:Property" xmi:id="_iO9hkAPeEeSVmYnmooAGrg" name="class1" type="_f722gAPeEeSVmYnmooAGrg">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_iO9hkQPeEeSVmYnmooAGrg" value="1"/>
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_iO9hkgPeEeSVmYnmooAGrg" value="1"/>
       </ownedAttribute>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" name="Class2"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_YXj8YP-xEeOVmYnmooAGrg" name="Pacote1Server2">
-    <packagedElement xmi:type="uml:Class" xmi:id="_7DdMUP-0EeOVmYnmooAGrg" name="Class1"/>
-    <packagedElement xmi:type="uml:Class" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" name="Class2"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" name="Pacote1Client1">
-    <packagedElement xmi:type="uml:Class" xmi:id="_f722gAPeEeSVmYnmooAGrg" name="Class1"/>
-  </packagedElement>
-  <packagedElement xmi:type="uml:Package" xmi:id="_eBq_gP-xEeOVmYnmooAGrg" name="PacoteClient1"/>
-  <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="Pacote1Client2">
-    <packagedElement xmi:type="uml:Class" xmi:id="_sgxo0ARQEeSVmYnmooAGrg" name="ClassTeste">
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_RKL1sARREeSVmYnmooAGrg" name="classShit">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RKL1sQRREeSVmYnmooAGrg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RKL1sgRREeSVmYnmooAGrg" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_dQDbUARREeSVmYnmooAGrg" name="classTeste2">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_dQDbUQRREeSVmYnmooAGrg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_dQDbUgRREeSVmYnmooAGrg" value="1"/>
-      </ownedAttribute>
-      <ownedAttribute xmi:type="uml:Property" xmi:id="_pFNEYARREeSVmYnmooAGrg" name="class1" type="_nRj8gARREeSVmYnmooAGrg" association="_pFOSgARREeSVmYnmooAGrg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pFNEYQRREeSVmYnmooAGrg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pFNEYgRREeSVmYnmooAGrg" value="1"/>
+      <ownedAttribute xmi:type="uml:Property" xmi:id="_pVrGMAX6EeSVmYnmooAGrg" name="classC1-1" type="_f722gAPeEeSVmYnmooAGrg" association="_pVrtQAX6EeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pVrGMQX6EeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pVrGMgX6EeSVmYnmooAGrg" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_pFOSgARREeSVmYnmooAGrg" name="classTeste_class1_1" memberEnd="_pFOSgQRREeSVmYnmooAGrg _pFNEYARREeSVmYnmooAGrg">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_pFOSgQRREeSVmYnmooAGrg" name="classTeste" type="_sgxo0ARQEeSVmYnmooAGrg" association="_pFOSgARREeSVmYnmooAGrg">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pFOSggRREeSVmYnmooAGrg" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pFOSgwRREeSVmYnmooAGrg" value="1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" clientDependency="_nbDzoAX6EeSVmYnmooAGrg" name="ClassS1-2"/>
+    <packagedElement xmi:type="uml:Usage" xmi:id="_nbDzoAX6EeSVmYnmooAGrg" name="Usage1" client="_OyrwAP-1EeOVmYnmooAGrg" supplier="_7DdMUP-0EeOVmYnmooAGrg"/>
+    <packagedElement xmi:type="uml:Association" xmi:id="_pVrtQAX6EeSVmYnmooAGrg" name="associationuni1" memberEnd="_pVrtQQX6EeSVmYnmooAGrg _pVrGMAX6EeSVmYnmooAGrg">
+      <ownedEnd xmi:type="uml:Property" xmi:id="_pVrtQQX6EeSVmYnmooAGrg" name="classS1-1" type="_41RdgP-0EeOVmYnmooAGrg" association="_pVrtQAX6EeSVmYnmooAGrg">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pVsUUAX6EeSVmYnmooAGrg" value="1"/>
+        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pVsUUQX6EeSVmYnmooAGrg" value="1"/>
       </ownedEnd>
     </packagedElement>
   </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_YXj8YP-xEeOVmYnmooAGrg" name="Pacote1Server2">
+    <packagedElement xmi:type="uml:Class" xmi:id="_7DdMUP-0EeOVmYnmooAGrg" name="ClassS2-1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" name="ClassS2-2"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" name="Pacote1Client1">
+    <packagedElement xmi:type="uml:Class" xmi:id="_f722gAPeEeSVmYnmooAGrg" clientDependency="_R-Y2sAX6EeSVmYnmooAGrg" name="ClassC1-1"/>
+    <packagedElement xmi:type="uml:Realization" xmi:id="_R-Y2sAX6EeSVmYnmooAGrg" name="Realization1" client="_f722gAPeEeSVmYnmooAGrg" supplier="_nRj8gARREeSVmYnmooAGrg"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_kA_uQAX_EeSVmYnmooAGrg" clientDependency="_mSAHkAX_EeSVmYnmooAGrg" name="ClassAbstraction"/>
+    <packagedElement xmi:type="uml:Abstraction" xmi:id="_mSAHkAX_EeSVmYnmooAGrg" name="Abstraction1" client="_kA_uQAX_EeSVmYnmooAGrg" supplier="_OyrwAP-1EeOVmYnmooAGrg"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="Pacote1Client2">
+    <packagedElement xmi:type="uml:Package" xmi:id="_uch9MAX4EeSVmYnmooAGrg" name="PacTeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_xN878AX4EeSVmYnmooAGrg" name="ClassC2-1"/>
+    </packagedElement>
+  </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_kkt7wARREeSVmYnmooAGrg" name="Pacote2Client1">
-    <packagedElement xmi:type="uml:Class" xmi:id="_nRj8gARREeSVmYnmooAGrg" name="Class1"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="_nRj8gARREeSVmYnmooAGrg" clientDependency="_sOtI0AX6EeSVmYnmooAGrg" name="ClassC1-2"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="_sOtI0AX6EeSVmYnmooAGrg" name="Dependency1" client="_nRj8gARREeSVmYnmooAGrg" supplier="_xN878AX4EeSVmYnmooAGrg"/>
   </packagedElement>
   <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9vF4sP-fEeOVmYnmooAGrg">
     <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9vI8AP-fEeOVmYnmooAGrg" source="http://www.eclipse.org/uml2/2.0.0/UML">
