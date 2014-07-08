@@ -10,6 +10,7 @@ import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
 import arquitetura.representation.OperationsOverAbstraction;
 import arquitetura.representation.relationship.AbstractionRelationship;
+import arquitetura.representation.relationship.AssociationClassRelationship;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
 import arquitetura.representation.relationship.UsageRelationship;
@@ -90,6 +91,50 @@ public class ClientServerIdentification2Test {
 
     @Test
     public void testCheckAssociationClassRelationship() {
+        boolean associationclass1 = false;
+        boolean associationclass2 = true;
+        boolean associationclass3 = true;
+        boolean associationclass4 = false;
+
+        arquitetura.representation.Class classS22 = architectureTest.findClassByName("ClassS2-2").get(0);
+        arquitetura.representation.Package packageClassS22 = ElementUtil.getPackage(classS22, architectureTest);
+        Style clientserver = StyleUtil.returnClientServer(packageClassS22, clientsservers);
+
+        for (Relationship relationship : classS22.getRelationships()) {
+            if (relationship instanceof AssociationClassRelationship) {
+                associationclass1 = clientServerIdentification.checkAssociationClassRelationship((AssociationClassRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+        }
+
+        arquitetura.representation.Class classC11 = architectureTest.findClassByName("ClassC1-1").get(0);
+        arquitetura.representation.Package packageClassC11 = ElementUtil.getPackage(classC11, architectureTest);
+        clientserver = StyleUtil.returnClientServer(packageClassC11, clientsservers);
+
+        for (Relationship relationship : classC11.getRelationships()) {
+            if (relationship instanceof AssociationClassRelationship) {
+                if (relationship.getName().equalsIgnoreCase("associationclass2")) {
+                    associationclass2 = clientServerIdentification.checkAssociationClassRelationship((AssociationClassRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+                }
+                if (relationship.getName().equalsIgnoreCase("associationclass4")) {
+                    associationclass4 = clientServerIdentification.checkAssociationClassRelationship((AssociationClassRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+                }
+            }
+        }
+
+        arquitetura.representation.Class classC21 = architectureTest.findClassByName("ClassC2-1").get(0);
+        arquitetura.representation.Package packageClassC21 = ElementUtil.getPackage(classC21, architectureTest);
+        clientserver = StyleUtil.returnClientServer(packageClassC21, clientsservers);
+
+        for (Relationship relationship : classC21.getRelationships()) {
+            if (relationship instanceof AssociationClassRelationship) {
+                associationclass3 = clientServerIdentification.checkAssociationClassRelationship((AssociationClassRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+        }
+
+        Assert.assertTrue(associationclass1);
+        Assert.assertFalse(associationclass2);
+        Assert.assertFalse(associationclass3);
+        Assert.assertTrue(associationclass4);
     }
 
     @Test
