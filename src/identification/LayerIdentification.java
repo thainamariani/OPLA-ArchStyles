@@ -191,9 +191,9 @@ public class LayerIdentification extends StylesIdentification {
                             client = RelationshipUtil.getClientElementFromRelationship(r);
                             isCorrectRelationship = checkUnidirectionalRelationship(used, client, layer, layers, layerPackages, layerPackage, r);
                         }
-                    }
-                    if (isCorrectRelationship == false) {
-                        isCorrect = false;
+                        if (isCorrectRelationship == false) {
+                            isCorrect = false;
+                        }
                     }
                 }
             }

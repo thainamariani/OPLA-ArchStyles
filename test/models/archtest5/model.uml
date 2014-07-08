@@ -66,16 +66,6 @@
   </packagedElement>
   <packagedElement xmi:type="uml:Package" xmi:id="_kkt7wARREeSVmYnmooAGrg" name="Pacote2Client1">
     <packagedElement xmi:type="uml:Class" xmi:id="_nRj8gARREeSVmYnmooAGrg" name="ClassC1-2"/>
-    <packagedElement xmi:type="uml:Association" xmi:id="_v1GTkAaxEeSRmKRqOSCJsQ" name="biassociation3" memberEnd="_v1GTkQaxEeSRmKRqOSCJsQ _v1D3UAaxEeSRmKRqOSCJsQ">
-      <ownedEnd xmi:type="uml:Property" xmi:id="_v1GTkQaxEeSRmKRqOSCJsQ" name="classC1-2" type="_nRj8gARREeSVmYnmooAGrg" association="_v1GTkAaxEeSRmKRqOSCJsQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1GTkgaxEeSRmKRqOSCJsQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v1GTkwaxEeSRmKRqOSCJsQ" value="1"/>
-      </ownedEnd>
-      <ownedEnd xmi:type="uml:Property" xmi:id="_v1D3UAaxEeSRmKRqOSCJsQ" name="classS2-1" type="_7DdMUP-0EeOVmYnmooAGrg" association="_v1GTkAaxEeSRmKRqOSCJsQ">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_v1D3UQaxEeSRmKRqOSCJsQ" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_v1D3UgaxEeSRmKRqOSCJsQ" value="1"/>
-      </ownedEnd>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_Hz-HgAayEeSRmKRqOSCJsQ" name="biassociation4" memberEnd="_Hz-HgQayEeSRmKRqOSCJsQ _Hz85YAayEeSRmKRqOSCJsQ">
       <ownedEnd xmi:type="uml:Property" xmi:id="_Hz-HgQayEeSRmKRqOSCJsQ" name="classC1-2" type="_nRj8gARREeSVmYnmooAGrg" association="_Hz-HgAayEeSRmKRqOSCJsQ">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Hz-HggayEeSRmKRqOSCJsQ" value="1"/>
