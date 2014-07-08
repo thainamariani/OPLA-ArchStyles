@@ -29,30 +29,30 @@ import util.StyleUtil;
  * @author Thainá
  */
 public class ClientServerIdentification extends StylesIdentification {
-
+    
     public static List<Client> LISTCLIENTS = new ArrayList<>();
     public static List<Server> LISTSERVERS = new ArrayList<>();
-
+    
     public ClientServerIdentification(Architecture architecture) {
         super(architecture);
     }
-
+    
     public static List<Client> getLISTCLIENTS() {
         return LISTCLIENTS;
     }
-
+    
     public static void setLISTCLIENTS(List<Client> LISTCLIENTS) {
         ClientServerIdentification.LISTCLIENTS = LISTCLIENTS;
     }
-
+    
     public static List<Server> getLISTSERVERS() {
         return LISTSERVERS;
     }
-
+    
     public static void setLISTSERVERS(List<Server> LISTSERVERS) {
         ClientServerIdentification.LISTSERVERS = LISTSERVERS;
     }
-
+    
     public boolean isCorrect(List<? extends Style> clientsservers) {
         boolean isCorrect = false;
         if (repeatSuffixPrefix(clientsservers)) {
@@ -68,10 +68,10 @@ public class ClientServerIdentification extends StylesIdentification {
     //retorna se está OK (ou seja, se não repete)
     @Override
     public boolean repeatSuffixPrefix(List<? extends Style> clientsservers) {
-
+        
         boolean existSomeone = true;
         boolean exist = true;
-
+        
         for (int i = 0; i < clientsservers.size(); i++) {
             //inclui clientes e servidores
             Style clientserver = null;
@@ -96,7 +96,7 @@ public class ClientServerIdentification extends StylesIdentification {
                     }
                 }
             }
-
+            
             for (String prefixo : clientserver.getPrefixos()) {
                 for (int j = i + 1; j < clientsservers.size(); j++) {
                     //inclui clientes e servidores
@@ -133,7 +133,7 @@ public class ClientServerIdentification extends StylesIdentification {
             for (String prefixo : clientserver.getPrefixos()) {
                 exist = verifyPrefix(prefixo);
             }
-
+            
             if (exist == false) {
                 existSomeone = false;
             }
@@ -166,7 +166,7 @@ public class ClientServerIdentification extends StylesIdentification {
         System.out.println("Prefixo " + prefix + " não existe. Insira novamente");
         return false;
     }
-
+    
     @Override
     public boolean identify(List<? extends Style> clientsservers) {
         Set<arquitetura.representation.Package> packages = architecture.getAllPackages();
@@ -203,7 +203,7 @@ public class ClientServerIdentification extends StylesIdentification {
             }
             clientserver.setPackages(csPackages);
         }
-
+        
         Set<Interface> interfacesArch = architecture.getInterfaces();
         Set<arquitetura.representation.Class> classesArch = architecture.getClasses();
         boolean isCorrect = false;
@@ -214,12 +214,12 @@ public class ClientServerIdentification extends StylesIdentification {
         }
         return isCorrect;
     }
-
+    
     @Override
     public boolean checkStyle(List<? extends Style> clientsservers) {
         boolean isCorrect = true;
         boolean isCorrectRelationship = true;
-
+        
         for (Style clientserver : clientsservers) {
             List<arquitetura.representation.Package> csPackages = clientserver.getPackages();
             for (arquitetura.representation.Package csPackage : csPackages) {
@@ -256,15 +256,15 @@ public class ClientServerIdentification extends StylesIdentification {
         setClientsServers(clientsservers);
         return isCorrect;
     }
-
+    
     public boolean checkAssociationClassRelationship(AssociationClassRelationship association, List<arquitetura.representation.Package> csPackages, Style cs, List<? extends Style> clientsservers) {
         arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(association.getAssociationClass(), architecture);
         arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
         arquitetura.representation.Package packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
-        if ((cs instanceof Client) && !csPackages.contains(packageElement1) && !csPackages.contains(packageElement2) && !csPackages.contains(packageElement3)) {
+        if ((cs instanceof Client) && (!csPackages.contains(packageElement1) || !csPackages.contains(packageElement2) || !csPackages.contains(packageElement3))) {
             System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " não podem estar em diferentes cliente");
             return false;
-        } else {
+        } else if (cs instanceof Server) {
             Style pac1 = StyleUtil.returnClientServer(packageElement1, (List<Style>) clientsservers);
             Style pac2 = StyleUtil.returnClientServer(packageElement2, (List<Style>) clientsservers);
             Style pac3 = StyleUtil.returnClientServer(packageElement2, (List<Style>) clientsservers);
@@ -275,15 +275,16 @@ public class ClientServerIdentification extends StylesIdentification {
         }
         return true;
     }
-
+    
     public boolean checkBidirectionalRelationship(AssociationRelationship association, List<arquitetura.representation.Package> csPackages, Style cs, List<? extends Style> clientsservers) {
         List<AssociationEnd> participants = association.getParticipants();
         arquitetura.representation.Package packageElement1 = ElementUtil.getPackage(participants.get(0).getCLSClass(), architecture);
         arquitetura.representation.Package packageElement2 = ElementUtil.getPackage(participants.get(1).getCLSClass(), architecture);
-        if ((cs instanceof Client) && !csPackages.contains(packageElement1) && !csPackages.contains(packageElement2)) {
+        
+        if ((cs instanceof Client) && (!csPackages.contains(packageElement1) || !csPackages.contains(packageElement2))) {
             System.out.println("Elementos " + participants.get(0).getCLSClass() + " e " + participants.get(1).getCLSClass() + " não podem estar entre diferentes clientes");
             return false;
-        } else {
+        } else if (cs instanceof Server) {
             Style pac1 = StyleUtil.returnClientServer(packageElement1, (List<Style>) clientsservers);
             Style pac2 = StyleUtil.returnClientServer(packageElement2, (List<Style>) clientsservers);
             if (pac1 instanceof Client || pac2 instanceof Client) {
@@ -293,7 +294,7 @@ public class ClientServerIdentification extends StylesIdentification {
         }
         return true;
     }
-
+    
     public boolean checkUnidirectionalRelationship(Element used, Element client, Style clientserver, List<? extends Style> clientsservers, List<arquitetura.representation.Package> csPackages, arquitetura.representation.Package csPackage, Relationship r) {
         arquitetura.representation.Package usedPackage = ElementUtil.getPackage(used, architecture);
         arquitetura.representation.Package clientPackage = ElementUtil.getPackage(client, architecture);
@@ -307,7 +308,7 @@ public class ClientServerIdentification extends StylesIdentification {
         }
         return true;
     }
-
+    
     public void setClientsServers(List<? extends Style> clientsservers) {
         List<Client> clients = new ArrayList<>();
         List<Server> servers = new ArrayList<>();
@@ -321,5 +322,5 @@ public class ClientServerIdentification extends StylesIdentification {
         setLISTCLIENTS(clients);
         setLISTSERVERS(servers);
     }
-
+    
 }

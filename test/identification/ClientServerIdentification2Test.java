@@ -94,6 +94,46 @@ public class ClientServerIdentification2Test {
 
     @Test
     public void testCheckBidirectionalRelationship() {
+        boolean biassociation1 = false;
+        boolean biassociation2 = false;
+        boolean biassociation3 = true;
+        boolean biassociation4 = false;
+        boolean biassociation5 = true;
+
+        arquitetura.representation.Class classS21 = architectureTest.findClassByName("ClassS2-1").get(0);
+        arquitetura.representation.Package packageClassS21 = ElementUtil.getPackage(classS21, architectureTest);
+        Style clientserver = StyleUtil.returnClientServer(packageClassS21, clientsservers);
+
+        for (Relationship relationship : classS21.getRelationships()) {
+            if (relationship.getName().equalsIgnoreCase("biassociation1")) {
+                biassociation1 = clientServerIdentification.checkBidirectionalRelationship((AssociationRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+            if (relationship.getName().equalsIgnoreCase("biassociation2")) {
+                biassociation2 = clientServerIdentification.checkBidirectionalRelationship((AssociationRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+            if (relationship.getName().equalsIgnoreCase("biassociation3")) {
+                biassociation3 = clientServerIdentification.checkBidirectionalRelationship((AssociationRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+        }
+
+        arquitetura.representation.Class classC12 = architectureTest.findClassByName("ClassC1-2").get(0);
+        arquitetura.representation.Package packageClassC12 = ElementUtil.getPackage(classC12, architectureTest);
+        clientserver = StyleUtil.returnClientServer(packageClassC12, clientsservers);
+
+        for (Relationship relationship : classC12.getRelationships()) {
+            if (relationship.getName().equalsIgnoreCase("biassociation4")) {
+                biassociation4 = clientServerIdentification.checkBidirectionalRelationship((AssociationRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+            if (relationship.getName().equalsIgnoreCase("biassociation5")) {
+                biassociation5 = clientServerIdentification.checkBidirectionalRelationship((AssociationRelationship) relationship, clientserver.getPackages(), clientserver, clientsservers);
+            }
+        }
+
+        Assert.assertTrue(biassociation1);
+        Assert.assertTrue(biassociation2);
+        Assert.assertFalse(biassociation3);
+        Assert.assertTrue(biassociation4);
+        Assert.assertFalse(biassociation5);
     }
 
     @Test
