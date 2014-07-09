@@ -254,7 +254,18 @@ public class LayerIdentification extends StylesIdentification {
     //..retorna false se forem encontrados pacotes sem camadas (sem os sufixos ou prefixos informados)
     @Override
     public boolean identify(List<? extends Style> camadas) {
-        Set<Package> packages = architecture.getAllPackages();
+        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+        List<arquitetura.representation.Package> packages = new ArrayList<>();
+        packages.addAll(allPackages);
+        //código que exclui os nestedPackages da lista de pacotes (eles serão verificados adiante)
+        for (arquitetura.representation.Package pacotes : allPackages) {
+            for (arquitetura.representation.Package np : pacotes.nestedPackages) {
+                if (allPackages.contains(np)) {
+                    packages.remove(np);
+                }
+            }
+        }
+
         int sizePackages = 0;
         List<Layer> layers = (List<Layer>) camadas;
         for (Layer layer : layers) {
@@ -293,7 +304,7 @@ public class LayerIdentification extends StylesIdentification {
         Set<Interface> interfacesArch = architecture.getInterfaces();
         Set<Class> classesArch = architecture.getClasses();
         boolean isCorrect = false;
-        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == packages.size())) {
+        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == allPackages.size())) {
             isCorrect = checkStyle(layers);
         } else {
             System.out.println("Erro ao verificar as camadas. Verifique se existem pacotes sem os sufixos ou prefixos informados, ou ainda, elementos na arquitetura que não pertençam a nenhum pacote.");

@@ -169,7 +169,18 @@ public class ClientServerIdentification extends StylesIdentification {
 
     @Override
     public boolean identify(List<? extends Style> clientsservers) {
-        Set<arquitetura.representation.Package> packages = architecture.getAllPackages();
+        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+        List<arquitetura.representation.Package> packages = new ArrayList<>();
+        packages.addAll(allPackages);
+        //código que exclui os nestedPackages da lista de pacotes (eles serão verificados adiante)
+        for (arquitetura.representation.Package pacotes : allPackages) {
+            for (arquitetura.representation.Package np : pacotes.nestedPackages) {
+                if (allPackages.contains(np)) {
+                    packages.remove(np);
+                }
+            }
+        }
+
         int sizePackages = 0;
         for (Style clientserver : clientsservers) {
             List<arquitetura.representation.Package> csPackages = new ArrayList<>();
@@ -187,6 +198,7 @@ public class ClientServerIdentification extends StylesIdentification {
                     }
                 }
             }
+            
             for (String prefixo : clientserver.getPrefixos()) {
                 for (arquitetura.representation.Package p : packages) {
                     String packageName = p.getName().toLowerCase();
@@ -207,7 +219,7 @@ public class ClientServerIdentification extends StylesIdentification {
         Set<Interface> interfacesArch = architecture.getInterfaces();
         Set<arquitetura.representation.Class> classesArch = architecture.getClasses();
         boolean isCorrect = false;
-        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == packages.size())) {
+        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == allPackages.size())) {
             isCorrect = checkStyle(clientsservers);
         } else {
             System.out.println("Erro ao verificar os clientes e servidores. Verifique se existem pacotes sem os sufixos ou prefixos informados, ou ainda, elementos na arquitetura que não pertençam a nenhum pacote.");

@@ -3,26 +3,33 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package main;
+package operators;
 
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
-import operators.MoveMethod;
+import org.junit.Assert;
+import org.junit.Test;
+import static org.junit.Assert.*;
 import pojo.Client;
 import pojo.Server;
 import pojo.Style;
-import util.ArchitectureRepository;
+import util.OperatorUtil;
+import util.StyleUtil;
 
 /**
  *
  * @author Thainá
  */
-public class MainTestClientServer {
+public class MoveMethodTest {
 
-    public static void main(String[] args) throws Exception {
+    public MoveMethodTest() {
+    }
+
+    @Test
+    public void testDoMutationClientServer() throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
         Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest5/model.uml");
         ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
@@ -72,11 +79,36 @@ public class MainTestClientServer {
             clientsservers.clear();
             clientsservers.addAll(ClientServerIdentification.getLISTCLIENTS());
             clientsservers.addAll(ClientServerIdentification.getLISTSERVERS());
-            
-            MoveMethod moveMethod = new MoveMethod();
-            moveMethod.doMutation(1, architecture, "clientserver", clientsservers);
-            ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("movemethod", "archtest5");
+            Assert.assertTrue(clientsservers.size() == 4);
+            //teste server
+            arquitetura.representation.Package sourceComp = architecture.findPackageByName("Pacote1Server1");
+            arquitetura.representation.Class sourceClass = architecture.findClassByName("ClassS1-1").get(0);
+            Style csSourcePackage = StyleUtil.returnClientServer(sourceComp, clientsservers);
+            arquitetura.representation.Package targetPackage = null;
+            //restricao
+            if (csSourcePackage instanceof Client) {
+                targetPackage = OperatorUtil.randomObject(csSourcePackage.getPackages());
+            } else {
+                Server targetServer = OperatorUtil.randomObject(ClientServerIdentification.getLISTSERVERS());
+                targetPackage = OperatorUtil.randomObject(targetServer.getPackages());
+            }
+            Assert.assertTrue((targetPackage.getName().equalsIgnoreCase("Pacote1Server1")) || (targetPackage.getName().equalsIgnoreCase("Pacote1Server2")) || (targetPackage.getName().equalsIgnoreCase("Pacote2Server2")));
+
+            //teste client
+            sourceComp = architecture.findPackageByName("Pacote2Client1");
+            sourceClass = architecture.findClassByName("ClassC1-2").get(0);
+            csSourcePackage = StyleUtil.returnClientServer(sourceComp, clientsservers);
+            targetPackage = null;
+            //restricao
+            if (csSourcePackage instanceof Client) {
+                Assert.assertTrue(csSourcePackage.getPackages().size() == 2);
+                targetPackage = OperatorUtil.randomObject(csSourcePackage.getPackages());
+            } else {
+                Server targetServer = OperatorUtil.randomObject(ClientServerIdentification.getLISTSERVERS());
+                targetPackage = OperatorUtil.randomObject(targetServer.getPackages());
+            }
+
+            Assert.assertTrue((targetPackage.getName().equalsIgnoreCase("Pacote1Client1")) || (targetPackage.getName().equalsIgnoreCase("Pacote2Client1")));
         }
     }
 }
