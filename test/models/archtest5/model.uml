@@ -275,6 +275,24 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_NCFlkAeLEeSRmKRqOSCJsQ" name="Operation3"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_yj9PAAeMEeSRmKRqOSCJsQ" name="Dependency1" client="_KB1goAeLEeSRmKRqOSCJsQ" supplier="_-fmMgAeKEeSRmKRqOSCJsQ"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_jsek4AhyEeSRmKRqOSCJsQ" name="ClassS2-3">
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_mltb0AhyEeSRmKRqOSCJsQ" name="Property1" visibility="public">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_m9C9wAhyEeSRmKRqOSCJsQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_m9EL4AhyEeSRmKRqOSCJsQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_m9Ey8AhyEeSRmKRqOSCJsQ">
+            <value xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:type="uml:Property" xmi:id="_nzL7kAhyEeSRmKRqOSCJsQ" name="Property2" visibility="public">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_oBe2QAhyEeSRmKRqOSCJsQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_oBfdUAhyEeSRmKRqOSCJsQ" value="1"/>
+          <defaultValue xmi:type="uml:LiteralString" xmi:id="_oBgrcAhyEeSRmKRqOSCJsQ">
+            <value xsi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_ltCHYAhyEeSRmKRqOSCJsQ" name="Operation1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_mAoY0AhyEeSRmKRqOSCJsQ" name="Operation2"/>
+      </packagedElement>
     </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9vF4sP-fEeOVmYnmooAGrg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9vI8AP-fEeOVmYnmooAGrg" source="http://www.eclipse.org/uml2/2.0.0/UML">

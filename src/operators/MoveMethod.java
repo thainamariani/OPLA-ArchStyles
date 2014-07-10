@@ -64,7 +64,6 @@ public class MoveMethod implements OperatorConstraints {
         final Package sourceComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
         List<Class> ClassesComp = new ArrayList<Class>(sourceComp.getAllClasses());
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
-        System.out.println("Source Comp:" +sourceComp.getName());
         if (ClassesComp.size() > 0) {
             final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
             Style csSourcePackage = StyleUtil.returnClientServer(sourceComp, list);
@@ -76,7 +75,6 @@ public class MoveMethod implements OperatorConstraints {
                 Server targetServer = OperatorUtil.randomObject(ClientServerIdentification.getLISTSERVERS());
                 targetPackage = OperatorUtil.randomObject(targetServer.getPackages());
             }
-            System.out.println("Target Package: "+targetPackage.getName());
             mutation(sourceClass, architecture, targetPackage, sourceComp);
         }
         ClassesComp.clear();
