@@ -10,6 +10,7 @@ import arquitetura.representation.Architecture;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
+import operators.AddClass;
 import operators.MoveAttribute;
 import operators.MoveMethod;
 import pojo.Client;
@@ -76,12 +77,13 @@ public class MainTestClientServer {
 
             //MoveMethod moveMethod = new MoveMethod();
             //moveMethod.doMutation(1, architecture, "clientserver", clientsservers);
-            
-            MoveAttribute moveAttribute = new MoveAttribute();
-            moveAttribute.doMutation(1, architecture, "clientserver", clientsservers);
-            
+            //MoveAttribute moveAttribute = new MoveAttribute();
+            //moveAttribute.doMutation(1, architecture, "clientserver", clientsservers);
+            AddClass addClass = new AddClass();
+            addClass.doMutation(1, architecture, "clientserver", clientsservers);
+
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("moveattribute", "archtest5");
+            ArchitectureRepository.saveArchitecture("addclass", "archtest5");
         }
     }
 }
