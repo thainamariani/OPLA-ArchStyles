@@ -135,4 +135,8 @@ public class MoveOperationTest {
         }
     }
 
+    @Test
+    public void testDoMutationClientServer() throws Exception {
+        
+    }
 }

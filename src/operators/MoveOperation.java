@@ -11,16 +11,17 @@ import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import arquitetura.representation.Package;
+import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import pojo.Client;
 import pojo.Layer;
 import pojo.Style;
 import util.OperatorUtil;
-import static util.OperatorUtil.checkSameLayer;
 import static util.OperatorUtil.randomObject;
 import static util.OperatorUtil.removeInterfacesInPatternStructureFromArray;
 import util.ParametersRepository;
@@ -38,7 +39,7 @@ public class MoveOperation implements OperatorConstraints {
             if (style.equals("layer")) {
                 doMutationLayer(probability, architecture, (List<Layer>) styles);
             } else {
-                //doMutationClientServer(probability, architecture, (List<ClientServer>) styles);
+                doMutationClientServer(probability, architecture, (List<Style>) styles);
             }
         }
     }
@@ -85,31 +86,8 @@ public class MoveOperation implements OperatorConstraints {
                 }
 
                 InterfacesTargetComp.addAll(targetComp.getAllInterfaces());
+                mutation(InterfacesTargetComp, sourceInterface, targetComp, architecture);
 
-                if (InterfacesTargetComp.size() >= 1) {
-                    Interface targetInterface = randomObject(InterfacesTargetComp);
-                    if (targetInterface != sourceInterface) {
-                        List<Method> OpsInterface = new ArrayList<Method>();
-                        OpsInterface.addAll(sourceInterface.getOperations());
-                        if (OpsInterface.size() >= 1) {
-                            Method operation = randomObject(OpsInterface);
-                            ParametersRepository.setTargetPackage(targetComp);
-                            ParametersRepository.setTargetInterface(targetInterface);
-                            ParametersRepository.setMoveMethod(operation);
-
-                            sourceInterface.moveOperationToInterface(operation, targetInterface);
-                            for (Element implementor : sourceInterface.getImplementors()) {
-                                if (implementor instanceof arquitetura.representation.Package) {
-                                    architecture.addImplementedInterface(targetInterface, (arquitetura.representation.Package) implementor);
-                                }
-                                if (implementor instanceof arquitetura.representation.Class) {
-                                    architecture.addImplementedInterface(targetInterface, (arquitetura.representation.Class) implementor);
-                                }
-                            }
-                            OpsInterface.clear();
-                        }
-                    }
-                }
             }
             InterfacesTargetComp.clear();
             InterfacesSourceComp.clear();
@@ -121,7 +99,81 @@ public class MoveOperation implements OperatorConstraints {
 
     @Override
     public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        try {
+            arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
+            List<Interface> InterfacesSourceComp = new ArrayList<Interface>();
+            List<Interface> InterfacesTargetComp = new ArrayList<Interface>();
+            InterfacesSourceComp.addAll(sourceComp.getAllInterfaces());
+
+            if (InterfacesSourceComp.size() >= 1) {
+                removeInterfacesInPatternStructureFromArray(InterfacesSourceComp);
+                //Seleciona uma interface aleatória (interface original)
+                Interface sourceInterface = randomObject(InterfacesSourceComp);
+
+                ParametersRepository.setSourcePackage(sourceComp);
+                ParametersRepository.setSourceInterface(sourceInterface);
+
+                //seleciona os clientes ou servidores dos implementadores
+                Set<Style> clientsServersImplementors = new HashSet<>();
+                for (Element element : sourceInterface.getImplementors()) {
+                    Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                    clientsServersImplementors.add(StyleUtil.returnClientServer(pac, list));
+                }
+
+                //cria lista de possíveis targets
+                List<Style> targetClientServer = new ArrayList<>();
+                //adiciona todos os servidores
+                targetClientServer.addAll(ClientServerIdentification.getLISTSERVERS());
+
+                //se todos os implementadores estiveram em um único cliente, adiciona este cliente a lista
+                //se não houver implementadores adiciona todos os clientes a lista (a lista conterá todos os pacotes)
+                if ((clientsServersImplementors.size() == 1) && (clientsServersImplementors.iterator().next() instanceof Client)) {
+                    targetClientServer.add(clientsServersImplementors.iterator().next());
+                } else if (clientsServersImplementors.isEmpty()) {
+                    targetClientServer.addAll(ClientServerIdentification.getLISTCLIENTS());
+                }
+
+                Style selectClientServer = OperatorUtil.randomObject(targetClientServer);
+                arquitetura.representation.Package targetComp = OperatorUtil.randomObject(selectClientServer.getPackages());
+
+                InterfacesTargetComp.addAll(targetComp.getAllInterfaces());
+                mutation(InterfacesTargetComp, sourceInterface, targetComp, architecture);
+
+            }
+            InterfacesTargetComp.clear();
+            InterfacesSourceComp.clear();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void mutation(List<Interface> InterfacesTargetComp, Interface sourceInterface, arquitetura.representation.Package targetComp, Architecture architecture) {
+        if (InterfacesTargetComp.size() >= 1) {
+            Interface targetInterface = randomObject(InterfacesTargetComp);
+            if (targetInterface != sourceInterface) {
+                List<Method> OpsInterface = new ArrayList<Method>();
+                OpsInterface.addAll(sourceInterface.getOperations());
+                if (OpsInterface.size() >= 1) {
+                    Method operation = randomObject(OpsInterface);
+                    ParametersRepository.setTargetPackage(targetComp);
+                    ParametersRepository.setTargetInterface(targetInterface);
+                    ParametersRepository.setMoveMethod(operation);
+
+                    sourceInterface.moveOperationToInterface(operation, targetInterface);
+                    for (Element implementor : sourceInterface.getImplementors()) {
+                        if (implementor instanceof arquitetura.representation.Package) {
+                            architecture.addImplementedInterface(targetInterface, (arquitetura.representation.Package) implementor);
+                        }
+                        if (implementor instanceof arquitetura.representation.Class) {
+                            architecture.addImplementedInterface(targetInterface, (arquitetura.representation.Class) implementor);
+                        }
+                    }
+                    OpsInterface.clear();
+                }
+            }
+        }
+
     }
 
 }
