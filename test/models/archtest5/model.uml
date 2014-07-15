@@ -37,7 +37,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_oLQdMAeJEeSRmKRqOSCJsQ" name="Operation2"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_otsb4AeJEeSRmKRqOSCJsQ" name="Operation3"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" name="ClassS1-2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" clientDependency="_HFaaUAxCEeSY06MfQ2GYRA" name="ClassS1-2">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_3QD5IAeJEeSRmKRqOSCJsQ" name="Property1" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_3ffcQAeJEeSRmKRqOSCJsQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_3fgDUAeJEeSRmKRqOSCJsQ" value="1"/>
@@ -59,6 +59,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_M5emsAeMEeSRmKRqOSCJsQ" name="Operation1"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_NWjkQAeMEeSRmKRqOSCJsQ" name="Operation2"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_HFaaUAxCEeSY06MfQ2GYRA" name="Realization1" client="_OyrwAP-1EeOVmYnmooAGrg" supplier="_bg2fwAeMEeSRmKRqOSCJsQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_YXj8YP-xEeOVmYnmooAGrg" name="Pacote1Server2">
       <packagedElement xmi:type="uml:Class" xmi:id="_7DdMUP-0EeOVmYnmooAGrg" name="ClassS2-1">
@@ -95,7 +96,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_8JFdkAeJEeSRmKRqOSCJsQ" name="Operation2"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_8ceToAeJEeSRmKRqOSCJsQ" name="Operation3"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" name="ClassS2-2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" clientDependency="_j5AFAAxDEeSY06MfQ2GYRA" name="ClassS2-2">
         <ownedAttribute xmi:type="uml:Property" xmi:id="_JU_SgAarEeSVmYnmooAGrg" name="classS2-1" type="_7DdMUP-0EeOVmYnmooAGrg">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_JU_SgQarEeSVmYnmooAGrg" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_JU_SggarEeSVmYnmooAGrg" value="1"/>
@@ -142,6 +143,7 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_gEFaYAeMEeSRmKRqOSCJsQ" name="Operation1"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_gSzy4AeMEeSRmKRqOSCJsQ" name="Operation2"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_j5AFAAxDEeSY06MfQ2GYRA" name="Realization1" client="_PwDXMP-1EeOVmYnmooAGrg" supplier="_-fmMgAeKEeSRmKRqOSCJsQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" name="Pacote1Client1">
       <packagedElement xmi:type="uml:Class" xmi:id="_f722gAPeEeSVmYnmooAGrg" clientDependency="_R-Y2sAX6EeSVmYnmooAGrg _255UgAeMEeSRmKRqOSCJsQ" name="ClassC1-1">
@@ -191,6 +193,10 @@
       </packagedElement>
       <packagedElement xmi:type="uml:Realization" xmi:id="_255UgAeMEeSRmKRqOSCJsQ" name="Realization2" client="_f722gAPeEeSVmYnmooAGrg" supplier="_Ku0F8AeMEeSRmKRqOSCJsQ"/>
       <packagedElement xmi:type="uml:Realization" xmi:id="_46nPEAeMEeSRmKRqOSCJsQ" name="Realization3" client="_B9jGsAayEeSRmKRqOSCJsQ" supplier="_v8_pQAeLEeSRmKRqOSCJsQ"/>
+      <packagedElement xmi:type="uml:Class" xmi:id="_Ew9csAxIEeSY06MfQ2GYRA" name="InterfaceC1-2">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_JXLZ4AxIEeSY06MfQ2GYRA" name="Operation1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_J5A7oAxIEeSY06MfQ2GYRA" name="Operation2"/>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="Pacote1Client2">
       <packagedElement xmi:type="uml:Package" xmi:id="_uch9MAX4EeSVmYnmooAGrg" name="Pacote12Client2">
@@ -313,4 +319,5 @@
   <smarty:interface xmi:id="_BPMw4AeMEeSRmKRqOSCJsQ" base_Class="_v8_pQAeLEeSRmKRqOSCJsQ"/>
   <smarty:interface xmi:id="_MQ_qYAeMEeSRmKRqOSCJsQ" base_Class="_Ku0F8AeMEeSRmKRqOSCJsQ"/>
   <smarty:interface xmi:id="_kG7kwAeMEeSRmKRqOSCJsQ" base_Class="_bg2fwAeMEeSRmKRqOSCJsQ"/>
+  <smarty:interface xmi:id="_GbkkYAxIEeSY06MfQ2GYRA" base_Class="_Ew9csAxIEeSY06MfQ2GYRA"/>
 </xmi:XMI>

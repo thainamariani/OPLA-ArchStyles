@@ -10,6 +10,7 @@ import arquitetura.helpers.UtilResources;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
+import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import static java.util.Collections.list;
@@ -18,10 +19,17 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import org.apache.log4j.lf5.util.ResourceUtils;
 import org.junit.Assert;
 import org.junit.Test;
+import pojo.Client;
 import pojo.Layer;
+import pojo.Server;
+import pojo.Style;
 import util.OperatorUtil;
+import static util.OperatorUtil.randomObject;
+import static util.OperatorUtil.removeInterfacesInPatternStructureFromArray;
+import util.ParametersRepository;
 import util.StyleUtil;
 
 /**
@@ -137,6 +145,212 @@ public class MoveOperationTest {
 
     @Test
     public void testDoMutationClientServer() throws Exception {
-        
+        ArchitectureBuilder builder = new ArchitectureBuilder();
+        Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest5/model.uml");
+        ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
+
+        List<Client> clients = new ArrayList<>();
+
+        Client client1 = new Client();
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("client1");
+        client1.setSufixos(sufixos);
+        client1.setPrefixos(prefixos);
+        clients.add(client1);
+
+        Client client2 = new Client();
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("client2");
+        client2.setSufixos(sufixos2);
+        client2.setPrefixos(prefixos2);
+        clients.add(client2);
+
+        List<Server> servers = new ArrayList<>();
+
+        Server server1 = new Server();
+        List<String> sufixos4 = new ArrayList<>();
+        List<String> prefixos4 = new ArrayList<>();
+        sufixos4.add("server1");
+        server1.setSufixos(sufixos4);
+        server1.setPrefixos(prefixos4);
+        servers.add(server1);
+
+        Server server2 = new Server();
+        List<String> sufixos5 = new ArrayList<>();
+        List<String> prefixos5 = new ArrayList<>();
+        sufixos5.add("server2");
+        server2.setSufixos(sufixos5);
+        server2.setPrefixos(prefixos5);
+        servers.add(server2);
+
+        //cria uma lista só
+        List<Style> clientsservers = new ArrayList<>();
+        clientsservers.addAll(clients);
+        clientsservers.addAll(servers);
+
+        if (clientServerIdentification.isCorrect(clientsservers)) {
+            clientsservers.clear();
+            clientsservers.addAll(ClientServerIdentification.getLISTCLIENTS());
+            clientsservers.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //EXEMPLO 1
+            arquitetura.representation.Package sourceComp = architecture.findPackageByName("Pacote1Server1");
+            Interface sourceInterface = architecture.findInterfaceByName("InterfaceS1-1");
+
+            //seleciona os clientes ou servidores dos implementadores
+            Set<Style> clientsServersImplementors = new HashSet<>();
+            for (Element element : sourceInterface.getImplementors()) {
+                arquitetura.representation.Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                clientsServersImplementors.add(StyleUtil.returnClientServer(pac, clientsservers));
+            }
+
+            Assert.assertTrue(clientsServersImplementors.size() == 1);
+            Assert.assertTrue(clientsServersImplementors.iterator().next().getSufixos().get(0).equalsIgnoreCase("client1"));
+
+            //cria lista de possíveis targets
+            List<Style> targetClientServer = new ArrayList<>();
+            //adiciona todos os servidores
+            targetClientServer.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //se todos os implementadores estiveram em um único cliente, adiciona este cliente a lista
+            //se não houver implementadores adiciona todos os clientes a lista (a lista conterá todos os pacotes)
+            if ((clientsServersImplementors.size() == 1) && (clientsServersImplementors.iterator().next() instanceof Client)) {
+                targetClientServer.add(clientsServersImplementors.iterator().next());
+            } else if (clientsServersImplementors.isEmpty()) {
+                targetClientServer.addAll(ClientServerIdentification.getLISTCLIENTS());
+            }
+
+            Assert.assertTrue(targetClientServer.size() == 3);
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server1")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server2")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("client1")));
+
+            //EXEMPLO 2
+            sourceComp = architecture.findPackageByName("Pacote2Client1");
+            sourceInterface = architecture.findInterfaceByName("InterfaceC1-1");
+
+            //seleciona os clientes ou servidores dos implementadores
+            clientsServersImplementors = new HashSet<>();
+            for (Element element : sourceInterface.getImplementors()) {
+                arquitetura.representation.Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                clientsServersImplementors.add(StyleUtil.returnClientServer(pac, clientsservers));
+            }
+
+            Assert.assertTrue(clientsServersImplementors.size() == 1);
+            Assert.assertTrue(clientsServersImplementors.iterator().next().getSufixos().get(0).equalsIgnoreCase("client1"));
+
+            //cria lista de possíveis targets
+            targetClientServer = new ArrayList<>();
+            //adiciona todos os servidores
+            targetClientServer.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //se todos os implementadores estiveram em um único cliente, adiciona este cliente a lista
+            //se não houver implementadores adiciona todos os clientes a lista (a lista conterá todos os pacotes)
+            if ((clientsServersImplementors.size() == 1) && (clientsServersImplementors.iterator().next() instanceof Client)) {
+                targetClientServer.add(clientsServersImplementors.iterator().next());
+            } else if (clientsServersImplementors.isEmpty()) {
+                targetClientServer.addAll(ClientServerIdentification.getLISTCLIENTS());
+            }
+
+            Assert.assertTrue(targetClientServer.size() == 3);
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server1")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server2")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("client1")));
+
+            //EXEMPLO 3
+            sourceComp = architecture.findPackageByName("Pacote1Client2");
+            sourceInterface = architecture.findInterfaceByName("InterfaceC2-1");
+
+            //seleciona os clientes ou servidores dos implementadores
+            clientsServersImplementors = new HashSet<>();
+            for (Element element : sourceInterface.getImplementors()) {
+                arquitetura.representation.Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                clientsServersImplementors.add(StyleUtil.returnClientServer(pac, clientsservers));
+            }
+
+            Assert.assertTrue(clientsServersImplementors.size() == 1);
+            Assert.assertTrue(clientsServersImplementors.iterator().next().getSufixos().get(0).equalsIgnoreCase("client2"));
+
+            //cria lista de possíveis targets
+            targetClientServer = new ArrayList<>();
+            //adiciona todos os servidores
+            targetClientServer.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //se todos os implementadores estiveram em um único cliente, adiciona este cliente a lista
+            //se não houver implementadores adiciona todos os clientes a lista (a lista conterá todos os pacotes)
+            if ((clientsServersImplementors.size() == 1) && (clientsServersImplementors.iterator().next() instanceof Client)) {
+                targetClientServer.add(clientsServersImplementors.iterator().next());
+            } else if (clientsServersImplementors.isEmpty()) {
+                targetClientServer.addAll(ClientServerIdentification.getLISTCLIENTS());
+            }
+
+            Assert.assertTrue(targetClientServer.size() == 3);
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server1")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server2")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("client2")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("client2")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("client2")));
+
+            //EXEMPLO 4
+            sourceComp = architecture.findPackageByName("Pacote2Server2");
+            sourceInterface = architecture.findInterfaceByName("InterfaceS2-2");
+
+            //seleciona os clientes ou servidores dos implementadores
+            clientsServersImplementors = new HashSet<>();
+            for (Element element : sourceInterface.getImplementors()) {
+                arquitetura.representation.Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                clientsServersImplementors.add(StyleUtil.returnClientServer(pac, clientsservers));
+            }
+
+            Assert.assertTrue(clientsServersImplementors.isEmpty());
+
+            //cria lista de possíveis targets
+            targetClientServer = new ArrayList<>();
+            //adiciona todos os servidores
+            targetClientServer.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //se todos os implementadores estiveram em um único cliente, adiciona este cliente a lista
+            //se não houver implementadores adiciona todos os clientes a lista (a lista conterá todos os pacotes)
+            if ((clientsServersImplementors.size() == 1) && (clientsServersImplementors.iterator().next() instanceof Client)) {
+                targetClientServer.add(clientsServersImplementors.iterator().next());
+            } else if (clientsServersImplementors.isEmpty()) {
+                targetClientServer.addAll(ClientServerIdentification.getLISTCLIENTS());
+            }
+
+            Assert.assertTrue(targetClientServer.size() == 4);
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(3).getSufixos().get(0).equalsIgnoreCase("server1")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(3).getSufixos().get(0).equalsIgnoreCase("server2")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("client1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("client1")));
+
+            //EXEMPLO 5
+            sourceComp = architecture.findPackageByName("Pacote1Server2");
+            sourceInterface = architecture.findInterfaceByName("InterfaceS2-3");
+
+            //seleciona os clientes ou servidores dos implementadores
+            clientsServersImplementors = new HashSet<>();
+            for (Element element : sourceInterface.getImplementors()) {
+                arquitetura.representation.Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                clientsServersImplementors.add(StyleUtil.returnClientServer(pac, clientsservers));
+            }
+
+            Assert.assertTrue(clientsServersImplementors.size() == 2);
+            
+            //cria lista de possíveis targets
+            targetClientServer = new ArrayList<>();
+            //adiciona todos os servidores
+            targetClientServer.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //se todos os implementadores estiveram em um único cliente, adiciona este cliente a lista
+            //se não houver implementadores adiciona todos os clientes a lista (a lista conterá todos os pacotes)
+            if ((clientsServersImplementors.size() == 1) && (clientsServersImplementors.iterator().next() instanceof Client)) {
+                targetClientServer.add(clientsServersImplementors.iterator().next());
+            } else if (clientsServersImplementors.isEmpty()) {
+                targetClientServer.addAll(ClientServerIdentification.getLISTCLIENTS());
+            }
+
+            Assert.assertTrue(targetClientServer.size() == 2);
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server1")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server1")));
+            Assert.assertTrue((targetClientServer.get(0).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(1).getSufixos().get(0).equalsIgnoreCase("server2")) || (targetClientServer.get(2).getSufixos().get(0).equalsIgnoreCase("server2")));
+        }
     }
 }

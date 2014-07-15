@@ -13,6 +13,7 @@ import java.util.List;
 import operators.AddClass;
 import operators.MoveAttribute;
 import operators.MoveMethod;
+import operators.MoveOperation;
 import pojo.Client;
 import pojo.Server;
 import pojo.Style;
@@ -79,11 +80,14 @@ public class MainTestClientServer {
             //moveMethod.doMutation(1, architecture, "clientserver", clientsservers);
             //MoveAttribute moveAttribute = new MoveAttribute();
             //moveAttribute.doMutation(1, architecture, "clientserver", clientsservers);
-            AddClass addClass = new AddClass();
-            addClass.doMutation(1, architecture, "clientserver", clientsservers);
+            //AddClass addClass = new AddClass();
+            //addClass.doMutation(1, architecture, "clientserver", clientsservers);
+            
+            MoveOperation moveOperation = new MoveOperation();
+            moveOperation.doMutation(1, architecture, "clientserver", clientsservers);
 
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("addclass", "archtest5");
+            ArchitectureRepository.saveArchitecture("moveoperation", "archtest5");
         }
     }
 }

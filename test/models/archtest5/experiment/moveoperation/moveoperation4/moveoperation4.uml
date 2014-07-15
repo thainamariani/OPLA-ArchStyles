@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xmi:XMI xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:concerns="http:///schemas/concerns/_RL_yAJ1jEeOLoqRf7Zycww/20" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:patterns="http:///schemas/patterns/_wlXX8JVoEeOWwNcokQBARg/3" xmlns:relationships="http:///schemas/relationships/_ZXR5gI9OEeO5S8PTmh49hw/2" xmlns:smarty="http:///schemas/smarty/_cl6_wI9OEeO5S8PTmh49hw/3" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="20110701" xsi:schemaLocation="http:///schemas/patterns/_wlXX8JVoEeOWwNcokQBARg/3 resources/patterns.profile.uml#_wlbCUJVoEeOWwNcokQBARg http:///schemas/concerns/_SsrrUBWgEeObs-pQrJ2skQ/19 resources/concerns.profile.uml#_SsrrURWgEeObs-pQrJ2skQ http:///schemas/relationships/_ZXR5gI9OEeO5S8PTmh49hw/2 resources/relationships.profile.uml#_ZXU80I9OEeO5S8PTmh49hw http:///schemas/smarty/_cl6_wI9OEeO5S8PTmh49hw/3 resources/smarty.profile.uml#_cl7m0I9OEeO5S8PTmh49hw http:///schemas/concerns/_RL_yAJ1jEeOLoqRf7Zycww/20 resources/concerns.profile.uml#_RMC1UJ1jEeOLoqRf7Zycww ">
+  <uml:Model name="model" xmi:id="_xqzHwIzdEeO6Yt6TRR4QNg">
+    <profileApplication xmi:id="_2Q2s4I9OEeO5xq3Ur4qgFw">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_2RHyoI9OEeO5xq3Ur4qgFw">
+        <references href="resources/concerns.profile.uml#_RMC1UJ1jEeOLoqRf7Zycww" xmi:type="ecore:EPackage"/>
+      </eAnnotations>
+      <appliedProfile href="resources/concerns.profile.uml#_9v_84HqaEeK1gM_kVgXLQw"/>
+    </profileApplication>
+    <profileApplication xmi:id="_2RXDMI9OEeO5xq3Ur4qgFw">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_2RlssI9OEeO5xq3Ur4qgFw">
+        <references href="resources/relationships.profile.uml#_ZXU80I9OEeO5S8PTmh49hw" xmi:type="ecore:EPackage"/>
+      </eAnnotations>
+      <appliedProfile href="resources/relationships.profile.uml#__hjjkIzaEeO6Yt6TRR4QNg"/>
+    </profileApplication>
+    <profileApplication xmi:id="_2RlssY9OEeO5xq3Ur4qgFw">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_2R2ycI9OEeO5xq3Ur4qgFw">
+        <references href="resources/smarty.profile.uml#_cl7m0I9OEeO5S8PTmh49hw" xmi:type="ecore:EPackage"/>
+      </eAnnotations>
+      <appliedProfile href="resources/smarty.profile.uml#_9ppH0MeqEeK-FvYCaEYIKA"/>
+    </profileApplication>
+    <profileApplication xmi:id="_cyBBIJJmEeOENZsdUoZvrw">
+      <eAnnotations source="http://www.eclipse.org/uml2/2.0.0/UML" xmi:id="_cyb34JJmEeOENZsdUoZvrw">
+        <references href="resources/patterns.profile.uml#_wlbCUJVoEeOWwNcokQBARg" xmi:type="ecore:EPackage"/>
+      </eAnnotations>
+      <appliedProfile href="resources/patterns.profile.uml#_lDDfsJJlEeOENZsdUoZvrw"/>
+    </profileApplication>
+  <packagedElement name="Pacote2Client1" xmi:id="_kkt7wARREeSVmYnmooAGrg" xmi:type="uml:Package">
+      <packagedElement isAbstract="false" name="InterfaceC1-1" xmi:id="_v8_pQAeLEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_6t5nEAeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_7FEJ4AeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_MTMfQAeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_7cAqQAeLEeSRmKRqOSCJsQ"/>
+      </packagedElement>
+      <packagedElement clientDependency="05eb880d-a78e-4292-aff3-9f99bcf89e31" isAbstract="false" name="ClassC1-2" xmi:id="_nRj8gARREeSVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_cH0EAAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_cicKgAeKEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property3" visibility="public" xmi:id="15b69f51-4aa5-4c79-a03c-b74413b4a660">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="d5977382-601e-424a-90d2-36e2040e5430" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="6a9870b4-d038-43b3-98a5-87b8776eb72b" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="c97cac6e-96b2-49d0-bf2d-370fc9fe3b92" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="d9d1f924-946b-4ce6-a34f-f5f0877cb00e">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="ca597039-1106-4763-8f09-56a130f1d891" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="d95e804f-dce9-452e-88fb-d3655e941c08" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="156f0966-643d-4029-8308-4b5e46e13d0b" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="99a8ad15-c2c4-4631-8b41-1c801e7e9aae">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="8af68675-92c5-4337-a769-22db7ab3c0c5" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="de0d2201-5e59-443a-a4d9-a3637fff3995" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="8704d7c1-d8bc-42bf-9240-da8b99bf967e" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement name="Pacote1Client1" xmi:id="_b0-ecP-xEeOVmYnmooAGrg" xmi:type="uml:Package">
+      <packagedElement clientDependency="776f762d-8971-469a-b83f-4100d339812c" isAbstract="false" name="ClassC1-3" xmi:id="_B9jGsAayEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_N8nwoAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_OlFe0AeKEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="13074527-9884-4f21-a679-1d360d59904e">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="2feb7bc1-1462-4003-9559-d3df7f27c33b" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="09c370c3-15cd-44d8-a4bd-59c61fa7f683" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="28168806-7872-41cd-bce9-2acd9dabfa28" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="c5a9c5b8-141a-4f6e-b3bb-00f4ffd76c47">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="dd978793-33e7-4c05-bc51-6e9f3da78bf4" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="85c7dccc-f304-4519-ae9a-6168373dda4b" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="dfb61125-fa8c-4eef-a41c-08ac8444facd" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement isAbstract="false" name="InterfaceC1-2" xmi:id="_Ew9csAxIEeSY06MfQ2GYRA" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_JXLZ4AxIEeSY06MfQ2GYRA"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_J5A7oAxIEeSY06MfQ2GYRA"/>
+      </packagedElement>
+      <packagedElement clientDependency="46faaa4f-d17e-42d6-acb5-3e43dd0c3eda" isAbstract="false" name="ClassC1-1" xmi:id="_f722gAPeEeSVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_IskMQAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_IJq6kAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_Hjr4oAeKEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="d9d98aae-450b-45a6-8122-8c8dda06959a">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="faa86866-3bb8-4ad2-a9e3-ec2eed1c27f3" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="7b9ca3ad-268f-41f5-9437-e10ee1c31521" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="c66bcd17-5f1c-40af-bb71-d2c6dfc83588" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="1b08e8dd-4db3-42ce-9f8a-061ab0afcfbb">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="8428f632-f4d5-4185-a025-8ea0b8b8664b" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="07606037-5ea6-452e-861f-f11eff0fb35e" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="24a1ac3f-0ee1-4c4c-867b-4b1a7b047438" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property3" visibility="public" xmi:id="2d1c8b74-7c87-4fbf-9598-ec2ca2fc5854">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="d34f669f-5e92-43d9-b05f-31e5ea5e8cbb" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="bf687bb1-3567-4c80-b222-a92f02564b12" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="4f9aa5ca-5da6-49ba-805a-72e7e9f7f36d" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement name="Pacote1Client2" xmi:id="_fYclMP-xEeOVmYnmooAGrg" xmi:type="uml:Package">
+      <packagedElement isAbstract="false" name="InterfaceC2-1" xmi:id="_fi7qkAeLEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_i8qmgAeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_ikv1wAeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_iNU0QAeLEeSRmKRqOSCJsQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement name="Pacote1Server1" xmi:id="_VTOBoP-xEeOVmYnmooAGrg" xmi:type="uml:Package">
+      <packagedElement isAbstract="false" name="InterfaceS1-1" xmi:id="_Ku0F8AeMEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_NWjkQAeMEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_M5emsAeMEeSRmKRqOSCJsQ"/>
+      </packagedElement>
+      <packagedElement isAbstract="false" name="ClassS1-1" xmi:id="_41RdgP-0EeOVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_otsb4AeJEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_nh0eoAeJEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_oLQdMAeJEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="classC1-1" type="_f722gAPeEeSVmYnmooAGrg" visibility="public" xmi:id="c6b7c52c-7d86-4486-82d1-7a04d1251d80">
+          <lowerValue value="1" xmi:id="4096594e-8fe9-4777-9a00-baf70ab36157" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="2b3d48f6-6cb2-47ae-b17a-9ae26c310fb8" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="14d07643-2ff1-4ee7-ac65-2f968fbef6c1" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property3" visibility="public" xmi:id="fb38a5f7-ff34-477d-9828-96c2e3f3fb5f">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="b454fa80-aefa-476f-9ec3-1a4857f8bb1e" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="cc6f9484-8406-41bf-a02a-a6882e1bc58e" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="6fb342a7-e0d0-4e5b-966b-3e0baceb9a98" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="4b200f68-08b5-453e-8b7b-c324fc3fe110">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="27caeb2a-7b39-45f4-9c38-4e778c85391e" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="6d9f722e-5884-4f54-a083-47bace512a06" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="dd6c3d36-4d33-45a1-9e84-77f2e6b754a7" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="357701d8-19df-4107-a854-340e1f521ae7">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="85117a1f-6b1d-4f82-ade6-e29c2904b681" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="f6fc4e84-f388-42ec-9dd4-6045308463bb" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="e2ad44a3-59c6-4aa6-b253-4487dfd890b4" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="class1" type="_f722gAPeEeSVmYnmooAGrg" visibility="public" xmi:id="09fe818a-7aef-4e38-a49b-4fcdecfb11e4">
+          <lowerValue value="1" xmi:id="153ce1f5-f58a-4e16-8f06-c0ca10c04b6c" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="a603f26f-f24c-4e9c-9ca3-4db576c33e16" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="f5e2181c-fa39-42d6-aa5f-c367bb2b03a0" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <generalization general="_OyrwAP-1EeOVmYnmooAGrg" xmi:id="609f384a-95a9-4c7e-8943-c5ed8fa27df2"/>
+      </packagedElement>
+      <packagedElement clientDependency="752b5d1f-53a8-4c6b-a04e-d30a52bba25a" isAbstract="false" name="ClassS1-2" xmi:id="_OyrwAP-1EeOVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_2pMGYAeJEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_1_vgwAeJEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="376da648-3311-48d7-9b3e-ab5bcd020a5e">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="0d3c7df4-bfe6-4ddc-88a7-338d152d5d39" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="a9dd6bb8-64d3-4df1-b937-719d44c442a6" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="22a9ea91-627e-48dd-ab11-9eb2d191de3b" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="3f5820bf-a223-4a36-9ad6-cf81bbc70ba8">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="4564d003-53b9-462f-94b1-ce819f138ba0" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="57b6a0fe-f202-4644-a3df-e2d1addcb245" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="336d30d2-666d-427c-a926-8ecdc7f93b08" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement name="Pacote12Client2" xmi:id="_uch9MAX4EeSVmYnmooAGrg" xmi:type="uml:Package">
+      <packagedElement clientDependency="c12a4d37-3231-49f5-8d1f-749829233ba7" isAbstract="false" name="ClassC2-1" xmi:id="_xN878AX4EeSVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_grylgAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_gXsk0AeKEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="76efeb67-15ff-4e7f-8f5f-77b2379fa201">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="0f8d3160-788a-49d3-9bd4-14c10e1e8afb" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="8a8f59da-fa15-4fd6-9512-e4abc0ab0b68" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="b778ca41-b4f9-423d-a221-8f18e804439a" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="56c40896-3dd5-4612-8303-38fa291fb1b8">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="dd6f5540-0fd9-45e7-b54e-d880ac89086d" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="4cbe41c8-729f-4f07-8861-ef621e753d5b" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="f3e44f6c-38b4-479c-b55c-35bd0963c4f1" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement name="Pacote1Server2" xmi:id="_YXj8YP-xEeOVmYnmooAGrg" xmi:type="uml:Package">
+      <packagedElement isAbstract="false" name="InterfaceS2-3" xmi:id="_bg2fwAeMEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_gEFaYAeMEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_gSzy4AeMEeSRmKRqOSCJsQ"/>
+      </packagedElement>
+      <packagedElement clientDependency="2452e801-32dc-4917-9624-2bf036186b2f" isAbstract="false" name="ClassS2-2" xmi:id="_PwDXMP-1EeOVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_Ax1KUAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_BL-vsAeKEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_AUYZUAeKEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="417a62f1-6154-408c-ae96-eddf66cebeeb">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="90a3438f-d597-4bf4-810b-ac647e4e69e9" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="c61850e9-fd56-46ba-a75e-a298021a860e" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="8b47412d-f074-4e94-b9c0-032365aeb7fa" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="ea8b7881-58fa-40c1-9277-0609487386c8">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="229a31c1-6a45-4710-8f64-5b5fbb9ccab2" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="4990cc19-11c9-40b8-b0b4-fd2b06cb75e6" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="5b2f940d-58d4-4de5-8e5d-b11c9ddc2fa5" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="classS2-1" type="_7DdMUP-0EeOVmYnmooAGrg" visibility="public" xmi:id="1d3b9efb-b845-40ec-abe3-301329f91621">
+          <lowerValue value="1" xmi:id="2e64a0f6-fa95-421f-b707-f89ea7870073" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="a4b5552f-18b6-4963-ba3e-50002f2df9cc" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="d36b59a3-48ce-4afe-8d8d-80afc642f0e6" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement isAbstract="false" name="ClassS2-1" xmi:id="_7DdMUP-0EeOVmYnmooAGrg" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_8ceToAeJEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_7soLEAeJEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_8JFdkAeJEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="classS2-2" type="_PwDXMP-1EeOVmYnmooAGrg" visibility="public" xmi:id="75aacf00-40e6-4a56-a265-cefa37f2df09">
+          <lowerValue value="1" xmi:id="eeef1667-38da-45ca-a57f-12d7b22244aa" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="a22a2188-fd5f-4504-84fc-863c6f1005e5" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="0dfd432f-2334-46c0-a66b-4f2f12edb8a3" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="6be56f11-8d09-4b3e-9efa-35d38d05399c">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="d302c3ee-c408-46c7-b655-1bdf8f571bdf" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="3b91637e-9516-4e57-a344-34dddb43ef06" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="26015c5d-d1d6-4e99-b6d8-d57ed7204bbd" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="9134dbf2-f68a-4d4d-b693-30bd5db5a689">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="581e0676-7d94-4f42-a906-4a433d9ce487" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="3d905348-accf-4077-b2a5-68de4eb29ef6" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="78c49188-6103-429b-ad4b-3ab6ef429b93" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property3" visibility="public" xmi:id="beb828e6-44a5-4df3-b771-36ef42b2a83f">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="e3168629-4026-4364-871e-423beb793a88" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="59407af1-0bd6-44fc-89d2-11dee4619f96" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="fbc18715-8ece-4706-8074-8caec867d58a" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement name="Pacote2Server2" xmi:id="_iXOCAAeJEeSRmKRqOSCJsQ" xmi:type="uml:Package">
+      <packagedElement isAbstract="false" name="InterfaceS2-1" xmi:id="_-fmMgAeKEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_D9xscAeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_DeYasAeLEeSRmKRqOSCJsQ"/>
+      </packagedElement>
+      <packagedElement isAbstract="false" name="ClassS2-3" xmi:id="_jsek4AhyEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_mAoY0AhyEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation1" visibility="public" xmi:id="_ltCHYAhyEeSRmKRqOSCJsQ"/>
+        <ownedAttribute isUnique="false" name="Property1" visibility="public" xmi:id="4ea63866-da6a-4e9b-86bc-99944759d992">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="291c3ad4-7a82-46c7-970c-ee4f0c152771" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="0a1e3d6a-74f0-4404-8935-5296f47288bc" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="bbb3f96f-991e-442b-99c0-84afd6dd3a64" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute isUnique="false" name="Property2" visibility="public" xmi:id="b4b738b7-5302-4bd5-a562-fd9f39bfd483">
+          <type href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#" xmi:type="uml:PrimitiveType"/>
+          <lowerValue value="1" xmi:id="d1fd86e5-b3b0-4107-9342-38d1449b739e" xmi:type="uml:LiteralInteger"/>
+          <upperValue value="1" xmi:id="859a2b95-daf0-4a05-a44b-2d60b914ccd3" xmi:type="uml:LiteralUnlimitedNatural"/>
+          <defaultValue xmi:id="c247be0a-b234-4c8c-8929-efd013bb8341" xmi:type="uml:LiteralString">
+            <value xmi:nil="true"/>
+          </defaultValue>
+        </ownedAttribute>
+      </packagedElement>
+      <packagedElement clientDependency="3089e2eb-7a5e-470d-9ab9-dc8cf7b289ba" isAbstract="false" name="InterfaceS2-2" xmi:id="_KB1goAeLEeSRmKRqOSCJsQ" xmi:type="uml:Class">
+        <ownedOperation isAbstract="false" name="Operation3" visibility="public" xmi:id="_NCFlkAeLEeSRmKRqOSCJsQ"/>
+        <ownedOperation isAbstract="false" name="Operation2" visibility="public" xmi:id="_MsXNMAeLEeSRmKRqOSCJsQ"/>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement memberEnd="9ff8accc-c47b-47cf-b678-f6e552cc50d5 254ffe99-57b6-4ef2-b118-a4ac9d098e67" name="biassociation4" xmi:id="4dd15c53-7ac8-46e6-9ae6-93ac406b7f8e" xmi:type="uml:Association">
+      <ownedEnd association="4dd15c53-7ac8-46e6-9ae6-93ac406b7f8e" name="ClassC1-2" type="_nRj8gARREeSVmYnmooAGrg" xmi:id="9ff8accc-c47b-47cf-b678-f6e552cc50d5">
+        <lowerValue value="1" xmi:id="ed7a7a33-ce14-45da-8740-db31fa3fe552" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="7101dc22-287c-4b0b-9a75-cbd80aeac87d" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedEnd>
+      <ownedEnd association="4dd15c53-7ac8-46e6-9ae6-93ac406b7f8e" name="ClassC1-3" type="_B9jGsAayEeSRmKRqOSCJsQ" xmi:id="254ffe99-57b6-4ef2-b118-a4ac9d098e67">
+        <lowerValue value="1" xmi:id="59a831b2-08f9-4c5d-a76a-732f892614f7" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="07373bd5-f065-4f31-92be-5f6c161a3717" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement memberEnd="fbe3cc1f-de5f-477d-88a1-2170d69ff58f f4efa0ca-8d83-423d-a08d-4a659beed1d2" name="biassociation2" xmi:id="16cf5cb1-75e9-4bdf-813b-b678ce4cdc46" xmi:type="uml:Association">
+      <ownedEnd association="16cf5cb1-75e9-4bdf-813b-b678ce4cdc46" name="ClassS2-1" type="_7DdMUP-0EeOVmYnmooAGrg" xmi:id="fbe3cc1f-de5f-477d-88a1-2170d69ff58f">
+        <lowerValue value="1" xmi:id="cdfb825c-e6ad-4792-aed7-840592104db6" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="09f38697-5360-45f0-94c0-66149640aa59" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedEnd>
+      <ownedEnd association="16cf5cb1-75e9-4bdf-813b-b678ce4cdc46" name="ClassS1-2" type="_OyrwAP-1EeOVmYnmooAGrg" xmi:id="f4efa0ca-8d83-423d-a08d-4a659beed1d2">
+        <lowerValue value="1" xmi:id="70db18a6-447e-4aa0-aa15-a9a0f031b1d8" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="fb93db78-09e3-4bc8-99af-dfe6cf796968" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement memberEnd="9d30a255-29e3-4dea-86c4-110157af576c 183b7927-e5a4-478c-be97-6326679a5697" name="biassociation1" xmi:id="0197a39d-9f68-4253-938c-2306d2e2ab5b" xmi:type="uml:Association">
+      <ownedEnd association="0197a39d-9f68-4253-938c-2306d2e2ab5b" name="ClassS2-1" type="_7DdMUP-0EeOVmYnmooAGrg" xmi:id="9d30a255-29e3-4dea-86c4-110157af576c">
+        <lowerValue value="1" xmi:id="7b9d8145-a3cd-495d-9432-55a0666da0a7" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="16334627-b53e-47a2-a751-af0511e81532" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedEnd>
+      <ownedEnd association="0197a39d-9f68-4253-938c-2306d2e2ab5b" name="ClassS2-2" type="_PwDXMP-1EeOVmYnmooAGrg" xmi:id="183b7927-e5a4-478c-be97-6326679a5697">
+        <lowerValue value="1" xmi:id="c9b9c2ee-c332-4324-ab55-5445ac5c6374" xmi:type="uml:LiteralInteger"/>
+        <upperValue value="1" xmi:id="bad23a43-d0c5-4cf8-b99e-1f033f11737e" xmi:type="uml:LiteralUnlimitedNatural"/>
+      </ownedEnd>
+    </packagedElement>
+    <packagedElement client="_KB1goAeLEeSRmKRqOSCJsQ" name="Dependency1" supplier="_-fmMgAeKEeSRmKRqOSCJsQ" xmi:id="3089e2eb-7a5e-470d-9ab9-dc8cf7b289ba" xmi:type="uml:Dependency"/>
+    <packagedElement client="_xN878AX4EeSVmYnmooAGrg" name="Realization2" supplier="_-fmMgAeKEeSRmKRqOSCJsQ" xmi:id="a223815c-dda5-42b9-b41f-be72a62770b4" xmi:type="uml:Realization"/>
+    <packagedElement client="_nRj8gARREeSVmYnmooAGrg" name="Realization1" supplier="_bg2fwAeMEeSRmKRqOSCJsQ" xmi:id="05eb880d-a78e-4292-aff3-9f99bcf89e31" xmi:type="uml:Realization"/>
+    <packagedElement client="_xN878AX4EeSVmYnmooAGrg" name="Realization1" supplier="_fi7qkAeLEeSRmKRqOSCJsQ" xmi:id="c12a4d37-3231-49f5-8d1f-749829233ba7" xmi:type="uml:Realization"/>
+    <packagedElement client="_B9jGsAayEeSRmKRqOSCJsQ" name="Realization3" supplier="_v8_pQAeLEeSRmKRqOSCJsQ" xmi:id="776f762d-8971-469a-b83f-4100d339812c" xmi:type="uml:Realization"/>
+    <packagedElement client="_f722gAPeEeSVmYnmooAGrg" name="Realization1" supplier="_nRj8gARREeSVmYnmooAGrg" xmi:id="c34f4239-bf0a-48aa-a652-32c5022d1ff6" xmi:type="uml:Realization"/>
+    <packagedElement client="_f722gAPeEeSVmYnmooAGrg" name="Realization2" supplier="_Ku0F8AeMEeSRmKRqOSCJsQ" xmi:id="46faaa4f-d17e-42d6-acb5-3e43dd0c3eda" xmi:type="uml:Realization"/>
+    <packagedElement client="_PwDXMP-1EeOVmYnmooAGrg" name="Realization1" supplier="_-fmMgAeKEeSRmKRqOSCJsQ" xmi:id="2452e801-32dc-4917-9624-2bf036186b2f" xmi:type="uml:Realization"/>
+    <packagedElement client="_OyrwAP-1EeOVmYnmooAGrg" name="Realization1" supplier="_bg2fwAeMEeSRmKRqOSCJsQ" xmi:id="752b5d1f-53a8-4c6b-a04e-d30a52bba25a" xmi:type="uml:Realization"/>
+  </uml:Model>
+<smarty:interface base_Class="_-fmMgAeKEeSRmKRqOSCJsQ" xmi:id="161a8e9d-5508-4302-a8d1-3341c91722c3"/>
+  <smarty:interface base_Class="_KB1goAeLEeSRmKRqOSCJsQ" xmi:id="80fcfd37-b7ec-4cb4-8359-cbc886a5d5db"/>
+  <smarty:interface base_Class="_Ew9csAxIEeSY06MfQ2GYRA" xmi:id="b4a05e6a-ce83-4ee9-b6dc-41fb39cac09b"/>
+  <smarty:interface base_Class="_Ku0F8AeMEeSRmKRqOSCJsQ" xmi:id="7cfc8116-c4e1-4ef3-9cba-c9c96300ec7e"/>
+  <smarty:interface base_Class="_bg2fwAeMEeSRmKRqOSCJsQ" xmi:id="70db8e01-4639-4f83-8033-e95af4deb24a"/>
+  <smarty:interface base_Class="_v8_pQAeLEeSRmKRqOSCJsQ" xmi:id="194b554a-30dc-4c32-b6c3-2c63dabf9b03"/>
+  <smarty:interface base_Class="_fi7qkAeLEeSRmKRqOSCJsQ" xmi:id="93de78c1-ffdb-4b0a-b188-c762b9c74019"/>
+</xmi:XMI>
