@@ -11,6 +11,7 @@ import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
 import operators.AddClass;
+import operators.AddPackage;
 import operators.MoveAttribute;
 import operators.MoveMethod;
 import operators.MoveOperation;
@@ -35,7 +36,7 @@ public class MainTestClientServer {
         Client client1 = new Client();
         List<String> sufixos = new ArrayList<>();
         List<String> prefixos = new ArrayList<>();
-        sufixos.add("client1");
+        sufixos.add("Client1");
         client1.setSufixos(sufixos);
         client1.setPrefixos(prefixos);
         clients.add(client1);
@@ -43,7 +44,7 @@ public class MainTestClientServer {
         Client client2 = new Client();
         List<String> sufixos2 = new ArrayList<>();
         List<String> prefixos2 = new ArrayList<>();
-        sufixos2.add("client2");
+        sufixos2.add("Client2");
         client2.setSufixos(sufixos2);
         client2.setPrefixos(prefixos2);
         clients.add(client2);
@@ -53,7 +54,7 @@ public class MainTestClientServer {
         Server server1 = new Server();
         List<String> sufixos4 = new ArrayList<>();
         List<String> prefixos4 = new ArrayList<>();
-        sufixos4.add("server1");
+        sufixos4.add("Server1");
         server1.setSufixos(sufixos4);
         server1.setPrefixos(prefixos4);
         servers.add(server1);
@@ -61,7 +62,7 @@ public class MainTestClientServer {
         Server server2 = new Server();
         List<String> sufixos5 = new ArrayList<>();
         List<String> prefixos5 = new ArrayList<>();
-        sufixos5.add("server2");
+        sufixos5.add("Server2");
         server2.setSufixos(sufixos5);
         server2.setPrefixos(prefixos5);
         servers.add(server2);
@@ -82,12 +83,13 @@ public class MainTestClientServer {
             //moveAttribute.doMutation(1, architecture, "clientserver", clientsservers);
             //AddClass addClass = new AddClass();
             //addClass.doMutation(1, architecture, "clientserver", clientsservers);
-            
-            MoveOperation moveOperation = new MoveOperation();
-            moveOperation.doMutation(1, architecture, "clientserver", clientsservers);
+            //MoveOperation moveOperation = new MoveOperation();
+            //moveOperation.doMutation(1, architecture, "clientserver", clientsservers);
+            AddPackage addPackage = new AddPackage();
+            addPackage.doMutation(1, architecture, "clientserver", clientsservers);
 
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("moveoperation", "archtest5");
+            ArchitectureRepository.saveArchitecture("addpackage", "archtest5");
         }
     }
 }
