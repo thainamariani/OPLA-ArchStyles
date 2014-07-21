@@ -15,9 +15,9 @@ import pojo.Style;
  */
 public class StyleUtil {
 
-    public static List<arquitetura.representation.Package> returnPackagesLayerNumber(int numLayer, List<Layer> layers) {
-        for (Layer layer : layers) {
-            if (layer.getNumero() == numLayer) {
+    public static List<arquitetura.representation.Package> returnPackagesLayerNumber(int numLayer, List<? extends Style> layers) {
+        for (Style layer : layers) {
+            if (((Layer) layer).getNumero() == numLayer) {
                 return layer.getPackages();
             }
         }

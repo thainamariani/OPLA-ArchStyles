@@ -22,6 +22,7 @@ import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
 import arquitetura.representation.relationship.RealizationRelationship;
 import arquitetura.representation.relationship.Relationship;
+import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -31,7 +32,10 @@ import java.util.List;
 import java.util.Set;
 import jmetal.problems.OPLA;
 import jmetal.util.PseudoRandom;
+import pojo.Client;
 import pojo.Layer;
+import pojo.Server;
+import pojo.Style;
 
 /**
  *
@@ -145,9 +149,17 @@ public class OperatorUtil {
         return listOfOwnedConcern;
     }
 
-    public static void modularizeConcernInComponent(List<Layer> layers, Layer layer, Package targetComponent, Concern concern, Architecture arch) {
+    public static void modularizeConcernInComponent(List<? extends Style> styles, Style style, Package targetComponent, Concern concern, Architecture arch) {
         try {
-            List<Package> allComponents = layer.getPackages();
+            List<Package> allComponents = new ArrayList<>();
+            if (style instanceof Server) {
+                for (Server servidor : ClientServerIdentification.getLISTSERVERS()) {
+                    allComponents.addAll(servidor.getPackages());
+                }
+            } else {
+                allComponents = style.getPackages();
+            }
+
             Iterator<Package> itrComp = allComponents.iterator();
             while (itrComp.hasNext()) {
                 Package comp = itrComp.next();
@@ -159,14 +171,14 @@ public class OperatorUtil {
                     while (itrInterface.hasNext()) {
                         Interface interfaceComp = itrInterface.next();
                         if (interfaceComp.getOwnConcerns().size() == 1 && interfaceComp.containsConcern(concern)) {
-                            moveInterfaceToComponent(layers, layer, interfaceComp, targetComponent, comp, arch, concern); // EDIPO TESTADO
+                            moveInterfaceToComponent((List<Style>) styles, style, interfaceComp, targetComponent, comp, arch, concern); // EDIPO TESTADO
                         } else if (!interfaceComp.getPatternsOperations().hasPatternApplied()) {
                             List<Method> operationsInterfaceComp = new ArrayList<Method>(interfaceComp.getOperations());
                             Iterator<Method> itrOperation = operationsInterfaceComp.iterator();
                             while (itrOperation.hasNext()) {
                                 Method operation = itrOperation.next();
                                 if (operation.getOwnConcerns().size() == 1 && operation.containsConcern(concern)) {
-                                    moveOperationToComponent(layers, layer, operation, interfaceComp, targetComponent, comp, arch, concern);
+                                    moveOperationToComponent((List<Style>) styles, style, operation, interfaceComp, targetComponent, comp, arch, concern);
                                 }
                             }
                         }
@@ -253,7 +265,7 @@ public class OperatorUtil {
         return targetClass;
     }
 
-    public static void moveInterfaceToComponent(List<Layer> layers, Layer layer, Interface interfaceComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concernSelected) {
+    public static void moveInterfaceToComponent(List<Style> styles, Style style, Interface interfaceComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concernSelected) {
         if (!sourceComp.moveInterfaceToPackage(interfaceComp, targetComp)) {
             architecture.moveElementToPackage(interfaceComp, targetComp);
         }
@@ -281,19 +293,28 @@ public class OperatorUtil {
                     //Busca na arquitetura como um todo
                     //Alterado: busca na mesma camada e na camada superior
                     List<arquitetura.representation.Package> packages = new ArrayList<>();
-                    packages.addAll(layer.getPackages());
-                    if (layer.getNumero() < layers.size()) {
-                        packages.addAll(StyleUtil.returnPackagesLayerNumber(layer.getNumero() + 1, layers));
+                    if (style instanceof Layer) {
+                        packages.addAll(style.getPackages());
+                        if (((Layer) style).getNumero() < styles.size()) {
+                            packages.addAll(StyleUtil.returnPackagesLayerNumber(((Layer) style).getNumero() + 1, styles));
+                        }
+                    } else if (style instanceof Server) {
+                        packages.addAll(architecture.getAllPackages());
+                    } else if (style instanceof Client) {
+                        packages.addAll(style.getPackages());
                     }
 
                     final List<Class> targetClasses = new ArrayList<>();
                     for (Package pac : packages) {
                         targetClasses.addAll(allClassesWithConcerns(concernSelected, pac.getAllClasses()));
                     }
-                    final Class klass = randonClass(targetClasses);
-                    architecture.removeImplementedInterface(interfaceComp, sourceComp);
-                    addExternalInterface(targetComp, architecture, interfaceComp);
-                    addImplementedInterface(targetComp, architecture, interfaceComp, klass);
+                    Class klass = null;
+                    if (!targetClasses.isEmpty()) {
+                        klass = randonClass(targetClasses);
+                        architecture.removeImplementedInterface(interfaceComp, sourceComp);
+                        addExternalInterface(targetComp, architecture, interfaceComp);
+                        addImplementedInterface(targetComp, architecture, interfaceComp, klass);
+                    }
                 }
             }
         }
@@ -324,7 +345,7 @@ public class OperatorUtil {
         return klasses;
     }
 
-    public static void moveOperationToComponent(List<Layer> layers, Layer layer, Method operation, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
+    public static void moveOperationToComponent(List<Style> styles, Style style, Method operation, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
         Interface targetInterface = null;
         targetInterface = searchForInterfaceWithConcern(concern, targetComp);
 
@@ -336,10 +357,10 @@ public class OperatorUtil {
             sourceInterface.moveOperationToInterface(operation, targetInterface);
         }
 
-        addRelationship(layers, layer, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
+        addRelationship(styles, style, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
     }
 
-    public static void addRelationship(List<Layer> layers, Layer layer, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern, Interface targetInterface) {
+    public static void addRelationship(List<Style> styles, Style style, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern, Interface targetInterface) {
         for (Element implementor : sourceInterface.getImplementors()) {
             // Se quem estiver implementando a interface que teve a operacao movida for um pacote.
             if (implementor instanceof Package) {
@@ -373,9 +394,15 @@ public class OperatorUtil {
                      */
                     //Alterado: busca na mesma camada e na camada superior
                     List<arquitetura.representation.Package> packages = new ArrayList<>();
-                    packages.addAll(layer.getPackages());
-                    if (layer.getNumero() < layers.size()) {
-                        packages.addAll(StyleUtil.returnPackagesLayerNumber(layer.getNumero() + 1, layers));
+                    if (style instanceof Layer) {
+                        packages.addAll(style.getPackages());
+                        if (((Layer) style).getNumero() < styles.size()) {
+                            packages.addAll(StyleUtil.returnPackagesLayerNumber(((Layer) style).getNumero() + 1, styles));
+                        }
+                    } else if (style instanceof Server) {
+                        packages.addAll(architecture.getAllPackages());
+                    } else if (style instanceof Client) {
+                        packages.addAll(style.getPackages());
                     }
 
                     final List<Class> targetClasses = new ArrayList<>();
