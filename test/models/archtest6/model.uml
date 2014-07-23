@@ -198,13 +198,13 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_J5A7oAxIEeSY06MfQ2GYRA" name="Operation2"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" name="Pacote1Client2">
-      <packagedElement xmi:type="uml:Class" xmi:id="_fi7qkAeLEeSRmKRqOSCJsQ" clientDependency="_3DNacBEBEeSs0pfoJ2ORkA" name="InterfaceC2-1">
+    <packagedElement xmi:type="uml:Package" xmi:id="_fYclMP-xEeOVmYnmooAGrg" clientDependency="_5xo20BKGEeSs0pfoJ2ORkA" name="Pacote1Client2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_fi7qkAeLEeSRmKRqOSCJsQ" name="InterfaceC2-1">
         <ownedOperation xmi:type="uml:Operation" xmi:id="_iNU0QAeLEeSRmKRqOSCJsQ" name="Operation1"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_ikv1wAeLEeSRmKRqOSCJsQ" name="Operation2"/>
         <ownedOperation xmi:type="uml:Operation" xmi:id="_i8qmgAeLEeSRmKRqOSCJsQ" name="Operation3"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Realization" xmi:id="_3DNacBEBEeSs0pfoJ2ORkA" name="Realization1" client="_fi7qkAeLEeSRmKRqOSCJsQ" supplier="_YXj8YP-xEeOVmYnmooAGrg"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_5xo20BKGEeSs0pfoJ2ORkA" name="Realization1" client="_fYclMP-xEeOVmYnmooAGrg" supplier="_ZhqvYBKGEeSs0pfoJ2ORkA"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_kkt7wARREeSVmYnmooAGrg" name="Pacote2Client1">
       <packagedElement xmi:type="uml:Class" xmi:id="_nRj8gARREeSVmYnmooAGrg" clientDependency="_8QK1oAeMEeSRmKRqOSCJsQ" name="ClassC1-2">
@@ -279,6 +279,24 @@
         <ownedOperation xmi:type="uml:Operation" xmi:id="_mAoY0AhyEeSRmKRqOSCJsQ" name="Operation2"/>
       </packagedElement>
     </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_Re_5cBKGEeSs0pfoJ2ORkA" name="Pacote2Client2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_ZhqvYBKGEeSs0pfoJ2ORkA" name="InterfaceC2-2">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_uiSpgBKGEeSs0pfoJ2ORkA" name="Operation1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_u261sBKGEeSs0pfoJ2ORkA" name="Operation2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_faYPMBKGEeSs0pfoJ2ORkA" name="ClassC2-1">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_vKcOoBKGEeSs0pfoJ2ORkA" name="Operation1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_vYre8BKGEeSs0pfoJ2ORkA" name="Operation2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_hCbLEBKGEeSs0pfoJ2ORkA" name="ClassC2-2">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_wQpBsBKGEeSs0pfoJ2ORkA" name="Operation1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_wij4IBKGEeSs0pfoJ2ORkA" name="Operation2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_h6mwQBKGEeSs0pfoJ2ORkA" name="ClassC2-3">
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_vq86sBKGEeSs0pfoJ2ORkA" name="Operation1"/>
+        <ownedOperation xmi:type="uml:Operation" xmi:id="_v9IP0BKGEeSs0pfoJ2ORkA" name="Operation2"/>
+      </packagedElement>
+    </packagedElement>
     <profileApplication xmi:type="uml:ProfileApplication" xmi:id="_9vF4sP-fEeOVmYnmooAGrg">
       <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_9vI8AP-fEeOVmYnmooAGrg" source="http://www.eclipse.org/uml2/2.0.0/UML">
         <references xmi:type="ecore:EPackage" href="file:/C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/config/concerns.profile.uml#_RMC1UJ1jEeOLoqRf7Zycww"/>
@@ -299,7 +317,6 @@
   <smarty:interface xmi:id="_MQ_qYAeMEeSRmKRqOSCJsQ" base_Class="_Ku0F8AeMEeSRmKRqOSCJsQ"/>
   <smarty:interface xmi:id="_kG7kwAeMEeSRmKRqOSCJsQ" base_Class="_bg2fwAeMEeSRmKRqOSCJsQ"/>
   <smarty:interface xmi:id="_GbkkYAxIEeSY06MfQ2GYRA" base_Class="_Ew9csAxIEeSY06MfQ2GYRA"/>
-  <concerns:play xmi:id="_NuEo0BECEeSs0pfoJ2ORkA" base_Class="_41RdgP-0EeOVmYnmooAGrg"/>
   <concerns:play xmi:id="_PFyCoBECEeSs0pfoJ2ORkA" base_Operation="_nh0eoAeJEeSRmKRqOSCJsQ"/>
   <concerns:play xmi:id="_Qr_LcBECEeSs0pfoJ2ORkA" base_Property="_36QssAeJEeSRmKRqOSCJsQ"/>
   <concerns:pong xmi:id="_S8GM4BECEeSs0pfoJ2ORkA" base_Class="_Ku0F8AeMEeSRmKRqOSCJsQ"/>
@@ -316,4 +333,9 @@
   <concerns:pong xmi:id="_uPrS0BECEeSs0pfoJ2ORkA" base_Class="_nRj8gARREeSVmYnmooAGrg"/>
   <concerns:play xmi:id="_wAeiEBECEeSs0pfoJ2ORkA" base_Operation="_7FEJ4AeLEeSRmKRqOSCJsQ"/>
   <concerns:pong xmi:id="_x-GFUBECEeSs0pfoJ2ORkA" base_Class="_fi7qkAeLEeSRmKRqOSCJsQ"/>
+  <concerns:pong xmi:id="_cHMAIBKGEeSs0pfoJ2ORkA" base_Class="_ZhqvYBKGEeSs0pfoJ2ORkA"/>
+  <concerns:pong xmi:id="_7jX6MBKGEeSs0pfoJ2ORkA" base_Class="_faYPMBKGEeSs0pfoJ2ORkA"/>
+  <concerns:pong xmi:id="_846w0BKGEeSs0pfoJ2ORkA" base_Class="_hCbLEBKGEeSs0pfoJ2ORkA"/>
+  <concerns:play xmi:id="_92w5IBKGEeSs0pfoJ2ORkA" base_Class="_h6mwQBKGEeSs0pfoJ2ORkA"/>
+  <concerns:play xmi:id="_TWZYkBKJEeSs0pfoJ2ORkA" base_Class="_41RdgP-0EeOVmYnmooAGrg"/>
 </xmi:XMI>

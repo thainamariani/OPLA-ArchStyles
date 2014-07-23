@@ -183,56 +183,59 @@ public class FeatureDrivenTest {
         clientsservers.addAll(clients);
         clientsservers.addAll(servers);
 
+        //TESTE 1
         if (clientServerIdentification.isCorrect(clientsservers)) {
             clientsservers.clear();
             clientsservers.addAll(ClientServerIdentification.getLISTCLIENTS());
             clientsservers.addAll(ClientServerIdentification.getLISTSERVERS());
 
-            final List<arquitetura.representation.Package> allComponents = new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages());
-            if (!allComponents.isEmpty()) {
-                final arquitetura.representation.Package selectedComp = OperatorUtil.randomObject(allComponents);
-                List<Concern> concernsSelectedComp = new ArrayList<Concern>(selectedComp.getAllConcerns());
-                Concern concernPlay = new Concern("play");
-                Concern concernPong = new Concern("pong");
-                Assert.assertTrue(concernsSelectedComp.size() == 2);
-                Assert.assertTrue(concernsSelectedComp.contains(concernPlay));
-                Assert.assertTrue(concernsSelectedComp.contains(concernPong));
+            Concern concernPlay = new Concern("play");
 
-                //TEST CONCERN PLAY
-                Concern selectedConcern = concernPlay;
+            //TEST CONCERN PLAY
+            Concern selectedConcern = concernPlay;
 
-                //MODULARIZAÇÃO NOS SERVIDORES
-                testMutationServer(architecture, selectedConcern, clientsservers);
+            //MODULARIZAÇÃO NOS SERVIDORES
+            testMutationServer(architecture, selectedConcern, clientsservers);
 
-                //MODULARIZAÇÃO NOS CLIENTES
-                testMutationClient(architecture, selectedConcern, clientsservers);
+            //MODULARIZAÇÃO NOS CLIENTES
+            testMutationClient(architecture, selectedConcern, clientsservers);
 
-                Assert.assertTrue(modularizationPackages.size() == 2);
-                Assert.assertTrue(modularizationPackages.get(0).getName().equals("Pacote1Client1") || modularizationPackages.get(1).getName().equals("Pacote1Client1"));
+            Assert.assertTrue(modularizationPackages.size() == 3);
+            Assert.assertTrue(modularizationPackages.get(0).getName().equals("Pacote1Client1") || modularizationPackages.get(1).getName().equals("Pacote1Client1") || modularizationPackages.get(2).getName().equals("Pacote1Client1"));
 
-                modularizationPackages.clear();
-                //TEST CONCERN PONG
-                selectedConcern = concernPong;
-
-                //MODULARIZAÇÃO NOS SERVIDORES
-                testMutationServer(architecture, selectedConcern, clientsservers);
-
-                //MODULARIZAÇÃO NOS CLIENTES
-                testMutationClient(architecture, selectedConcern, clientsservers);
-
-                Assert.assertTrue(modularizationPackages.size() == 3);
-                Assert.assertTrue(modularizationPackages.get(0).getName().equals("Pacote1Server2") || modularizationPackages.get(0).getName().equals("Pacote2Client1") || modularizationPackages.get(0).getName().equals("Pacote1Client2"));
-                Assert.assertTrue(modularizationPackages.get(1).getName().equals("Pacote1Server2") || modularizationPackages.get(1).getName().equals("Pacote2Client1") || modularizationPackages.get(1).getName().equals("Pacote1Client2"));
-                Assert.assertTrue(modularizationPackages.get(2).getName().equals("Pacote1Server2") || modularizationPackages.get(2).getName().equals("Pacote2Client1") || modularizationPackages.get(2).getName().equals("Pacote1Client2"));
-
-                System.out.println("Modularization Package 0: " + modularizationPackages.get(0).getName());
-                System.out.println("Modularization Package 1: " + modularizationPackages.get(1).getName());
-                System.out.println("Modularization Package 2: " + modularizationPackages.get(2).getName());
-                concernsSelectedComp.clear();
-                allComponents.clear();
-            }
+            modularizationPackages.clear();
         }
+        
+        //TESTE 2
+        builder = new ArchitectureBuilder();
+        architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest6/model.uml");
+        clientServerIdentification = new ClientServerIdentification(architecture);
 
+        //cria uma lista só
+        clientsservers = new ArrayList<>();
+        clientsservers.addAll(clients);
+        clientsservers.addAll(servers);
+
+        if (clientServerIdentification.isCorrect(clientsservers)) {
+            clientsservers.clear();
+            clientsservers.addAll(ClientServerIdentification.getLISTCLIENTS());
+            clientsservers.addAll(ClientServerIdentification.getLISTSERVERS());
+
+            //TEST CONCERN PONG
+            Concern concernPong = new Concern("pong");
+            Concern selectedConcern = concernPong;
+
+            //MODULARIZAÇÃO NOS SERVIDORES
+            testMutationServer(architecture, selectedConcern, clientsservers);
+
+            //MODULARIZAÇÃO NOS CLIENTES
+            testMutationClient(architecture, selectedConcern, clientsservers);
+
+            Assert.assertTrue(modularizationPackages.size() == 3);
+            Assert.assertTrue(modularizationPackages.get(0).getName().equals("Pacote1Server2") || modularizationPackages.get(0).getName().equals("Pacote2Client1") || modularizationPackages.get(0).getName().equals("Pacote1Client2"));
+            Assert.assertTrue(modularizationPackages.get(1).getName().equals("Pacote1Server2") || modularizationPackages.get(1).getName().equals("Pacote2Client1") || modularizationPackages.get(1).getName().equals("Pacote1Client2"));
+            Assert.assertTrue(modularizationPackages.get(2).getName().equals("Pacote1Server2") || modularizationPackages.get(2).getName().equals("Pacote2Client1") || modularizationPackages.get(2).getName().equals("Pacote1Client2"));
+        }
     }
 
     @Test
