@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import operators.AddClass;
 import operators.AddPackage;
+import operators.FeatureDriven;
 import operators.MoveAttribute;
 import operators.MoveMethod;
 import operators.MoveOperation;
@@ -28,7 +29,7 @@ public class MainTestClientServer {
 
     public static void main(String[] args) throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest5/model.uml");
+        Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest7/model.uml");
         ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
 
         List<Client> clients = new ArrayList<>();
@@ -85,11 +86,14 @@ public class MainTestClientServer {
             //addClass.doMutation(1, architecture, "clientserver", clientsservers);
             //MoveOperation moveOperation = new MoveOperation();
             //moveOperation.doMutation(1, architecture, "clientserver", clientsservers);
-            AddPackage addPackage = new AddPackage();
-            addPackage.doMutation(1, architecture, "clientserver", clientsservers);
+            //AddPackage addPackage = new AddPackage();
+            //addPackage.doMutation(1, architecture, "clientserver", clientsservers);
+            
+            FeatureDriven featureDriven = new FeatureDriven();
+            featureDriven.doMutation(1, architecture, "clientserver", clientsservers);
 
             ArchitectureRepository.setCurrentArchitecture(architecture);
-            ArchitectureRepository.saveArchitecture("addpackage", "archtest5");
+            ArchitectureRepository.saveArchitecture("featuredriven", "archtest7");
         }
     }
 }

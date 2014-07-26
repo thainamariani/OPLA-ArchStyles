@@ -1,15 +1,15 @@
-Operador Feature-Driven:
+Operador Feature-Driven: (OK  para todos)
 
-Criação de um pacote no server;
-Seleção de um pacote no server;
+-> Concern selected play:
+- Criação de um pacote no server;
+- Seleção do Pacote1Client1 no Client1;
+- Criação de um pacote em client2;
 
-Criação de um pacote em client1;
-Seleção de um pacote em clien1;
-
-Criação de um pacote em client2;
-Seleção de um pacote em client2;
+-> Concern selected pong:
+- Seleção do Pacote1Server2 no server;
+- Criação de um pacote em clien1;
+- Seleção do Pacote1Client2 em client2; (verificação da interface que implementa o pacote)
 
 Testes no método que modulariza os componentes:
 Interface implementada por um pacote e que não tenha nenhuma classe no pacote de modularização que possa implementá-las.
-Testar as opções disponíveis de classes.
-
+Testar as opções disponíveis de classes. (Verificar isso novamente no camadas também)

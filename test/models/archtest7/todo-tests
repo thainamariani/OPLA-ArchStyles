@@ -1,0 +1,15 @@
+Operador Feature-Driven:
+
+Criação de um pacote no server;
+Seleção de um pacote no server;
+
+Criação de um pacote em client1;
+Seleção de um pacote em clien1;
+
+Criação de um pacote em client2;
+Seleção de um pacote em client2;
+
+Testes no método que modulariza os componentes:
+Interface implementada por um pacote e que não tenha nenhuma classe no pacote de modularização que possa implementá-las.
+Testar as opções disponíveis de classes.
+
