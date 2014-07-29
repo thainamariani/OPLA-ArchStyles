@@ -22,11 +22,11 @@ import main.GenerateArchitecture;
 public class ArchitectureRepository {
 
     public static Architecture CURRENT_ARCHITECTURE = null;
-    
+
     public static final String AGM = "C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
-    
-    public static String getPlaPath(String name){
-        switch(name){
+
+    public static String getPlaPath(String name) {
+        switch (name) {
             case "agm":
                 return AGM;
             default:
@@ -36,11 +36,13 @@ public class ArchitectureRepository {
 
     public static File getOrCreateDirectory(String directoryName) {
         File directory = new File(directoryName);
-        if (!directory.mkdirs()) {
-            System.out.println("Não foi possível criar o diret�rio");
-            System.exit(0);
+        if (!directory.exists()) {
+            if (!directory.mkdirs()) {
+                System.out.println("Não foi possível criar o diretório " + directoryName);
+                System.exit(0);
+            }
         }
-        return null;
+        return directory;
     }
 
     private ArchitectureRepository() {

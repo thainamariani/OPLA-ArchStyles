@@ -29,6 +29,8 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
+        //args = new String[]{"100", "1000", "1", ArchitectureRepository.AGM, "layer", "Teste"};
+
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -103,14 +105,14 @@ public class Experiment {
         ArchitectureRepository.getOrCreateDirectory("experiment/" + plaName + "/" + context + "/manipulation");
         ArchitectureRepository.getOrCreateDirectory("experiment/" + plaName + "/" + context + "/output");
 
-        ReaderConfig.setDirTarget("experiment/" + plaName + "/" + context + "/manipulation");
-        ReaderConfig.setDirExportTarget("experiment/" + plaName + "/" + context + "/output");
+        ReaderConfig.setDirTarget("experiment/" + plaName + "/" + context + "/manipulation/");
+        ReaderConfig.setDirExportTarget("experiment/" + plaName + "/" + context + "/output/");
 
-        String plaDirectory = getPlaDirectory(pla);
-        ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory);
-        ReaderConfig.setPathToProfileSMarty(plaDirectory + "smarty.profile.uml");
-        ReaderConfig.setPathToProfileConcerns(plaDirectory + "concerns.profile.uml");
-        ReaderConfig.setPathProfileRelationship(plaDirectory + "relationships.profile.uml");
+        ReaderConfig.setPathToTemplateModelsDirectory(plaName+"/");
+        ReaderConfig.setPathToProfileSMarty(plaName + "/smarty.profile.uml");
+        ReaderConfig.setPathToProfileConcerns(plaName + "/concerns.profile.uml");
+        ReaderConfig.setPathProfileRelationship(plaName + "/relationships.profile.uml");
+        ReaderConfig.setPathToProfilePatterns(plaName + "/patterns.profile.uml");
 
         String xmiFilePath = pla;
 
@@ -145,12 +147,12 @@ public class Experiment {
         boolean execution = false;
         if (style.equals("layer")) {
             System.out.println("Adicionando operadores com restrições de camadas");
-            if (StyleGui.verifyLayer(plaDirectory)) {
+            if (StyleGui.verifyLayer(pla)) {
                 mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, LayerIdentification.getLISTLAYERS());
                 execution = true;
             }
         } else if (style.equals("clientserver")) {
-            if (StyleGui.verifyClientServer(plaDirectory)) {
+            if (StyleGui.verifyClientServer(pla)) {
                 mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, LayerIdentification.getLISTLAYERS());
                 execution = true;
             }
