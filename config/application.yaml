@@ -1,6 +1,6 @@
 --- !DirTarget
 directoryToSaveModels: experiment/manipulation/
-directoryToExportModels: test/models/archtest2/
+directoryToExportModels: experiment/output/
 pathToTemplateModelsDirectory: config/
 pathToProfile: config/smarty.profile.uml
 pathToProfileConcern: config/concerns.profile.uml

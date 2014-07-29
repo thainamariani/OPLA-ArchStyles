@@ -16,12 +16,10 @@ import java.util.logging.Logger;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
-import static operators.PLAFeatureMutationConstraints.LOGGER;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
 import pojo.Style;
-import util.ArchitectureRepository;
 import util.OperatorUtil;
 import static util.OperatorUtil.isOptional;
 import static util.OperatorUtil.isVarPoint;
@@ -51,7 +49,6 @@ public class AddClass implements OperatorConstraints {
 
     @Override
     public void doMutationLayer(double probability, Architecture architecture, List<Layer> layers) {
-        LOGGER.info("Executando AddClassMutation ");
         if (PseudoRandom.randDouble() < probability) {
             //TODO: Experimento: adicionar duas linhas abaixo
             //if (solution.getDecisionVariables()[0].getVariableType() == java.lang.Class.forName(Architecture.ARCHITECTURE_TYPE)) {
