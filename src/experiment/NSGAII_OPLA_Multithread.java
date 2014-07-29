@@ -292,7 +292,7 @@ public class NSGAII_OPLA_Multithread {
             @Override
             public void run() {
                 try {
-                    ProcessBuilder builder = new ProcessBuilder("java", "-XX:MaxPermSize=1G", "-jar", "dist/OPLA-ArchStyles.jar",
+                    ProcessBuilder builder = new ProcessBuilder("java", "-XX:MaxPermSize=1G", "-classpath", "dist/OPLA-ArchStyles.jar", "experiment.Experiment",
                             "" + populationSize,
                             "" + maxEvaluations,
                             "" + mutationProbability,
