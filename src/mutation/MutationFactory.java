@@ -41,7 +41,7 @@ public class MutationFactory {
      * @return the operator
      * @throws JMException
      */
-    public static Mutation getMutationOperator(String name, HashMap parameters, String style, List<?extends Style> list) throws JMException {
+    public static Mutation getMutationOperator(String name, HashMap parameters, String style, List<? extends Style> list) throws JMException {
 
         if (name.equalsIgnoreCase("PLAFeatureMutation")) {
             return new PLAFeatureMutation(parameters);

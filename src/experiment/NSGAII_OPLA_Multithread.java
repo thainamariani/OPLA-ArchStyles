@@ -40,8 +40,8 @@ public class NSGAII_OPLA_Multithread {
     };
 
     private static final String[] STYLES = {
-        //"nostyle",
-        "layer"
+        "nostyle",
+        //"layer"
     };
 
     private static final int[] MAX_EVALUATIONS = {

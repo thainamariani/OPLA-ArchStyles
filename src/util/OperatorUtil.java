@@ -517,15 +517,15 @@ public class OperatorUtil {
 
     //-------------------------------------------------------------------------------------------------
     //Thelma: método adicionado para verificar se os componentes nos quais as mutacoes serao realizadas estao na mesma camada da arquitetura
-    public static boolean checkSameLayer(Package source, Package target) {
-        boolean sameLayer = false;
-        if ((source.getName().endsWith("Mgr") && target.getName().endsWith("Mgr"))
-                || (source.getName().endsWith("Ctrl") && target.getName().endsWith("Ctrl"))
-                || (source.getName().endsWith("GUI") && target.getName().endsWith("GUI"))) {
-            sameLayer = true;
-        }
-        return sameLayer;
-    }
+//    public static boolean checkSameLayer(Package source, Package target) {
+//        boolean sameLayer = false;
+//        if ((source.getName().endsWith("Mgr") && target.getName().endsWith("Mgr"))
+//                || (source.getName().endsWith("Ctrl") && target.getName().endsWith("Ctrl"))
+//                || (source.getName().endsWith("GUI") && target.getName().endsWith("GUI"))) {
+//            sameLayer = true;
+//        }
+//        return sameLayer;
+//    }
 
     //-------------------------------------------------------------------------------------------------
     //Thelma: método adicionado para retornar o sufixo do nome do componente
