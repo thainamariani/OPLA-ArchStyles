@@ -64,7 +64,12 @@ public class MoveOperation implements OperatorConstraints {
                 //seleciona as camadas dos implementadores
                 Set<Layer> layersImplementors = new HashSet<>();
                 for (Element element : sourceInterface.getImplementors()) {
-                    Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                    Package pac;
+                    if (element instanceof arquitetura.representation.Package) {
+                        pac = (arquitetura.representation.Package) element;
+                    } else {
+                        pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                    }
                     layersImplementors.add(OperatorUtil.findPackageLayer(list, pac));
                 }
 
@@ -116,7 +121,12 @@ public class MoveOperation implements OperatorConstraints {
                 //seleciona os clientes ou servidores dos implementadores
                 Set<Style> clientsServersImplementors = new HashSet<>();
                 for (Element element : sourceInterface.getImplementors()) {
-                    Package pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                    Package pac;
+                    if (element instanceof arquitetura.representation.Package) {
+                        pac = (arquitetura.representation.Package) element;
+                    } else {
+                        pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
+                    }
                     clientsServersImplementors.add(StyleUtil.returnClientServer(pac, list));
                 }
 

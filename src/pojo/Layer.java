@@ -8,6 +8,7 @@ package pojo;
 import java.util.List;
 import java.util.Map;
 import arquitetura.representation.Package;
+import java.util.ArrayList;
 
 /**
  *
@@ -56,6 +57,16 @@ public class Layer extends Style {
     }
 
     public List<Package> getPackages() {
+//        List<Package> packages = new ArrayList<>();
+//        for(int i = 0; i < nomesPacotes.size(); i++){
+//            pacote = architecture.findPackageByName(nomePacote);
+//            if(pacote != null){
+//                packages.add(pacote);
+//            } else {
+//                nomesPacotes.remove(nomePacote);
+//                i--;
+//            }
+//        }
         return packages;
     }
 

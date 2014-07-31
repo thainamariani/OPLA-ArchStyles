@@ -51,21 +51,27 @@ public class PLAFeatureMutationConstraints extends Mutation {
                 case 0:
                     FeatureDriven featureDriven = new FeatureDriven();
                     featureDriven.doMutation(probability, architecture, style, list);
+                    break;
                 case 1:
                     MoveMethod moveMethod = new MoveMethod();
                     moveMethod.doMutation(probability, architecture, style, list);
+                    break;
                 case 2:
                     MoveAttribute moveAttribute = new MoveAttribute();
                     moveAttribute.doMutation(probability, architecture, style, list);
+                    break;
                 case 3:
                     MoveOperation moveOperation = new MoveOperation();
                     moveOperation.doMutation(probability, architecture, style, list);
+                    break;
                 case 4:
                     AddClass addClass = new AddClass();
                     addClass.doMutation(probability, architecture, style, list);
+                    break;
                 case 5:
                     AddPackage addPackage = new AddPackage();
                     addPackage.doMutation(probability, architecture, style, list);
+                    break;
             }
         } else {
             Configuration.logger_.log(Level.SEVERE, "doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());

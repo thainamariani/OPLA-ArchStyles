@@ -88,11 +88,6 @@ public class FeatureDriven implements OperatorConstraints {
                             } else {
                                 //adiciona o novo pacote na lista de camadas
                                 layer.getPackages().add(newComp);
-                                for (Layer l : LayerIdentification.getLISTLAYERS()) {
-                                    if (l.getNumero() == layer.getNumero()) {
-                                        l = layer;
-                                    }
-                                }
                                 modularizationPackages.add(newComp);
                             }
                         }
