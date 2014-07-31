@@ -106,11 +106,12 @@ public class Experiment {
         ReaderConfig.setDirTarget("experiment/" + plaName + "/" + context + "/manipulation/");
         ReaderConfig.setDirExportTarget("experiment/" + plaName + "/" + context + "/output/");
 
-        ReaderConfig.setPathToTemplateModelsDirectory(plaName+"/");
-        ReaderConfig.setPathToProfileSMarty(plaName + "/smarty.profile.uml");
-        ReaderConfig.setPathToProfileConcerns(plaName + "/concerns.profile.uml");
-        ReaderConfig.setPathProfileRelationship(plaName + "/relationships.profile.uml");
-        ReaderConfig.setPathToProfilePatterns(plaName + "/patterns.profile.uml");
+        String plaDirectory = getPlaDirectory(pla);
+        ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
+        ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
+        ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
+        ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
+        ReaderConfig.setPathToProfilePatterns(plaDirectory + "/patterns.profile.uml");
 
         String xmiFilePath = pla;
 
@@ -136,11 +137,6 @@ public class Experiment {
         algorithm.setInputParameter("populationSize", populationSize_);
         algorithm.setInputParameter("maxEvaluations", maxEvaluations_);
 
-        // Mutation and Crossover
-        parameters = new HashMap();
-        parameters.put("probability", crossoverProbability_);
-        crossover = CrossoverFactory.getCrossoverOperator("PLACrossover", parameters);
-
         //ADIÇÃO DO OPERADOR DE MUTAÇÃO - modificado para contemplar os estilos
         boolean execution = false;
         if (style.equals("layer")) {
@@ -159,6 +155,11 @@ public class Experiment {
             mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, null, null);
             execution = true;
         }
+        
+        // Mutation and Crossover
+        parameters = new HashMap();
+        parameters.put("probability", crossoverProbability_);
+        crossover = CrossoverFactory.getCrossoverOperator("PLACrossover", parameters);
 
         if (execution) {
             // Selection Operator 
