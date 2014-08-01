@@ -12,12 +12,10 @@ import arquitetura.representation.relationship.AssociationClassRelationship;
 import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
-import static identification.LayerIdentification.setLISTLAYERS;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 import pojo.Client;
-import pojo.Layer;
 import pojo.Server;
 import pojo.Style;
 import util.ElementUtil;
@@ -169,57 +167,20 @@ public class ClientServerIdentification extends StylesIdentification {
 
     @Override
     public boolean identify(List<? extends Style> clientsservers) {
-        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
-        List<arquitetura.representation.Package> packages = new ArrayList<>();
-        packages.addAll(allPackages);
-        //código que exclui os nestedPackages da lista de pacotes (eles serão verificados adiante)
-        for (arquitetura.representation.Package pacotes : allPackages) {
-            for (arquitetura.representation.Package np : pacotes.nestedPackages) {
-                if (allPackages.contains(np)) {
-                    packages.remove(np);
-                }
-            }
-        }
+        setClientsServers(clientsservers);
 
-        int sizePackages = 0;
-        for (Style clientserver : clientsservers) {
-            List<arquitetura.representation.Package> csPackages = new ArrayList<>();
-            for (String sufixo : clientserver.getSufixos()) {
-                for (arquitetura.representation.Package p : packages) {
-                    String packageName = p.getName().toLowerCase();
-                    if (packageName.endsWith(sufixo.toLowerCase())) {
-                        csPackages.add(p);
-                        Set<arquitetura.representation.Package> nestedPackages = p.getNestedPackages();
-                        for (arquitetura.representation.Package np : nestedPackages) {
-                            csPackages.add(np);
-                            sizePackages++;
-                        }
-                        sizePackages++;
-                    }
-                }
-            }
-            
-            for (String prefixo : clientserver.getPrefixos()) {
-                for (arquitetura.representation.Package p : packages) {
-                    String packageName = p.getName().toLowerCase();
-                    if (packageName.startsWith(prefixo.toLowerCase())) {
-                        csPackages.add(p);
-                        Set<arquitetura.representation.Package> nestedPackages = p.getNestedPackages();
-                        for (arquitetura.representation.Package np : nestedPackages) {
-                            csPackages.add(np);
-                            sizePackages++;
-                        }
-                        sizePackages++;
-                    }
-                }
-            }
-            clientserver.setPackages(csPackages);
-        }
+        addPackagesToClientsServers(architecture);
 
         Set<Interface> interfacesArch = architecture.getInterfaces();
         Set<arquitetura.representation.Class> classesArch = architecture.getClasses();
         boolean isCorrect = false;
-        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == allPackages.size())) {
+
+        int sizePackages = 0;
+        for (Style clientserver : clientsservers) {
+            sizePackages += clientserver.getPackages().size();
+        }
+
+        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == architecture.getAllPackages().size())) {
             isCorrect = checkStyle(clientsservers);
         } else {
             System.out.println("Erro ao verificar os clientes e servidores. Verifique se existem pacotes sem os sufixos ou prefixos informados, ou ainda, elementos na arquitetura que não pertençam a nenhum pacote.");
@@ -265,7 +226,7 @@ public class ClientServerIdentification extends StylesIdentification {
                 }
             }
         }
-        setClientsServers(clientsservers);
+
         return isCorrect;
     }
 
@@ -333,6 +294,64 @@ public class ClientServerIdentification extends StylesIdentification {
         }
         setLISTCLIENTS(clients);
         setLISTSERVERS(servers);
+    }
+
+    public static void clearPackagesFromClientsServers() {
+        for (Client client : LISTCLIENTS) {
+            client.getPackages().clear();
+        }
+        for (Server server : LISTSERVERS) {
+            server.getPackages().clear();
+        }
+    }
+
+    public static void addPackagesToClientsServers(Architecture architecture) {
+        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+        List<arquitetura.representation.Package> packages = new ArrayList<>();
+        packages.addAll(allPackages);
+        //código que exclui os nestedPackages da lista de pacotes (eles serão verificados adiante)
+        for (arquitetura.representation.Package pacotes : allPackages) {
+            for (arquitetura.representation.Package np : pacotes.nestedPackages) {
+                if (allPackages.contains(np)) {
+                    packages.remove(np);
+                }
+            }
+        }
+
+        List<Style> clientsservers = new ArrayList<>();
+        clientsservers.addAll(LISTCLIENTS);
+        clientsservers.addAll(LISTSERVERS);
+
+        for (Style clientserver : clientsservers) {
+            List<arquitetura.representation.Package> csPackages = new ArrayList<>();
+            for (String sufixo : clientserver.getSufixos()) {
+                for (arquitetura.representation.Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.endsWith(sufixo.toLowerCase())) {
+                        csPackages.add(p);
+                        Set<arquitetura.representation.Package> nestedPackages = p.getNestedPackages();
+                        for (arquitetura.representation.Package np : nestedPackages) {
+                            csPackages.add(np);
+                        }
+                    }
+                }
+            }
+
+            for (String prefixo : clientserver.getPrefixos()) {
+                for (arquitetura.representation.Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.startsWith(prefixo.toLowerCase())) {
+                        csPackages.add(p);
+                        Set<arquitetura.representation.Package> nestedPackages = p.getNestedPackages();
+                        for (arquitetura.representation.Package np : nestedPackages) {
+                            csPackages.add(np);
+                        }
+                    }
+                }
+            }
+            clientserver.setPackages(csPackages);
+        }
+
     }
 
 }

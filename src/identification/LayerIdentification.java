@@ -16,7 +16,6 @@ import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import pojo.Layer;
 import pojo.Style;
@@ -145,8 +144,7 @@ public class LayerIdentification extends StylesIdentification {
 
     //verifica se o prefixo existe nos pacotes
     @Override
-    public boolean verifyPrefix(String prefix
-    ) {
+    public boolean verifyPrefix(String prefix) {
         Set<Package> allpackages = architecture.getAllPackages();
         for (Package p : allpackages) {
             if (p.getName().toLowerCase().startsWith(prefix.toLowerCase())) {
@@ -198,7 +196,6 @@ public class LayerIdentification extends StylesIdentification {
                 }
             }
         }
-        setLISTLAYERS(layers);
         return isCorrect;
     }
 
@@ -254,58 +251,20 @@ public class LayerIdentification extends StylesIdentification {
     //..retorna false se forem encontrados pacotes sem camadas (sem os sufixos ou prefixos informados)
     @Override
     public boolean identify(List<? extends Style> camadas) {
-        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
-        List<arquitetura.representation.Package> packages = new ArrayList<>();
-        packages.addAll(allPackages);
-        //código que exclui os nestedPackages da lista de pacotes (eles serão verificados adiante)
-        for (arquitetura.representation.Package pacotes : allPackages) {
-            for (arquitetura.representation.Package np : pacotes.nestedPackages) {
-                if (allPackages.contains(np)) {
-                    packages.remove(np);
-                }
-            }
-        }
-
-        int sizePackages = 0;
-        List<Layer> layers = (List<Layer>) camadas;
-        for (Layer layer : layers) {
-            List<Package> layerPackages = new ArrayList<>();
-            for (String sufixo : layer.getSufixos()) {
-                for (Package p : packages) {
-                    String packageName = p.getName().toLowerCase();
-                    if (packageName.endsWith(sufixo.toLowerCase())) {
-                        layerPackages.add(p);
-                        Set<Package> nestedPackages = p.getNestedPackages();
-                        for (Package np : nestedPackages) {
-                            layerPackages.add(np);
-                            sizePackages++;
-                        }
-                        sizePackages++;
-                    }
-                }
-            }
-            for (String prefixo : layer.getPrefixos()) {
-                for (Package p : packages) {
-                    String packageName = p.getName().toLowerCase();
-                    if (packageName.startsWith(prefixo.toLowerCase())) {
-                        layerPackages.add(p);
-                        Set<Package> nestedPackages = p.getNestedPackages();
-                        for (Package np : nestedPackages) {
-                            layerPackages.add(np);
-                            sizePackages++;
-                        }
-                        sizePackages++;
-                    }
-                }
-            }
-            layer.setPackages(layerPackages);
-        }
+        setLISTLAYERS((List<Layer>) camadas);
+        
+        addPackagesToLayers(architecture);
 
         Set<Interface> interfacesArch = architecture.getInterfaces();
         Set<Class> classesArch = architecture.getClasses();
         boolean isCorrect = false;
-        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == allPackages.size())) {
-            isCorrect = checkStyle(layers);
+        
+        int sizePackages = 0;
+        for (Style camada : camadas) {
+            sizePackages += camada.getPackages().size();
+        }
+        if ((interfacesArch.isEmpty()) && (classesArch.isEmpty()) && (sizePackages == architecture.getAllPackages().size())) {
+            isCorrect = checkStyle(camadas);
         } else {
             System.out.println("Erro ao verificar as camadas. Verifique se existem pacotes sem os sufixos ou prefixos informados, ou ainda, elementos na arquitetura que não pertençam a nenhum pacote.");
         }
@@ -319,5 +278,55 @@ public class LayerIdentification extends StylesIdentification {
             }
         }
         return null;
+    }
+    
+    public static void clearPackagesFromLayers() {
+        for (Layer layer : LISTLAYERS) {
+            layer.getPackages().clear();
+        }
+    }
+    
+    public static void addPackagesToLayers(Architecture architecture) {
+        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+        List<arquitetura.representation.Package> packages = new ArrayList<>();
+        packages.addAll(allPackages);
+        //código que exclui os nestedPackages da lista de pacotes (eles serão verificados adiante)
+        for (arquitetura.representation.Package pacotes : allPackages) {
+            for (arquitetura.representation.Package np : pacotes.nestedPackages) {
+                if (allPackages.contains(np)) {
+                    packages.remove(np);
+                }
+            }
+        }
+
+        List<Layer> layers = (List<Layer>) LISTLAYERS;
+        for (Layer layer : layers) {
+            List<Package> layerPackages = new ArrayList<>();
+            for (String sufixo : layer.getSufixos()) {
+                for (Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.endsWith(sufixo.toLowerCase())) {
+                        layerPackages.add(p);
+                        Set<Package> nestedPackages = p.getNestedPackages();
+                        for (Package np : nestedPackages) {
+                            layerPackages.add(np);
+                        }
+                    }
+                }
+            }
+            for (String prefixo : layer.getPrefixos()) {
+                for (Package p : packages) {
+                    String packageName = p.getName().toLowerCase();
+                    if (packageName.startsWith(prefixo.toLowerCase())) {
+                        layerPackages.add(p);
+                        Set<Package> nestedPackages = p.getNestedPackages();
+                        for (Package np : nestedPackages) {
+                            layerPackages.add(np);
+                        }
+                    }
+                }
+            }
+            layer.setPackages(layerPackages);
+        }
     }
 }

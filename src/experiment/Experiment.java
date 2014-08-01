@@ -29,8 +29,8 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"100", "30000", "0.9", ArchitectureRepository.AGM, "layer", "Teste"};
-        
+        args = new String[]{"100", "3000", "0.9", ArchitectureRepository.AGM, "layer", "Teste"};
+
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -149,7 +149,8 @@ public class Experiment {
             }
         } else if (style.equals("clientserver")) {
             if (StyleGui.verifyClientServer(pla)) {
-                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, LayerIdentification.getLISTLAYERS());
+                //arrumar
+                //mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, LayerIdentification.getLISTLAYERS());
                 execution = true;
             }
         } else {
@@ -157,7 +158,7 @@ public class Experiment {
             mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, null, null);
             execution = true;
         }
-        
+
         // Mutation and Crossover
         parameters = new HashMap();
         parameters.put("probability", crossoverProbability_);

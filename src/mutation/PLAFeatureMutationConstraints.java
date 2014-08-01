@@ -1,15 +1,12 @@
 package mutation;
 
 import arquitetura.representation.Architecture;
+import identification.ClientServerIdentification;
+import identification.LayerIdentification;
 import java.util.HashMap;
 import java.util.List;
 import java.util.logging.Level;
-
 import jmetal.core.Solution;
-
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
-
 import jmetal.operators.mutation.Mutation;
 import jmetal.problems.OPLA;
 import jmetal.util.Configuration;
@@ -21,6 +18,8 @@ import operators.FeatureDriven;
 import operators.MoveAttribute;
 import operators.MoveMethod;
 import operators.MoveOperation;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import pojo.Style;
 import util.OperatorUtil;
 
@@ -46,6 +45,18 @@ public class PLAFeatureMutationConstraints extends Mutation {
     public void doMutation(double probability, Solution solution) throws Exception {
         if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
             Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
+
+            switch (style) {
+                case "layer":
+                    LayerIdentification.clearPackagesFromLayers();
+                    LayerIdentification.addPackagesToLayers(architecture);
+                    break;
+                case "clientserver":
+                    ClientServerIdentification.clearPackagesFromClientsServers();
+                    ClientServerIdentification.addPackagesToClientsServers(architecture);
+                    break;
+            }
+
             int r = PseudoRandom.randInt(0, 5);
             switch (r) {
                 case 0:
