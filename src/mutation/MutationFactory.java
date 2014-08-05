@@ -24,7 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import jmetal.operators.mutation.Mutation;
 import jmetal.operators.mutation.PLAFeatureMutation;
-
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import pojo.Style;
@@ -44,7 +43,7 @@ public class MutationFactory {
     public static Mutation getMutationOperator(String name, HashMap parameters, String style, List<? extends Style> list) throws JMException {
 
         if (name.equalsIgnoreCase("PLAFeatureMutation")) {
-            return new PLAFeatureMutation(parameters);
+            return new PLAFeatureMutation(parameters, style);
         } else if (name.equalsIgnoreCase("PLAFeatureMutationConstraints")) {
             return new PLAFeatureMutationConstraints(parameters, style, list);
         } else {

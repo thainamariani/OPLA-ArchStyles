@@ -33,8 +33,6 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"100", "300", "0.9", ArchitectureRepository.BANKING, "nostyle", "Teste"};
-
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -104,7 +102,6 @@ public class Experiment {
         boolean shouldPrintVariables = true;
 
         String plaName = getPlaName(pla);
-        System.out.println("PLA NAME: " + plaName);
 
         File directory = ArchitectureRepository.getOrCreateDirectory("experiment/" + plaName + "/" + context + "/");
         ArchitectureRepository.getOrCreateDirectory("experiment/" + plaName + "/" + context + "/manipulation");
@@ -114,7 +111,6 @@ public class Experiment {
         ReaderConfig.setDirExportTarget("experiment/" + plaName + "/" + context + "/output/");
 
         String plaDirectory = getPlaDirectory(pla);
-        System.out.println("PLA Directory: " + plaDirectory);
         ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
         ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
         ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
@@ -164,7 +160,8 @@ public class Experiment {
             }
         } else {
             System.out.println("Adicionando operadores sem restrições");
-            mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, null, null);
+            //parâmetro style para esse caso representa o escopo (scope) (allComponents, sameComponent)
+            mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, style, null);
             execution = true;
         }
 

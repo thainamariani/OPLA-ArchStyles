@@ -15,7 +15,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.ArchitectureRepository;
 
-
 public class NSGAII_OPLA_Multithread {
 
     private static volatile int MAX_THREADS = 4;
@@ -37,7 +36,9 @@ public class NSGAII_OPLA_Multithread {
     };
 
     private static final String[] STYLES = {
-        "nostyle",
+        //allComponents e sameComponent representam o escopo para quando não há estilo
+        "allComponents",
+        "sameComponent",
         "clientserver"
     };
 
