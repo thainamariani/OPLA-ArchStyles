@@ -24,11 +24,14 @@ public class ArchitectureRepository {
     public static Architecture CURRENT_ARCHITECTURE = null;
 
     public static final String AGM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
+    public static final String BANKING = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
 
     public static String getPlaPath(String name) {
         switch (name) {
             case "agm":
                 return AGM;
+            case "banking":
+                return BANKING;
             default:
                 return null;
         }

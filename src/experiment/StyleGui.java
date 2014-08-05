@@ -7,10 +7,14 @@ package experiment;
 
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
+import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.List;
+import pojo.Client;
 import pojo.Layer;
+import pojo.Server;
+import pojo.Style;
 
 /**
  *
@@ -54,8 +58,43 @@ public class StyleGui {
         return layerIdentification.isCorrect(camadas);
     }
 
-    static boolean verifyClientServer(String plaDirectory) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    static boolean verifyClientServer(String plaPath) throws Exception {
+        ArchitectureBuilder builder = new ArchitectureBuilder();
+        Architecture architecture = builder.create(plaPath);
+        ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
+
+        List<Client> clients = new ArrayList<>();
+
+        Client client1 = new Client();
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("Client1");
+        client1.setSufixos(sufixos);
+        client1.setPrefixos(prefixos);
+        clients.add(client1);
+
+        List<Server> servers = new ArrayList<>();
+
+        Server server1 = new Server();
+        List<String> sufixos4 = new ArrayList<>();
+        List<String> prefixos4 = new ArrayList<>();
+        sufixos4.add("Server1");
+        server1.setSufixos(sufixos4);
+        server1.setPrefixos(prefixos4);
+        servers.add(server1);
+
+        Server server2 = new Server();
+        List<String> sufixos5 = new ArrayList<>();
+        List<String> prefixos5 = new ArrayList<>();
+        sufixos5.add("Server2");
+        server2.setSufixos(sufixos5);
+        server2.setPrefixos(prefixos5);
+        servers.add(server2);
+
+        List<Style> clientsservers = new ArrayList<>();
+        clientsservers.addAll(clients);
+        clientsservers.addAll(servers);
+        return clientServerIdentification.isCorrect(clientsservers);
     }
 
 }

@@ -1,11 +1,14 @@
 package experiment;
 
 import arquitetura.io.ReaderConfig;
+import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import jmetal.core.Algorithm;
 import jmetal.core.SolutionSet;
 import jmetal.metaheuristics.nsgaII.NSGAII;
@@ -17,6 +20,7 @@ import jmetal.operators.selection.SelectionFactory;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import mutation.MutationFactory;
+import pojo.Style;
 import util.ArchitectureRepository;
 
 public class Experiment {
@@ -149,8 +153,11 @@ public class Experiment {
             }
         } else if (style.equals("clientserver")) {
             if (StyleGui.verifyClientServer(pla)) {
-                //arrumar
-                //mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, LayerIdentification.getLISTLAYERS());
+                System.out.println("Adicionando operadores com restrições de cliente/servidor");
+                List<Style> clientsservers = new ArrayList<>();
+                clientsservers.addAll(ClientServerIdentification.LISTCLIENTS);
+                clientsservers.addAll(ClientServerIdentification.LISTSERVERS);
+                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, clientsservers);
                 execution = true;
             }
         } else {
