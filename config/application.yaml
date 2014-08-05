@@ -1,8 +1,8 @@
 --- !DirTarget
-directoryToSaveModels: experiment/manipulation/
-directoryToExportModels: experiment/output/
-pathToTemplateModelsDirectory: config/
-pathToProfile: config/smarty.profile.uml
-pathToProfileConcern: config/concerns.profile.uml
-pathToProfileRelationships: config/relationships.profile.uml
-pathToProfilePatterns: config/patterns.profile.uml
+directoryToSaveModels: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles\\experiment\\agm\\teste\\manipulation"
+directoryToExportModels: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles\\experiment\\agm\\teste\\output"
+pathToTemplateModelsDirectory: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles/agm/"
+pathToProfile: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles\\agm\\smarty.profile.uml"
+pathToProfileConcern: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles\\agm\\concerns.profile.uml"
+pathToProfileRelationships: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles\\agm\\relationships.profile.uml"
+pathToProfilePatterns: "C:\\Users\\Thainá\\Documents\\NetBeansProjects\\OPLA-ArchStyles\\agm\\patterns.profile.uml"
