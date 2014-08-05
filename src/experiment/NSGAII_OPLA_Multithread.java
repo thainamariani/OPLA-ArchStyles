@@ -15,10 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import util.ArchitectureRepository;
 
-/**
- *
- * @author giovaniguizzo
- */
+
 public class NSGAII_OPLA_Multithread {
 
     private static volatile int MAX_THREADS = 4;
@@ -30,7 +27,7 @@ public class NSGAII_OPLA_Multithread {
     private static volatile String consoleToken = ">";
 
     private static final String[] PLAS = {
-        ArchitectureRepository.AGM
+        ArchitectureRepository.BANKING
     };
 
     private static final int[] POPULATION_SIZE = {
@@ -41,7 +38,7 @@ public class NSGAII_OPLA_Multithread {
 
     private static final String[] STYLES = {
         "nostyle",
-        "layer"
+        "clientserver"
     };
 
     private static final int[] MAX_EVALUATIONS = {
