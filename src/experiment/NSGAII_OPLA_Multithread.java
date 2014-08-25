@@ -26,7 +26,7 @@ public class NSGAII_OPLA_Multithread {
     private static volatile String consoleToken = ">";
 
     private static final String[] PLAS = {
-        ArchitectureRepository.BANKING
+        ArchitectureRepository.AGM
     };
 
     private static final int[] POPULATION_SIZE = {
@@ -37,9 +37,9 @@ public class NSGAII_OPLA_Multithread {
 
     private static final String[] STYLES = {
         //allComponents e sameComponent representam o escopo para quando não há estilo
-        "allComponents",
-        "sameComponent",
-        "clientserver"
+        //"allComponents",
+        "sameComponent"
+        //"clientserver"
     };
 
     private static final int[] MAX_EVALUATIONS = {
