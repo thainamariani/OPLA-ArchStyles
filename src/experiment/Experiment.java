@@ -99,7 +99,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = true;
+        boolean shouldPrintVariables = false;
 
         String plaName = getPlaName(pla);
 
