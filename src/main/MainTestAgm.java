@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import operators.AddPackage;
 import operators.FeatureDriven;
 import pojo.Layer;
 import util.ArchitectureRepository;
@@ -26,7 +25,7 @@ public class MainTestAgm {
     public static void main(String[] args) {
         try {
             ArchitectureBuilder builder = new ArchitectureBuilder();
-            Architecture architecture = builder.create("C:/Users/Thainá/workspace/AGM/agm.uml");
+            Architecture architecture = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml");
             LayerIdentification layerIdentification = new LayerIdentification(architecture);
             List<Layer> camadas = new ArrayList<>();
 
@@ -57,12 +56,19 @@ public class MainTestAgm {
             layer3.setPrefixos(prefixos3);
             camadas.add(layer3);
 
-            if (layerIdentification.isCorrect(camadas)) {
-                FeatureDriven featureDriven = new FeatureDriven();
-                featureDriven.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
-
-                //ArchitectureRepository.setCurrentArchitecture(architecture);
-                //ArchitectureRepository.saveArchitecture("addpackage", "archtest2");
+            for (int i = 0; i < 100; i++) {
+                System.out.println("Execution "+i);
+                if (layerIdentification.isCorrect(camadas)) {
+                    FeatureDriven featureDriven = new FeatureDriven();
+                    featureDriven.doMutation(1, architecture, "layer", LayerIdentification.getLISTLAYERS());
+                    ArchitectureRepository.setCurrentArchitecture(architecture);
+                    ArchitectureRepository.saveArchitecture("featuredriven", "testeagm");
+                    LayerIdentification.clearPackagesFromLayers();
+                    LayerIdentification.addPackagesToLayers(architecture);
+                } else{
+                    System.out.println("Arquitetura não correta");
+                    break;
+                }
             }
         } catch (Exception ex) {
             Logger.getLogger(MainTestAgm.class.getName()).log(Level.SEVERE, null, ex);
