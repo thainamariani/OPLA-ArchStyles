@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
@@ -99,6 +100,14 @@ public class MoveMethod implements OperatorConstraints {
                     ParametersRepository.setSourceClass(sourceClass);
                     ParametersRepository.setMoveMethod(method);
                     //--
+                    PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                    PLAFeatureMutationConstraints.LOGGER.info("Executado Operador Move Method");
+                    PLAFeatureMutationConstraints.LOGGER.info("Target Package: " + targetPackage);
+                    PLAFeatureMutationConstraints.LOGGER.info("Target Class: " + targetClass);
+                    PLAFeatureMutationConstraints.LOGGER.info("Source Package: " + sourceComp);
+                    PLAFeatureMutationConstraints.LOGGER.info("Source Class: " + sourceClass);
+                    PLAFeatureMutationConstraints.LOGGER.info("Method: " + method);
+
                     if (sourceClass.moveMethodToClass(method, targetClass)) {
                         OperatorUtil.createAssociation(architecture, targetClass, sourceClass);
                     }

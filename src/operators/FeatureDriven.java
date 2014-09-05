@@ -9,12 +9,12 @@ import arquitetura.representation.Architecture;
 import arquitetura.representation.Concern;
 import arquitetura.representation.Package;
 import identification.ClientServerIdentification;
-import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.List;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
@@ -93,6 +93,10 @@ public class FeatureDriven implements OperatorConstraints {
                         }
                     }
                     ParametersRepository.setModularizationPackages(modularizationPackages);
+                    PLAFeatureMutationConstraints.LOGGER.info("----------------------------");
+                    PLAFeatureMutationConstraints.LOGGER.info("Executado FeatureDriven");
+                    PLAFeatureMutationConstraints.LOGGER.info("Concern modularizado: " + ParametersRepository.getSelectedConcern());
+
                 }
                 concernsSelectedComp.clear();
                 allComponents.clear();

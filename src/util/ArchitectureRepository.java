@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import jmetal.util.Configuration;
 import main.GenerateArchitecture;
+import mutation.PLAFeatureMutationConstraints;
 
 /**
  *
@@ -87,6 +88,7 @@ public class ArchitectureRepository {
 
         ReaderConfig.setDirExportTarget("test/models/" + archname + "/experiment/" + operator + "/" + operator + i + "/");
         ArchitectureRepository.generateArchitecture(operator + i);
+        PLAFeatureMutationConstraints.LOGGER.info("Arquitetura salva em: " +operator+i);
 
         verifyOperator(operator, file.getPath());
     }

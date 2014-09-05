@@ -9,15 +9,15 @@ import arquitetura.exceptions.ConcernNotFoundException;
 import arquitetura.helpers.UtilResources;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Attribute;
+import arquitetura.representation.Class;
 import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
-import arquitetura.representation.Class;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
+import arquitetura.representation.Package;
 import arquitetura.representation.Variability;
 import arquitetura.representation.Variant;
 import arquitetura.representation.VariationPoint;
-import arquitetura.representation.Package;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
 import arquitetura.representation.relationship.RealizationRelationship;
@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Set;
 import jmetal.problems.OPLA;
 import jmetal.util.PseudoRandom;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
@@ -314,6 +315,10 @@ public class OperatorUtil {
                         architecture.removeImplementedInterface(interfaceComp, sourceComp);
                         addExternalInterface(targetComp, architecture, interfaceComp);
                         addImplementedInterface(targetComp, architecture, interfaceComp, klass);
+                    } else {
+                        PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                        PLAFeatureMutationConstraints.LOGGER.info("Operador Feature Mutation: Não achou classe para implementar (Move Interface)");
+                        PLAFeatureMutationConstraints.LOGGER.info("Concern: " + concernSelected);
                     }
                 }
             }
@@ -327,8 +332,7 @@ public class OperatorUtil {
     }
 
     /**
-     * Retorna todas as classes que tiverem algum dos concerns presentes na
-     * lista ownConcerns.
+     * Retorna todas as classes que tiverem algum dos concerns presentes na lista ownConcerns.
      *
      * @param ownConcerns
      * @param allClasses
@@ -366,14 +370,7 @@ public class OperatorUtil {
             // Se quem estiver implementando a interface que teve a operacao movida for um pacote.
             if (implementor instanceof Package) {
                 /**
-                 * Verifica se o pacote tem somente um classe, recupera a mesma
-                 * e verifica se a interface destino (targetInterface) possui
-                 * algum interesse da classe recuperada. Caso tiver, remove
-                 * implemented interface (sourceInterface) de sourceComp.
-                 * Adiciona a interface tergetInterface em seu pacote ou na
-                 * arquitetura Verifica se já existe um relacionamento de
-                 * realização entre targetInterface e klass, caso não tiver
-                 * adiciona targetInterface como sendo implemenda por klass.
+                 * Verifica se o pacote tem somente um classe, recupera a mesma e verifica se a interface destino (targetInterface) possui algum interesse da classe recuperada. Caso tiver, remove implemented interface (sourceInterface) de sourceComp. Adiciona a interface tergetInterface em seu pacote ou na arquitetura Verifica se já existe um relacionamento de realização entre targetInterface e klass, caso não tiver adiciona targetInterface como sendo implemenda por klass.
                  */
                 if (targetComp.getAllClasses().size() == 1) {
                     final Class klass = targetComp.getAllClasses().iterator().next();
@@ -387,14 +384,7 @@ public class OperatorUtil {
                     }
 
                     /**
-                     * Caso o pacote destino tiver mais de uma classe. Busca
-                     * dentre essas classes todas com o interesse em questão
-                     * (concern), e seleciona um aleatoriamente. Remove
-                     * implemented interface (sourceInterface) de sourceComp.
-                     * Adiciona a interface tergetInterface em seu pacote ou na
-                     * arquitetura Verifica se já existe um relacionamento de
-                     * realização entre targetInterface e klass, caso não tiver
-                     * adiciona targetInterface como sendo implemenda por klass.
+                     * Caso o pacote destino tiver mais de uma classe. Busca dentre essas classes todas com o interesse em questão (concern), e seleciona um aleatoriamente. Remove implemented interface (sourceInterface) de sourceComp. Adiciona a interface tergetInterface em seu pacote ou na arquitetura Verifica se já existe um relacionamento de realização entre targetInterface e klass, caso não tiver adiciona targetInterface como sendo implemenda por klass.
                      */
                 } else if (targetComp.getAllClasses().size() > 1) {
                     final List<Class> targetClasses = allClassesWithConcerns(concern, targetComp.getAllClasses());
@@ -405,8 +395,7 @@ public class OperatorUtil {
                     return;
                 } else {
                     /**
-                     * Caso o pacote for vazio, faz um busca nas classes da
-                     * arquitetura como um todo.
+                     * Caso o pacote for vazio, faz um busca nas classes da arquitetura como um todo.
                      */
                     //Alterado: busca na mesma camada e na camada superior
                     List<arquitetura.representation.Package> packages = new ArrayList<>();
@@ -432,15 +421,16 @@ public class OperatorUtil {
                         architecture.removeImplementedInterface(sourceInterface, sourceComp);
                         addExternalInterface(targetComp, architecture, targetInterface);
                         addImplementedInterface(targetComp, architecture, targetInterface, klass);
+                    } else {
+                        PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                        PLAFeatureMutationConstraints.LOGGER.info("Operador Feature Mutation: Não achou classe para implementar (Move Operation)");
+                        PLAFeatureMutationConstraints.LOGGER.info("Concern: " + concern);
                     }
                 }
             }
 
             /**
-             * Recupera quem estava implementando a interface que teve a
-             * operacao movida e cria uma realizacao entre a interface que
-             * recebeu a operacao (targetInterface) e quem tava implementando a
-             * interface que teve a operacao movida (sourceInterface).
+             * Recupera quem estava implementando a interface que teve a operacao movida e cria uma realizacao entre a interface que recebeu a operacao (targetInterface) e quem tava implementando a interface que teve a operacao movida (sourceInterface).
              *
              */
             if (implementor instanceof Class) {
@@ -604,8 +594,7 @@ public class OperatorUtil {
     }
 
     /**
-     * metodo que move a hierarquia de classes para um outro componente que esta
-     * modularizando o interesse concern
+     * metodo que move a hierarquia de classes para um outro componente que esta modularizando o interesse concern
      *
      *
      * @param classComp - Classe selecionada
@@ -620,8 +609,7 @@ public class OperatorUtil {
 
     //EDIPO Identifica quem é o parent para a classComp
     /**
-     * Dado um {@link Element} retorna a {@link GeneralizationRelationship} no
-     * qual o mesmo pertence.
+     * Dado um {@link Element} retorna a {@link GeneralizationRelationship} no qual o mesmo pertence.
      *
      * @param element
      * @return {@link GeneralizationRelationship}

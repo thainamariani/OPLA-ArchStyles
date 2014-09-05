@@ -1,6 +1,7 @@
 package mutation;
 
 import arquitetura.representation.Architecture;
+import experiment.StyleGui;
 import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.HashMap;
@@ -21,17 +22,17 @@ import operators.MoveOperation;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pojo.Style;
+import util.ArchitectureRepository;
 import util.OperatorUtil;
 
 public class PLAFeatureMutationConstraints extends Mutation {
 
     private static final long serialVersionUID = 9039316729379302747L;
-    static Logger LOGGER = LogManager.getLogger(PLAFeatureMutationConstraints.class.getName());
+    public static Logger LOGGER = LogManager.getLogger(PLAFeatureMutationConstraints.class.getName());
 
     private Double mutationProbability_ = null;
     private String style;
     private List<? extends Style> list;
-    
 
     public PLAFeatureMutationConstraints(HashMap<String, Object> parameters, String style, List<? extends Style> list) {
         super(parameters);
@@ -46,7 +47,6 @@ public class PLAFeatureMutationConstraints extends Mutation {
     public void doMutation(double probability, Solution solution) throws Exception {
         if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
             Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
-
             switch (style) {
                 case "layer":
                     LayerIdentification.clearPackagesFromLayers();
@@ -85,6 +85,11 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     addPackage.doMutation(probability, architecture, style, list);
                     break;
             }
+
+            if (!StyleGui.verifyLayer(architecture)) {
+                ArchitectureRepository.saveArchitecture(r + "", "agmteste");
+            }
+
         } else {
             Configuration.logger_.log(Level.SEVERE, "doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());
             java.lang.Class<String> cls = java.lang.String.class;

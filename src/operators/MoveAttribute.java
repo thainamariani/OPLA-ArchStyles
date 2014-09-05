@@ -12,11 +12,11 @@ import java.util.ArrayList;
 import java.util.List;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
 import pojo.Style;
-import util.ArchitectureRepository;
 import util.OperatorUtil;
 import static util.OperatorUtil.isOptional;
 import static util.OperatorUtil.isVarPoint;
@@ -31,7 +31,7 @@ import util.StyleUtil;
  * @author Thainá
  */
 public class MoveAttribute implements OperatorConstraints {
-    
+
     @Override
     public void doMutation(double probability, Architecture architecture, String style, List<? extends Style> styles) throws JMException {
         if (PseudoRandom.randDouble() < probability) {
@@ -42,7 +42,7 @@ public class MoveAttribute implements OperatorConstraints {
             }
         }
     }
-    
+
     @Override
     public void doMutationLayer(double probability, Architecture architecture, List<Layer> layers) {
         try {
@@ -63,9 +63,9 @@ public class MoveAttribute implements OperatorConstraints {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
     }
-    
+
     @Override
     public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
         final arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
@@ -85,7 +85,7 @@ public class MoveAttribute implements OperatorConstraints {
             mutation(sourceClass, architecture, sourceComp, targetPackage);
         }
     }
-    
+
     public void mutation(arquitetura.representation.Class sourceClass, Architecture architecture, arquitetura.representation.Package sourceComp, arquitetura.representation.Package targetPackage) {
         final arquitetura.representation.Class targetClass = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Class>(targetPackage.getAllClasses()));
         if ((sourceClass != null) && (!searchForGeneralizations(sourceClass))
@@ -105,11 +105,19 @@ public class MoveAttribute implements OperatorConstraints {
                     ParametersRepository.setSourceClass(sourceClass);
                     ParametersRepository.setMoveAttribute(attribute);
                     //--
+                    PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                    PLAFeatureMutationConstraints.LOGGER.info("Operador Move Attribute");
+                    PLAFeatureMutationConstraints.LOGGER.info("Target Package: " + targetPackage);
+                    PLAFeatureMutationConstraints.LOGGER.info("Target Class: " + targetClass);
+                    PLAFeatureMutationConstraints.LOGGER.info("Source Package: " + sourceComp);
+                    PLAFeatureMutationConstraints.LOGGER.info("Source Class: " + sourceClass);
+                    PLAFeatureMutationConstraints.LOGGER.info("Attribute: " + attribute);
+
                     if (sourceClass.moveAttributeToClass(attribute, targetClass)) {
                         OperatorUtil.createAssociation(architecture, targetClass, sourceClass);
                     }
                 }
-                
+
                 attributesClass.clear();
             }
         }

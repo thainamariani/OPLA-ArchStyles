@@ -25,8 +25,12 @@ public class StyleGui {
     public static boolean verifyLayer(String plaPath) throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
         Architecture architecture = builder.create(plaPath);
-        LayerIdentification layerIdentification = new LayerIdentification(architecture);
+        return verifyLayer(architecture);
+    }
 
+    public static boolean verifyLayer(Architecture architecture) {
+        LayerIdentification layerIdentification = new LayerIdentification(architecture);
+        
         //Criação das camadas - fazer na GUI
         List<Layer> camadas = new ArrayList<>();
         Layer layer1 = new Layer();

@@ -16,6 +16,7 @@ import java.util.logging.Logger;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
@@ -106,6 +107,15 @@ public class AddClass implements OperatorConstraints {
                         ParametersRepository.setSourceClass(sourceClass);
                         ParametersRepository.setMoveAttribute(targetAttribute);
                         //--
+
+                        PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                        PLAFeatureMutationConstraints.LOGGER.info("Executado Operador Add Class");
+                        PLAFeatureMutationConstraints.LOGGER.info("Target Package: " + targetPackage);
+                        PLAFeatureMutationConstraints.LOGGER.info("New Class: " + newClass);
+                        PLAFeatureMutationConstraints.LOGGER.info("Source Package: " + sourceComp);
+                        PLAFeatureMutationConstraints.LOGGER.info("Source Class: " + sourceClass);
+                        PLAFeatureMutationConstraints.LOGGER.info("Attribute: " + targetAttribute);
+
                         OperatorUtil.moveAttributeToNewClass(architecture, sourceClass, targetAttribute, newClass);
                     } catch (Exception ex) {
                         Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);
@@ -124,6 +134,15 @@ public class AddClass implements OperatorConstraints {
                         ParametersRepository.setSourcePackage(sourceComp);
                         ParametersRepository.setSourceClass(sourceClass);
                         ParametersRepository.setMoveMethod(targetMethod);
+
+                        PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                        PLAFeatureMutationConstraints.LOGGER.info("Executado Operador Add Class");
+                        PLAFeatureMutationConstraints.LOGGER.info("Target Package: " + targetPackage);
+                        PLAFeatureMutationConstraints.LOGGER.info("New Class: " + newClass);
+                        PLAFeatureMutationConstraints.LOGGER.info("Source Package: " + sourceComp);
+                        PLAFeatureMutationConstraints.LOGGER.info("Source Class: " + sourceClass);
+                        PLAFeatureMutationConstraints.LOGGER.info("Method: " + targetMethod);
+
                         OperatorUtil.moveMethodToNewClass(architecture, sourceClass, targetMethod, newClass);
                     } catch (Exception ex) {
                         Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);

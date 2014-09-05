@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.Set;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Style;
@@ -169,6 +170,15 @@ public class MoveOperation implements OperatorConstraints {
                     ParametersRepository.setTargetPackage(targetComp);
                     ParametersRepository.setTargetInterface(targetInterface);
                     ParametersRepository.setMoveMethod(operation);
+
+                    PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
+                    PLAFeatureMutationConstraints.LOGGER.info("Executado Operador Move Operation");
+                    PLAFeatureMutationConstraints.LOGGER.info("Target Package: " + targetComp);
+                    PLAFeatureMutationConstraints.LOGGER.info("Target Interface: " + targetInterface);
+                    PLAFeatureMutationConstraints.LOGGER.info("Source Interface: " + sourceInterface);
+                    for (Element element : sourceInterface.getImplementors()) {
+                        PLAFeatureMutationConstraints.LOGGER.info("Implementor: " + element.getName());
+                    }
 
                     sourceInterface.moveOperationToInterface(operation, targetInterface);
                     for (Element implementor : sourceInterface.getImplementors()) {
