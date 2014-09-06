@@ -2,7 +2,6 @@ package experiment;
 
 import arquitetura.io.ReaderConfig;
 import identification.ClientServerIdentification;
-import identification.LayerIdentification;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -33,6 +32,8 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
+        args = new String[]{"100", "5000", "1", ArchitectureRepository.AGM, "layer", "Teste"};
+        
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -99,7 +100,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = false;
+        boolean shouldPrintVariables = true;
 
         String plaName = getPlaName(pla);
 
@@ -146,7 +147,7 @@ public class Experiment {
         if (style.equals("layer")) {
             System.out.println("Adicionando operadores com restrições de camadas");
             if (StyleGui.verifyLayer(pla)) {
-                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, LayerIdentification.getLISTLAYERS());
+                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
                 execution = true;
             }
         } else if (style.equals("clientserver")) {
@@ -155,13 +156,13 @@ public class Experiment {
                 List<Style> clientsservers = new ArrayList<>();
                 clientsservers.addAll(ClientServerIdentification.LISTCLIENTS);
                 clientsservers.addAll(ClientServerIdentification.LISTSERVERS);
-                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style, clientsservers);
+                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
                 execution = true;
             }
         } else {
             System.out.println("Adicionando operadores sem restrições");
             //parâmetro style para esse caso representa o escopo (scope) (allComponents, sameComponent)
-            mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, style, null);
+            mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, style);
             execution = true;
         }
 

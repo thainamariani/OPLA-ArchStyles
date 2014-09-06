@@ -21,12 +21,10 @@
 package mutation;
 
 import java.util.HashMap;
-import java.util.List;
 import jmetal.operators.mutation.Mutation;
 import jmetal.operators.mutation.PLAFeatureMutation;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
-import pojo.Style;
 
 /**
  * Class implementing a factory for Mutation objects.
@@ -40,12 +38,12 @@ public class MutationFactory {
      * @return the operator
      * @throws JMException
      */
-    public static Mutation getMutationOperator(String name, HashMap parameters, String style, List<? extends Style> list) throws JMException {
+    public static Mutation getMutationOperator(String name, HashMap parameters, String style) throws JMException {
 
         if (name.equalsIgnoreCase("PLAFeatureMutation")) {
             return new PLAFeatureMutation(parameters, style);
         } else if (name.equalsIgnoreCase("PLAFeatureMutationConstraints")) {
-            return new PLAFeatureMutationConstraints(parameters, style, list);
+            return new PLAFeatureMutationConstraints(parameters, style);
         } else {
             Configuration.logger_.severe("Operator '" + name + "' not found ");
             Class cls = java.lang.String.class;

@@ -253,6 +253,7 @@ public class LayerIdentification extends StylesIdentification {
     public boolean identify(List<? extends Style> camadas) {
         setLISTLAYERS((List<Layer>) camadas);
         
+        clearPackagesFromLayers();
         addPackagesToLayers(architecture);
 
         Set<Interface> interfacesArch = architecture.getInterfaces();

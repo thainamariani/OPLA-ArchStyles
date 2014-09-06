@@ -22,7 +22,6 @@ import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import mutation.MutationFactory;
 import pojo.Layer;
-import pojo.Style;
 
 public class ExperimentModel {
 
@@ -130,10 +129,10 @@ public class ExperimentModel {
             camadas.add(layer3);
             if (layerIdentification.isCorrect(camadas)) {
                 System.out.println("Executando operadores com restrições de camadas");
-                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, "layer", LayerIdentification.getLISTLAYERS());
+                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, "layer");
             } else {
                 System.out.println("Executando operadores sem restrições de camadas");
-                mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, null, null);
+                mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, null);
             }
 
             // Selection Operator 
