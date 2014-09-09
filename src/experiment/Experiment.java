@@ -32,8 +32,6 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"100", "5000", "1", ArchitectureRepository.AGM, "layer", "Teste"};
-        
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -214,9 +212,9 @@ public class Experiment {
                 //resultFront.printVariablesToFile(directory + "/VAR_" + runs);
                 resultFront.printInformationToFile(directory + "/INFO_" + plaName + "_" + runs + ".txt");
                 // resultFront.saveVariablesToFile(directory + "/VAR_" + runs + "_");
-                if (shouldPrintVariables) {
-                    resultFront.saveVariablesToFile("VAR_" + runs + "_");
-                }
+//                if (shouldPrintVariables) {
+//                    resultFront.saveVariablesToFile("VAR_" + runs + "_");
+//                }
 
                 Hypervolume.printFormatedHypervolumeFile(resultFront, directory + "/HYPERVOLUME.txt", true);
 

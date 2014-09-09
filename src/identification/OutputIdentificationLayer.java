@@ -48,6 +48,9 @@ public class OutputIdentificationLayer {
         layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
 
+        int contCorreta = 0;
+        int contIncorreta = 0;
+        int contProblema = 0;
         File directory = new File("/media/thaina/Acer/Users/Thainá/Documents/Experimentos");
         if (directory.exists()) {
             String[] list = directory.list();
@@ -73,13 +76,14 @@ public class OutputIdentificationLayer {
                                         LayerIdentification layerIdentification = new LayerIdentification(architecture);
                                         if (layerIdentification.isCorrect(camadas)) {
                                             //System.out.println("Experimento " + subsubdirectory + " Solução " + outputs[k] + " está correta");
+                                            contCorreta++;
                                         } else {
-                                            
-                                            System.out.println("Experimento " + subsubdirectory + " Solução " + outputs[k] + " não está correta");
-                                            
+                                            //System.out.println("Experimento " + subsubdirectory + " Solução " + outputs[k] + " não está correta");
+                                            contIncorreta++;
                                         }
 
                                     } catch (Exception ex) {
+                                        contProblema++;
                                         //System.out.println("PROBLEMA: " + outputs[k]);
                                     }
                                 }
@@ -91,5 +95,9 @@ public class OutputIdentificationLayer {
         } else {
             System.out.println("Diretório não existe");
         }
+
+        System.out.println("Corretas: " + contCorreta);
+        System.out.println("Incorretas: " + contIncorreta);
+        System.out.println("Com problema: " + contProblema);
     }
 }
