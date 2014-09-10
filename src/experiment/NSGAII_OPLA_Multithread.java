@@ -35,8 +35,8 @@ public class NSGAII_OPLA_Multithread {
 
     private static final String[] STYLES = {
         //allComponents e sameComponent representam o escopo para quando não há estilo
-        "allComponents",
-        "sameComponent",
+        //"allComponents",
+        //"sameComponent",
         //"clientserver"
         "layer"
     };

@@ -9,19 +9,17 @@ import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
 import arquitetura.representation.Element;
+import arquitetura.representation.Package;
 import arquitetura.representation.relationship.AssociationClassRelationship;
 import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
-import arquitetura.representation.Package;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import org.junit.Assert;
-import org.junit.Test;
 import org.junit.BeforeClass;
+import org.junit.Test;
 import pojo.Layer;
 import util.ElementUtil;
 import util.RelationshipUtil;
@@ -42,7 +40,8 @@ public class LayerIdentification2Test {
     public static void before() throws Exception {
         //instância archteste
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
+        //architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
+        architectureTest = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
         layerIdentificationTest = new LayerIdentification(architectureTest);
         
         List<Layer> camadas = new ArrayList<>();

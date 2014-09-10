@@ -25,22 +25,22 @@ import pojo.Style;
 import util.OperatorUtil;
 
 public class PLAFeatureMutationConstraints extends Mutation {
-    
+
     private static final long serialVersionUID = 9039316729379302747L;
     public static Logger LOGGER = LogManager.getLogger(PLAFeatureMutationConstraints.class.getName());
     private String name = "no";
     private Double mutationProbability_ = null;
     private String style;
-    
+
     public PLAFeatureMutationConstraints(HashMap<String, Object> parameters, String style) {
         super(parameters);
         this.style = style;
-        
+
         if (parameters.get("probability") != null) {
             mutationProbability_ = (Double) parameters.get("probability");
         }
     }
-    
+
     public void doMutation(double probability, Solution solution) throws Exception {
         if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
             Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
@@ -49,18 +49,18 @@ public class PLAFeatureMutationConstraints extends Mutation {
                 case "layer":
                     LayerIdentification.clearPackagesFromLayers();
                     LayerIdentification.addPackagesToLayers(architecture);
-                    
+
                     list.addAll(LayerIdentification.getLISTLAYERS());
                     break;
                 case "clientserver":
                     ClientServerIdentification.clearPackagesFromClientsServers();
                     ClientServerIdentification.addPackagesToClientsServers(architecture);
-                    
+
                     list.addAll(ClientServerIdentification.getLISTCLIENTS());
                     list.addAll(ClientServerIdentification.getLISTSERVERS());
                     break;
             }
-            
+
             int r = PseudoRandom.randInt(0, 5);
             switch (r) {
                 case 0:
@@ -94,12 +94,14 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     name = "addpackage";
                     break;
             }
-            
+
 //            if (!StyleGui.verifyLayer(architecture)) {
 //                //ArchitectureRepository.setCurrentArchitecture(architecture);
 //                //ArchitectureRepository.saveArchitecture(name, "agmteste");
-//                System.err.println("Arquitetura incorreta salva em agmteste/" + name);
+//                //System.err.println("Arquitetura incorreta salva em agmteste/" + name);
 //                //LOGGER.info("Arquitetura incorreta salva em agmteste/" + name);
+//                System.out.println("Arquitetura incorreta");
+//                System.out.println("Operador executado: " + name);
 //            }
         } else {
             Configuration.logger_.log(Level.SEVERE, "doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());
@@ -118,21 +120,21 @@ public class PLAFeatureMutationConstraints extends Mutation {
             Configuration.logger_.severe("FeatureMutationConstraints.execute: probability not specified");
             java.lang.Class<String> cls = java.lang.String.class;
             String name = cls.getName();
-            
+
             throw new JMException(
                     "Exception in " + name + ".execute()");
         }
-        
+
         this.doMutation(mutationProbability_, solution);
-        
+
         if (!OperatorUtil.isValidSolution(((Architecture) solution.getDecisionVariables()[0]))) {
             Architecture clone;
             clone = ((Architecture) solution.getDecisionVariables()[0]).deepClone();
             solution.getDecisionVariables()[0] = clone;
             OPLA.contDiscardedSolutions_++;
         }
-        
+
         return solution;
     }
-    
+
 }

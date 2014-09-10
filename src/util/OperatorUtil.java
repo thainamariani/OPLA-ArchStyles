@@ -316,6 +316,8 @@ public class OperatorUtil {
                         addExternalInterface(targetComp, architecture, interfaceComp);
                         addImplementedInterface(targetComp, architecture, interfaceComp, klass);
                     } else {
+                        System.out.println("addExternalInterface moveInterfaceToComponent");
+                        addExternalInterface(targetComp, architecture, interfaceComp);
                         PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
                         PLAFeatureMutationConstraints.LOGGER.info("Operador Feature Mutation: Não achou classe para implementar (Move Interface)");
                         PLAFeatureMutationConstraints.LOGGER.info("Concern: " + concernSelected);
@@ -422,6 +424,8 @@ public class OperatorUtil {
                         addExternalInterface(targetComp, architecture, targetInterface);
                         addImplementedInterface(targetComp, architecture, targetInterface, klass);
                     } else {
+                        System.out.println("addExternalInterface moveOperationToComponent");
+                        addExternalInterface(targetComp, architecture, targetInterface);
                         PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
                         PLAFeatureMutationConstraints.LOGGER.info("Operador Feature Mutation: Não achou classe para implementar (Move Operation)");
                         PLAFeatureMutationConstraints.LOGGER.info("Concern: " + concern);

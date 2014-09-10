@@ -62,6 +62,7 @@ public class OutputIdentificationLayer {
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
                         if (subsubdirectory.toString().endsWith("layer")) {
+                            System.out.println("subsubdirectory: "+subsubdirectory.getName());
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();
                             for (int k = 0; k < outputs.length; k++) {
@@ -78,13 +79,13 @@ public class OutputIdentificationLayer {
                                             //System.out.println("Experimento " + subsubdirectory + " Solução " + outputs[k] + " está correta");
                                             contCorreta++;
                                         } else {
-                                            //System.out.println("Experimento " + subsubdirectory + " Solução " + outputs[k] + " não está correta");
+                                            System.out.println("Experimento " + subsubdirectory + " Solução " + outputs[k] + " não está correta");
                                             contIncorreta++;
                                         }
 
                                     } catch (Exception ex) {
                                         contProblema++;
-                                        //System.out.println("PROBLEMA: " + outputs[k]);
+                                        System.out.println("PROBLEMA: " + outputs[k]);
                                     }
                                 }
                             }
