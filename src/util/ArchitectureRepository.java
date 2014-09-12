@@ -26,7 +26,7 @@ public class ArchitectureRepository {
 
     //public static final String AGM = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
     //public static final String AGM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
-    public static final String AGM = "/h/gemini/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
+    public static final String AGM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
     public static final String BANKING = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
 
     public static String getPlaPath(String name) {

@@ -196,7 +196,7 @@ public class OperatorUtil {
                                 {
                                     moveClassToComponent(classComp, targetComponent, comp, arch, concern);
                                 } else {
-                                    moveHierarchyToComponent(classComp, targetComponent, comp, arch, concern); //realiza a muta����o em classes est��o numa hierarquia de herarquia
+                                    moveHierarchyToComponent(style, classComp, targetComponent, comp, arch, concern); //realiza a muta����o em classes est��o numa hierarquia de herarquia
                                 }
                             } else {
                                 if (!searchForGeneralizations(classComp)) {
@@ -230,7 +230,7 @@ public class OperatorUtil {
                 }
             }
         } catch (Exception e) {
-            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
     }
 
@@ -316,7 +316,6 @@ public class OperatorUtil {
                         addExternalInterface(targetComp, architecture, interfaceComp);
                         addImplementedInterface(targetComp, architecture, interfaceComp, klass);
                     } else {
-                        System.out.println("addExternalInterface moveInterfaceToComponent");
                         addExternalInterface(targetComp, architecture, interfaceComp);
                         PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
                         PLAFeatureMutationConstraints.LOGGER.info("Operador Feature Mutation: Não achou classe para implementar (Move Interface)");
@@ -424,7 +423,6 @@ public class OperatorUtil {
                         addExternalInterface(targetComp, architecture, targetInterface);
                         addImplementedInterface(targetComp, architecture, targetInterface, klass);
                     } else {
-                        System.out.println("addExternalInterface moveOperationToComponent");
                         addExternalInterface(targetComp, architecture, targetInterface);
                         PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
                         PLAFeatureMutationConstraints.LOGGER.info("Operador Feature Mutation: Não achou classe para implementar (Move Operation)");
@@ -499,11 +497,6 @@ public class OperatorUtil {
     //	}
     //Édipo Método
     public static Interface searchForInterfaceWithConcern(Concern concern, Package targetComp) {
-        for (Interface itf : targetComp.getImplementedInterfaces()) {
-            if (itf.containsConcern(concern)) {
-                return itf;
-            }
-        }
 
         for (Interface itf : targetComp.getAllInterfaces()) {
             if (itf.containsConcern(concern)) {
@@ -601,14 +594,17 @@ public class OperatorUtil {
      * metodo que move a hierarquia de classes para um outro componente que esta modularizando o interesse concern
      *
      *
+     * @param style
      * @param classComp - Classe selecionada
      * @param targetComp - Pacote destino
      * @param sourceComp - Pacote de origem
      * @param architecture - arquiteutra
      * @param concern - interesse sendo modularizado
      */
-    public static void moveHierarchyToComponent(Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) {
-        architecture.forGeneralization().moveGeneralizationToPackage(getGeneralizationRelationshipForClass(classComp), targetComp);
+    public static void moveHierarchyToComponent(Style style, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) {
+        OperationsOverGeneralization operationsOverGeneralization = new OperationsOverGeneralization(architecture);
+        operationsOverGeneralization.moveGeneralizationToPackage(style, getGeneralizationRelationshipForClass(classComp), targetComp);
+        //architecture.forGeneralization().moveGeneralizationToPackage(getGeneralizationRelationshipForClass(classComp), targetComp);
     }
 
     //EDIPO Identifica quem é o parent para a classComp
