@@ -26,11 +26,11 @@ public class NSGAII_OPLA_Multithread {
     private static volatile String consoleToken = ">";
 
     private static final String[] PLAS = {
-        ArchitectureRepository.AGM
+        ArchitectureRepository.MM
     };
 
     private static final int[] POPULATION_SIZE = {
-        200
+        50
     };
 
     private static final String[] STYLES = {
