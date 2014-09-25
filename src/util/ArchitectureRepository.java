@@ -29,15 +29,17 @@ public class ArchitectureRepository {
     public static final String MM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/mobilemedia/MobileMedia.uml";
     public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/bet/BeT.uml";
     public static final String AGM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
-    public static final String BANKING = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
+    public static final String BANKING = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
+    //public static final String BANKING = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
 
     public static String getPlaPath(String name) {
         switch (name) {
             case "agm":
                 return AGM;
             case "banking":
-                System.out.println("PLA Name: " +name);
                 return BANKING;
+            case "MobileMedia":
+                return MM;
             default:
                 return null;
         }
@@ -92,7 +94,7 @@ public class ArchitectureRepository {
 
         ReaderConfig.setDirExportTarget("test/models/" + archname + "/experiment/" + operator + "/" + operator + i + "/");
         ArchitectureRepository.generateArchitecture(operator + i);
-        PLAFeatureMutationConstraints.LOGGER.info("Arquitetura salva em: " +operator+i);
+        PLAFeatureMutationConstraints.LOGGER.info("Arquitetura salva em: " + operator + i);
 
         verifyOperator(operator, file.getPath());
     }
