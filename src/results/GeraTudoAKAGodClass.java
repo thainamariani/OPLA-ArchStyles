@@ -67,7 +67,7 @@ public class GeraTudoAKAGodClass {
             runWilcoxon(directoryPath, contexts);
             executeEuclideanDistance(directoryPath, pla, contexts);
             executeParetoStats(directoryPath, pla, contexts);
-            executeArchitectureStats(directoryPath, pla, contexts);
+//            executeArchitectureStats(directoryPath, pla, contexts);
         }
     }
 
@@ -106,6 +106,18 @@ public class GeraTudoAKAGodClass {
                         }
                     }
                 }
+                try (FileWriter funAllContext = new FileWriter(directoryPath + contexto + "/FUN_All_N_" + pla + ".txt")) {
+                    SolutionSet execution = mu.readNonDominatedSolutionSet(directoryPath + contexto + "/FUN_All_" + pla + ".txt");
+                    for (Iterator<Solution> it = execution.iterator(); it.hasNext();) {
+                        Solution solution = it.next();
+                        for (int j = 0; j < 2; j++) {
+                            double objective = solution.getObjective(j);
+                            objective = (objective - min[j]) / (max[j] - min[j]);
+                            funAllContext.append(objective + " ");
+                        }
+                        funAllContext.write("\n");
+                    }
+                }
             }
             //atual - menor / maior - menor
         }
@@ -140,9 +152,9 @@ public class GeraTudoAKAGodClass {
 
     private static void executeEuclideanDistance(String directoryPath, String pla, String[] contexts) throws IOException {
         MetricsUtil mu = new MetricsUtil();
-        SolutionSet ss = mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_" + pla + ".txt");
+        SolutionSet ss = mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_N_" + pla + ".txt");
         ss = removeDominadas(ss);
-        ss.printObjectivesToFile(directoryPath + "FUN_All_" + pla + ".txt");
+//        ss.printObjectivesToFile(directoryPath + "FUN_All_N_" + pla + ".txt");
 
         double[] min = mu.getMinimumValues(ss.writeObjectivesToMatrix(), 2);
         try (FileWriter todosEds = new FileWriter(directoryPath + "ALL_ED_" + pla + ".txt")) {
@@ -154,7 +166,7 @@ public class GeraTudoAKAGodClass {
 
 //                    double[][] front = new double[quantidadeSolucoes][numObjetivos];
 //                    for(solucoes)for(objetivos)solucoes[solucaoI][numObjJ] = valor do banco;
-                    double[][] front = mu.readFront(directoryPath + contexto + "/" + "FUN_All_" + pla + ".txt");
+                    double[][] front = mu.readFront(directoryPath + contexto + "/" + "FUN_All_N_" + pla + ".txt");
                     for (int i = 0; i < front.length; i++) {
                         double distanciaEuclidiana = mu.distance(min, front[i]);
                         todosEds.write(distanciaEuclidiana + "\n");
@@ -214,7 +226,7 @@ public class GeraTudoAKAGodClass {
         process.waitFor();
 
         try (FileWriter hypervolumesFile = new FileWriter(directoryPath + "HYPERVOLUMES.txt")) {
-            hypervolumesFile.append("#\t / Context\t / Mean\t / Max\t / Std. Dev.\t / Time\n");
+            hypervolumesFile.append("#\t / Context\t / Mean\t / Max\t / Std. Dev.\t / Time\t / Std. Dev.\n");
             int count = 1;
             for (String context : contexts) {
                 DescriptiveStatistics hypervolumes = new DescriptiveStatistics();
@@ -229,7 +241,7 @@ public class GeraTudoAKAGodClass {
                     execTimes.addValue(scannerTime.nextLong());
                 }
 
-                hypervolumesFile.append(count++ + "\t" + context + "\t" + String.valueOf(hypervolumes.getMean()).replace(".", ",") + "\t" + String.valueOf(hypervolumes.getMax()).replace(".", ",") + "\t" + String.valueOf(hypervolumes.getStandardDeviation()).replace(".", ",") + "\t" + String.valueOf(execTimes.getMean()).replace(".", ",") + "\n");
+                hypervolumesFile.append(count++ + "\t" + context + "\t" + String.valueOf(hypervolumes.getMean()).replace(".", ",") + "\t" + String.valueOf(hypervolumes.getMax()).replace(".", ",") + "\t" + String.valueOf(hypervolumes.getStandardDeviation()).replace(".", ",") + "\t" + String.valueOf(execTimes.getMean()).replace(".", ",") + "\t" + String.valueOf(execTimes.getStandardDeviation()).replace(".", ",") + "\n");
             }
         }
     }

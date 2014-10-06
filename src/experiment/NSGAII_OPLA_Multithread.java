@@ -26,7 +26,7 @@ public class NSGAII_OPLA_Multithread {
     private static volatile String consoleToken = ">";
 
     private static final String[] PLAS = {
-        ArchitectureRepository.MM
+        ArchitectureRepository.BET
     };
 
     private static final int[] POPULATION_SIZE = {
@@ -37,10 +37,10 @@ public class NSGAII_OPLA_Multithread {
 
     private static final String[] STYLES = {
         //allComponents e sameComponent representam o escopo para quando não há estilo
-        //"allComponents",
+        "allComponents",
         "sameComponent",
         //"clientserver"
-    //"layer"
+        "layer"
     };
 
     private static final int[] MAX_EVALUATIONS = {
@@ -53,7 +53,7 @@ public class NSGAII_OPLA_Multithread {
         //0.1,
         //0.5,
         0.9,
-        //1.0
+        1.0
     };
 
     private static synchronized void initialize() {
