@@ -27,8 +27,8 @@ public class ArchitectureRepository {
     //public static final String AGM = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
     //public static final String AGM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
     public static final String MM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/mobilemedia/MobileMedia.uml";
-    //public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/bet/BeT.uml";
-    public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT/BeT.uml";
+    public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/bet/BeT.uml";
+    //public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT/BeT.uml";
     public static final String AGM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
     public static final String BANKING = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
     //public static final String BANKING = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";

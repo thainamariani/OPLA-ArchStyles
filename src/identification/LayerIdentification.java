@@ -202,11 +202,20 @@ public class LayerIdentification extends StylesIdentification {
     public boolean checkAssociationClassRelationship(AssociationClassRelationship association, List<Package> layerPackages) {
         Package packageElement1 = ElementUtil.getPackage(association.getAssociationClass(), architecture);
         Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
-        Package packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
-        if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2)) || (!layerPackages.contains(packageElement3))) {
-            System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " devem estar na mesma camada");
-            return false;
+        Package packageElement3 = null;
+        if (association.getMemebersEnd().size() > 1) {
+            packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
+            if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2)) || (!layerPackages.contains(packageElement3))) {
+                System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " devem estar na mesma camada");
+                return false;
+            }
+        } else {
+            if ((!layerPackages.contains(packageElement1)) || (!layerPackages.contains(packageElement2))) {
+                System.out.println("Elementos relacionados com a classe associativa " + association.getAssociationClass() + " devem estar na mesma camada");
+                return false;
+            }
         }
+
         return true;
     }
 
@@ -252,14 +261,14 @@ public class LayerIdentification extends StylesIdentification {
     @Override
     public boolean identify(List<? extends Style> camadas) {
         setLISTLAYERS((List<Layer>) camadas);
-        
+
         clearPackagesFromLayers();
         addPackagesToLayers(architecture);
 
         Set<Interface> interfacesArch = architecture.getInterfaces();
         Set<Class> classesArch = architecture.getClasses();
         boolean isCorrect = false;
-        
+
         int sizePackages = 0;
         for (Style camada : camadas) {
             sizePackages += camada.getPackages().size();
@@ -280,13 +289,13 @@ public class LayerIdentification extends StylesIdentification {
         }
         return null;
     }
-    
+
     public static void clearPackagesFromLayers() {
         for (Layer layer : LISTLAYERS) {
             layer.getPackages().clear();
         }
     }
-    
+
     public static void addPackagesToLayers(Architecture architecture) {
         Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
         List<arquitetura.representation.Package> packages = new ArrayList<>();
