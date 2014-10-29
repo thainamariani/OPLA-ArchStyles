@@ -26,32 +26,32 @@ public class NSGAII_OPLA_Multithread {
     private static volatile String consoleToken = ">";
 
     private static final String[] PLAS = {
-        ArchitectureRepository.BET
+        ArchitectureRepository.BANKING
     };
 
     private static final int[] POPULATION_SIZE = {
         50,
-        //100,
-        //200
+        100,
+        200
     };
 
     private static final String[] STYLES = {
         //allComponents e sameComponent representam o escopo para quando não há estilo
         "allComponents",
         //"sameComponent",
-        //"clientserver"
-        "layer"
+        "clientserver"
+        //"layer"
     };
 
     private static final int[] MAX_EVALUATIONS = {
-        //3000,
+        3000,
         30000,
-        //300000
+        300000
     };
 
     private static final double[] MUTATION_PROBABILITY = {
-        //0.1,
-        //0.5,
+        0.1,
+        0.5,
         0.9,
         1.0
     };

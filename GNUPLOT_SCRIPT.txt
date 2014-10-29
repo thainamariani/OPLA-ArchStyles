@@ -1,0 +1,26 @@
+# Generating AGM
+set terminal png size 400,400 enhanced font 'arial' 10 butt
+set output 'experiment/agm/AGM_Pareto.png'
+set key
+set xlabel 'FM'
+set ylabel 'CM'
+plot "experiment/agm/agm_200_30000_1.0_allComponents/FUN_All_N_agm.txt" using 1:2 title "PLAM" pt 4, "experiment/agm/agm_200_30000_1.0_layer/FUN_All_N_agm.txt" using 1:2 title "PLAMS" pt 3
+clear
+
+# Generating MM
+set terminal png size 400,400 enhanced font 'arial' 10 butt
+set output 'experiment/MobileMedia/MM_Pareto.png'
+set key
+set xlabel 'FM'
+set ylabel 'CM'
+plot "experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/FUN_All_N_MobileMedia.txt" using 1:2 title "PLAM" pt 4, "experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/FUN_All_N_MobileMedia.txt" using 1:2 title "PLAMS" pt 3
+clear
+
+# Generating BeT
+set terminal png size 400,400 enhanced font 'arial' 10 butt
+set output 'experiment/BeT/BET_Pareto.png'
+set key
+set xlabel 'FM'
+set ylabel 'CM'
+plot "experiment/BeT/BeT_50_30000_0.9_allComponents/FUN_All_N_BeT.txt" using 1:2 title "PLAM" pt 4, "experiment/BeT/BeT_50_30000_1.0_layer/FUN_All_N_BeT.txt" using 1:2 title "PLAMS" pt 3
+clear

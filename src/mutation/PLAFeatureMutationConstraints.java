@@ -125,11 +125,15 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     "Exception in " + name + ".execute()");
         }
 
+        //Thaina 10/2014 - Variável criada para armazenar a solução antes da mutação, com o objetivo de mantê-la caso ela seja inválida
+        Solution solutionBeforeMutation = new Solution(solution);
         this.doMutation(mutationProbability_, solution);
 
         if (!OperatorUtil.isValidSolution(((Architecture) solution.getDecisionVariables()[0]))) {
             Architecture clone;
-            clone = ((Architecture) solution.getDecisionVariables()[0]).deepClone();
+            //substituido para corrigir bug da solução inválida
+            //clone = ((Architecture) solution.getDecisionVariables()[0]).deepClone();
+            clone = ((Architecture) solutionBeforeMutation.getDecisionVariables()[0]).deepClone();
             solution.getDecisionVariables()[0] = clone;
             OPLA.contDiscardedSolutions_++;
         }
