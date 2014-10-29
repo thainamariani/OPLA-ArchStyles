@@ -33,9 +33,9 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"100", "3000", "1", ArchitectureRepository.AGM, "allComponents", "testeOriginal"};
+        args = new String[]{"100", "3000", "1", ArchitectureRepository.AGM, "no", "testeOriginal"};
         //args = new String[]{"100", "3000", "1", ArchitectureRepository.AGM, "layer", "testelayer"};
-        
+
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -149,7 +149,6 @@ public class Experiment {
         if (style.equals("layer")) {
             System.out.println("Adicionando operadores com restrições de camadas");
             if (StyleGui.verifyLayer(pla)) {
-                System.out.println("correto");
                 mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
                 execution = true;
             }
@@ -164,8 +163,7 @@ public class Experiment {
             }
         } else {
             System.out.println("Adicionando operadores sem restrições");
-            //parâmetro style para esse caso representa o escopo (scope) (allComponents, sameComponent)
-            mutation = MutationFactory.getMutationOperator("PLAFeatureMutation", parameters, style);
+            mutation = jmetal.operators.mutation.MutationFactory.getMutationOperator("PLAFeatureMutation", parameters);
             execution = true;
         }
 
@@ -201,6 +199,7 @@ public class Experiment {
 
             Hypervolume.clearFile(directory + "/HYPERVOLUME.txt");
 
+            String descartadas = "";
             for (int runs = 0; runs < runsNumber; runs++) {
 
                 // Execute the Algorithm
@@ -229,8 +228,11 @@ public class Experiment {
                 //Thelma - Dez2013
                 allSolutions = allSolutions.union(resultFront);
                 resultFront.printMetricsToFile(directory + "/Metrics_" + plaName + "_" + runs + ".txt");
-                System.out.println("Execução " +runs+ " possui " +OPLA.contDiscardedSolutions_+ "soluções descartadas");
+                descartadas += "Execução " + runs + " possui " + OPLA.contDiscardedSolutions_ + " soluções descartadas \n";
+                OPLA.contDiscardedSolutions_ = 0;
             }
+
+            System.out.println(descartadas);
 
             todasRuns.printTimeToFile(directory + "/TIME_" + plaName, runsNumber, time, pla);
 

@@ -22,7 +22,6 @@ package mutation;
 
 import java.util.HashMap;
 import jmetal.operators.mutation.Mutation;
-import jmetal.operators.mutation.PLAFeatureMutation;
 import jmetal.util.Configuration;
 import jmetal.util.JMException;
 
@@ -40,9 +39,7 @@ public class MutationFactory {
      */
     public static Mutation getMutationOperator(String name, HashMap parameters, String style) throws JMException {
 
-        if (name.equalsIgnoreCase("PLAFeatureMutation")) {
-            return new PLAFeatureMutation(parameters, style);
-        } else if (name.equalsIgnoreCase("PLAFeatureMutationConstraints")) {
+        if (name.equalsIgnoreCase("PLAFeatureMutationConstraints")) {
             return new PLAFeatureMutationConstraints(parameters, style);
         } else {
             Configuration.logger_.severe("Operator '" + name + "' not found ");
