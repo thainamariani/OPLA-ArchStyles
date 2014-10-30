@@ -10,9 +10,14 @@ import arquitetura.io.ReaderConfig;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Attribute;
 import arquitetura.representation.Concern;
+import arquitetura.representation.Element;
 import arquitetura.representation.Method;
 import arquitetura.representation.Package;
+import arquitetura.representation.RelationshipsHolder;
+import arquitetura.representation.relationship.DependencyRelationship;
+import arquitetura.representation.relationship.UsageRelationship;
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -28,8 +33,8 @@ public class ReadOutputsArchitectures {
 
     public static void main(String[] args) {
         List<String> plas = new ArrayList<>();
-        plas.add("agm");
-        //plas.add("mobilemedia");
+        //plas.add("agm");
+        plas.add("mobilemedia");
         //plas.add("bet");
 
         for (String pla : plas) {
@@ -37,10 +42,10 @@ public class ReadOutputsArchitectures {
             //menor ED
             if (pla.equals("agm")) {
                 //solutions.add(new File("agm/agm.uml"));
-                solutions.add(new File("experiment/agm/agm_200_30000_1.0_allComponents/output/VAR_All_agm6.uml"));
+                //solutions.add(new File("experiment/agm/agm_200_30000_1.0_allComponents/output/VAR_All_agm16.uml"));
                 //solutions.add(new File("experiment/agm/agm_200_30000_1.0_layer/output/VAR_All_agm4.uml"));
             } else if (pla.equals("mobilemedia")) {
-                //solutions.add(new File("mobilemedia/MobileMedia.uml"));
+                solutions.add(new File("mobilemediaAnterior/MobileMedia.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/output/VAR_All_MobileMedia7.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/output/VAR_All_MobileMedia5.uml"));
             } else {
@@ -84,7 +89,8 @@ public class ReadOutputsArchitectures {
                     System.out.println("PLA: " + pla);
                     System.out.println("Solution: " + solution.getPath());
                     //getConcernsforLayer(architecture, pla);
-                    getInvalidsInterfaces(architecture);
+                    //getInvalidsInterfaces(architecture);
+                    replaceUsageforDependency(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -232,6 +238,22 @@ public class ReadOutputsArchitectures {
         System.out.println("Quantidade: " + otherConcerns.size());
         System.out.println("-------------------------------------");
 
+    }
+
+    public static void replaceUsageforDependency(Architecture architecture) throws IOException {
+        RelationshipsHolder relationshipHolder = architecture.getRelationshipHolder();
+        List<UsageRelationship> allUsage = relationshipHolder.getAllUsage();
+        int cont = 0;
+        for (UsageRelationship usage : allUsage) {
+            Element client = usage.getClient();
+            Element supplier = usage.getSupplier();
+            DependencyRelationship dependency = new DependencyRelationship(supplier, client, "Dependency" + cont++);
+            architecture.addRelationship(dependency);
+            architecture.removeRelationship(usage);
+        }
+        
+        System.out.println(cont + " dependências adicionadas");
+        architecture.save(architecture, "", "");
     }
 
     public static void getElementsforLayer(Architecture architecture, String pla) {

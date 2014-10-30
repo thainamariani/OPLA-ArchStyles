@@ -669,7 +669,7 @@ public class OperatorUtil {
         }
         return isVariationPoint;
     }
-
+    
     // Thelma - Dez2013 método adicionado
     // verify if the architecture contains a valid PLA design, i.e., if there is not any interface without relationships in the architecture.
     public static boolean isValidSolution(Architecture solution) {
@@ -677,7 +677,9 @@ public class OperatorUtil {
         List<Interface> allInterfaces = new ArrayList<Interface>(solution.getAllInterfaces());
         if (!allInterfaces.isEmpty()) {
             for (Interface itf : allInterfaces) {
-                if ((itf.getImplementors().isEmpty()) && (itf.getDependents().isEmpty()) && (!itf.getOperations().isEmpty())) {
+                //if ((itf.getImplementors().isEmpty()) && (itf.getDependents().isEmpty()) && (!itf.getOperations().isEmpty())) {
+                //alterado por Thaina 10/2014
+                if ((itf.getRelationships().isEmpty()) && (!itf.getOperations().isEmpty())) {
                     return false;
                 }
             }
