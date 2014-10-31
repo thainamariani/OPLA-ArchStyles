@@ -176,6 +176,7 @@ public class FeatureDriven implements OperatorConstraints {
                 newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
             }
             OPLA.contComp_++;
+            serverSelect.getPackages().add(newComp);
             OperatorUtil.modularizeConcernInComponent(list, serverSelect, newComp, selectedConcern, architecture);
         } else {
             if (packagesLayerAssignedOnlyToConcern.size() == 1) {
@@ -194,9 +195,9 @@ public class FeatureDriven implements OperatorConstraints {
         if (newComp != null) {
             if (newComp.getElements().isEmpty()) {
                 architecture.removePackage(newComp);
+                serverSelect.getPackages().remove(newComp);
             } else {
                 //adiciona o novo pacote na lista de servidores
-                serverSelect.getPackages().add(newComp);
                 modularizationPackages.add(newComp);
             }
         }
@@ -215,6 +216,7 @@ public class FeatureDriven implements OperatorConstraints {
                     newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
                 }
                 OPLA.contComp_++;
+                client.getPackages().add(newComp);
                 OperatorUtil.modularizeConcernInComponent(list, client, newComp, selectedConcern, architecture);
             } else {
                 if (packagesLayerAssignedOnlyToConcern.size() == 1) {
@@ -231,9 +233,9 @@ public class FeatureDriven implements OperatorConstraints {
             if (newComp != null) {
                 if (newComp.getElements().isEmpty()) {
                     architecture.removePackage(newComp);
+                    client.getPackages().remove(newComp);
                 } else {
                     //adiciona o novo pacote na lista de clients
-                    client.getPackages().add(newComp);
                     modularizationPackages.add(newComp);
                 }
             }
