@@ -45,6 +45,7 @@ public class PLAFeatureMutationConstraints extends Mutation {
         if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
             Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
             List<Style> list = new ArrayList<>();
+            System.out.println("PLA Feature Mutation Constraints");
             switch (style) {
                 case "layer":
                     LayerIdentification.clearPackagesFromLayers();

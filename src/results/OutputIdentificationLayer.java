@@ -49,7 +49,6 @@ public class OutputIdentificationLayer {
         List<String> sufixos = new ArrayList<>();
         List<String> prefixos = new ArrayList<>();
         sufixos.add("Mgr");
-        sufixos.add("Ctrl");
         layer1.setSufixos(sufixos);
         layer1.setPrefixos(prefixos);
         camadas.add(layer1);
@@ -58,19 +57,19 @@ public class OutputIdentificationLayer {
         layer2.setNumero(2);
         List<String> sufixos2 = new ArrayList<>();
         List<String> prefixos2 = new ArrayList<>();
-        sufixos2.add("GUI");
+        sufixos2.add("Ctrl");
         layer2.setSufixos(sufixos2);
         layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
-//        Layer layer3 = new Layer();
-//        layer3.setNumero(3);
-//        List<String> sufixos3 = new ArrayList<>();
-//        List<String> prefixos3 = new ArrayList<>();
-//        sufixos3.add("Gui");
-//        layer3.setSufixos(sufixos3);
-//        layer3.setPrefixos(prefixos3);
-//        camadas.add(layer3);
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("GUI");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
+        camadas.add(layer3);
 
         File directory = new File("experiment/");
         if (directory.exists()) {
@@ -78,7 +77,7 @@ public class OutputIdentificationLayer {
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("BeT")) {
+                if (split[0].equals("agm")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
@@ -194,6 +193,8 @@ public class OutputIdentificationLayer {
             if (layerIdentification.isCorrect(camadas)) {
                 //System.out.println("Experimento " + subsubdirectory + " Solução " + out + " está correta");
                 contCorreta++;
+                System.out.println(out);
+                layerIdentification.isCorrectLayerCommunication(camadas);
             } else {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " não está correta");
                 contIncorreta++;

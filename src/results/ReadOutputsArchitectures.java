@@ -34,8 +34,8 @@ public class ReadOutputsArchitectures {
     public static void main(String[] args) {
         List<String> plas = new ArrayList<>();
         //plas.add("agm");
-        plas.add("mobilemedia");
-        //plas.add("bet");
+        //plas.add("mobilemedia");
+        plas.add("bet");
 
         for (String pla : plas) {
             List<File> solutions = new ArrayList<>();
@@ -45,11 +45,11 @@ public class ReadOutputsArchitectures {
                 //solutions.add(new File("experiment/agm/agm_200_30000_1.0_allComponents/output/VAR_All_agm16.uml"));
                 //solutions.add(new File("experiment/agm/agm_200_30000_1.0_layer/output/VAR_All_agm4.uml"));
             } else if (pla.equals("mobilemedia")) {
-                solutions.add(new File("mobilemediaAnterior/MobileMedia.uml"));
+                //solutions.add(new File("mobilemediaAnterior/MobileMedia.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/output/VAR_All_MobileMedia7.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/output/VAR_All_MobileMedia5.uml"));
             } else {
-                //solutions.add(new File("BeT/BeT.uml"));
+                solutions.add(new File("BeTAnterior/BeT.uml"));
                 //solutions.add(new File("experiment/BeT/BeT_50_30000_0.9_allComponents/output/VAR_All_BeT3.uml"));
                 //solutions.add(new File("experiment/BeT/BeT_50_30000_1.0_layer/output/VAR_All_BeT10.uml"));
             }
@@ -80,8 +80,8 @@ public class ReadOutputsArchitectures {
                     ReaderConfig.setPathToProfileConcerns(path + "/concerns.profile.uml");
                     ReaderConfig.setPathProfileRelationship(path + "/relationships.profile.uml");
                     ReaderConfig.setPathToProfilePatterns(path + "/patterns.profile.uml");
-                    ReaderConfig.setDirTarget("teste/manipulation/");
-                    ReaderConfig.setDirExportTarget("teste/output/");
+                    ReaderConfig.setDirTarget("BeT/manipulation/");
+                    ReaderConfig.setDirExportTarget("BeT/");
 
                     ArchitectureBuilder builder = new ArchitectureBuilder();
                     Architecture architecture = builder.create(solution.getAbsolutePath());
@@ -251,7 +251,7 @@ public class ReadOutputsArchitectures {
             architecture.addRelationship(dependency);
             architecture.removeRelationship(usage);
         }
-        
+
         System.out.println(cont + " dependências adicionadas");
         architecture.save(architecture, "", "");
     }
