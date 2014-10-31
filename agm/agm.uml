@@ -167,7 +167,7 @@
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_P2tF4BViEeODAq4Tm5H6GQ" clientDependency="_mUVpMBVlEeODAq4Tm5H6GQ" name="GameMgrTeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_P2tF4BViEeODAq4Tm5H6GQ" clientDependency="_mUVpMBVlEeODAq4Tm5H6GQ" name="GameMgr">
         <ownedAttribute xmi:id="_iJ2WcGf-EeORzeyQgFc1Jw" name="attr7" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_izZCsGf-EeORzeyQgFc1Jw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_izZpwGf-EeORzeyQgFc1Jw" value="1"/>
@@ -177,6 +177,16 @@
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Realization" xmi:id="_mUVpMBVlEeODAq4Tm5H6GQ" name="Realization1" client="_P2tF4BViEeODAq4Tm5H6GQ" supplier="_R38k4BViEeODAq4Tm5H6GQ"/>
+      <packagedElement xmi:type="uml:Association" xmi:id="_6__pcGEsEeSFBoEbqUktNw" name="game_gameMgr_1" memberEnd="_6__pcWEsEeSFBoEbqUktNw _6__CYGEsEeSFBoEbqUktNw">
+        <ownedEnd xmi:id="_6__pcWEsEeSFBoEbqUktNw" name="game" type="_prZDoBSsEeOYorUb5NKqTw" association="_6__pcGEsEeSFBoEbqUktNw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6__pcmEsEeSFBoEbqUktNw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6__pc2EsEeSFBoEbqUktNw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_6__CYGEsEeSFBoEbqUktNw" name="gameMgrTeste" type="_P2tF4BViEeODAq4Tm5H6GQ" association="_6__pcGEsEeSFBoEbqUktNw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_6__CYWEsEeSFBoEbqUktNw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_6__CYmEsEeSFBoEbqUktNw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_nqr-4BSmEeOYorUb5NKqTw" name="GameBoardCtrl">
       <ownedComment xmi:id="_FnhXQBVxEeODAq4Tm5H6GQ" annotatedElement="_Uo_ggBSvEeOYorUb5NKqTw">
@@ -652,7 +662,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_7-5RYhTGEeOYorUb5NKqTw" value="1"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_HCoXQBVZEeODAq4Tm5H6GQ" clientDependency="_ysjZgBVZEeODAq4Tm5H6GQ _BJHOsGglEeORzeyQgFc1Jw _D7ZJEGglEeORzeyQgFc1Jw" name="GameBoardCtrlTeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_HCoXQBVZEeODAq4Tm5H6GQ" clientDependency="_ysjZgBVZEeODAq4Tm5H6GQ _BJHOsGglEeORzeyQgFc1Jw _D7ZJEGglEeORzeyQgFc1Jw" name="GameBoardCtrl">
         <ownedAttribute xmi:id="_opWJcGf-EeORzeyQgFc1Jw" name="attr10" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_pWuM0Gf-EeORzeyQgFc1Jw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_pWuz4Gf-EeORzeyQgFc1Jw" value="1"/>
@@ -843,7 +853,7 @@
       <packagedElement xmi:type="uml:Realization" xmi:id="_D7ZJEGglEeORzeyQgFc1Jw" name="Realization4" client="_HCoXQBVZEeODAq4Tm5H6GQ" supplier="_X5BBYBVgEeODAq4Tm5H6GQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_2g84MBVZEeODAq4Tm5H6GQ" name="GameBoardGUI">
-      <packagedElement xmi:type="uml:Class" xmi:id="_-7olgBVZEeODAq4Tm5H6GQ" clientDependency="_EKqPIBVaEeODAq4Tm5H6GQ _147kABVbEeODAq4Tm5H6GQ" name="GameBoardGUITeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_-7olgBVZEeODAq4Tm5H6GQ" clientDependency="_EKqPIBVaEeODAq4Tm5H6GQ _147kABVbEeODAq4Tm5H6GQ" name="GameBoardGUI">
         <ownedAttribute xmi:id="_b_E2QGf-EeORzeyQgFc1Jw" name="Attr4" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ddVkAGf-EeORzeyQgFc1Jw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ddWLEGf-EeORzeyQgFc1Jw" value="1"/>
@@ -851,6 +861,8 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
+        <ownedOperation xmi:id="_lJ-i8GEtEeSFBoEbqUktNw" name="saveScore"/>
+        <ownedOperation xmi:id="_mjiW4GEtEeSFBoEbqUktNw" name="checkScore"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_EKqPIBVaEeODAq4Tm5H6GQ" name="Dependency1" client="_-7olgBVZEeODAq4Tm5H6GQ" supplier="_M10d4BVZEeODAq4Tm5H6GQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_147kABVbEeODAq4Tm5H6GQ" name="Dependency2" client="_-7olgBVZEeODAq4Tm5H6GQ" supplier="_ukGrgBVbEeODAq4Tm5H6GQ"/>
@@ -915,7 +927,7 @@
       <packagedElement xmi:type="uml:Dependency" xmi:id="_9DESoBVfEeODAq4Tm5H6GQ" name="Dependency1" client="_JmvLYBVcEeODAq4Tm5H6GQ" supplier="_Y4SNYBVdEeODAq4Tm5H6GQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_-c0S4BSmEeOYorUb5NKqTw" name="AnimationLoopMgr">
-      <packagedElement xmi:type="uml:Class" xmi:id="_4kumcBVcEeODAq4Tm5H6GQ" clientDependency="_kTLjYBVdEeODAq4Tm5H6GQ __fkxUBVfEeODAq4Tm5H6GQ" name="AnimationLoppMgrTeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_4kumcBVcEeODAq4Tm5H6GQ" clientDependency="_kTLjYBVdEeODAq4Tm5H6GQ __fkxUBVfEeODAq4Tm5H6GQ" name="AnimationLoppMgr">
         <ownedOperation xmi:id="_9eXw8BWTEeObs-pQrJ2skQ" name="startAnimation">
           <ownedParameter xmi:id="_EQF8YBWUEeObs-pQrJ2skQ" name="codeGame" isUnique="false">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -943,7 +955,7 @@
       <packagedElement xmi:type="uml:Dependency" xmi:id="__fkxUBVfEeODAq4Tm5H6GQ" name="Dependency1" client="_4kumcBVcEeODAq4Tm5H6GQ" supplier="_Y4SNYBVdEeODAq4Tm5H6GQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_CbqHABSnEeOYorUb5NKqTw" name="InitializeMgr">
-      <packagedElement xmi:type="uml:Class" xmi:id="_Y4SNYBVdEeODAq4Tm5H6GQ" name="InitializationMgtTeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Y4SNYBVdEeODAq4Tm5H6GQ" name="InitializationMgt">
         <ownedOperation xmi:id="_SmmBgBWMEeObs-pQrJ2skQ" name="initialize">
           <ownedParameter xmi:id="_b70EcBWMEeObs-pQrJ2skQ" name="gameCode" isUnique="false">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
@@ -1062,7 +1074,7 @@
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_R-qtYBVhEeODAq4Tm5H6GQ" clientDependency="__Rx7ABVhEeODAq4Tm5H6GQ _DNjNABViEeODAq4Tm5H6GQ _stpcABViEeODAq4Tm5H6GQ _z98N4GgkEeORzeyQgFc1Jw _5IPvkGgkEeORzeyQgFc1Jw _6NQP0GgkEeORzeyQgFc1Jw _7NeWsGgkEeORzeyQgFc1Jw _8CQpoGgkEeORzeyQgFc1Jw _9ofAkGgkEeORzeyQgFc1Jw _-QHoUGgkEeORzeyQgFc1Jw" name="GameCtrlTeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_R-qtYBVhEeODAq4Tm5H6GQ" clientDependency="__Rx7ABVhEeODAq4Tm5H6GQ _DNjNABViEeODAq4Tm5H6GQ _stpcABViEeODAq4Tm5H6GQ _z98N4GgkEeORzeyQgFc1Jw _5IPvkGgkEeORzeyQgFc1Jw _6NQP0GgkEeORzeyQgFc1Jw _7NeWsGgkEeORzeyQgFc1Jw _8CQpoGgkEeORzeyQgFc1Jw _9ofAkGgkEeORzeyQgFc1Jw _-QHoUGgkEeORzeyQgFc1Jw" name="GameCtrl">
         <ownedAttribute xmi:id="_XU4_EGf-EeORzeyQgFc1Jw" name="nameAttr1" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yr-GwGf-EeORzeyQgFc1Jw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yr-t0Gf-EeORzeyQgFc1Jw" value="1"/>
@@ -1080,7 +1092,7 @@
       <packagedElement xmi:type="uml:Realization" xmi:id="_-QHoUGgkEeORzeyQgFc1Jw" name="Realization7" client="_R-qtYBVhEeODAq4Tm5H6GQ" supplier="_McPUsBVjEeODAq4Tm5H6GQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_pVLO4BVjEeODAq4Tm5H6GQ" name="PlayGameGUI">
-      <packagedElement xmi:type="uml:Class" xmi:id="_sEps4BVjEeODAq4Tm5H6GQ" clientDependency="_-eUy4BVjEeODAq4Tm5H6GQ __n_JoBVjEeODAq4Tm5H6GQ _B1BB4BVkEeODAq4Tm5H6GQ" name="PlayGameGUITeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_sEps4BVjEeODAq4Tm5H6GQ" clientDependency="_-eUy4BVjEeODAq4Tm5H6GQ __n_JoBVjEeODAq4Tm5H6GQ _B1BB4BVkEeODAq4Tm5H6GQ" name="PlayGameGUI">
         <ownedAttribute xmi:id="_gdMnYGf-EeORzeyQgFc1Jw" name="attr6" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hHRfIGf-EeORzeyQgFc1Jw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hHSGMGf-EeORzeyQgFc1Jw" value="1"/>
@@ -1088,13 +1100,16 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
+        <ownedOperation xmi:id="_vPsOsGEtEeSFBoEbqUktNw" name="exit"/>
+        <ownedOperation xmi:id="_1Ts_kGEtEeSFBoEbqUktNw" name="play"/>
+        <ownedOperation xmi:id="_2sFHwGEtEeSFBoEbqUktNw" name="config"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_-eUy4BVjEeODAq4Tm5H6GQ" name="Dependency1" client="_sEps4BVjEeODAq4Tm5H6GQ" supplier="_82VhYBVjEeODAq4Tm5H6GQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="__n_JoBVjEeODAq4Tm5H6GQ" name="Dependency2" client="_sEps4BVjEeODAq4Tm5H6GQ" supplier="_4L4Z4BViEeODAq4Tm5H6GQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_B1BB4BVkEeODAq4Tm5H6GQ" name="Dependency3" client="_sEps4BVjEeODAq4Tm5H6GQ" supplier="_-VLTYBViEeODAq4Tm5H6GQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_IqVT4BVkEeODAq4Tm5H6GQ" name="GameGUI">
-      <packagedElement xmi:type="uml:Class" xmi:id="_KFWgYBVkEeODAq4Tm5H6GQ" clientDependency="_bzDRMBVkEeODAq4Tm5H6GQ _hnO2UBVkEeODAq4Tm5H6GQ _j44v4BVkEeODAq4Tm5H6GQ _q0wV0BVkEeODAq4Tm5H6GQ" name="GameGUITeste">
+      <packagedElement xmi:type="uml:Class" xmi:id="_KFWgYBVkEeODAq4Tm5H6GQ" clientDependency="_bzDRMBVkEeODAq4Tm5H6GQ _hnO2UBVkEeODAq4Tm5H6GQ _j44v4BVkEeODAq4Tm5H6GQ _q0wV0BVkEeODAq4Tm5H6GQ" name="GameGUI">
         <ownedAttribute xmi:id="_kMSIQGf-EeORzeyQgFc1Jw" name="att8" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_kyLDkGf-EeORzeyQgFc1Jw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_kyLqoGf-EeORzeyQgFc1Jw" value="1"/>
@@ -1102,6 +1117,9 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
+        <ownedOperation xmi:id="_FhsRIGEuEeSFBoEbqUktNw" name="install"/>
+        <ownedOperation xmi:id="_I9Y78GEuEeSFBoEbqUktNw" name="save"/>
+        <ownedOperation xmi:id="_LH5rsGEuEeSFBoEbqUktNw" name="exit"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_bzDRMBVkEeODAq4Tm5H6GQ" name="Dependency1" client="_KFWgYBVkEeODAq4Tm5H6GQ" supplier="_CacfoBVjEeODAq4Tm5H6GQ"/>
       <packagedElement xmi:type="uml:Dependency" xmi:id="_hnO2UBVkEeODAq4Tm5H6GQ" name="Dependency2" client="_KFWgYBVkEeODAq4Tm5H6GQ" supplier="_Gzx3YBVjEeODAq4Tm5H6GQ"/>
