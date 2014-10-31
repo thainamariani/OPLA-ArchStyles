@@ -86,7 +86,7 @@ public class OutputIdentificationLayer {
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();
                             for (int k = 0; k < outputs.length; k++) {
-                                if (outputs[k].endsWith("uml") && outputs[k].startsWith("VAR_All")) {
+                                if (outputs[k].endsWith("uml") && outputs[k].startsWith("VAR_")) {
                                     contArquiteturas++;
                                     try {
                                         ReaderConfig.setPathToProfileSMarty(output + "/resources/smarty.profile.uml");
@@ -191,10 +191,9 @@ public class OutputIdentificationLayer {
 
             LayerIdentification layerIdentification = new LayerIdentification(architecture);
             if (layerIdentification.isCorrect(camadas)) {
-                //System.out.println("Experimento " + subsubdirectory + " Solução " + out + " está correta");
+                System.out.println("Experimento " + subsubdirectory + " Solução " + out + " está correta");
                 contCorreta++;
-                System.out.println(out);
-                //layerIdentification.isCorrectLayerCommunication(camadas);
+                layerIdentification.isCorrectLayerCommunication(camadas);
             } else {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " não está correta");
                 contIncorreta++;

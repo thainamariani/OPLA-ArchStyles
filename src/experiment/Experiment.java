@@ -215,7 +215,7 @@ public class Experiment {
                 resultFront.printInformationToFile(directory + "/INFO_" + plaName + "_" + runs + ".txt");
                 // resultFront.saveVariablesToFile(directory + "/VAR_" + runs + "_");
                 if (shouldPrintVariables) {
-                    resultFront.saveVariablesToFile("VAR_" + runs + "_");
+                    //resultFront.saveVariablesToFile("VAR_" + runs + "_");
                 }
 
                 Hypervolume.printFormatedHypervolumeFile(resultFront, directory + "/HYPERVOLUME.txt", true);
