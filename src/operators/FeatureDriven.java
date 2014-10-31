@@ -69,7 +69,6 @@ public class FeatureDriven implements OperatorConstraints {
                                 newComp = architecture.createPackage(name + "Package" + OPLA.contComp_);
                             }
                             OPLA.contComp_++;
-                            layer.getPackages().add(newComp);
                             OperatorUtil.modularizeConcernInComponent(list, layer, newComp, selectedConcern, architecture);
                         } else {
                             if (packagesLayerAssignedOnlyToConcern.size() == 1) {
@@ -86,9 +85,9 @@ public class FeatureDriven implements OperatorConstraints {
                         if (newComp != null) {
                             if (newComp.getElements().isEmpty()) {
                                 architecture.removePackage(newComp);
-                                layer.getPackages().remove(newComp);
                             } else {
                                 //adiciona o novo pacote na lista de camadas
+                                layer.getPackages().add(newComp);
                                 modularizationPackages.add(newComp);
                             }
                         }

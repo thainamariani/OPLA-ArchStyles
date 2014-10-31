@@ -30,6 +30,8 @@ public class NSGAII_OPLA_Multithread {
     };
 
     private static final int[] POPULATION_SIZE = {
+        //50,
+        //100,
         200
     };
 

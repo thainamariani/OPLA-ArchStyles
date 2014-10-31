@@ -28,24 +28,23 @@ public class GeraTudoAKAGodClass {
 
         HashMap<String, String[]> experiments = new HashMap();
 
-        experiments.put("agm", new String[]{
-            "agm_200_30000_1.0_allComponents",
-            "agm_200_30000_1.0_layer",});
-
 //        experiments.put("agm", new String[]{
+//            "agm_200_30000_0.9_allComponents",
+//            "agm_200_30000_0.9_sameComponent",
+//            "agm_200_30000_0.9_layer",
 //            "agm_200_30000_1.0_allComponents",
+//            "agm_200_30000_1.0_sameComponent",
 //            "agm_200_30000_1.0_layer",});
-//        
+
         experiments.put("MobileMedia", new String[]{
             "MobileMedia_50_30000_0.9_allComponents",
+            "MobileMedia_50_30000_0.9_sameComponent",
+            "MobileMedia_50_30000_0.9_layer",
+            "MobileMedia_50_30000_1.0_allComponents",
+            "MobileMedia_50_30000_1.0_sameComponent",
             "MobileMedia_50_30000_1.0_layer",});
-        
-        experiments.put("BeT", new String[]{
-            "BeT_50_30000_0.9_allComponents",
-            "BeT_50_30000_1.0_layer",});
+
 //        experiments.put("agm", new String[]{});
-        
-        
         MetricsUtil mu = new MetricsUtil();
 
         for (Map.Entry<String, String[]> entry : experiments.entrySet()) {
@@ -127,7 +126,7 @@ public class GeraTudoAKAGodClass {
     private static void executeParetoStats(String directoryPath, String pla, String[] contexts) {
         MetricsUtil mu = new MetricsUtil();
         EqualSolutions comparator = new EqualSolutions();
-        SolutionSet truePareto = removeDominadas(mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_" + pla + ".txt"));
+        SolutionSet truePareto = mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_" + pla + ".txt");
         try (FileWriter fileWriter = new FileWriter(directoryPath + "PARETO.txt")) {
             fileWriter.write("True Pareto:\t" + truePareto.size() + "\n");
             for (String context : contexts) {

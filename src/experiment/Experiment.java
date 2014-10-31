@@ -20,7 +20,6 @@ import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import mutation.MutationFactory;
 import pojo.Style;
-import results.Hypervolume;
 import util.ArchitectureRepository;
 
 public class Experiment {
@@ -33,9 +32,8 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        //args = new String[]{"100", "3000", "1", ArchitectureRepository.AGM, "allComponents", "testeOriginal"};
-        //args = new String[]{"100", "3000", "1", ArchitectureRepository.AGM, "layer", "testelayer"};
-
+        //args = new String[]{"100", "1000", "1", ArchitectureRepository.AGM, "layer", "teste"};
+        
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -114,20 +112,11 @@ public class Experiment {
         ReaderConfig.setDirExportTarget("experiment/" + plaName + "/" + context + "/output/");
 
         String plaDirectory = getPlaDirectory(pla);
-
-//        if (plaName.equals("MobileMedia") || plaName.equals("BeT")) {
-//            ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
-//            ReaderConfig.setPathToProfileSMarty(plaDirectory + "/resources/smarty.profile.uml");
-//            ReaderConfig.setPathToProfileConcerns(plaDirectory + "/resources/concerns.profile.uml");
-//            ReaderConfig.setPathProfileRelationship(plaDirectory + "/resources/relationships.profile.uml");
-//            ReaderConfig.setPathToProfilePatterns(plaDirectory + "/resources/patterns.profile.uml");
-//        } else {
-            ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
-            ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
-            ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
-            ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
-            ReaderConfig.setPathToProfilePatterns(plaDirectory + "/patterns.profile.uml");
-        //}
+        ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
+        ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
+        ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
+        ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
+        ReaderConfig.setPathToProfilePatterns(plaDirectory + "/patterns.profile.uml");
 
         String xmiFilePath = pla;
 
@@ -172,6 +161,7 @@ public class Experiment {
             }
         } else {
             System.out.println("Adicionando operadores sem restrições");
+            //parâmetro style para esse caso representa o escopo (scope) (allComponents, sameComponent)
             mutation = jmetal.operators.mutation.MutationFactory.getMutationOperator("PLAFeatureMutation", parameters);
             execution = true;
         }
@@ -208,7 +198,6 @@ public class Experiment {
 
             Hypervolume.clearFile(directory + "/HYPERVOLUME.txt");
 
-            String descartadas = "";
             for (int runs = 0; runs < runsNumber; runs++) {
 
                 // Execute the Algorithm
@@ -226,7 +215,7 @@ public class Experiment {
                 resultFront.printInformationToFile(directory + "/INFO_" + plaName + "_" + runs + ".txt");
                 // resultFront.saveVariablesToFile(directory + "/VAR_" + runs + "_");
                 if (shouldPrintVariables) {
-                    //resultFront.saveVariablesToFile("VAR_" + runs + "_");
+                    resultFront.saveVariablesToFile("VAR_" + runs + "_");
                 }
 
                 Hypervolume.printFormatedHypervolumeFile(resultFront, directory + "/HYPERVOLUME.txt", true);
@@ -234,15 +223,11 @@ public class Experiment {
                 //armazena as solucoes de todas runs
                 todasRuns = todasRuns.union(resultFront);
 
-                
                 //Thelma - Dez2013
                 allSolutions = allSolutions.union(resultFront);
                 resultFront.printMetricsToFile(directory + "/Metrics_" + plaName + "_" + runs + ".txt");
-                descartadas += "Execução " + runs + " possui " + OPLA.contDiscardedSolutions_ + " soluções descartadas \n";
-                OPLA.contDiscardedSolutions_ = 0;
-            }
 
-            System.out.println(descartadas);
+            }
 
             todasRuns.printTimeToFile(directory + "/TIME_" + plaName, runsNumber, time, pla);
 

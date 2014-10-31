@@ -45,7 +45,6 @@ public class PLAFeatureMutationConstraints extends Mutation {
         if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
             Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
             List<Style> list = new ArrayList<>();
-            System.out.println("PLA Feature Mutation Constraints");
             switch (style) {
                 case "layer":
                     LayerIdentification.clearPackagesFromLayers();
@@ -126,7 +125,6 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     "Exception in " + name + ".execute()");
         }
 
-        //Thaina 10/2014 - Variável criada para armazenar a solução antes da mutação, com o objetivo de mantê-la caso ela seja inválida
         Solution solutionBeforeMutation = new Solution(solution);
         this.doMutation(mutationProbability_, solution);
 

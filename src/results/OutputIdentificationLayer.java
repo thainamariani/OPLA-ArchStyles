@@ -194,7 +194,7 @@ public class OutputIdentificationLayer {
                 //System.out.println("Experimento " + subsubdirectory + " Solução " + out + " está correta");
                 contCorreta++;
                 System.out.println(out);
-                layerIdentification.isCorrectLayerCommunication(camadas);
+                //layerIdentification.isCorrectLayerCommunication(camadas);
             } else {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " não está correta");
                 contIncorreta++;

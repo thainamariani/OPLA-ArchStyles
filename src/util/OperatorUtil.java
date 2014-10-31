@@ -669,7 +669,7 @@ public class OperatorUtil {
         }
         return isVariationPoint;
     }
-    
+
     // Thelma - Dez2013 método adicionado
     // verify if the architecture contains a valid PLA design, i.e., if there is not any interface without relationships in the architecture.
     public static boolean isValidSolution(Architecture solution) {

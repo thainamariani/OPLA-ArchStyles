@@ -20,7 +20,6 @@ import java.util.Set;
 import pojo.Layer;
 import pojo.Style;
 import util.ElementUtil;
-import util.OperatorUtil;
 import util.RelationshipUtil;
 import util.StyleUtil;
 
@@ -338,40 +337,6 @@ public class LayerIdentification extends StylesIdentification {
                 }
             }
             layer.setPackages(layerPackages);
-        }
-    }
-
-    public void isCorrectLayerCommunication(List<Layer> layers) {
-        for (Layer layer : layers) {
-            List<Package> packages = layer.getPackages();
-            List<Relationship> relationshipsLayer = new ArrayList<>();
-            for (Package pac : packages) {
-                for (Class classe : pac.getAllClasses()) {
-                    relationshipsLayer.addAll(classe.getRelationships());
-                }
-                for (Interface itf : pac.getAllInterfaces()) {
-                    relationshipsLayer.addAll(itf.getRelationships());
-                }
-            }
-
-            for (Relationship relationship : relationshipsLayer) {
-                Element client = RelationshipUtil.getClientElementFromRelationship(relationship);
-                Element used = RelationshipUtil.getUsedElementFromRelationship(relationship);
-
-                if ((client != null) && (used != null)) {
-                    Package packageClient = ElementUtil.getPackage(client, architecture);
-                    Package packageUsed = ElementUtil.getPackage(used, architecture);
-
-                    int layerUsed = OperatorUtil.findPackageLayer(layers, packageUsed).getNumero();
-                    int layerClient = OperatorUtil.findPackageLayer(layers, packageClient).getNumero();
-
-                    if (layerUsed != layerClient) {
-                        System.out.println("Camada " + layerClient + " usa " + layerUsed);
-                        break;
-                    }
-                }
-
-            }
         }
     }
 }
