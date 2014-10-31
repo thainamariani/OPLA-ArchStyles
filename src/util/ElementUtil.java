@@ -2,12 +2,12 @@ package util;
 
 import arquitetura.helpers.UtilResources;
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Class;
 import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
-import arquitetura.representation.Class;
 import arquitetura.representation.Interface;
-import arquitetura.representation.Package;
 import arquitetura.representation.Method;
+import arquitetura.representation.Package;
 import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;

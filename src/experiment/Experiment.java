@@ -32,7 +32,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        //args = new String[]{"100", "1000", "1", ArchitectureRepository.AGM, "layer", "teste"};
+        args = new String[]{"1", "1", "1", ArchitectureRepository.AGM, "layer", "teste"};
         
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");

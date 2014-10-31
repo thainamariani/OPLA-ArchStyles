@@ -23,7 +23,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import util.OperatorUtil;
 
 /**
  *
@@ -98,11 +97,6 @@ public class ReadOutputsArchitectures {
             }
 
         }
-    }
-
-    public static void getInvalidsInterfaces(Architecture architecture) {
-        boolean validSolution = OperatorUtil.isValidSolution(architecture);
-        System.out.println("Valida? " + validSolution);
     }
 
     public static void getConcernsforLayer(Architecture architecture, String pla) {

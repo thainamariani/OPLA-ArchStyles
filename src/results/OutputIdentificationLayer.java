@@ -28,6 +28,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 import pojo.Layer;
+import util.OperatorUtil;
 
 /**
  *
@@ -193,6 +194,7 @@ public class OutputIdentificationLayer {
             if (layerIdentification.isCorrect(camadas)) {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " está correta");
                 contCorreta++;
+                getInvalidsInterfaces(architecture);
                 layerIdentification.isCorrectLayerCommunication(camadas);
             } else {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " não está correta");
@@ -212,6 +214,11 @@ public class OutputIdentificationLayer {
         }
         //} while (true);
         return correct;
+    }
+
+    public static void getInvalidsInterfaces(Architecture architecture) {
+        boolean validSolution = OperatorUtil.isValidSolution(architecture);
+        System.out.println("Valida? " + validSolution);
     }
 }
 
