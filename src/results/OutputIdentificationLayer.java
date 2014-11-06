@@ -50,7 +50,6 @@ public class OutputIdentificationLayer {
         List<String> sufixos = new ArrayList<>();
         List<String> prefixos = new ArrayList<>();
         sufixos.add("Mgr");
-        sufixos.add("Ctrl");
         layer1.setSufixos(sufixos);
         layer1.setPrefixos(prefixos);
         camadas.add(layer1);
@@ -59,7 +58,7 @@ public class OutputIdentificationLayer {
         layer2.setNumero(2);
         List<String> sufixos2 = new ArrayList<>();
         List<String> prefixos2 = new ArrayList<>();
-        sufixos2.add("GUI");
+        sufixos2.add("Ctrl");
         layer2.setSufixos(sufixos2);
         layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
@@ -72,13 +71,15 @@ public class OutputIdentificationLayer {
 //        layer3.setSufixos(sufixos3);
 //        layer3.setPrefixos(prefixos3);
 //        camadas.add(layer3);
+        
+        
         File directory = new File("experiment/");
         if (directory.exists()) {
             String[] list = directory.list();
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("BeT")) {
+                if (split[0].equals("MobileMedia")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
@@ -221,7 +222,9 @@ public class OutputIdentificationLayer {
         List<arquitetura.representation.Class> allClasses = new ArrayList<arquitetura.representation.Class>(architecture.getAllClasses());
         for (arquitetura.representation.Class c : allClasses) {
             if (c.getRelationships().isEmpty()) {
+                System.out.println(c.getName());
                 validSolution = false;
+                System.out.println("Classe solta");
                 break;
             }
         }
