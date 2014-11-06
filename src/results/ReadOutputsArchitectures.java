@@ -34,7 +34,9 @@ public class ReadOutputsArchitectures {
         List<String> plas = new ArrayList<>();
         //plas.add("agm");
         //plas.add("mobilemedia");
-        plas.add("bet");
+        //plas.add("bet");
+        plas.add("banking");
+        plas.add("betserver");
 
         for (String pla : plas) {
             List<File> solutions = new ArrayList<>();
@@ -47,10 +49,14 @@ public class ReadOutputsArchitectures {
                 //solutions.add(new File("mobilemediaAnterior/MobileMedia.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/output/VAR_All_MobileMedia7.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/output/VAR_All_MobileMedia5.uml"));
-            } else {
+            } else if (pla.equals("bet")) {
                 solutions.add(new File("BeTAnterior/BeT.uml"));
                 //solutions.add(new File("experiment/BeT/BeT_50_30000_0.9_allComponents/output/VAR_All_BeT3.uml"));
                 //solutions.add(new File("experiment/BeT/BeT_50_30000_1.0_layer/output/VAR_All_BeT10.uml"));
+            } else if (pla.equals("banking")) {
+                solutions.add(new File("banking/banking.uml"));
+            } else if (pla.equals("betserver")) {
+                solutions.add(new File("BeT-clientserver/BeT.uml"));
             }
             //maior ED
 //            if (pla.equals("agm")) {
@@ -71,7 +77,7 @@ public class ReadOutputsArchitectures {
 
                 try {
                     String path = solution.getParent();
-                    if (path.contains("output")) {
+                    if (path.contains("output") || pla.equals("betserver") || pla.equals("mobilemedia") || pla.equals("bet")) {
                         path += "/resources";
                     }
 
@@ -79,17 +85,20 @@ public class ReadOutputsArchitectures {
                     ReaderConfig.setPathToProfileConcerns(path + "/concerns.profile.uml");
                     ReaderConfig.setPathProfileRelationship(path + "/relationships.profile.uml");
                     ReaderConfig.setPathToProfilePatterns(path + "/patterns.profile.uml");
-                    ReaderConfig.setDirTarget("BeT/manipulation/");
-                    ReaderConfig.setDirExportTarget("BeT/");
+                    ReaderConfig.setDirTarget("banking1/manipulation/");
+                    ReaderConfig.setDirExportTarget("banking1/");
 
                     ArchitectureBuilder builder = new ArchitectureBuilder();
                     Architecture architecture = builder.create(solution.getAbsolutePath());
 
                     System.out.println("PLA: " + pla);
                     System.out.println("Solution: " + solution.getPath());
+
+                    //getElements(architecture, pla);
+                    getConcernsforClientServer(architecture, pla);
                     //getConcernsforLayer(architecture, pla);
                     //getInvalidsInterfaces(architecture);
-                    replaceUsageforDependency(architecture);
+                    //replaceUsageforDependency(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -234,6 +243,234 @@ public class ReadOutputsArchitectures {
 
     }
 
+    public static void getConcernsforClientServer(Architecture architecture, String pla) {
+        Set<Package> allPackages = architecture.getAllPackages();
+        System.out.println("Quantidade de Pacotes:" + allPackages.size());
+        System.out.println("Quantidade de Interfaces:" + architecture.getAllInterfaces().size());
+        System.out.println("Quantidade de Classes: " + architecture.getAllClasses().size());
+        System.out.println("Quantidade de Variabilidades: " + architecture.getAllVariabilities().size());
+        System.out.println("Quantidade de Concerns: " + architecture.getAllConcerns().size());
+
+        if (pla.equalsIgnoreCase("banking")) {
+            List<Concern> server1Concerns = new ArrayList<>();
+            List<Concern> server2Concerns = new ArrayList<>();
+            List<Concern> client1Concerns = new ArrayList<>();
+            List<Concern> otherConcerns = new ArrayList<>();
+
+            for (Package pac : allPackages) {
+                System.out.println(pac.getName());
+                System.out.println("");
+                List<Concern> ownConcerns = new ArrayList<>();
+                for (arquitetura.representation.Class classe : pac.getAllClasses()) {
+                    ownConcerns.addAll(classe.getOwnConcerns());
+                    for (Method method : classe.getAllMethods()) {
+                        ownConcerns.addAll(method.getOwnConcerns());
+                    }
+                    for (Attribute attribute : classe.getAllAttributes()) {
+                        ownConcerns.addAll(attribute.getOwnConcerns());
+                    }
+                }
+
+                for (arquitetura.representation.Interface interfaces : pac.getAllInterfaces()) {
+                    ownConcerns.addAll(interfaces.getOwnConcerns());
+                    for (Method operation : interfaces.getOperations()) {
+                        ownConcerns.addAll(operation.getOwnConcerns());
+                    }
+                }
+
+                if (pac.getName().toUpperCase().endsWith("SERVER1")) {
+                    server1Concerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("SERVER2")) {
+                    server2Concerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("CLIENT1")) {
+                    client1Concerns.addAll(ownConcerns);
+                } else {
+                    otherConcerns.addAll(ownConcerns);
+                }
+            }
+
+            List<Concern> foi = new ArrayList<>();
+            int contTotal = 0;
+            System.out.println("-------------------------------------");
+            System.out.println("Concerns Server1:  ");
+            for (int i = 0; i < server1Concerns.size(); i++) {
+                if (!foi.contains(server1Concerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < server1Concerns.size(); j++) {
+                        if (server1Concerns.get(i).equals(server1Concerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(server1Concerns.get(i) + " " + cont);
+                    foi.add(server1Concerns.get(i));
+                    contTotal++;
+                }
+            }
+
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+
+            System.out.println("Concerns Server2:   ");
+            contTotal = 0;
+            foi = new ArrayList<>();
+            for (int i = 0; i < server2Concerns.size(); i++) {
+                if (!foi.contains(server2Concerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < server2Concerns.size(); j++) {
+                        if (server2Concerns.get(i).equals(server2Concerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(server2Concerns.get(i) + " " + cont);
+                    foi.add(server2Concerns.get(i));
+                    contTotal++;
+                }
+            }
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+
+            System.out.println("Concerns Client1:  ");
+            contTotal = 0;
+            foi = new ArrayList<>();
+            for (int i = 0; i < client1Concerns.size(); i++) {
+                if (!foi.contains(client1Concerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < client1Concerns.size(); j++) {
+                        if (client1Concerns.get(i).equals(client1Concerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(client1Concerns.get(i) + " " + cont);
+                    foi.add(client1Concerns.get(i));
+                    contTotal++;
+                }
+            }
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+
+        } else if (pla.equalsIgnoreCase("betserver")) {
+            List<Concern> guiConcerns = new ArrayList<>();
+            List<Concern> betConcerns = new ArrayList<>();
+            List<Concern> clientOnibusConcerns = new ArrayList<>();
+            List<Concern> servidorOnibusConcerns = new ArrayList<>();
+            List<Concern> otherConcerns = new ArrayList<>();
+
+            for (Package pac : allPackages) {
+                System.out.println(pac.getName());
+                System.out.println("");
+                List<Concern> ownConcerns = new ArrayList<>();
+                for (arquitetura.representation.Class classe : pac.getAllClasses()) {
+                    ownConcerns.addAll(classe.getOwnConcerns());
+                    for (Method method : classe.getAllMethods()) {
+                        ownConcerns.addAll(method.getOwnConcerns());
+                    }
+                    for (Attribute attribute : classe.getAllAttributes()) {
+                        ownConcerns.addAll(attribute.getOwnConcerns());
+                    }
+                }
+
+                for (arquitetura.representation.Interface interfaces : pac.getAllInterfaces()) {
+                    ownConcerns.addAll(interfaces.getOwnConcerns());
+                    for (Method operation : interfaces.getOperations()) {
+                        ownConcerns.addAll(operation.getOwnConcerns());
+                    }
+                }
+
+                if (pac.getName().toUpperCase().endsWith("GUI")) {
+                    guiConcerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("CTRL")) {
+                    betConcerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("MGR")) {
+                    betConcerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("SERVIDORONIBUS")) {
+                    servidorOnibusConcerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("CLIENTEONIBUS")) {
+                    clientOnibusConcerns.addAll(ownConcerns);
+                } else {
+                    otherConcerns.addAll(ownConcerns);
+                }
+            }
+
+            List<Concern> foi = new ArrayList<>();
+            int contTotal = 0;
+            System.out.println("-------------------------------------");
+            System.out.println("Concerns Server BET:  ");
+            for (int i = 0; i < betConcerns.size(); i++) {
+                if (!foi.contains(betConcerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < betConcerns.size(); j++) {
+                        if (betConcerns.get(i).equals(betConcerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(betConcerns.get(i) + " " + cont);
+                    foi.add(betConcerns.get(i));
+                    contTotal++;
+                }
+            }
+
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+
+            System.out.println("Concerns Server ServidorOnibus:   ");
+            contTotal = 0;
+            foi = new ArrayList<>();
+            for (int i = 0; i < servidorOnibusConcerns.size(); i++) {
+                if (!foi.contains(servidorOnibusConcerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < servidorOnibusConcerns.size(); j++) {
+                        if (servidorOnibusConcerns.get(i).equals(servidorOnibusConcerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(servidorOnibusConcerns.get(i) + " " + cont);
+                    foi.add(servidorOnibusConcerns.get(i));
+                    contTotal++;
+                }
+            }
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+
+            System.out.println("Client ClienteOnibus:  ");
+            contTotal = 0;
+            foi = new ArrayList<>();
+            for (int i = 0; i < clientOnibusConcerns.size(); i++) {
+                if (!foi.contains(clientOnibusConcerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < clientOnibusConcerns.size(); j++) {
+                        if (clientOnibusConcerns.get(i).equals(clientOnibusConcerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(clientOnibusConcerns.get(i) + " " + cont);
+                    foi.add(clientOnibusConcerns.get(i));
+                    contTotal++;
+                }
+            }
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+
+            System.out.println("Client GUI:  ");
+            contTotal = 0;
+            foi = new ArrayList<>();
+            for (int i = 0; i < guiConcerns.size(); i++) {
+                if (!foi.contains(guiConcerns.get(i))) {
+                    int cont = 1;
+                    for (int j = i + 1; j < guiConcerns.size(); j++) {
+                        if (guiConcerns.get(i).equals(guiConcerns.get(j))) {
+                            cont++;
+                        }
+                    }
+                    System.out.println(guiConcerns.get(i) + " " + cont);
+                    foi.add(guiConcerns.get(i));
+                    contTotal++;
+                }
+            }
+            System.out.println("Quantidade: " + contTotal);
+            System.out.println("-------------------------------------");
+        }
+    }
+
     public static void replaceUsageforDependency(Architecture architecture) throws IOException {
         RelationshipsHolder relationshipHolder = architecture.getRelationshipHolder();
         List<UsageRelationship> allUsage = relationshipHolder.getAllUsage();
@@ -250,95 +487,64 @@ public class ReadOutputsArchitectures {
         architecture.save(architecture, "", "");
     }
 
-    public static void getElementsforLayer(Architecture architecture, String pla) {
+    public static void getElements(Architecture architecture, String pla) {
 
-        Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
-        List<arquitetura.representation.Package> guiPackages = new ArrayList<>();
-        List<arquitetura.representation.Package> ctrlPackages = new ArrayList<>();
-        List<arquitetura.representation.Package> mgrPackages = new ArrayList<>();
+        if (pla.equals("betserver")) {
+            Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+            List<arquitetura.representation.Package> guiPackages = new ArrayList<>();
+            List<arquitetura.representation.Package> betPackages = new ArrayList<>();
+            List<arquitetura.representation.Package> clienteOnibusPackages = new ArrayList<>();
+            List<arquitetura.representation.Package> servidorOnibusPackages = new ArrayList<>();
 
-        for (arquitetura.representation.Package pac : allPackages) {
-            if (pac.getName().toUpperCase().endsWith("GUI")) {
-                guiPackages.add(pac);
-            } else if (pac.getName().toUpperCase().endsWith("CTRL")) {
-                ctrlPackages.add(pac);
-            } else if (pac.getName().toUpperCase().endsWith("MGR")) {
-                mgrPackages.add(pac);
+            for (arquitetura.representation.Package pac : allPackages) {
+                if (pac.getName().toUpperCase().endsWith("GUI")) {
+                    guiPackages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("CTRL")) {
+                    betPackages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("MGR")) {
+                    betPackages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("CLIENTEONIBUS")) {
+                    clienteOnibusPackages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("SERVIDORONIBUS")) {
+                    servidorOnibusPackages.add(pac);
+                }
             }
-        }
 
-        System.out.println("PACOTES: ");
-        System.out.println("GUI: " + guiPackages.size());
-        System.out.println("CTRL: " + ctrlPackages.size());
-        System.out.println("MGR: " + mgrPackages.size());
+            System.out.println("PACOTES: ");
+            System.out.println("GUI: " + guiPackages.size());
+            System.out.println("BET: " + betPackages.size());
+            System.out.println("CLIENTE ONIBUS: " + clienteOnibusPackages.size());
+            System.out.println("SERVIDOR ONIBUS: " + servidorOnibusPackages.size());
 
-        List<arquitetura.representation.Interface> guiInterfaces = new ArrayList<>();
-        List<arquitetura.representation.Class> guiClasses = new ArrayList<>();
-        List<Concern> guiAllConcerns = new ArrayList<>();
-        List<Concern> guiConcerns = new ArrayList<>();
-        for (arquitetura.representation.Package guiPackage : guiPackages) {
-            guiInterfaces.addAll(guiPackage.getAllInterfaces());
-            guiClasses.addAll(guiPackage.getAllClasses());
-            guiAllConcerns.addAll(guiPackage.getAllConcerns());
-        }
-
-        for (Concern c : guiAllConcerns) {
-            if (!guiConcerns.contains(c)) {
-                guiConcerns.add(c);
+            List<arquitetura.representation.Interface> guiInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> guiClasses = new ArrayList<>();
+            List<Concern> guiAllConcerns = new ArrayList<>();
+            List<Concern> guiConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package guiPackage : guiPackages) {
+                guiInterfaces.addAll(guiPackage.getAllInterfaces());
+                guiClasses.addAll(guiPackage.getAllClasses());
+                guiAllConcerns.addAll(guiPackage.getAllConcerns());
             }
-        }
 
-        System.out.println("GUI INTERFACES:" + guiInterfaces.size());
-        System.out.println("GUI CLASSES:" + guiClasses.size());
-        System.out.println("GUI CONCERNS:" + guiConcerns.size());
-
-        List<arquitetura.representation.Interface> ctrlInterfaces = new ArrayList<>();
-        List<arquitetura.representation.Class> ctrlClasses = new ArrayList<>();
-        List<Concern> ctrlAllConcerns = new ArrayList<>();
-        List<Concern> ctrlConcerns = new ArrayList<>();
-        for (arquitetura.representation.Package ctrlPackage : ctrlPackages) {
-            ctrlInterfaces.addAll(ctrlPackage.getAllInterfaces());
-            ctrlClasses.addAll(ctrlPackage.getAllClasses());
-            ctrlAllConcerns.addAll(ctrlPackage.getAllConcerns());
-        }
-
-        for (Concern c : ctrlAllConcerns) {
-            if (!ctrlConcerns.contains(c)) {
-                ctrlConcerns.add(c);
+            for (Concern c : guiAllConcerns) {
+                if (!guiConcerns.contains(c)) {
+                    guiConcerns.add(c);
+                }
             }
-        }
 
-        System.out.println("CTRL INTERFACES:" + ctrlInterfaces.size());
-        System.out.println("CTRL CLASSES:" + ctrlClasses.size());
-        System.out.println("CTRL CONCERNS:" + ctrlConcerns.size());
+            System.out.println("GUI INTERFACES:" + guiInterfaces.size());
+            System.out.println("GUI CLASSES:" + guiClasses.size());
+            System.out.println("GUI CONCERNS:" + guiConcerns.size());
 
-        List<arquitetura.representation.Interface> mgrInterfaces = new ArrayList<>();
-        List<arquitetura.representation.Class> mgrClasses = new ArrayList<>();
-        List<Concern> mgrAllConcerns = new ArrayList<>();
-        List<Concern> mgrConcerns = new ArrayList<>();
-        for (arquitetura.representation.Package mgrPackage : mgrPackages) {
-            mgrInterfaces.addAll(mgrPackage.getAllInterfaces());
-            mgrClasses.addAll(mgrPackage.getAllClasses());
-            mgrAllConcerns.addAll(mgrPackage.getAllConcerns());
-        }
-
-        for (Concern c : mgrAllConcerns) {
-            if (!mgrConcerns.contains(c)) {
-                mgrConcerns.add(c);
-            }
-        }
-
-        System.out.println("MGR INTERFACES:" + mgrInterfaces.size());
-        System.out.println("MGR CLASSES:" + mgrClasses.size());
-        System.out.println("MGR CONCERNS:" + mgrConcerns.size());
-        System.out.println("----------------------------------------------------");
-        System.out.println(" ");
-
-        List<Concern> betConcerns = new ArrayList<>();
-        if (pla.equals("bet")) {
+            List<arquitetura.representation.Interface> betInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> betClasses = new ArrayList<>();
             List<Concern> betAllConcerns = new ArrayList<>();
-            betAllConcerns.addAll(ctrlConcerns);
-            betAllConcerns.addAll(mgrConcerns);
+            List<Concern> betConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package betPackage : betPackages) {
+                betInterfaces.addAll(betPackage.getAllInterfaces());
+                betClasses.addAll(betPackage.getAllClasses());
+                betAllConcerns.addAll(betPackage.getAllConcerns());
+            }
 
             for (Concern c : betAllConcerns) {
                 if (!betConcerns.contains(c)) {
@@ -346,66 +552,385 @@ public class ReadOutputsArchitectures {
                 }
             }
 
-            System.out.println("BET CONCERNS: " + betConcerns.size());
-        }
+            System.out.println("BET INTERFACES:" + betInterfaces.size());
+            System.out.println("BET CLASSES:" + betClasses.size());
+            System.out.println("BET CONCERNS:" + betConcerns.size());
 
-        List<Concern> onlyGuiConcern = new ArrayList<>();
-        List<Concern> onlyCtrlConcern = new ArrayList<>();
-        List<Concern> onlyMgrConcern = new ArrayList<>();
-        List<Concern> onlyBetConcern = new ArrayList<>();
-
-        for (Concern c : architecture.getAllConcerns()) {
-            boolean containsGui = false;
-            boolean containsCtrl = false;
-            boolean containsMgr = false;
-            boolean containsBet = false;
-            int contAll = 0;
-            if (guiConcerns.contains(c)) {
-                containsGui = true;
-                contAll++;
+            List<arquitetura.representation.Interface> clienteOnibusInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> clienteOnibusClasses = new ArrayList<>();
+            List<Concern> clienteOnibusAllConcerns = new ArrayList<>();
+            List<Concern> clienteOnibusConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package clienteOnibusPackage : clienteOnibusPackages) {
+                clienteOnibusInterfaces.addAll(clienteOnibusPackage.getAllInterfaces());
+                clienteOnibusClasses.addAll(clienteOnibusPackage.getAllClasses());
+                clienteOnibusAllConcerns.addAll(clienteOnibusPackage.getAllConcerns());
             }
 
-            if (!pla.equals("bet")) {
+            for (Concern c : clienteOnibusAllConcerns) {
+                if (!clienteOnibusConcerns.contains(c)) {
+                    clienteOnibusConcerns.add(c);
+                }
+            }
 
-                if (ctrlConcerns.contains(c)) {
-                    containsCtrl = true;
+            System.out.println("CLIENTE ONIBUS INTERFACES:" + clienteOnibusInterfaces.size());
+            System.out.println("CLIENTE ONIBUS CLASSES:" + clienteOnibusClasses.size());
+            System.out.println("CLIENTE ONIBUS CONCERNS:" + clienteOnibusConcerns.size());
+            System.out.println("----------------------------------------------------");
+            System.out.println(" ");
+
+            List<arquitetura.representation.Interface> servidorOnibusInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> servidorOnibusClasses = new ArrayList<>();
+            List<Concern> servidorOnibusAllConcerns = new ArrayList<>();
+            List<Concern> servidorOnibusConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package servidorOnibusPackage : servidorOnibusPackages) {
+                servidorOnibusInterfaces.addAll(servidorOnibusPackage.getAllInterfaces());
+                servidorOnibusClasses.addAll(servidorOnibusPackage.getAllClasses());
+                servidorOnibusAllConcerns.addAll(servidorOnibusPackage.getAllConcerns());
+            }
+
+            for (Concern c : servidorOnibusAllConcerns) {
+                if (!servidorOnibusConcerns.contains(c)) {
+                    servidorOnibusConcerns.add(c);
+                }
+            }
+
+            System.out.println("SERVIDOR ONIBUS INTERFACES:" + servidorOnibusInterfaces.size());
+            System.out.println("SERVIDOR ONIBUS CLASSES:" + servidorOnibusClasses.size());
+            System.out.println("SERVIDOR ONIBUS CONCERNS:" + servidorOnibusConcerns.size());
+            System.out.println("----------------------------------------------------");
+            System.out.println(" ");
+
+            List<Concern> onlyGuiConcern = new ArrayList<>();
+            List<Concern> onlyBetConcern = new ArrayList<>();
+            List<Concern> onlyClienteOnibusConcern = new ArrayList<>();
+            List<Concern> onlyServidorOnibusConcern = new ArrayList<>();
+
+            for (Concern c : architecture.getAllConcerns()) {
+                boolean containsGui = false;
+                boolean containsBet = false;
+                boolean containsClienteOnibus = false;
+                boolean containsServidorOnibus = false;
+
+                int contAll = 0;
+                if (guiConcerns.contains(c)) {
+                    containsGui = true;
                     contAll++;
                 }
-                if (mgrConcerns.contains(c)) {
-                    containsMgr = true;
-                    contAll++;
-                }
-            } else {
+
                 if (betConcerns.contains(c)) {
                     containsBet = true;
                     contAll++;
                 }
-            }
 
-            if (contAll == 1) {
-                if (containsGui) {
-                    onlyGuiConcern.add(c);
-                } else if (containsCtrl) {
-                    onlyCtrlConcern.add(c);
-                } else if (containsMgr) {
-                    onlyMgrConcern.add(c);
-                } else if (containsBet) {
-                    onlyBetConcern.add(c);
+                if (clienteOnibusConcerns.contains(c)) {
+                    containsClienteOnibus = true;
+                    contAll++;
                 }
 
+                if (servidorOnibusConcerns.contains(c)) {
+                    containsServidorOnibus = true;
+                    contAll++;
+                }
+
+                if (contAll == 1) {
+                    if (containsGui) {
+                        onlyGuiConcern.add(c);
+                    } else if (containsBet) {
+                        onlyBetConcern.add(c);
+                    } else if (containsClienteOnibus) {
+                        onlyClienteOnibusConcern.add(c);
+                    } else if (containsServidorOnibus) {
+                        onlyServidorOnibusConcern.add(c);
+                    }
+
+                }
+            }
+
+            System.out.println("CONCERNS EXCLUSIVOS GUI: " + onlyGuiConcern.size());
+            System.out.println("CONCERNS EXCLUSIVOS BET: " + onlyBetConcern.size());
+            System.out.println("CONCERNS EXCLUSIVOS CLIENTE ONIBUS: " + onlyClienteOnibusConcern.size());
+            System.out.println("CONCERNS EXCLUSIVOS SERVIDOR ONIBUS: " + onlyServidorOnibusConcern.size());
+
+        } else if (pla.equals("banking")) {
+            Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+            List<arquitetura.representation.Package> server1Packages = new ArrayList<>();
+            List<arquitetura.representation.Package> server2Packages = new ArrayList<>();
+            List<arquitetura.representation.Package> client1Packages = new ArrayList<>();
+
+            for (arquitetura.representation.Package pac : allPackages) {
+                if (pac.getName().toUpperCase().endsWith("SERVER1")) {
+                    server1Packages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("SERVER2")) {
+                    server2Packages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("CLIENT1")) {
+                    client1Packages.add(pac);
+                }
+            }
+
+            System.out.println("PACOTES: ");
+            System.out.println("SERVER1: " + server1Packages.size());
+            System.out.println("SERVER2: " + server2Packages.size());
+            System.out.println("CLIENT1: " + client1Packages.size());
+
+            List<arquitetura.representation.Interface> server1Interfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> server1Classes = new ArrayList<>();
+            List<Concern> server1AllConcerns = new ArrayList<>();
+            List<Concern> server1Concerns = new ArrayList<>();
+            for (arquitetura.representation.Package server1Package : server1Packages) {
+                server1Interfaces.addAll(server1Package.getAllInterfaces());
+                server1Classes.addAll(server1Package.getAllClasses());
+                server1AllConcerns.addAll(server1Package.getAllConcerns());
+            }
+
+            for (Concern c : server1AllConcerns) {
+                if (!server1Concerns.contains(c)) {
+                    server1Concerns.add(c);
+                }
+            }
+
+            System.out.println("SERVER1 INTERFACES:" + server1Interfaces.size());
+            System.out.println("SERVER1 CLASSES:" + server1Classes.size());
+            System.out.println("SERVER1 CONCERNS:" + server1Concerns.size());
+
+            List<arquitetura.representation.Interface> server2Interfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> server2Classes = new ArrayList<>();
+            List<Concern> server2AllConcerns = new ArrayList<>();
+            List<Concern> server2Concerns = new ArrayList<>();
+            for (arquitetura.representation.Package server2Package : server2Packages) {
+                server2Interfaces.addAll(server2Package.getAllInterfaces());
+                server2Classes.addAll(server2Package.getAllClasses());
+                server2AllConcerns.addAll(server2Package.getAllConcerns());
+            }
+
+            for (Concern c : server2AllConcerns) {
+                if (!server2Concerns.contains(c)) {
+                    server2Concerns.add(c);
+                }
+            }
+
+            System.out.println("SERVER2 INTERFACES:" + server2Interfaces.size());
+            System.out.println("SERVER2 CLASSES:" + server2Classes.size());
+            System.out.println("SERVER2 CONCERNS:" + server2Concerns.size());
+
+            List<arquitetura.representation.Interface> client1Interfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> client1Classes = new ArrayList<>();
+            List<Concern> client1AllConcerns = new ArrayList<>();
+            List<Concern> client1Concerns = new ArrayList<>();
+            for (arquitetura.representation.Package client1Package : client1Packages) {
+                client1Interfaces.addAll(client1Package.getAllInterfaces());
+                client1Classes.addAll(client1Package.getAllClasses());
+                client1AllConcerns.addAll(client1Package.getAllConcerns());
+            }
+
+            for (Concern c : client1AllConcerns) {
+                if (!client1Concerns.contains(c)) {
+                    client1Concerns.add(c);
+                }
+            }
+
+            System.out.println("CLIENT1 ONIBUS INTERFACES:" + client1Interfaces.size());
+            System.out.println("CLIENT1 ONIBUS CLASSES:" + client1Classes.size());
+            System.out.println("CLIENT1 ONIBUS CONCERNS:" + client1Concerns.size());
+            System.out.println("----------------------------------------------------");
+            System.out.println(" ");
+
+            List<Concern> onlyServer1Concern = new ArrayList<>();
+            List<Concern> onlyServer2Concern = new ArrayList<>();
+            List<Concern> onlyClient1Concern = new ArrayList<>();
+
+            for (Concern c : architecture.getAllConcerns()) {
+                boolean containsServer1 = false;
+                boolean containsServer2 = false;
+                boolean containsClient1 = false;
+
+                int contAll = 0;
+                if (server1Concerns.contains(c)) {
+                    containsServer1 = true;
+                    contAll++;
+                }
+
+                if (server2Concerns.contains(c)) {
+                    containsServer2 = true;
+                    contAll++;
+                }
+
+                if (client1Concerns.contains(c)) {
+                    containsClient1 = true;
+                    contAll++;
+                }
+
+                if (contAll == 1) {
+                    if (containsServer1) {
+                        onlyServer1Concern.add(c);
+                    } else if (containsServer2) {
+                        onlyServer2Concern.add(c);
+                    } else if (containsClient1) {
+                        onlyClient1Concern.add(c);
+                    }
+                }
+            }
+
+            System.out.println("CONCERNS EXCLUSIVOS SERVER1: " + onlyServer1Concern.size());
+            System.out.println("CONCERNS EXCLUSIVOS SERVER2: " + onlyServer2Concern.size());
+            System.out.println("CONCERNS EXCLUSIVOS CLIENT1: " + onlyClient1Concern.size());
+
+        } else {
+
+            Set<arquitetura.representation.Package> allPackages = architecture.getAllPackages();
+            List<arquitetura.representation.Package> guiPackages = new ArrayList<>();
+            List<arquitetura.representation.Package> betPackages = new ArrayList<>();
+            List<arquitetura.representation.Package> mgrPackages = new ArrayList<>();
+            List<arquitetura.representation.Package> ctrlPackages = new ArrayList<>();
+
+            for (arquitetura.representation.Package pac : allPackages) {
+                if (pac.getName().toUpperCase().endsWith("GUI")) {
+                    guiPackages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("CTRL")) {
+                    ctrlPackages.add(pac);
+                } else if (pac.getName().toUpperCase().endsWith("MGR")) {
+                    mgrPackages.add(pac);
+                }
+            }
+
+            System.out.println("PACOTES: ");
+            System.out.println("GUI: " + guiPackages.size());
+            System.out.println("CTRL: " + ctrlPackages.size());
+            System.out.println("MGR: " + mgrPackages.size());
+
+            List<arquitetura.representation.Interface> guiInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> guiClasses = new ArrayList<>();
+            List<Concern> guiAllConcerns = new ArrayList<>();
+            List<Concern> guiConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package guiPackage : guiPackages) {
+                guiInterfaces.addAll(guiPackage.getAllInterfaces());
+                guiClasses.addAll(guiPackage.getAllClasses());
+                guiAllConcerns.addAll(guiPackage.getAllConcerns());
+            }
+
+            for (Concern c : guiAllConcerns) {
+                if (!guiConcerns.contains(c)) {
+                    guiConcerns.add(c);
+                }
+            }
+
+            System.out.println("GUI INTERFACES:" + guiInterfaces.size());
+            System.out.println("GUI CLASSES:" + guiClasses.size());
+            System.out.println("GUI CONCERNS:" + guiConcerns.size());
+
+            List<arquitetura.representation.Interface> ctrlInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> ctrlClasses = new ArrayList<>();
+            List<Concern> ctrlAllConcerns = new ArrayList<>();
+            List<Concern> ctrlConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package ctrlPackage : ctrlPackages) {
+                ctrlInterfaces.addAll(ctrlPackage.getAllInterfaces());
+                ctrlClasses.addAll(ctrlPackage.getAllClasses());
+                ctrlAllConcerns.addAll(ctrlPackage.getAllConcerns());
+            }
+
+            for (Concern c : ctrlAllConcerns) {
+                if (!ctrlConcerns.contains(c)) {
+                    ctrlConcerns.add(c);
+                }
+            }
+
+            System.out.println("CTRL INTERFACES:" + ctrlInterfaces.size());
+            System.out.println("CTRL CLASSES:" + ctrlClasses.size());
+            System.out.println("CTRL CONCERNS:" + ctrlConcerns.size());
+
+            List<arquitetura.representation.Interface> mgrInterfaces = new ArrayList<>();
+            List<arquitetura.representation.Class> mgrClasses = new ArrayList<>();
+            List<Concern> mgrAllConcerns = new ArrayList<>();
+            List<Concern> mgrConcerns = new ArrayList<>();
+            for (arquitetura.representation.Package mgrPackage : mgrPackages) {
+                mgrInterfaces.addAll(mgrPackage.getAllInterfaces());
+                mgrClasses.addAll(mgrPackage.getAllClasses());
+                mgrAllConcerns.addAll(mgrPackage.getAllConcerns());
+            }
+
+            for (Concern c : mgrAllConcerns) {
+                if (!mgrConcerns.contains(c)) {
+                    mgrConcerns.add(c);
+                }
+            }
+
+            System.out.println("MGR INTERFACES:" + mgrInterfaces.size());
+            System.out.println("MGR CLASSES:" + mgrClasses.size());
+            System.out.println("MGR CONCERNS:" + mgrConcerns.size());
+            System.out.println("----------------------------------------------------");
+            System.out.println(" ");
+
+            List<Concern> betConcerns = new ArrayList<>();
+            if (pla.equals("bet")) {
+                List<Concern> betAllConcerns = new ArrayList<>();
+                betAllConcerns.addAll(ctrlConcerns);
+                betAllConcerns.addAll(mgrConcerns);
+
+                for (Concern c : betAllConcerns) {
+                    if (!betConcerns.contains(c)) {
+                        betConcerns.add(c);
+                    }
+                }
+
+                System.out.println("BET CONCERNS: " + betConcerns.size());
+            }
+
+            List<Concern> onlyGuiConcern = new ArrayList<>();
+            List<Concern> onlyCtrlConcern = new ArrayList<>();
+            List<Concern> onlyMgrConcern = new ArrayList<>();
+            List<Concern> onlyBetConcern = new ArrayList<>();
+
+            for (Concern c : architecture.getAllConcerns()) {
+                boolean containsGui = false;
+                boolean containsCtrl = false;
+                boolean containsMgr = false;
+                boolean containsBet = false;
+                int contAll = 0;
+                if (guiConcerns.contains(c)) {
+                    containsGui = true;
+                    contAll++;
+                }
+
+                if (!pla.equals("bet")) {
+
+                    if (ctrlConcerns.contains(c)) {
+                        containsCtrl = true;
+                        contAll++;
+                    }
+                    if (mgrConcerns.contains(c)) {
+                        containsMgr = true;
+                        contAll++;
+                    }
+                } else {
+                    if (betConcerns.contains(c)) {
+                        containsBet = true;
+                        contAll++;
+                    }
+                }
+
+                if (contAll == 1) {
+                    if (containsGui) {
+                        onlyGuiConcern.add(c);
+                    } else if (containsCtrl) {
+                        onlyCtrlConcern.add(c);
+                    } else if (containsMgr) {
+                        onlyMgrConcern.add(c);
+                    } else if (containsBet) {
+                        onlyBetConcern.add(c);
+                    }
+
+                }
+            }
+
+            System.out.println(
+                    "CONCERNS EXCLUSIVOS GUI: " + onlyGuiConcern.size());
+            if (pla.equals("bet")) {
+                System.out.println("CONCERNS EXCLUSIVOS BET: " + onlyBetConcern.size());
+            } else {
+                System.out.println(
+                        "CONCERNS EXCLUSIVOS CTRL: " + onlyCtrlConcern.size());
+                System.out.println(
+                        "CONCERNS EXCLUSIVOS MGR: " + onlyMgrConcern.size());
             }
         }
-
-        System.out.println(
-                "CONCERNS EXCLUSIVOS GUI: " + onlyGuiConcern.size());
-        if (pla.equals("bet")) {
-            System.out.println("CONCERNS EXCLUSIVOS BET: " + onlyBetConcern.size());
-        } else {
-            System.out.println(
-                    "CONCERNS EXCLUSIVOS CTRL: " + onlyCtrlConcern.size());
-            System.out.println(
-                    "CONCERNS EXCLUSIVOS MGR: " + onlyMgrConcern.size());
-        }
     }
-
 }

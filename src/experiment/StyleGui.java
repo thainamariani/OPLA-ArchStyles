@@ -32,6 +32,16 @@ public class StyleGui {
         }
     }
 
+    public static boolean verifyClientServer(String plaPath) throws Exception {
+        ArchitectureBuilder builder = new ArchitectureBuilder();
+        Architecture architecture = builder.create(plaPath);
+        if (Experiment.getPlaName(plaPath).equalsIgnoreCase("bet")) {
+            return verifyClientServerBet(architecture);
+        } else {
+            return verifyClientServerBanking(architecture);
+        }
+    }
+
     public static boolean verifyLayerBet(Architecture architecture) {
         System.out.println("Verificando camadas da BET");
         LayerIdentification layerIdentification = new LayerIdentification(architecture);
@@ -95,9 +105,55 @@ public class StyleGui {
         return layerIdentification.isCorrect(camadas);
     }
 
-    static boolean verifyClientServer(String plaPath) throws Exception {
-        ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architecture = builder.create(plaPath);
+    private static boolean verifyClientServerBet(Architecture architecture) {
+        System.out.println("Verificando estilo da BeT client/server");
+
+        ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
+        List<Client> clients = new ArrayList<>();
+
+        Client client1 = new Client();
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("GUI");
+        client1.setSufixos(sufixos);
+        client1.setPrefixos(prefixos);
+        clients.add(client1);
+
+        Client client2 = new Client();
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("ClienteOnibus");
+        client2.setSufixos(sufixos2);
+        client2.setPrefixos(prefixos2);
+        clients.add(client2);
+
+        List<Server> servers = new ArrayList<>();
+
+        Server server1 = new Server();
+        List<String> sufixos4 = new ArrayList<>();
+        List<String> prefixos4 = new ArrayList<>();
+        sufixos4.add("ServidorOnibus");
+        server1.setSufixos(sufixos4);
+        server1.setPrefixos(prefixos4);
+        servers.add(server1);
+
+        Server server2 = new Server();
+        List<String> sufixos5 = new ArrayList<>();
+        List<String> prefixos5 = new ArrayList<>();
+        sufixos5.add("Mgr");
+        sufixos5.add("Ctrl");
+        server2.setSufixos(sufixos5);
+        server2.setPrefixos(prefixos5);
+        servers.add(server2);
+
+        List<Style> clientsservers = new ArrayList<>();
+        clientsservers.addAll(clients);
+        clientsservers.addAll(servers);
+        return clientServerIdentification.isCorrect(clientsservers);
+    }
+
+    private static boolean verifyClientServerBanking(Architecture architecture) {
+        System.out.println("Verificando estilo da banking");
         ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
 
         List<Client> clients = new ArrayList<>();

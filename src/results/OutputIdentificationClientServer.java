@@ -11,7 +11,7 @@ import arquitetura.helpers.XmiHelper;
 import arquitetura.io.ReaderConfig;
 import arquitetura.io.SaveAndMove;
 import arquitetura.representation.Architecture;
-import identification.LayerIdentification;
+import identification.ClientServerIdentification;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,14 +27,16 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import pojo.Layer;
+import pojo.Client;
+import pojo.Server;
+import pojo.Style;
 import util.OperatorUtil;
 
 /**
  *
  * @author thaina
  */
-public class OutputIdentificationLayer {
+public class OutputIdentificationClientServer {
 
     private static org.w3c.dom.Document docUml = null;
     private static DocumentBuilder documentBuilder = null;
@@ -44,34 +46,7 @@ public class OutputIdentificationLayer {
     private static int contArquiteturas = 0;
 
     public static void main(String[] args) throws NodeIdNotFound, SAXException, IOException, TransformerException, ParserConfigurationException {
-        List<Layer> camadas = new ArrayList<>();
-        Layer layer1 = new Layer();
-        layer1.setNumero(1);
-        List<String> sufixos = new ArrayList<>();
-        List<String> prefixos = new ArrayList<>();
-        sufixos.add("Mgr");
-        sufixos.add("Ctrl");
-        layer1.setSufixos(sufixos);
-        layer1.setPrefixos(prefixos);
-        camadas.add(layer1);
 
-        Layer layer2 = new Layer();
-        layer2.setNumero(2);
-        List<String> sufixos2 = new ArrayList<>();
-        List<String> prefixos2 = new ArrayList<>();
-        sufixos2.add("GUI");
-        layer2.setSufixos(sufixos2);
-        layer2.setPrefixos(prefixos2);
-        camadas.add(layer2);
-
-//        Layer layer3 = new Layer();
-//        layer3.setNumero(3);
-//        List<String> sufixos3 = new ArrayList<>();
-//        List<String> prefixos3 = new ArrayList<>();
-//        sufixos3.add("GUI");
-//        layer3.setSufixos(sufixos3);
-//        layer3.setPrefixos(prefixos3);
-//        camadas.add(layer3);
         File directory = new File("experiment/");
         if (directory.exists()) {
             String[] list = directory.list();
@@ -82,7 +57,7 @@ public class OutputIdentificationLayer {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
-                        if (subsubdirectory.toString().endsWith("layer")) {
+                        if (subsubdirectory.toString().endsWith("clientserver")) {
                             System.out.println("subsubdirectory: " + subsubdirectory.getName());
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();
@@ -101,18 +76,25 @@ public class OutputIdentificationLayer {
                                         documentBuilder = docBuilderFactoryUml.newDocumentBuilder();
                                         docUml = documentBuilder.parse(output.getAbsolutePath() + "/" + outputs[k]);
 
-                                        tryBuild(output, outputs[k], camadas, subsubdirectory);
+                                        List<Style> clientsServers = new ArrayList<>();
+                                        if (split[0].equals("BeT")) {
+                                            clientsServers.addAll(verifyBet());
+                                        } else {
+                                            clientsServers.addAll(verifyBanking());
+                                        }
+
+                                        tryBuild(output, outputs[k], clientsServers, subsubdirectory);
 
                                         Document docNotation = documentBuilder.parse(output.getAbsolutePath() + "/" + outputs[k].substring(0, outputs[k].lastIndexOf(".")) + ".notation");
                                         Document docDi = documentBuilder.parse(output.getAbsolutePath() + "/" + outputs[k].substring(0, outputs[k].lastIndexOf(".")) + ".di");
                                         SaveAndMove.saveAndMove(docNotation, docUml, docDi, outputs[k].substring(0, outputs[k].lastIndexOf(".")), outputs[k].substring(0, outputs[k].lastIndexOf(".")));
 
                                     } catch (ParserConfigurationException ex) {
-                                        Logger.getLogger(OutputIdentificationLayer.class.getName()).log(Level.SEVERE, null, ex);
+                                        Logger.getLogger(OutputIdentificationClientServer.class.getName()).log(Level.SEVERE, null, ex);
                                     } catch (SAXException ex) {
-                                        Logger.getLogger(OutputIdentificationLayer.class.getName()).log(Level.SEVERE, null, ex);
+                                        Logger.getLogger(OutputIdentificationClientServer.class.getName()).log(Level.SEVERE, null, ex);
                                     } catch (IOException ex) {
-                                        Logger.getLogger(OutputIdentificationLayer.class.getName()).log(Level.SEVERE, null, ex);
+                                        Logger.getLogger(OutputIdentificationClientServer.class.getName()).log(Level.SEVERE, null, ex);
                                     }
 
                                 }
@@ -182,7 +164,7 @@ public class OutputIdentificationLayer {
         }
     }
 
-    public static boolean tryBuild(File output, String out, List<Layer> camadas, File subsubdirectory) throws NodeIdNotFound, SAXException, IOException, TransformerException, ParserConfigurationException {
+    public static boolean tryBuild(File output, String out, List<Style> clientsServers, File subsubdirectory) throws NodeIdNotFound, SAXException, IOException, TransformerException, ParserConfigurationException {
         //do {
         boolean correct = true;
         try {
@@ -190,12 +172,13 @@ public class OutputIdentificationLayer {
             ArchitectureBuilder builder = new ArchitectureBuilder();
             Architecture architecture = builder.create(output.getAbsolutePath() + "/" + out);
 
-            LayerIdentification layerIdentification = new LayerIdentification(architecture);
-            if (layerIdentification.isCorrect(camadas)) {
+            ClientServerIdentification clienteServerIdentification = new ClientServerIdentification(architecture);
+
+            if (clienteServerIdentification.isCorrect(clientsServers)) {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " está correta");
                 contCorreta++;
                 getInvalidsInterfaces(architecture);
-                layerIdentification.isCorrectLayerCommunication(camadas);
+                clienteServerIdentification.isCorrectClientServerCommunication(clientsServers);
             } else {
                 System.out.println("Experimento " + subsubdirectory + " Solução " + out + " não está correta");
                 contIncorreta++;
@@ -222,10 +205,88 @@ public class OutputIdentificationLayer {
         for (arquitetura.representation.Class c : allClasses) {
             if (c.getRelationships().isEmpty()) {
                 validSolution = false;
-                break;
             }
         }
         System.out.println("Valida? " + validSolution);
+    }
+
+    public static List<Style> verifyBet() {
+        List<Client> clients = new ArrayList<>();
+
+        Client client1 = new Client();
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("GUI");
+        client1.setSufixos(sufixos);
+        client1.setPrefixos(prefixos);
+        clients.add(client1);
+
+        Client client2 = new Client();
+        List<String> sufixos2 = new ArrayList<>();
+        List<String> prefixos2 = new ArrayList<>();
+        sufixos2.add("ClienteOnibus");
+        client2.setSufixos(sufixos2);
+        client2.setPrefixos(prefixos2);
+        clients.add(client2);
+
+        List<Server> servers = new ArrayList<>();
+
+        Server server1 = new Server();
+        List<String> sufixos4 = new ArrayList<>();
+        List<String> prefixos4 = new ArrayList<>();
+        sufixos4.add("ServidorOnibus");
+        server1.setSufixos(sufixos4);
+        server1.setPrefixos(prefixos4);
+        servers.add(server1);
+
+        Server server2 = new Server();
+        List<String> sufixos5 = new ArrayList<>();
+        List<String> prefixos5 = new ArrayList<>();
+        sufixos5.add("Mgr");
+        sufixos5.add("Ctrl");
+        server2.setSufixos(sufixos5);
+        server2.setPrefixos(prefixos5);
+        servers.add(server2);
+
+        List<Style> clientsservers = new ArrayList<>();
+        clientsservers.addAll(clients);
+        clientsservers.addAll(servers);
+        return clientsservers;
+    }
+
+    public static List<Style> verifyBanking() {
+        List<Client> clients = new ArrayList<>();
+
+        Client client1 = new Client();
+        List<String> sufixos = new ArrayList<>();
+        List<String> prefixos = new ArrayList<>();
+        sufixos.add("Client1");
+        client1.setSufixos(sufixos);
+        client1.setPrefixos(prefixos);
+        clients.add(client1);
+
+        List<Server> servers = new ArrayList<>();
+
+        Server server1 = new Server();
+        List<String> sufixos4 = new ArrayList<>();
+        List<String> prefixos4 = new ArrayList<>();
+        sufixos4.add("Server1");
+        server1.setSufixos(sufixos4);
+        server1.setPrefixos(prefixos4);
+        servers.add(server1);
+
+        Server server2 = new Server();
+        List<String> sufixos5 = new ArrayList<>();
+        List<String> prefixos5 = new ArrayList<>();
+        sufixos5.add("Server2");
+        server2.setSufixos(sufixos5);
+        server2.setPrefixos(prefixos5);
+        servers.add(server2);
+
+        List<Style> clientsservers = new ArrayList<>();
+        clientsservers.addAll(clients);
+        clientsservers.addAll(servers);
+        return clientsservers;
     }
 }
 

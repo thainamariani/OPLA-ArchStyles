@@ -31,10 +31,6 @@ public class GeraTudoAKAGodClass {
         experiments.put("agm", new String[]{
             "agm_200_30000_1.0_allComponents",
             "agm_200_30000_1.0_layer",});
-
-//        experiments.put("agm", new String[]{
-//            "agm_200_30000_1.0_allComponents",
-//            "agm_200_30000_1.0_layer",});
 //        
         experiments.put("MobileMedia", new String[]{
             "MobileMedia_50_30000_0.9_allComponents",
@@ -43,7 +39,7 @@ public class GeraTudoAKAGodClass {
         experiments.put("BeT", new String[]{
             "BeT_50_30000_0.9_allComponents",
             "BeT_50_30000_1.0_layer",});
-//        experiments.put("agm", new String[]{});
+        //experiments.put("agm", new String[]{});
         
         
         MetricsUtil mu = new MetricsUtil();
