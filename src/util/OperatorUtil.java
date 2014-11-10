@@ -355,7 +355,9 @@ public class OperatorUtil {
         Interface targetInterface = null;
         targetInterface = searchForInterfaceWithConcern(concern, targetComp);
 
+        PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponent++;
         if (targetInterface == null) {
+            PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponentCreateInterface++;
             targetInterface = targetComp.createInterface("Interface" + OPLA.contInt_++);
             sourceInterface.moveOperationToInterface(operation, targetInterface);
             targetInterface.addConcern(concern.getName());

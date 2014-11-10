@@ -28,42 +28,149 @@ public class GeraTudoAKAGodClass {
 
         HashMap<String, String[]> experiments = new HashMap();
 
-        experiments.put("agm", new String[]{
-            "agm_200_30000_1.0_allComponents",
-            "agm_200_30000_1.0_layer",});
-//        
-        experiments.put("MobileMedia", new String[]{
-            "MobileMedia_50_30000_0.9_allComponents",
-            "MobileMedia_50_30000_1.0_layer",});
-        
-        experiments.put("BeT", new String[]{
-            "BeT_50_30000_0.9_allComponents",
-            "BeT_50_30000_1.0_layer",});
-        //experiments.put("agm", new String[]{});
-        
-        
+        experiments.put("agm_allComponents", new String[]{
+            "agm_100_10100_0.9_allComponents",
+            "agm_100_10100_1.0_allComponents",
+            "agm_100_30100_0.9_allComponents",
+            "agm_100_30100_1.0_allComponents",
+            "agm_100_90100_0.9_allComponents",
+            "agm_100_90100_1.0_allComponents",
+            "agm_200_180200_0.9_allComponents",
+            "agm_200_180200_1.0_allComponents",
+            "agm_200_20200_0.9_allComponents",
+            "agm_200_20200_1.0_allComponents",
+            "agm_200_60200_0.9_allComponents",
+            "agm_200_60200_1.0_allComponents",
+            "agm_50_15050_0.9_allComponents",
+            "agm_50_15050_1.0_allComponents",
+            "agm_50_45050_0.9_allComponents",
+            "agm_50_45050_1.0_allComponents",
+            "agm_50_5050_0.9_allComponents",
+            "agm_50_5050_1.0_allComponents",});
+
+        experiments.put("agm_layer", new String[]{
+            "agm_100_10100_0.9_layer",
+            "agm_100_10100_1.0_layer",
+            "agm_100_30100_0.9_layer",
+            "agm_100_30100_1.0_layer",
+            "agm_100_90100_0.9_layer",
+            "agm_100_90100_1.0_layer",
+            "agm_200_180200_0.9_layer",
+            "agm_200_180200_1.0_layer",
+            "agm_200_20200_0.9_layer",
+            "agm_200_20200_1.0_layer",
+            "agm_200_60200_0.9_layer",
+            "agm_200_60200_1.0_layer",
+            "agm_50_15050_0.9_layer",
+            "agm_50_15050_1.0_layer",
+            "agm_50_45050_0.9_layer",
+            "agm_50_45050_1.0_layer",
+            "agm_50_5050_0.9_layer",
+            "agm_50_5050_1.0_layer",});
+
+        experiments.put("MobileMedia_layer", new String[]{
+            "MobileMedia_100_10100_0.9_layer",
+            "MobileMedia_100_10100_1.0_layer",
+            "MobileMedia_100_30100_0.9_layer",
+            "MobileMedia_100_30100_1.0_layer",
+            "MobileMedia_100_90100_0.9_layer",
+            "MobileMedia_100_90100_1.0_layer",
+            "MobileMedia_200_180200_0.9_layer",
+            "MobileMedia_200_180200_1.0_layer",
+            "MobileMedia_200_20200_0.9_layer",
+            "MobileMedia_200_20200_1.0_layer",
+            "MobileMedia_200_60200_0.9_layer",
+            "MobileMedia_200_60200_1.0_layer",
+            "MobileMedia_50_15050_0.9_layer",
+            "MobileMedia_50_15050_1.0_layer",
+            "MobileMedia_50_45050_0.9_layer",
+            "MobileMedia_50_45050_1.0_layer",
+            "MobileMedia_50_5050_0.9_layer",
+            "MobileMedia_50_5050_1.0_layer",});
+
+        experiments.put("MobileMedia_allComponents", new String[]{
+            "MobileMedia_100_10100_0.9_allComponents",
+            "MobileMedia_100_10100_1.0_allComponents",
+            "MobileMedia_100_30100_0.9_allComponents",
+            "MobileMedia_100_30100_1.0_allComponents",
+            "MobileMedia_100_90100_0.9_allComponents",
+            "MobileMedia_100_90100_1.0_allComponents",
+            "MobileMedia_200_180200_0.9_allComponents",
+            "MobileMedia_200_180200_1.0_allComponents",
+            "MobileMedia_200_20200_0.9_allComponents",
+            "MobileMedia_200_20200_1.0_allComponents",
+            "MobileMedia_200_60200_0.9_allComponents",
+            "MobileMedia_200_60200_1.0_allComponents",
+            "MobileMedia_50_15050_0.9_allComponents",
+            "MobileMedia_50_15050_1.0_allComponents",
+            "MobileMedia_50_45050_0.9_allComponents",
+            "MobileMedia_50_45050_1.0_allComponents",
+            "MobileMedia_50_5050_0.9_allComponents",
+            "MobileMedia_50_5050_1.0_allComponents",});
+
+        experiments.put("BeT_layer", new String[]{
+            "BeT_100_10100_0.9_layer",
+            "BeT_100_10100_1.0_layer",
+            "BeT_100_30100_0.9_layer",
+            "BeT_100_30100_1.0_layer",
+            "BeT_100_90100_0.9_layer",
+            "BeT_100_90100_1.0_layer",
+            "BeT_200_180200_0.9_layer",
+            "BeT_200_180200_1.0_layer",
+            "BeT_200_20200_0.9_layer",
+            "BeT_200_20200_1.0_layer",
+            "BeT_200_60200_0.9_layer",
+            "BeT_200_60200_1.0_layer",
+            "BeT_50_15050_0.9_layer",
+            "BeT_50_15050_1.0_layer",
+            "BeT_50_45050_0.9_layer",
+            "BeT_50_45050_1.0_layer",
+            "BeT_50_5050_0.9_layer",
+            "BeT_50_5050_1.0_layer",});
+
+        experiments.put("BeT_allComponents", new String[]{
+            "BeT_100_10100_0.9_allComponents",
+            "BeT_100_10100_1.0_allComponents",
+            "BeT_100_30100_0.9_allComponents",
+            "BeT_100_30100_1.0_allComponents",
+            "BeT_100_90100_0.9_allComponents",
+            "BeT_100_90100_1.0_allComponents",
+            "BeT_200_180200_0.9_allComponents",
+            "BeT_200_180200_1.0_allComponents",
+            "BeT_200_20200_0.9_allComponents",
+            "BeT_200_20200_1.0_allComponents",
+            "BeT_200_60200_0.9_allComponents",
+            "BeT_200_60200_1.0_allComponents",
+            "BeT_50_15050_0.9_allComponents",
+            "BeT_50_15050_1.0_allComponents",
+            "BeT_50_45050_0.9_allComponents",
+            "BeT_50_45050_1.0_allComponents",
+            "BeT_50_5050_0.9_allComponents",
+            "BeT_50_5050_1.0_allComponents",});
+
         MetricsUtil mu = new MetricsUtil();
 
         for (Map.Entry<String, String[]> entry : experiments.entrySet()) {
             String pla = entry.getKey();
+            String[] plaJustName = pla.split("_");
             String[] contexts = entry.getValue();
 
-            String directoryPath = "experiment/" + pla + "/";
+            String directoryPath = "tuning/" + pla + "/";
 
-            try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_" + pla + ".txt")) {
+            try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_" + plaJustName[0] + ".txt")) {
                 for (String contexto : contexts) {
-                    double[][] front = mu.readFront(directoryPath + contexto + "/" + "FUN_All_" + pla + ".txt");
+                    double[][] front = mu.readFront(directoryPath + contexto + "/" + "FUN_All_" + plaJustName[0] + ".txt");
                     for (double[] solucao : front) {
                         funAll.write(solucao[0] + " " + solucao[1] + "\n");
                     }
                 }
             }
-            normalizaHypervolume(directoryPath, pla, contexts);
-            executaHypervolume(directoryPath, pla, contexts);
+            normalizaHypervolume(directoryPath, plaJustName[0], contexts);
+            executaHypervolume(directoryPath, plaJustName[0], contexts);
             runFriedman(directoryPath, contexts);
             runWilcoxon(directoryPath, contexts);
-            executeEuclideanDistance(directoryPath, pla, contexts);
-            executeParetoStats(directoryPath, pla, contexts);
+            executeEuclideanDistance(directoryPath, plaJustName[0], contexts);
+            executeParetoStats(directoryPath, plaJustName[0], contexts);
 //            executeArchitectureStats(directoryPath, pla, contexts);
         }
     }
@@ -74,7 +181,7 @@ public class GeraTudoAKAGodClass {
         SolutionSet solutionSet = new SolutionSet();
 
         for (String contexto : contexts) {
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < 10; i++) {
                 SolutionSet execution = mu.readNonDominatedSolutionSet(directoryPath + contexto + "/FUN_" + pla + "_" + i + ".txt");
                 solutionSet = solutionSet.union(execution);
             }
@@ -85,7 +192,7 @@ public class GeraTudoAKAGodClass {
         try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_N_" + pla + ".txt")) {
             for (String contexto : contexts) {
                 try (FileWriter fileWriter = new FileWriter(directoryPath + contexto + "/HYPERVOLUME_N.txt")) {
-                    for (int i = 0; i < 30; i++) {
+                    for (int i = 0; i < 10; i++) {
                         SolutionSet execution = mu.readNonDominatedSolutionSet(directoryPath + contexto + "/FUN_" + pla + "_" + i + ".txt");
                         for (Iterator<Solution> it = execution.iterator(); it.hasNext();) {
                             Solution solution = it.next();

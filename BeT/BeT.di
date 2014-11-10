@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="ASCII" standalone="no"?>
-<di:SashWindowsMngr xmlns:di="http://www.eclipse.org/papyrus/0.7.0/sashdi" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmi:version="2.0">
+<?xml version="1.0" encoding="ASCII"?>
+<di:SashWindowsMngr xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:di="http://www.eclipse.org/papyrus/0.7.0/sashdi">
   <pageList>
     <availablePage>
       <emfPageIdentifier href="BeT.notation#_copSALmGEeKQQp7P9cQvNQ"/>

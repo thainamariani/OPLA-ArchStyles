@@ -1,0 +1,779 @@
+Number of solutions: 19
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 0
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7557885254890333
+NAC - ELEGANCE: 0.41710023065091334
+ATMR - ELEGANCE: 0.05599561450282811
+EC - ELEGANCE: 0.2826926803352919
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 394.0
+CDAC: 113.0
+CDAI: 19.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 96.0
+LCCClass: 175.0
+CDAClass: 175.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.019230769230769232
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 88.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 1
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7440262405423854
+NAC - ELEGANCE: 0.4125638912802887
+ATMR - ELEGANCE: 0.05697924577955128
+EC - ELEGANCE: 0.2744831034825454
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 374.0
+CDAC: 71.0
+CDAI: 13.0
+CDAO: 0.0
+CIBC: 209.0
+IIBC: 10.0
+OOBC: 6.0
+LCC: 65.0
+LCCClass: 167.0
+CDAClass: 167.0
+CIBClass: 104.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.0625
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 557.0
+Sum DepIn: 0.0
+Sum DepOut: 1.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 2
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.744051928741254
+NAC - ELEGANCE: 0.41310149956443604
+ATMR - ELEGANCE: 0.05700653980263878
+EC - ELEGANCE: 0.27394388937417924
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 390.0
+CDAC: 80.0
+CDAI: 13.0
+CDAO: 0.0
+CIBC: 211.0
+IIBC: 10.0
+OOBC: 6.0
+LCC: 70.0
+LCCClass: 167.0
+CDAClass: 167.0
+CIBClass: 104.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.058823529411764705
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 23.0
+Sum Classes DepOut: 501.0
+Sum DepIn: 0.0
+Sum DepOut: 1.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 3
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7395600469996639
+NAC - ELEGANCE: 0.4040892096523324
+ATMR - ELEGANCE: 0.0561672193057725
+EC - ELEGANCE: 0.27930361804155907
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 376.0
+CDAC: 101.0
+CDAI: 17.0
+CDAO: 0.0
+CIBC: 155.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 85.0
+LCCClass: 172.0
+CDAClass: 172.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.03125
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 172.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 4
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7326926672115306
+NAC - ELEGANCE: 0.40371079876961236
+ATMR - ELEGANCE: 0.0561672193057725
+EC - ELEGANCE: 0.2728146491361458
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 384.0
+CDAC: 105.0
+CDAI: 17.0
+CDAO: 0.0
+CIBC: 155.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 89.0
+LCCClass: 172.0
+CDAClass: 172.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.02631578947368421
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 160.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 5
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7482032518697737
+NAC - ELEGANCE: 0.4188949334817361
+ATMR - ELEGANCE: 0.055745540109694305
+EC - ELEGANCE: 0.2735627782783432
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 381.0
+CDAC: 107.0
+CDAI: 18.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 90.0
+LCCClass: 174.0
+CDAClass: 174.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.023255813953488372
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 107.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 6
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7392014194802347
+NAC - ELEGANCE: 0.41310149956443604
+ATMR - ELEGANCE: 0.0572839676331631
+EC - ELEGANCE: 0.2688159522826355
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 378.0
+CDAC: 73.0
+CDAI: 13.0
+CDAO: 0.0
+CIBC: 209.0
+IIBC: 10.0
+OOBC: 6.0
+LCC: 67.0
+LCCClass: 167.0
+CDAClass: 167.0
+CIBClass: 104.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.058823529411764705
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 551.0
+Sum DepIn: 0.0
+Sum DepOut: 1.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 7
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.744051928741254
+NAC - ELEGANCE: 0.41310149956443604
+ATMR - ELEGANCE: 0.05700653980263878
+EC - ELEGANCE: 0.27394388937417924
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 380.0
+CDAC: 75.0
+CDAI: 13.0
+CDAO: 0.0
+CIBC: 209.0
+IIBC: 10.0
+OOBC: 6.0
+LCC: 67.0
+LCCClass: 167.0
+CDAClass: 167.0
+CIBClass: 104.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.05555555555555555
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 514.0
+Sum DepIn: 0.0
+Sum DepOut: 1.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 8
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7441771472812523
+NAC - ELEGANCE: 0.4127353354293704
+ATMR - ELEGANCE: 0.057148841356161106
+EC - ELEGANCE: 0.27429297049572077
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 386.0
+CDAC: 78.0
+CDAI: 13.0
+CDAO: 0.0
+CIBC: 209.0
+IIBC: 10.0
+OOBC: 6.0
+LCC: 70.0
+LCCClass: 168.0
+CDAClass: 168.0
+CIBClass: 104.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.045454545454545456
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 508.0
+Sum DepIn: 0.0
+Sum DepOut: 1.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 9
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7427869978009138
+NAC - ELEGANCE: 0.41328024345646197
+ATMR - ELEGANCE: 0.05701136837702425
+EC - ELEGANCE: 0.2724953859674276
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 384.0
+CDAC: 77.0
+CDAI: 13.0
+CDAO: 0.0
+CIBC: 209.0
+IIBC: 10.0
+OOBC: 6.0
+LCC: 69.0
+LCCClass: 167.0
+CDAClass: 167.0
+CIBClass: 104.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.05
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 508.0
+Sum DepIn: 0.0
+Sum DepOut: 1.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 10
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7412155411395656
+NAC - ELEGANCE: 0.4185366098186286
+ATMR - ELEGANCE: 0.055745540109694305
+EC - ELEGANCE: 0.2669333912112427
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 389.0
+CDAC: 111.0
+CDAI: 18.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 94.0
+LCCClass: 174.0
+CDAClass: 174.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.02040816326530612
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 95.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 11
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7539217958897471
+NAC - ELEGANCE: 0.4179975507034138
+ATMR - ELEGANCE: 0.055718942771924684
+EC - ELEGANCE: 0.2802053024144085
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 392.0
+CDAC: 112.0
+CDAI: 19.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 95.0
+LCCClass: 174.0
+CDAClass: 174.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.0196078431372549
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 93.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 12
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7388026822570044
+NAC - ELEGANCE: 0.4033318449096728
+ATMR - ELEGANCE: 0.0561672193057725
+EC - ELEGANCE: 0.27930361804155907
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 378.0
+CDAC: 102.0
+CDAI: 17.0
+CDAO: 0.0
+CIBC: 155.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 86.0
+LCCClass: 172.0
+CDAClass: 172.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.029411764705882353
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 170.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 13
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7395600469996639
+NAC - ELEGANCE: 0.4040892096523324
+ATMR - ELEGANCE: 0.0561672193057725
+EC - ELEGANCE: 0.27930361804155907
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 380.0
+CDAC: 103.0
+CDAI: 17.0
+CDAO: 0.0
+CIBC: 155.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 87.0
+LCCClass: 172.0
+CDAClass: 172.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.02857142857142857
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 166.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 14
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7306561799010232
+NAC - ELEGANCE: 0.40295234572844985
+ATMR - ELEGANCE: 0.0561672193057725
+EC - ELEGANCE: 0.27153661486680086
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 382.0
+CDAC: 104.0
+CDAI: 17.0
+CDAO: 0.0
+CIBC: 155.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 88.0
+LCCClass: 172.0
+CDAClass: 172.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.02702702702702703
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 26.0
+Sum Classes DepOut: 164.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 15
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7474861436288769
+NAC - ELEGANCE: 0.41817782524083935
+ATMR - ELEGANCE: 0.055745540109694305
+EC - ELEGANCE: 0.2735627782783432
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 383.0
+CDAC: 108.0
+CDAI: 18.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 91.0
+LCCClass: 174.0
+CDAClass: 174.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.022222222222222223
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 105.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 16
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7496458422577158
+NAC - ELEGANCE: 0.4188949334817361
+ATMR - ELEGANCE: 0.055745540109694305
+EC - ELEGANCE: 0.2750053686662854
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 385.0
+CDAC: 109.0
+CDAI: 18.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 92.0
+LCCClass: 174.0
+CDAClass: 174.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.021739130434782608
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 101.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 17
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7391909536196988
+NAC - ELEGANCE: 0.4178185779651443
+ATMR - ELEGANCE: 0.055745540109694305
+EC - ELEGANCE: 0.2656268355448601
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 387.0
+CDAC: 110.0
+CDAI: 18.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 93.0
+LCCClass: 174.0
+CDAClass: 174.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.020833333333333332
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 99.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 18
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.758957523966441
+NAC - ELEGANCE: 0.4178191896949615
+ATMR - ELEGANCE: 0.05599561450282811
+EC - ELEGANCE: 0.28514271976865146
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 392.0
+CDAC: 112.0
+CDAI: 19.0
+CDAO: 0.0
+CIBC: 148.0
+IIBC: 12.0
+OOBC: 6.0
+LCC: 95.0
+LCCClass: 175.0
+CDAClass: 175.0
+CIBClass: 111.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: NaN
+Cohesion: 0.02
+Mean Dep Comps: 0.0
+Mean Num Ops: NaN
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 90.0
+Sum DepIn: 0.0
+Sum DepOut: 2.0
+

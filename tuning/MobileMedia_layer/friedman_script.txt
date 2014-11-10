@@ -1,0 +1,47 @@
+MobileMedia_100_10100_0.9_layer<- c(0.442634, 0.541172, 0.442634, 0.147019, 0.048481, 0.422926, 0.442634, 0.009066, 0.028773, 0.009066)
+
+MobileMedia_100_10100_1.0_layer<- c(0.147019, 0.524680, 0.792553, 0.422926, 0.442634, 0.422926, 0.403218, 0.166727, 0.147019, 0.068188)
+
+MobileMedia_100_30100_0.9_layer<- c(0.698833, 0.679125, 0.708325, 0.462341, 0.687718, 0.147019, 0.687718, 0.831968, 0.718541, 0.462341)
+
+MobileMedia_100_30100_1.0_layer<- c(0.442634, 0.856832, 0.462341, 0.708325, 0.462341, 0.462341, 0.442634, 0.048481, 0.166727, 0.687718)
+
+MobileMedia_100_90100_0.9_layer<- c(0.708325, 0.878039, 0.729590, 0.899245, 0.708325, 0.708325, 0.729590, 0.729590, 0.729590, 0.938061)
+
+MobileMedia_100_90100_1.0_layer<- c(0.909958, 0.708383, 0.935004, 0.878039, 0.941659, 0.878039, 0.730731, 0.814418, 0.878039, 0.811361)
+
+MobileMedia_200_180200_0.9_layer<- c(0.806622, 0.896141, 0.962866, 0.790212, 0.786614, 0.856832, 1.004317, 0.935004, 1.004317, 0.913921)
+
+MobileMedia_200_180200_1.0_layer<- c(0.875040, 0.941659, 0.799892, 0.950889, 0.517521, 1.004317, 0.877439, 0.750797, 0.851249, 0.958991)
+
+MobileMedia_200_20200_0.9_layer<- c(0.442634, 0.166727, 0.363803, 0.147019, 0.924209, 0.831968, 0.504052, 0.324388, 0.166727, 0.442634)
+
+MobileMedia_200_20200_1.0_layer<- c(0.442634, 0.482545, 0.687718, 0.878039, 0.148976, 0.524659, 0.442634, 0.442634, 0.344096, 0.166727)
+
+MobileMedia_200_60200_0.9_layer<- c(0.814418, 0.835625, 0.895589, 0.935004, 0.708325, 0.442634, 0.757956, 0.914397, 0.600295, 0.687718)
+
+MobileMedia_200_60200_1.0_layer<- c(0.878039, 0.729590, 0.730731, 0.984073, 0.873182, 0.914397, 0.856832, 0.709224, 0.984073, 0.709224)
+
+MobileMedia_50_15050_0.9_layer<- c(0.422926, 0.147019, 0.462341, 0.324388, 0.344096, 0.442634, 0.380409, 0.687718, 0.147019, 0.667110)
+
+MobileMedia_50_15050_1.0_layer<- c(0.708325, 0.462341, 0.462838, 0.028773, 0.462341, 0.166727, 0.048481, 0.166727, 0.708325, 0.442634)
+
+MobileMedia_50_45050_0.9_layer<- c(0.048481, 0.602349, 0.790754, 0.882695, 0.831968, 0.689517, 0.166727, 0.708325, 0.687718, 0.729590)
+
+MobileMedia_50_45050_1.0_layer<- c(0.462341, 1.004317, 0.729590, 0.708325, 0.896141, 0.442634, 0.708325, 0.462341, 0.708325, 0.856832)
+
+MobileMedia_50_5050_0.9_layer<- c(0.028773, 0.648302, 0.028773, 0.147019, 0.009066, 0.028773, 0.127311, 0.127311, 0.009066, 0.147019)
+
+MobileMedia_50_5050_1.0_layer<- c(0.147019, 0.028773, 0.422926, 0.028773, 0.339194, 0.442634, 0.127311, 0.009066, 0.127311, 0.445746)
+
+require(pgirmess)
+AR1 <-cbind(MobileMedia_100_10100_0.9_layer, MobileMedia_100_10100_1.0_layer, MobileMedia_100_30100_0.9_layer, MobileMedia_100_30100_1.0_layer, MobileMedia_100_90100_0.9_layer, MobileMedia_100_90100_1.0_layer, MobileMedia_200_180200_0.9_layer, MobileMedia_200_180200_1.0_layer, MobileMedia_200_20200_0.9_layer, MobileMedia_200_20200_1.0_layer, MobileMedia_200_60200_0.9_layer, MobileMedia_200_60200_1.0_layer, MobileMedia_50_15050_0.9_layer, MobileMedia_50_15050_1.0_layer, MobileMedia_50_45050_0.9_layer, MobileMedia_50_45050_1.0_layer, MobileMedia_50_5050_0.9_layer, MobileMedia_50_5050_1.0_layer)
+result<-friedman.test(AR1)
+
+m<-data.frame(result$statistic,result$p.value)
+write.csv2(m,file="./tuning/MobileMedia_layer/friedman.csv")
+
+pos_teste<-friedmanmc(AR1)
+write.csv2(pos_teste,file="./tuning/MobileMedia_layer/friedman-compara.csv")
+png(file="./tuning/MobileMedia_layer/friedman-boxplot.png", width=400, height=400)
+boxplot(MobileMedia_100_10100_0.9_layer, MobileMedia_100_10100_1.0_layer, MobileMedia_100_30100_0.9_layer, MobileMedia_100_30100_1.0_layer, MobileMedia_100_90100_0.9_layer, MobileMedia_100_90100_1.0_layer, MobileMedia_200_180200_0.9_layer, MobileMedia_200_180200_1.0_layer, MobileMedia_200_20200_0.9_layer, MobileMedia_200_20200_1.0_layer, MobileMedia_200_60200_0.9_layer, MobileMedia_200_60200_1.0_layer, MobileMedia_50_15050_0.9_layer, MobileMedia_50_15050_1.0_layer, MobileMedia_50_45050_0.9_layer, MobileMedia_50_45050_1.0_layer, MobileMedia_50_5050_0.9_layer, MobileMedia_50_5050_1.0_layer, names=c("MobileMedia_100_10100_0.9_layer", "MobileMedia_100_10100_1.0_layer", "MobileMedia_100_30100_0.9_layer", "MobileMedia_100_30100_1.0_layer", "MobileMedia_100_90100_0.9_layer", "MobileMedia_100_90100_1.0_layer", "MobileMedia_200_180200_0.9_layer", "MobileMedia_200_180200_1.0_layer", "MobileMedia_200_20200_0.9_layer", "MobileMedia_200_20200_1.0_layer", "MobileMedia_200_60200_0.9_layer", "MobileMedia_200_60200_1.0_layer", "MobileMedia_50_15050_0.9_layer", "MobileMedia_50_15050_1.0_layer", "MobileMedia_50_45050_0.9_layer", "MobileMedia_50_45050_1.0_layer", "MobileMedia_50_5050_0.9_layer", "MobileMedia_50_5050_1.0_layer"))

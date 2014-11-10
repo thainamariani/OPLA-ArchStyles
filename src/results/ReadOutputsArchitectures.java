@@ -35,22 +35,22 @@ public class ReadOutputsArchitectures {
         //plas.add("agm");
         //plas.add("mobilemedia");
         //plas.add("bet");
-        plas.add("banking");
-        plas.add("betserver");
+        //plas.add("banking");
+        //plas.add("betserver");
 
         for (String pla : plas) {
             List<File> solutions = new ArrayList<>();
             //menor ED
             if (pla.equals("agm")) {
-                //solutions.add(new File("agm/agm.uml"));
+                solutions.add(new File("agm/agm.uml"));
                 //solutions.add(new File("experiment/agm/agm_200_30000_1.0_allComponents/output/VAR_All_agm16.uml"));
                 //solutions.add(new File("experiment/agm/agm_200_30000_1.0_layer/output/VAR_All_agm4.uml"));
             } else if (pla.equals("mobilemedia")) {
-                //solutions.add(new File("mobilemediaAnterior/MobileMedia.uml"));
+                solutions.add(new File("mobilemedia/MobileMedia.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/output/VAR_All_MobileMedia7.uml"));
                 //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/output/VAR_All_MobileMedia5.uml"));
             } else if (pla.equals("bet")) {
-                solutions.add(new File("BeTAnterior/BeT.uml"));
+                solutions.add(new File("BeT/BeT.uml"));
                 //solutions.add(new File("experiment/BeT/BeT_50_30000_0.9_allComponents/output/VAR_All_BeT3.uml"));
                 //solutions.add(new File("experiment/BeT/BeT_50_30000_1.0_layer/output/VAR_All_BeT10.uml"));
             } else if (pla.equals("banking")) {
@@ -85,8 +85,8 @@ public class ReadOutputsArchitectures {
                     ReaderConfig.setPathToProfileConcerns(path + "/concerns.profile.uml");
                     ReaderConfig.setPathProfileRelationship(path + "/relationships.profile.uml");
                     ReaderConfig.setPathToProfilePatterns(path + "/patterns.profile.uml");
-                    ReaderConfig.setDirTarget("banking1/manipulation/");
-                    ReaderConfig.setDirExportTarget("banking1/");
+                    ReaderConfig.setDirTarget("mobilemedia/manipulation/");
+                    ReaderConfig.setDirExportTarget("mobilemedia/");
 
                     ArchitectureBuilder builder = new ArchitectureBuilder();
                     Architecture architecture = builder.create(solution.getAbsolutePath());
@@ -95,9 +95,10 @@ public class ReadOutputsArchitectures {
                     System.out.println("Solution: " + solution.getPath());
 
                     //getElements(architecture, pla);
-                    getConcernsforClientServer(architecture, pla);
+                    //getConcernsforClientServer(architecture, pla);
                     //getConcernsforLayer(architecture, pla);
                     //getInvalidsInterfaces(architecture);
+                    OutputIdentificationLayer.getInterfacesImplementors(architecture);
                     //replaceUsageforDependency(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);

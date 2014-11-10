@@ -31,6 +31,8 @@ public class PLAFeatureMutationConstraints extends Mutation {
     private String name = "no";
     private Double mutationProbability_ = null;
     private String style;
+    public static int featureDrivenMoveOperationToComponent = 0;
+    public static int featureDrivenMoveOperationToComponentCreateInterface = 0;
 
     public PLAFeatureMutationConstraints(HashMap<String, Object> parameters, String style) {
         super(parameters);

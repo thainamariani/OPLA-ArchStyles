@@ -71,8 +71,6 @@ public class OutputIdentificationLayer {
 //        layer3.setSufixos(sufixos3);
 //        layer3.setPrefixos(prefixos3);
 //        camadas.add(layer3);
-        
-        
         File directory = new File("experiment/");
         if (directory.exists()) {
             String[] list = directory.list();
@@ -229,6 +227,18 @@ public class OutputIdentificationLayer {
             }
         }
         System.out.println("Valida? " + validSolution);
+    }
+
+    public static void getInterfacesImplementors(Architecture architecture) {
+        List<arquitetura.representation.Interface> allInterfaces = new ArrayList<arquitetura.representation.Interface>(architecture.getAllInterfaces());
+        int contImpl = 0;
+        for (arquitetura.representation.Interface i : allInterfaces) {
+            System.out.println("Implementors " + i.getImplementors().size());
+            if (i.getImplementors().isEmpty()) {
+                contImpl++;
+            }
+        }
+        System.out.println("CONT IMPL: " + contImpl);
     }
 }
 

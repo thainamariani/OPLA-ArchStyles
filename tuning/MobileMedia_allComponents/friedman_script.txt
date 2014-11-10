@@ -1,0 +1,47 @@
+MobileMedia_100_10100_0.9_allComponents<- c(0.681235, 0.671625, 0.670675, 0.671255, 0.669831, 0.676896, 0.682712, 0.678253, 0.671625, 0.678373)
+
+MobileMedia_100_10100_1.0_allComponents<- c(0.666916, 0.625347, 0.675472, 0.678148, 0.681129, 0.626852, 0.629542, 0.680866, 0.671625, 0.675946)
+
+MobileMedia_100_30100_0.9_allComponents<- c(0.682933, 0.685424, 0.683081, 0.678373, 0.670886, 0.683820, 0.683672, 0.628248, 0.044251, 0.683081)
+
+MobileMedia_100_30100_1.0_allComponents<- c(0.683081, 0.670886, 0.570001, 0.681499, 0.683450, 0.672247, 0.682459, 0.671625, 0.670886, 0.680679)
+
+MobileMedia_100_90100_0.9_allComponents<- c(0.681604, 0.036212, 0.036212, 0.683672, 0.761172, 0.675248, 0.765583, 0.670886, 0.684397, 0.671625)
+
+MobileMedia_100_90100_1.0_allComponents<- c(0.683820, 0.671625, 0.662084, 0.681787, 0.837970, 0.816695, 0.670886, 0.619182, 0.840386, 0.682343)
+
+MobileMedia_200_180200_0.9_allComponents<- c(0.683170, 0.683672, 0.682132, 0.736251, 0.947636, 0.683672, 0.671625, 0.789315, 0.683598, 0.684410)
+
+MobileMedia_200_180200_1.0_allComponents<- c(0.923268, 0.682343, 0.923268, 0.683081, 0.670886, 0.683672, 0.683340, 0.923268, 0.681604, 0.684685)
+
+MobileMedia_200_20200_0.9_allComponents<- c(0.677845, 0.681604, 0.681235, 0.671625, 0.676421, 0.684685, 0.674997, 0.682343, 0.675946, 0.679916)
+
+MobileMedia_200_20200_1.0_allComponents<- c(0.680655, 0.683081, 0.682712, 0.679916, 0.678148, 0.680286, 0.682897, 0.681024, 0.679916, 0.682712)
+
+MobileMedia_200_60200_0.9_allComponents<- c(0.670781, 0.740292, 0.671625, 0.949299, 0.671625, 0.629658, 0.683999, 0.682132, 0.761172, 0.680205)
+
+MobileMedia_200_60200_1.0_allComponents<- c(0.682933, 0.683081, 0.762836, 0.682009, 0.683672, 0.682712, 0.782768, 0.682712, 0.682712, 0.683081)
+
+MobileMedia_50_15050_0.9_allComponents<- c(0.475662, 0.671625, 0.619845, 0.035474, 0.681925, 0.673967, 0.629437, 0.678622, 0.671625, 0.683450)
+
+MobileMedia_50_15050_1.0_allComponents<- c(0.671255, 0.619134, 0.638812, 0.673687, 0.682712, 0.682304, 0.671625, 0.676685, 0.670886, 0.616422)
+
+MobileMedia_50_45050_0.9_allComponents<- c(0.036212, 0.671625, 0.681049, 0.625797, 0.671625, 0.634973, 0.671625, 0.759207, 0.671625, 0.686007)
+
+MobileMedia_50_45050_1.0_allComponents<- c(0.683081, 0.788127, 0.630502, 0.670886, 0.036212, 0.681270, 0.671625, 0.503367, 0.682343, 0.699964)
+
+MobileMedia_50_5050_0.9_allComponents<- c(0.671625, 0.671625, 0.919085, 0.671255, 0.625509, 0.032597, 0.667866, 0.677279, 0.672226, 0.667866)
+
+MobileMedia_50_5050_1.0_allComponents<- c(0.674997, 0.674997, 0.666916, 0.678953, 0.676984, 0.670886, 0.666916, 0.674086, 0.670886, 0.666916)
+
+require(pgirmess)
+AR1 <-cbind(MobileMedia_100_10100_0.9_allComponents, MobileMedia_100_10100_1.0_allComponents, MobileMedia_100_30100_0.9_allComponents, MobileMedia_100_30100_1.0_allComponents, MobileMedia_100_90100_0.9_allComponents, MobileMedia_100_90100_1.0_allComponents, MobileMedia_200_180200_0.9_allComponents, MobileMedia_200_180200_1.0_allComponents, MobileMedia_200_20200_0.9_allComponents, MobileMedia_200_20200_1.0_allComponents, MobileMedia_200_60200_0.9_allComponents, MobileMedia_200_60200_1.0_allComponents, MobileMedia_50_15050_0.9_allComponents, MobileMedia_50_15050_1.0_allComponents, MobileMedia_50_45050_0.9_allComponents, MobileMedia_50_45050_1.0_allComponents, MobileMedia_50_5050_0.9_allComponents, MobileMedia_50_5050_1.0_allComponents)
+result<-friedman.test(AR1)
+
+m<-data.frame(result$statistic,result$p.value)
+write.csv2(m,file="./tuning/MobileMedia_allComponents/friedman.csv")
+
+pos_teste<-friedmanmc(AR1)
+write.csv2(pos_teste,file="./tuning/MobileMedia_allComponents/friedman-compara.csv")
+png(file="./tuning/MobileMedia_allComponents/friedman-boxplot.png", width=400, height=400)
+boxplot(MobileMedia_100_10100_0.9_allComponents, MobileMedia_100_10100_1.0_allComponents, MobileMedia_100_30100_0.9_allComponents, MobileMedia_100_30100_1.0_allComponents, MobileMedia_100_90100_0.9_allComponents, MobileMedia_100_90100_1.0_allComponents, MobileMedia_200_180200_0.9_allComponents, MobileMedia_200_180200_1.0_allComponents, MobileMedia_200_20200_0.9_allComponents, MobileMedia_200_20200_1.0_allComponents, MobileMedia_200_60200_0.9_allComponents, MobileMedia_200_60200_1.0_allComponents, MobileMedia_50_15050_0.9_allComponents, MobileMedia_50_15050_1.0_allComponents, MobileMedia_50_45050_0.9_allComponents, MobileMedia_50_45050_1.0_allComponents, MobileMedia_50_5050_0.9_allComponents, MobileMedia_50_5050_1.0_allComponents, names=c("MobileMedia_100_10100_0.9_allComponents", "MobileMedia_100_10100_1.0_allComponents", "MobileMedia_100_30100_0.9_allComponents", "MobileMedia_100_30100_1.0_allComponents", "MobileMedia_100_90100_0.9_allComponents", "MobileMedia_100_90100_1.0_allComponents", "MobileMedia_200_180200_0.9_allComponents", "MobileMedia_200_180200_1.0_allComponents", "MobileMedia_200_20200_0.9_allComponents", "MobileMedia_200_20200_1.0_allComponents", "MobileMedia_200_60200_0.9_allComponents", "MobileMedia_200_60200_1.0_allComponents", "MobileMedia_50_15050_0.9_allComponents", "MobileMedia_50_15050_1.0_allComponents", "MobileMedia_50_45050_0.9_allComponents", "MobileMedia_50_45050_1.0_allComponents", "MobileMedia_50_5050_0.9_allComponents", "MobileMedia_50_5050_1.0_allComponents"))

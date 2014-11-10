@@ -1,0 +1,39 @@
+BeT_100_10100_0.9_allComponents<- c(0.642069, 0.492821, 0.683454, 0.651987, 0.669965, 0.653559, 0.505154, 0.644110, 0.624378, 0.595309)
+
+BeT_100_10100_1.0_allComponents<- c(0.672010, 0.494389, 0.660458, 0.535150, 0.484036, 0.542829, 0.662735, 0.693802, 0.644543, 0.598469)
+
+BeT_100_30100_0.9_allComponents<- c(0.728826, 0.683930, 0.731592, 0.640720, 0.667862, 0.504198, 0.659573, 0.725924, 0.315377, 0.666837)
+
+BeT_100_30100_1.0_allComponents<- c(0.671004, 0.670045, 0.725347, 0.733942, 0.651484, 0.652623, 0.703458, 0.633525, 0.668542, 0.672171)
+
+BeT_100_90100_0.9_allComponents<- c(0.704472, 0.769834, 0.662232, 0.667735, 0.621216, 0.666420, 0.653092, 0.667904, 0.649344, 0.671788)
+
+BeT_100_90100_1.0_allComponents<- c(0.638648, 0.702754, 0.643221, 0.673242, 0.635461, 0.672556, 0.657608, 0.649088, 0.667436, 0.733353)
+
+BeT_200_180200_0.9_allComponents<- c(0.777227, 0.773431, 0.668218, 0.637504, 0.671916, 0.723527, 0.709877, 0.659230, 0.674180, 0.672134)
+
+BeT_200_180200_1.0_allComponents<- c(0.750418, 0.735559, 0.670500, 0.693034, 0.654386, 0.668094, 0.698526, 0.743202, 0.671916, 0.743737)
+
+BeT_200_20200_0.9_allComponents<- c(0.681181, 0.752481, 0.670904, 0.480427, 0.658001, 0.684468, 0.668824, 0.482924, 0.564806, 0.639744)
+
+BeT_200_20200_1.0_allComponents<- c(0.645396, 0.481188, 0.577105, 0.684411, 0.553154, 0.703782, 0.547004, 0.513402, 0.662072, 0.677249)
+
+BeT_200_60200_0.9_allComponents<- c(0.669981, 0.680070, 0.704879, 0.654875, 0.673707, 0.750248, 0.683703, 0.742887, 0.708334, 0.665877)
+
+BeT_200_60200_1.0_allComponents<- c(0.774969, 0.740037, 0.727823, 0.745211, 0.730782, 0.666736, 0.649700, 0.680859, 0.776563, 0.667345)
+
+BeT_50_15050_0.9_allComponents<- c(0.666191, 0.675762, 0.503885, 0.675526, 0.648397, 0.535567, 0.580147, 0.647533, 0.684676, 0.555680)
+
+BeT_50_15050_1.0_allComponents<- c(0.671522, 0.724780, 0.683447, 0.641299, 0.652392, 0.601267, 0.679932, 0.665740, 0.656076, 0.760702)
+
+BeT_50_45050_0.9_allComponents<- c(0.737792, 0.688138, 0.774613, 0.736511, 0.726209, 0.649407, 0.664582, 0.663096, 0.653565, 0.672707)
+
+BeT_50_45050_1.0_allComponents<- c(0.776587, 0.669313, 0.600553, 0.754502, 0.665027, 0.665454, 0.652333, 0.669284, 0.665154, 0.657299)
+
+BeT_50_5050_0.9_allComponents<- c(0.412545, 0.447092, 0.520738, 0.658077, 0.568850, 0.477913, 0.705755, 0.563082, 0.435027, 0.436200)
+
+BeT_50_5050_1.0_allComponents<- c(0.611496, 0.525969, 0.417581, 0.602797, 0.587762, 0.660432, 0.666172, 0.424813, 0.467935, 0.620451)
+
+wilcox.test(BeT_100_10100_0.9_allComponents, BeT_100_10100_1.0_allComponents, BeT_100_30100_0.9_allComponents, BeT_100_30100_1.0_allComponents, BeT_100_90100_0.9_allComponents, BeT_100_90100_1.0_allComponents, BeT_200_180200_0.9_allComponents, BeT_200_180200_1.0_allComponents, BeT_200_20200_0.9_allComponents, BeT_200_20200_1.0_allComponents, BeT_200_60200_0.9_allComponents, BeT_200_60200_1.0_allComponents, BeT_50_15050_0.9_allComponents, BeT_50_15050_1.0_allComponents, BeT_50_45050_0.9_allComponents, BeT_50_45050_1.0_allComponents, BeT_50_5050_0.9_allComponents, BeT_50_5050_1.0_allComponents)
+png(file="./tuning/BeT_allComponents/wilcoxon-boxplot.png", width=500, height=500)
+boxplot(BeT_100_10100_0.9_allComponents, BeT_100_10100_1.0_allComponents, BeT_100_30100_0.9_allComponents, BeT_100_30100_1.0_allComponents, BeT_100_90100_0.9_allComponents, BeT_100_90100_1.0_allComponents, BeT_200_180200_0.9_allComponents, BeT_200_180200_1.0_allComponents, BeT_200_20200_0.9_allComponents, BeT_200_20200_1.0_allComponents, BeT_200_60200_0.9_allComponents, BeT_200_60200_1.0_allComponents, BeT_50_15050_0.9_allComponents, BeT_50_15050_1.0_allComponents, BeT_50_45050_0.9_allComponents, BeT_50_45050_1.0_allComponents, BeT_50_5050_0.9_allComponents, BeT_50_5050_1.0_allComponents, names=c("BeT_100_10100_0.9_allComponents", "BeT_100_10100_1.0_allComponents", "BeT_100_30100_0.9_allComponents", "BeT_100_30100_1.0_allComponents", "BeT_100_90100_0.9_allComponents", "BeT_100_90100_1.0_allComponents", "BeT_200_180200_0.9_allComponents", "BeT_200_180200_1.0_allComponents", "BeT_200_20200_0.9_allComponents", "BeT_200_20200_1.0_allComponents", "BeT_200_60200_0.9_allComponents", "BeT_200_60200_1.0_allComponents", "BeT_50_15050_0.9_allComponents", "BeT_50_15050_1.0_allComponents", "BeT_50_45050_0.9_allComponents", "BeT_50_45050_1.0_allComponents", "BeT_50_5050_0.9_allComponents", "BeT_50_5050_1.0_allComponents"))

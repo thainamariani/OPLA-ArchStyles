@@ -23,7 +23,6 @@ import java.util.logging.Logger;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
-import mutation.PLAFeatureMutationConstraints;
 import pojo.Client;
 import pojo.Layer;
 import pojo.Style;
@@ -270,15 +269,6 @@ public class AddPackage implements OperatorConstraints {
     }
 
     public void mutation(Interface sourceInterface, Interface newInterface, Method op, Architecture architecture) {
-        PLAFeatureMutationConstraints.LOGGER.info("------------------------------------------------------------------------------");
-        PLAFeatureMutationConstraints.LOGGER.info("Executado Operador Add Package");
-        PLAFeatureMutationConstraints.LOGGER.info("New Interface: " + newInterface);
-        PLAFeatureMutationConstraints.LOGGER.info("Method: " + op);
-        PLAFeatureMutationConstraints.LOGGER.info("Source Interface: " + sourceInterface);
-        for (Element element : sourceInterface.getImplementors()) {
-            PLAFeatureMutationConstraints.LOGGER.info("Implementor: " + element.getName());
-        }
-
         sourceInterface.moveOperationToInterface(op, newInterface);
         for (Element implementor : sourceInterface.getImplementors()) {
             if (implementor instanceof arquitetura.representation.Package) {
