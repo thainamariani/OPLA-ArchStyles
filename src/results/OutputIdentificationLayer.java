@@ -11,6 +11,7 @@ import arquitetura.helpers.XmiHelper;
 import arquitetura.io.ReaderConfig;
 import arquitetura.io.SaveAndMove;
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Element;
 import identification.LayerIdentification;
 import java.io.File;
 import java.io.IOException;
@@ -63,21 +64,22 @@ public class OutputIdentificationLayer {
         layer2.setPrefixos(prefixos2);
         camadas.add(layer2);
 
-//        Layer layer3 = new Layer();
-//        layer3.setNumero(3);
-//        List<String> sufixos3 = new ArrayList<>();
-//        List<String> prefixos3 = new ArrayList<>();
-//        sufixos3.add("GUI");
-//        layer3.setSufixos(sufixos3);
-//        layer3.setPrefixos(prefixos3);
-//        camadas.add(layer3);
+        Layer layer3 = new Layer();
+        layer3.setNumero(3);
+        List<String> sufixos3 = new ArrayList<>();
+        List<String> prefixos3 = new ArrayList<>();
+        sufixos3.add("GUI");
+        layer3.setSufixos(sufixos3);
+        layer3.setPrefixos(prefixos3);
+        camadas.add(layer3);
+        
         File directory = new File("experiment/");
         if (directory.exists()) {
             String[] list = directory.list();
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("MobileMedia")) {
+                if (split[0].equals("agm")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
@@ -233,12 +235,17 @@ public class OutputIdentificationLayer {
         List<arquitetura.representation.Interface> allInterfaces = new ArrayList<arquitetura.representation.Interface>(architecture.getAllInterfaces());
         int contImpl = 0;
         for (arquitetura.representation.Interface i : allInterfaces) {
-            System.out.println("Implementors " + i.getImplementors().size());
-            if (i.getImplementors().isEmpty()) {
-                contImpl++;
+            System.out.println("\n" +i.getName());
+            for (Element e : i.getImplementors()) {
+                System.out.println(e.getName());
             }
+//            System.out.println("Implementors " + i.getImplementors().size());
+//            if (i.getImplementors().isEmpty()) {
+//                contImpl++;
+//            }
         }
         System.out.println("CONT IMPL: " + contImpl);
+
     }
 }
 

@@ -11,7 +11,7 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_s8IPgAhrEeSdUrLW4jQprQ" name="CombinacaoMgr">
-      <packagedElement xmi:type="uml:Class" xmi:id="_vX2rEAhrEeSdUrLW4jQprQ" clientDependency="9f3cd1b8-85a9-436a-b069-614c450ea39d" name="CombinacaoMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_vX2rEAhrEeSdUrLW4jQprQ" clientDependency="9f3cd1b8-85a9-436a-b069-614c450ea39d _zsecYGnbEeS5PLUVl44fEg" name="CombinacaoMgr">
         <ownedOperation xmi:id="_0Kc3YAhrEeSdUrLW4jQprQ" name="validarCombinacao" visibility="public"/>
         <ownedOperation xmi:id="_yY6oUAhrEeSdUrLW4jQprQ" name="verificarTipoIncompativeis" visibility="public"/>
       </packagedElement>
@@ -19,9 +19,10 @@
         <ownedOperation xmi:id="_bl7OIAhqEeSdUrLW4jQprQ" name="validarCombinacao" visibility="public"/>
         <ownedOperation xmi:id="_aPMEsAhqEeSdUrLW4jQprQ" name="verificarTiposIncompativeis" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_zsecYGnbEeS5PLUVl44fEg" client="_vX2rEAhrEeSdUrLW4jQprQ" supplier="_UC1QIAhqEeSdUrLW4jQprQ"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_KjlAEAX8EeSlC6J-RY7PJg" name="CargaCartaoGUI">
-      <packagedElement xmi:type="uml:Class" xmi:id="_MLTL0AX8EeSlC6J-RY7PJg" clientDependency="72e7497d-f091-4b60-9d41-7e16ca8f2105" name="CargaCartao">
+      <packagedElement xmi:type="uml:Class" xmi:id="_MLTL0AX8EeSlC6J-RY7PJg" clientDependency="72e7497d-f091-4b60-9d41-7e16ca8f2105 _wVEg4GnJEeS5PLUVl44fEg" name="CargaCartao">
         <ownedAttribute xmi:id="e144e7b6-9283-40f5-a331-2d38dfe39f5f" name="data" visibility="public" isUnique="false">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="7465dbec-6bef-4e62-8ddf-2b765e78a504" value="1"/>
@@ -35,6 +36,7 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_sF6WAAX2EeSlC6J-RY7PJg" name="ISolicitarCarga">
         <ownedOperation xmi:id="_KmAbQAX3EeSlC6J-RY7PJg" name="solicitarCarga" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_wVEg4GnJEeS5PLUVl44fEg" name="" client="_MLTL0AX8EeSlC6J-RY7PJg" supplier="_sF6WAAX2EeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_-IricAX3EeSlC6J-RY7PJg" name="CargaCartaoEmpresaUsuariaGUI">
       <packagedElement xmi:type="uml:Class" xmi:id="_CXK8IAX4EeSlC6J-RY7PJg" clientDependency="ffa8bfb5-87d4-4354-8283-6f238d2e86c4 54b8900c-9115-4ae7-8ac7-e50fb6fdb27a" name="CargaCartaoEmpresaUsuaria">
@@ -71,7 +73,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="0e37b2a1-ee37-44ea-9aea-6d6fe799c5c2" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_Cy5esAbQEeSxxZBPlU4wFg" name="NumViagensMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_Cy5esAbQEeSxxZBPlU4wFg" clientDependency="_LDHQ0GnKEeS5PLUVl44fEg" name="NumViagensMgr">
         <ownedAttribute xmi:id="d2e640e4-1c7d-4451-b539-1daa5a0e7d56" name="viacaoNumViagens" visibility="public" type="_vQ7T4AbPEeSxxZBPlU4wFg" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ca9a5305-e07c-4076-ad7d-ec0fe4a05b8f" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="a567a78a-ee36-49f4-8ed2-9d34f9ee54ab" value="1"/>
@@ -83,6 +85,7 @@
         <ownedOperation xmi:id="_H397EAbQEeSxxZBPlU4wFg" name="salvarNumViagens" visibility="public"/>
         <ownedOperation xmi:id="_LQEfUAbQEeSxxZBPlU4wFg" name="buscarMaxNumViagens" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_LDHQ0GnKEeS5PLUVl44fEg" client="_Cy5esAbQEeSxxZBPlU4wFg" supplier="_Cp26wAe9EeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_C7Nm8AexEeShLMX41Z6W2g" name="GerenciaTipoPassageiroCombinarCartoesMgr">
       <packagedElement xmi:type="uml:Class" xmi:id="_Gp1NwAexEeShLMX41Z6W2g" name="TipoPassageiroDAOCombinarCartoes">
@@ -102,6 +105,16 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="33854766-24e0-4649-8a40-abdc95400412" value=""/>
         </ownedAttribute>
         <ownedOperation xmi:id="_iYUuEAexEeShLMX41Z6W2g" name="montarTipoPassageiro" visibility="public"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_h0F0w2XZEeSPHKeKOUidlw" name="tipoPassageiroDAOCombinarCartoes_gerenciaTipoPassageiroCombinarCartoes_1" memberEnd="_h0F0xGXZEeSPHKeKOUidlw _h0F0wGXZEeSPHKeKOUidlw">
+        <ownedEnd xmi:id="_h0F0xGXZEeSPHKeKOUidlw" name="tipoPassageiroDAOCombinarCartoes" type="_Gp1NwAexEeShLMX41Z6W2g" association="_h0F0w2XZEeSPHKeKOUidlw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h0F0xWXZEeSPHKeKOUidlw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h0F0xmXZEeSPHKeKOUidlw" value="1"/>
+        </ownedEnd>
+        <ownedEnd xmi:id="_h0F0wGXZEeSPHKeKOUidlw" name="gerenciaTipoPassageiroCombinarCartoes" type="_bvO6MAexEeShLMX41Z6W2g" association="_h0F0w2XZEeSPHKeKOUidlw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_h0F0wWXZEeSPHKeKOUidlw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_h0F0wmXZEeSPHKeKOUidlw" value="1"/>
+        </ownedEnd>
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_n4UlYAfREeSEL5c0p-ZUOg" name="CartaoPagamentoCartaoCtrl">
@@ -376,10 +389,11 @@
         <ownedOperation xmi:id="_kYw1YAhtEeSdUrLW4jQprQ" name="montarPassageiro" visibility="public"/>
         <ownedOperation xmi:id="_jmz0AAhtEeSdUrLW4jQprQ" name="criarPassageiro" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_3vRXEAhtEeSdUrLW4jQprQ" clientDependency="8e3ffee7-0ad6-47d9-b21a-7a9222d1b4a9 39c50fd4-67f0-431e-901f-c7aea1a257c0 4e73431d-9c12-4c33-ba15-eb9cb1b153bf 8e023a18-ca36-4ed8-b7ec-9e671aac26fb 91e1a917-83c7-4df7-aac1-09468b7dcb08 de9fe4b3-bfd7-4583-b030-8306fa4cd495" name="GerenciaCtrl">
+      <packagedElement xmi:type="uml:Class" xmi:id="_3vRXEAhtEeSdUrLW4jQprQ" clientDependency="8e3ffee7-0ad6-47d9-b21a-7a9222d1b4a9 39c50fd4-67f0-431e-901f-c7aea1a257c0 4e73431d-9c12-4c33-ba15-eb9cb1b153bf 8e023a18-ca36-4ed8-b7ec-9e671aac26fb 91e1a917-83c7-4df7-aac1-09468b7dcb08 de9fe4b3-bfd7-4583-b030-8306fa4cd495 _m7IEEGnLEeS5PLUVl44fEg" name="GerenciaCtrl">
         <generalization xmi:id="7c311206-5772-45f5-9275-2f94172aed7b" general="_m5Sb8AhuEeSdUrLW4jQprQ"/>
         <ownedOperation xmi:id="_5e5hoAhtEeSdUrLW4jQprQ" name="solicitarGerencia" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_m7IEEGnLEeS5PLUVl44fEg" client="_3vRXEAhtEeSdUrLW4jQprQ" supplier="_mh_BMAeoEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_WfLOIAamEeSg48uNRNapwA" name="FuncionarioMgr">
       <packagedElement xmi:type="uml:Class" xmi:id="_Z7uNgAamEeSg48uNRNapwA" name="Cargo">
@@ -401,7 +415,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="a7940447-79de-434f-8232-5090bfc49760" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_bPKyYAamEeSg48uNRNapwA" name="FuncionarioMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_bPKyYAamEeSg48uNRNapwA" clientDependency="_CyRmkGnLEeS5PLUVl44fEg" name="FuncionarioMgr">
         <ownedAttribute xmi:id="ed29f2a2-0707-47fc-8698-c54bc61e84d7" name="cargo" visibility="public" type="_Z7uNgAamEeSg48uNRNapwA" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="3bbe2669-0cf6-4ec1-b5db-bf5fab372cd0" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="b25b635d-ecbd-4300-82fb-c619aca0bdf4" value="1"/>
@@ -468,12 +482,13 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="50ae11d5-c677-421b-a573-dc8bafbfaac5" value=""/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_CyRmkGnLEeS5PLUVl44fEg" client="_bPKyYAamEeSg48uNRNapwA" supplier="_2FuFwAexEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_HL2EsAX7EeSlC6J-RY7PJg" name="PassageiroMgr">
       <ownedComment xmi:id="46d06aa5-7a9c-4868-9326-96e8a53e5d7d" annotatedElement="_IR1cYAX7EeSlC6J-RY7PJg">
         <body></body>
       </ownedComment>
-      <packagedElement xmi:type="uml:Class" xmi:id="_IR1cYAX7EeSlC6J-RY7PJg" name="Passageiro">
+      <packagedElement xmi:type="uml:Class" xmi:id="_IR1cYAX7EeSlC6J-RY7PJg" clientDependency="_C2tK4GncEeS5PLUVl44fEg" name="Passageiro">
         <generalization xmi:id="82f27bd3-08f1-4dcc-929a-843c3ff3a80b" general="_loFIMAX8EeSlC6J-RY7PJg"/>
         <ownedAttribute xmi:id="d09d8e39-4e24-492a-9dd5-f02c16707d0f" name="instituicao" visibility="public" isUnique="false">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
@@ -552,6 +567,7 @@
         <ownedOperation xmi:id="_OwN7gAewEeShLMX41Z6W2g" name="removerPassageiro" visibility="public"/>
         <ownedOperation xmi:id="_SXSI0AewEeShLMX41Z6W2g" name="buscarCartoesPorPassageiro" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_C2tK4GncEeS5PLUVl44fEg" client="_IR1cYAX7EeSlC6J-RY7PJg" supplier="_u3ZasAetEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_Lvn5QAhpEeSdUrLW4jQprQ" name="ValidadorMgrClienteOnibus">
       <packagedElement xmi:type="uml:Class" xmi:id="_lAgzIAfDEeS-gNTI-k3Ftw" name="IValidadorMgt">
@@ -602,7 +618,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="3398f640-f67f-46d9-80cb-32c2831cbb18" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_m85i4AhpEeSdUrLW4jQprQ" clientDependency="a61e66e1-511a-4fa6-9719-cd89dc337ede 36f16850-02c0-4ed0-873a-a0d2c0857f8b" name="ValidadorMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_m85i4AhpEeSdUrLW4jQprQ" clientDependency="a61e66e1-511a-4fa6-9719-cd89dc337ede 36f16850-02c0-4ed0-873a-a0d2c0857f8b _zxxrwGneEeS5PLUVl44fEg" name="ValidadorMgr">
         <ownedAttribute xmi:id="3b3529d5-2317-47d0-ae94-869bb13a0404" name="validador" visibility="public" type="_OBSZ4AhpEeSdUrLW4jQprQ" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="3ca75da1-a100-40b3-90ff-8dfdf704700b" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="bedbc68d-03ac-4b2c-aeca-9b8fe098437d" value="1"/>
@@ -633,8 +649,9 @@
         <ownedOperation xmi:id="_dxTWAAhpEeSdUrLW4jQprQ" name="girarCatraca" visibility="public"/>
         <ownedOperation xmi:id="_fmJ-0AhpEeSdUrLW4jQprQ" name="liberarCatraca" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_zxxrwGneEeS5PLUVl44fEg" client="_m85i4AhpEeSdUrLW4jQprQ" supplier="_lAgzIAfDEeS-gNTI-k3Ftw"/>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_DWxBwAbFEeSxxZBPlU4wFg" name="ValidadorServidorOnibus">
+    <packagedElement xmi:type="uml:Package" xmi:id="_DWxBwAbFEeSxxZBPlU4wFg" name="ValidadorCtrlServidorOnibus">
       <packagedElement xmi:type="uml:Class" xmi:id="_qzkNEAXlEeSlC6J-RY7PJg" name="IProcessarTransacao">
         <ownedOperation xmi:id="_5buwUAXlEeSlC6J-RY7PJg" name="processarTransacao" visibility="public">
           <ownedParameter xmi:id="7e0487f4-d152-417f-a68c-1bca71d16042" name="cartaoID" isUnique="false">
@@ -645,9 +662,10 @@
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_G_YuQAbFEeSxxZBPlU4wFg" clientDependency="cda93281-c48b-4960-898f-3475cf27226c a9b01425-974e-4c70-9301-94fd870092f6 f0a00a9f-3a97-44c9-a7ef-5de260e3d16b" name="ValidadorServidorCtrl">
+      <packagedElement xmi:type="uml:Class" xmi:id="_G_YuQAbFEeSxxZBPlU4wFg" clientDependency="cda93281-c48b-4960-898f-3475cf27226c a9b01425-974e-4c70-9301-94fd870092f6 f0a00a9f-3a97-44c9-a7ef-5de260e3d16b __6-kIGncEeS5PLUVl44fEg" name="ValidadorServidorCtrl">
         <ownedOperation xmi:id="_NXFQIAbFEeSxxZBPlU4wFg" name="processarTransacao" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="__6-kIGncEeS5PLUVl44fEg" client="_G_YuQAbFEeSxxZBPlU4wFg" supplier="_qzkNEAXlEeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_AXrvkAbHEeSxxZBPlU4wFg" name="GerenciaSistViarioNumCartoesGUI">
       <packagedElement xmi:type="uml:Class" xmi:id="_GGYXwAbHEeSxxZBPlU4wFg" clientDependency="55ef0e0b-0dd6-4358-bb72-b10a51bc2320 0f0a4fe4-6df2-4542-bf22-54ccaadf70ae" name="GerenciaSistViarioNumCartoes">
@@ -662,9 +680,10 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_oa-pgAewEeShLMX41Z6W2g" name="IObterNumViagens">
         <ownedOperation xmi:id="_stQ-EAewEeShLMX41Z6W2g" name="obterNumViagens" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_6MZLsAhrEeSdUrLW4jQprQ" clientDependency="2ca51152-3bf3-4e5a-9653-3cd65e0243e4 d8fdd2e7-c98e-4b6f-8612-128c0877b7a8" name="ViacaoNumViagensMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_6MZLsAhrEeSdUrLW4jQprQ" clientDependency="2ca51152-3bf3-4e5a-9653-3cd65e0243e4 d8fdd2e7-c98e-4b6f-8612-128c0877b7a8 _n3L-gGndEeS5PLUVl44fEg" name="ViacaoNumViagensMgr">
         <ownedOperation xmi:id="_-EQ1IAhrEeSdUrLW4jQprQ" name="obterNumViagens" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_n3L-gGndEeS5PLUVl44fEg" name="" client="_6MZLsAhrEeSdUrLW4jQprQ" supplier="_oa-pgAewEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_dTgeMAXhEeSlC6J-RY7PJg" name="ViagemTempoCtrl">
       <packagedElement xmi:type="uml:Class" xmi:id="_icOEcAXhEeSlC6J-RY7PJg" clientDependency="cac521b6-6008-4ec1-bf85-2d53aaa59b3e 150956c8-b138-4a61-b185-5672d5108d19 85e5f240-7108-4d9c-ae3c-5d5b9dff4a05 3c33c2d4-ff89-4ae5-b5c3-b7c7e8fcc8fe" name="ViagemTempoCtrl">
@@ -689,7 +708,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="4b4c3be4-8f98-4927-90ac-876862fb5e72" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_UUj0EAbPEeSxxZBPlU4wFg" name="TempoMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_UUj0EAbPEeSxxZBPlU4wFg" clientDependency="_WOE9UGneEeS5PLUVl44fEg" name="TempoMgr">
         <ownedAttribute xmi:id="cceac1d8-d1fd-48b1-8435-c253b96c22ff" name="viacaoIntegracaoTempo" visibility="public" type="_Dzw7QAbPEeSxxZBPlU4wFg" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="88f9621e-0630-40b2-89db-a5125e4a308a" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="30c1f6f0-2d22-404c-a820-c6b06a1c0a35" value="1"/>
@@ -718,6 +737,7 @@
           </ownedParameter>
         </ownedOperation>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_WOE9UGneEeS5PLUVl44fEg" client="_UUj0EAbPEeSxxZBPlU4wFg" supplier="_Q0f0gAe9EeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_lhpkkAezEeShLMX41Z6W2g" name="LinhaMgr">
       <packagedElement xmi:type="uml:Class" xmi:id="_Jaq3UAepEeShLMX41Z6W2g" name="ILinhaMgt">
@@ -855,7 +875,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="e3f897d6-0c68-42f9-95a6-c59e8cfbfd5b" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ruoEMAezEeShLMX41Z6W2g" name="LinhaMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_ruoEMAezEeShLMX41Z6W2g" clientDependency="_iEMm0GnKEeS5PLUVl44fEg _p4xWYGnKEeS5PLUVl44fEg _CG8P8GneEeS5PLUVl44fEg" name="LinhaMgr">
         <ownedAttribute xmi:id="25f3d676-d227-4b03-a72e-e5fc114821cc" name="linha" visibility="public" type="_tkINQAezEeShLMX41Z6W2g" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="1e68ceea-233f-43df-9ad3-608c4e13bb42" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="c2225680-89ae-4144-a9db-ebb3751538cc" value="1"/>
@@ -898,6 +918,9 @@
         <ownedOperation xmi:id="_1lDa4AX_EeSlC6J-RY7PJg" name="registrarArrecadacao" visibility="public"/>
         <ownedOperation xmi:id="_2_nUYAX_EeSlC6J-RY7PJg" name="registrarCredito" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_iEMm0GnKEeS5PLUVl44fEg" client="_ruoEMAezEeShLMX41Z6W2g" supplier="_yx8aEAX_EeSlC6J-RY7PJg"/>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_p4xWYGnKEeS5PLUVl44fEg" client="_ruoEMAezEeShLMX41Z6W2g" supplier="_Jaq3UAepEeShLMX41Z6W2g"/>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_CG8P8GneEeS5PLUVl44fEg" client="_ruoEMAezEeShLMX41Z6W2g" supplier="_vS7eIAfDEeS-gNTI-k3Ftw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_FFneMAXeEeSlC6J-RY7PJg" name="ViagemNumViagensLinhaIntegradaCtrl">
       <packagedElement xmi:type="uml:Class" xmi:id="_JzzEkAXeEeSlC6J-RY7PJg" clientDependency="c2d79579-042b-4ac7-82c2-26091e425346 e2eca122-01d1-47f7-b1c0-edbb46ca2f5a fccf6219-bce0-44c5-8c3c-4b49d47511c4 7370071d-62a5-48f8-8494-5999ca0e5548 807276bd-f2ee-4800-aeaa-31ccc4b12375 d55f53b9-1365-4ba4-bf2f-bfdffc79bc8e" name="ViagemNumViagensLinhaIntegradaCtrl">
@@ -911,12 +934,13 @@
         <ownedOperation xmi:id="_MLGmQAX2EeSlC6J-RY7PJg" name="buscarTiposPermitidos" visibility="public"/>
         <ownedOperation xmi:id="_NzF3wAX2EeSlC6J-RY7PJg" name="solicitarCartao" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_2J7L4AXmEeSlC6J-RY7PJg" clientDependency="81726620-4756-48a5-8c63-2a8ee9631409 fce89c13-ce2a-4b7c-b955-cf278143dc8b" name="AquisicaoCartao">
+      <packagedElement xmi:type="uml:Class" xmi:id="_2J7L4AXmEeSlC6J-RY7PJg" clientDependency="81726620-4756-48a5-8c63-2a8ee9631409 fce89c13-ce2a-4b7c-b955-cf278143dc8b _hGlfUGnbEeS5PLUVl44fEg" name="AquisicaoCartao">
         <ownedOperation xmi:id="_6_BSkAXmEeSlC6J-RY7PJg" name="criarPassageiro" visibility="public"/>
         <ownedOperation xmi:id="_-6K5gAXmEeSlC6J-RY7PJg" name="buscarTiposPermitidos" visibility="public"/>
         <ownedOperation xmi:id="_78TaMAXmEeSlC6J-RY7PJg" name="solicitarCartao" visibility="public"/>
         <ownedOperation xmi:id="_9StzgAXmEeSlC6J-RY7PJg" name="montarPassageiro" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_hGlfUGnbEeS5PLUVl44fEg" client="_2J7L4AXmEeSlC6J-RY7PJg" supplier="_1j0FwAX0EeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_MUyogAbMEeSxxZBPlU4wFg" name="GerenciaCartaoNumCartoesGUI">
       <packagedElement xmi:type="uml:Class" xmi:id="_UvIXkAbMEeSxxZBPlU4wFg" clientDependency="84b7be1b-dfdb-4444-ab90-1942b727e2da 2fc8f461-dce0-48d8-a370-6bc20cdd1f5f 3f68b37c-d098-49d0-a5ac-3480aebe0de3" name="GerenciaCartaoNumCartoes">
@@ -929,7 +953,7 @@
       </packagedElement>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_bRSyEAeSEeShLMX41Z6W2g" name="PagamentoCartaoMgr">
-      <packagedElement xmi:type="uml:Class" xmi:id="_OnUkYAeTEeShLMX41Z6W2g" clientDependency="47be071c-6522-441c-86fd-44502fa6e5aa" name="PagamentoCartaoMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_OnUkYAeTEeShLMX41Z6W2g" clientDependency="47be071c-6522-441c-86fd-44502fa6e5aa _Z0I_sGnLEeS5PLUVl44fEg" name="PagamentoCartaoMgr">
         <ownedAttribute xmi:id="66824be6-44d2-4ade-825f-9be495e8af79" name="pagamentoPagamentoCartao" visibility="public" type="_HvhwsAeUEeShLMX41Z6W2g" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="2e6f7b79-c6d9-44e4-9d2e-8705db83822e" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="c38dcb02-4df0-4659-9925-1aaea587c2fd" value="1"/>
@@ -1005,9 +1029,10 @@
         <ownedOperation xmi:id="_EH4KAAeTEeShLMX41Z6W2g" name="buscarTipoPagamentoPorTipoPassageiro" visibility="public"/>
         <ownedOperation xmi:id="_Bb5r8AeTEeShLMX41Z6W2g" name="buscarUltimoTipoPassageiro" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_Z0I_sGnLEeS5PLUVl44fEg" client="_OnUkYAeTEeShLMX41Z6W2g" supplier="_LgZGIAeHEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_EeuXIAhsEeSdUrLW4jQprQ" name="LinhaIntegradaMgr">
-      <packagedElement xmi:type="uml:Class" xmi:id="_GZkTMAhsEeSdUrLW4jQprQ" clientDependency="57af49a7-fc2d-46bc-9928-968e1547e3d1" name="LinhaIntegradaMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_GZkTMAhsEeSdUrLW4jQprQ" clientDependency="57af49a7-fc2d-46bc-9928-968e1547e3d1 _N1jBkGndEeS5PLUVl44fEg" name="LinhaIntegradaMgr">
         <ownedOperation xmi:id="_LP6-IAhsEeSdUrLW4jQprQ" name="buscarLinhasIntegracao" visibility="public"/>
         <ownedOperation xmi:id="_M3uCYAhsEeSdUrLW4jQprQ" name="alterarLinhaIntegracao" visibility="public"/>
         <ownedOperation xmi:id="_UYByIAhsEeSdUrLW4jQprQ" name="buscarLinhasIntegradas" visibility="public"/>
@@ -1019,9 +1044,10 @@
         <ownedOperation xmi:id="_R2TcQAhsEeSdUrLW4jQprQ" name="buscarIntegracao" visibility="public"/>
         <ownedOperation xmi:id="_IwBNMAhsEeSdUrLW4jQprQ" name="salvarLinhaIntegrada" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_N1jBkGndEeS5PLUVl44fEg" client="_GZkTMAhsEeSdUrLW4jQprQ" supplier="_D9m9cAfEEeS-gNTI-k3Ftw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_SXhrMAbFEeSxxZBPlU4wFg" name="CorridaCtrl">
-      <packagedElement xmi:type="uml:Class" xmi:id="_VT5VsAbFEeSxxZBPlU4wFg" clientDependency="8fd57c6a-d024-4e48-9d1e-a13762685a2d" name="CorridaCtrl">
+      <packagedElement xmi:type="uml:Class" xmi:id="_VT5VsAbFEeSxxZBPlU4wFg" clientDependency="8fd57c6a-d024-4e48-9d1e-a13762685a2d _kaNWwGncEeS5PLUVl44fEg" name="CorridaCtrl">
         <ownedAttribute xmi:id="4606cf72-d0c6-412a-8d14-cd69220fb39b" name="corridaDados" visibility="public" type="_cNzMwAbFEeSxxZBPlU4wFg" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="8e34b9b6-63fc-4b22-8e0d-20955d5978e1" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="bc3f2031-6a42-45bb-9b70-61c45b908fdb" value="1"/>
@@ -1084,6 +1110,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="6be916f3-e5a3-4cba-9c21-ad01c1c1403b" value=""/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_kaNWwGncEeS5PLUVl44fEg" client="_VT5VsAbFEeSxxZBPlU4wFg" supplier="_f6GgcAX2EeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_JsFP4AeHEeShLMX41Z6W2g" name="LimitePassagensMgr">
       <ownedComment xmi:id="a048fd47-123b-45ce-a4f8-a64e124b353b" annotatedElement="_RJS9cAeJEeShLMX41Z6W2g">
@@ -1119,7 +1146,7 @@
         <ownedOperation xmi:id="_cVcFwAeJEeShLMX41Z6W2g" name="buscarQuantidadePassagensPorCartao" visibility="public"/>
         <ownedOperation xmi:id="_eEyjgAeJEeShLMX41Z6W2g" name="buscarTodosCartoes" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_4G_9oAeIEeShLMX41Z6W2g" clientDependency="261805e4-5bba-4b8b-99b7-2d735231e220 38f45103-1d27-4d96-9822-48b2e597828c" name="LimitePassagensMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_4G_9oAeIEeShLMX41Z6W2g" clientDependency="261805e4-5bba-4b8b-99b7-2d735231e220 38f45103-1d27-4d96-9822-48b2e597828c _4GdpgGndEeS5PLUVl44fEg" name="LimitePassagensMgr">
         <ownedAttribute xmi:id="2a6937f0-b003-4d87-a905-d4ad9f95f7c9" name="cartaoLimitePassagens" visibility="public" type="_RJS9cAeJEeShLMX41Z6W2g" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="f55fa30f-a628-463d-9946-2be601f3592c" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="abc2dfcd-7d82-4942-9cb6-7184191a4d72" value="1"/>
@@ -1160,6 +1187,7 @@
         <ownedOperation xmi:id="_xue1AAeLEeShLMX41Z6W2g" name="buscarLimPassagensPorTipo" visibility="public"/>
         <ownedOperation xmi:id="_zZ08gAeLEeShLMX41Z6W2g" name="buscarTodosTipos" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_4GdpgGndEeS5PLUVl44fEg" client="_4G_9oAeIEeShLMX41Z6W2g" supplier="_7BHa0AeHEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_RctzUAbGEeSxxZBPlU4wFg" name="CargaCartoLimPassagensEmpresaUsuariaGUI">
       <packagedElement xmi:type="uml:Class" xmi:id="_bbqIsAbGEeSxxZBPlU4wFg" clientDependency="6de5a128-81c6-438e-a3d5-fd520c70aeda 19adf782-f249-44a4-b163-7519bc9f0a62" name="CargaCartaoLimPassagensEmpresaUsuaria">
@@ -1181,9 +1209,10 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_tp44AAeoEeShLMX41Z6W2g" name="IObterTempo">
         <ownedOperation xmi:id="_wJzQAAeoEeShLMX41Z6W2g" name="obterTempo" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ScuYgAhrEeSdUrLW4jQprQ" clientDependency="66cf3da6-c9fa-4941-bf7a-a47254fe7b7c f566e057-198b-4879-87de-bda86e541e4b" name="ViacaoTempoMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_ScuYgAhrEeSdUrLW4jQprQ" clientDependency="66cf3da6-c9fa-4941-bf7a-a47254fe7b7c f566e057-198b-4879-87de-bda86e541e4b _xl6jEGncEeS5PLUVl44fEg" name="ViacaoTempoMgr">
         <ownedOperation xmi:id="_U9BLAAhrEeSdUrLW4jQprQ" name="obterTempo" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_xl6jEGncEeS5PLUVl44fEg" client="_ScuYgAhrEeSdUrLW4jQprQ" supplier="_tp44AAeoEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_5fAb8AeUEeShLMX41Z6W2g" name="CartaoMgr">
       <ownedComment xmi:id="9bba781a-79aa-4d0a-bdd3-97e6b244a4e3" annotatedElement="_CZzzwAeVEeShLMX41Z6W2g">
@@ -1376,7 +1405,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="9246aaa8-35cc-43a1-9dcd-7cb8540917f1" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_M0MAkAeYEeShLMX41Z6W2g" clientDependency="82c14b8e-6212-4a9f-ade2-fc3d00e9d8d1" name="CartaoMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_M0MAkAeYEeShLMX41Z6W2g" clientDependency="82c14b8e-6212-4a9f-ade2-fc3d00e9d8d1 _Z0_PEGndEeS5PLUVl44fEg _E1FbwGnfEeS5PLUVl44fEg _KyU2QGnfEeS5PLUVl44fEg" name="CartaoMgr">
         <ownedAttribute xmi:id="a27a2625-60c0-452c-b66a-a6661851a756" name="viagem" visibility="public" type="_PnPXAAeYEeShLMX41Z6W2g" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="0e595143-c8ee-41e3-91bf-0eb5f2cd50ae" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="802d72c9-5361-4eb7-a694-73e0ca49132b" value="1"/>
@@ -1411,6 +1440,9 @@
         <ownedOperation xmi:id="_KR6d0AeoEeShLMX41Z6W2g" name="buscarViagens" visibility="public"/>
         <ownedOperation xmi:id="_GRtXwAeoEeShLMX41Z6W2g" name="buscarPagamento" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_Z0_PEGndEeS5PLUVl44fEg" client="_M0MAkAeYEeShLMX41Z6W2g" supplier="_7JrSMAeNEeShLMX41Z6W2g"/>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_E1FbwGnfEeS5PLUVl44fEg" client="_M0MAkAeYEeShLMX41Z6W2g" supplier="_fzRWYAe8EeShLMX41Z6W2g"/>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_KyU2QGnfEeS5PLUVl44fEg" client="_M0MAkAeYEeShLMX41Z6W2g" supplier="_dS3pYAX_EeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_vyx9gAewEeShLMX41Z6W2g" name="ViagemTempoNumViagensCtrl">
       <packagedElement xmi:type="uml:Class" xmi:id="_yqlREAewEeShLMX41Z6W2g" clientDependency="70010378-54ae-41e3-8550-546400ef4a3c 1053ab38-1a4f-461e-b963-24a3d19e8962 90356b1c-a908-43ee-895f-a36f06906467 9f07a461-fd42-459d-b1b7-3482b671e473 05d0774f-6add-4cbd-8284-6def2ceb3ce9 fa3bbf75-4424-433b-ad23-e4aa268180a4 1d48a672-7ff8-40e2-b956-025c3f087609" name="ViagemTempoNumViagensCtrl">
@@ -1427,7 +1459,7 @@
         <ownedOperation xmi:id="_ASCe4AepEeShLMX41Z6W2g" name="atribuirValidadorAoTerminal" visibility="public"/>
         <ownedOperation xmi:id="_7v7loAeoEeShLMX41Z6W2g" name="buscarTerminal" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_QXTLEAfREeSEL5c0p-ZUOg" name="TerminalMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_QXTLEAfREeSEL5c0p-ZUOg" clientDependency="_TN7gsGnLEeS5PLUVl44fEg" name="TerminalMgr">
         <ownedAttribute xmi:id="139ca756-6332-4670-9405-7c393b49a3c1" name="terminal" visibility="public" type="_QhLukAfLEeS-gNTI-k3Ftw" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="ac2de277-5a04-4ae8-8694-347a9a07c784" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="d98ed8fc-a44f-422a-90f2-85a0a10fd42a" value="1"/>
@@ -1462,6 +1494,7 @@
         <ownedOperation xmi:id="_BZs1QAfPEeSEL5c0p-ZUOg" name="removerValidador" visibility="public"/>
         <ownedOperation xmi:id="_AVNSYAfPEeSEL5c0p-ZUOg" name="adicionarValidador" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_TN7gsGnLEeS5PLUVl44fEg" name="" client="_QXTLEAfREeSEL5c0p-ZUOg" supplier="_3zEugAeoEeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_rGcLIAX4EeSlC6J-RY7PJg" name="AcessoAdicionalGUI">
       <packagedElement xmi:type="uml:Class" xmi:id="_tfefEAX4EeSlC6J-RY7PJg" clientDependency="f926ed04-d7ff-4701-b211-7d82b0883aa5" name="AcessoAdicional">
@@ -1595,10 +1628,11 @@
         <ownedOperation xmi:id="_e75GYgXjEeSlC6J-RY7PJg" name="calcularValorPassagem" visibility="public"/>
         <ownedOperation xmi:id="_e75GYQXjEeSlC6J-RY7PJg" name="processarViagem" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_NLLd0AXjEeSlC6J-RY7PJg" clientDependency="93365be5-3b4c-4e4e-942b-0445e54e0ea2 ad517822-0baa-41b1-b0f5-72205ddbd8f5 ebb91623-ea9d-4176-9314-2f6ab4c37f83 3348db83-7bce-4501-aa62-779e68dd3137 fe79cbe7-7630-45e2-b39b-49204a3154cf 100f18db-48d2-4da1-a97a-922ba41cf872" name="ViagemCtrl">
+      <packagedElement xmi:type="uml:Class" xmi:id="_NLLd0AXjEeSlC6J-RY7PJg" clientDependency="93365be5-3b4c-4e4e-942b-0445e54e0ea2 ad517822-0baa-41b1-b0f5-72205ddbd8f5 ebb91623-ea9d-4176-9314-2f6ab4c37f83 3348db83-7bce-4501-aa62-779e68dd3137 fe79cbe7-7630-45e2-b39b-49204a3154cf 100f18db-48d2-4da1-a97a-922ba41cf872 _CBSrAGnKEeS5PLUVl44fEg" name="ViagemCtrl">
         <ownedOperation xmi:id="_ceZJMAXjEeSlC6J-RY7PJg" name="calcularValorPassagem" visibility="public"/>
         <ownedOperation xmi:id="_bj8TIAXjEeSlC6J-RY7PJg" name="processarViagem" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_CBSrAGnKEeS5PLUVl44fEg" client="_NLLd0AXjEeSlC6J-RY7PJg" supplier="_zled0AbFEeSxxZBPlU4wFg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_c08bsAfKEeS-gNTI-k3Ftw" name="ViagemIntegracaoCtrl">
       <packagedElement xmi:type="uml:Class" xmi:id="_2OwjoAfKEeS-gNTI-k3Ftw" name="LinhaIntegradaViagemCtrl">
@@ -1628,8 +1662,8 @@
         <ownedOperation xmi:id="_oX48UAbLEeSxxZBPlU4wFg" name="montarSistViarioUrbano" visibility="public"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_XMIXwAbHEeSxxZBPlU4wFg" clientDependency="aadfa717-1e54-4233-9ea4-4fbb8696b85c" name="ControladorBETGUI">
-      <packagedElement xmi:type="uml:Class" xmi:id="_bPnbUAbHEeSxxZBPlU4wFg" name="ControladorBETWeb">
+    <packagedElement xmi:type="uml:Package" xmi:id="_XMIXwAbHEeSxxZBPlU4wFg" name="ControladorBETGUI">
+      <packagedElement xmi:type="uml:Class" xmi:id="_bPnbUAbHEeSxxZBPlU4wFg" clientDependency="aadfa717-1e54-4233-9ea4-4fbb8696b85c" name="ControladorBETWeb">
         <ownedAttribute xmi:id="f5ca91d3-8cf6-40aa-bbc6-ca293da58232" name="nivelMaximoAcesso" visibility="public" isUnique="false">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="186e4c0c-de29-480a-955f-5aa1d7aa3b55" value="1"/>
@@ -1653,8 +1687,8 @@
         <ownedOperation xmi:id="_kDAp0AXmEeSlC6J-RY7PJg" name="buscarPassageiro" visibility="public"/>
       </packagedElement>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_RCNNMAX4EeSlC6J-RY7PJg" clientDependency="b5006a48-bc83-4860-96ef-98d457403695" name="CargaCartaoLimitePassagensGUI">
-      <packagedElement xmi:type="uml:Class" xmi:id="_UN_zwAX4EeSlC6J-RY7PJg" clientDependency="696e6715-1f74-4c17-a979-43cb542a5e28" name="CargaCartaoLimitePassagens">
+    <packagedElement xmi:type="uml:Package" xmi:id="_RCNNMAX4EeSlC6J-RY7PJg" name="CargaCartaoLimitePassagensGUI">
+      <packagedElement xmi:type="uml:Class" xmi:id="_UN_zwAX4EeSlC6J-RY7PJg" clientDependency="696e6715-1f74-4c17-a979-43cb542a5e28 b5006a48-bc83-4860-96ef-98d457403695" name="CargaCartaoLimitePassagens">
         <generalization xmi:id="0d5f70ed-eea9-4f2a-9567-a97b77a9d431" general="_bPnbUAbHEeSxxZBPlU4wFg"/>
         <ownedOperation xmi:id="_apDLoAX4EeSlC6J-RY7PJg" name="bsucarCartao" visibility="public"/>
         <ownedOperation xmi:id="_YT7HUAX4EeSlC6J-RY7PJg" name="solicitarCarga" visibility="public"/>
@@ -1702,7 +1736,7 @@
         <ownedOperation xmi:id="_VRR3sAXiEeSlC6J-RY7PJg" name="buscarEmpresaUsuaria" visibility="public"/>
         <ownedOperation xmi:id="_YzGYoAXiEeSlC6J-RY7PJg" name="atribuirEmpresaAoPassageiro" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_heLlgAX6EeSlC6J-RY7PJg" clientDependency="d4dad5f4-a267-47db-921e-8db0f7f88b35" name="EmpresaUsuariaMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_heLlgAX6EeSlC6J-RY7PJg" clientDependency="d4dad5f4-a267-47db-921e-8db0f7f88b35 _8iLKYGneEeS5PLUVl44fEg" name="EmpresaUsuariaMgr">
         <ownedOperation xmi:id="_s9EqsAX6EeSlC6J-RY7PJg" name="criarEmpresa" visibility="public"/>
         <ownedOperation xmi:id="_qGYKYAX6EeSlC6J-RY7PJg" name="buscarEmpresasUsuarias" visibility="public"/>
         <ownedOperation xmi:id="_xQ8ToAX6EeSlC6J-RY7PJg" name="buscarEmpresaPorPassageiro" visibility="public"/>
@@ -1780,6 +1814,7 @@
         <ownedOperation xmi:id="_6mYjkAX7EeSlC6J-RY7PJg" name="buscarEmpresaPorPassageiro" visibility="public"/>
         <ownedOperation xmi:id="_5FNrwAX7EeSlC6J-RY7PJg" name="buscarEmpresaUsuariaPorCNPJ" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_8iLKYGneEeS5PLUVl44fEg" client="_heLlgAX6EeSlC6J-RY7PJg" supplier="_6LcS0AXhEeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_p2fIgAXfEeSlC6J-RY7PJg" name="ViagemTempoLinhaIntegradaCtrl">
       <packagedElement xmi:type="uml:Class" xmi:id="_shAOAAXfEeSlC6J-RY7PJg" clientDependency="71935b2d-1251-44ed-aedf-19a853904f28 7154d92f-352e-42bd-87bf-ab425f11e22c 28a1dbcb-dbfe-4bb0-94f7-5aa86add718f 7bb6335f-2bed-4576-a26c-a5f5afac1e6b 73958ff7-f27b-4007-ae05-a7077680c5e0" name="ViagemTempoLinhaIntegradaCtrl">
@@ -1812,7 +1847,7 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_U9O0IAX_EeSlC6J-RY7PJg" name="ITratarCartao">
         <ownedOperation xmi:id="_YEjxcAX_EeSlC6J-RY7PJg" name="tratarCartao" visibility="public"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_QPvq8AX3EeSlC6J-RY7PJg" clientDependency="7d55b3b3-db3a-4463-83e6-10b68429aa91 8e636d85-626b-4de4-8fd8-e2db09f9313d" name="ValidadorOnibusCtrl">
+      <packagedElement xmi:type="uml:Class" xmi:id="_QPvq8AX3EeSlC6J-RY7PJg" clientDependency="7d55b3b3-db3a-4463-83e6-10b68429aa91 8e636d85-626b-4de4-8fd8-e2db09f9313d _VcHhcGnJEeS5PLUVl44fEg _ZJJXYGnKEeS5PLUVl44fEg" name="ValidadorOnibusCtrl">
         <ownedOperation xmi:id="_VlHNIAX3EeSlC6J-RY7PJg" name="iniciarValidador" visibility="public"/>
         <ownedOperation xmi:id="_WiI2EAX3EeSlC6J-RY7PJg" name="registrarResposta" visibility="public"/>
         <ownedOperation xmi:id="_Xy-L0AX3EeSlC6J-RY7PJg" name="permitirLeitura" visibility="public"/>
@@ -1821,12 +1856,14 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_R6DGEAX2EeSlC6J-RY7PJg" name="IPermitirLeitura">
         <ownedOperation xmi:id="_U1m4QAX2EeSlC6J-RY7PJg" name="permitirLeitura" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_VcHhcGnJEeS5PLUVl44fEg" client="_QPvq8AX3EeSlC6J-RY7PJg" supplier="_U9O0IAX_EeSlC6J-RY7PJg"/>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_ZJJXYGnKEeS5PLUVl44fEg" name="" client="_QPvq8AX3EeSlC6J-RY7PJg" supplier="_R6DGEAX2EeSlC6J-RY7PJg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_hmnf0AaqEeSg48uNRNapwA" name="ViacaoMgr">
       <ownedComment xmi:id="a8990b1b-7478-45be-a5ec-f20bbfa568f2" annotatedElement="_k0_W8AbDEeSxxZBPlU4wFg">
         <body></body>
       </ownedComment>
-      <packagedElement xmi:type="uml:Class" xmi:id="_yIwTEAbDEeSxxZBPlU4wFg" name="ViacaoMgr">
+      <packagedElement xmi:type="uml:Class" xmi:id="_yIwTEAbDEeSxxZBPlU4wFg" clientDependency="_OTRp8GneEeS5PLUVl44fEg" name="ViacaoMgr">
         <ownedAttribute xmi:id="1778d188-ffbd-4ed8-8b95-268a9e562dd9" name="sistemaViarioUrbano" visibility="public" type="_k0_W8AbDEeSxxZBPlU4wFg" isUnique="false">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="25778936-a6c2-4222-8030-fedfa4d7fdd9" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="c9fefa9d-d3dd-4b5f-8516-fd3b280fd876" value="1"/>
@@ -1929,6 +1966,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="3d36b349-d2a6-420d-82ad-5c27674911f1" value=""/>
         </ownedAttribute>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_OTRp8GneEeS5PLUVl44fEg" name="" client="_yIwTEAbDEeSxxZBPlU4wFg" supplier="_j2ob0AbEEeSxxZBPlU4wFg"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_WuPdsAbOEeSxxZBPlU4wFg" name="TarifaMgr">
       <packagedElement xmi:type="uml:Class" xmi:id="_ztWRUAbOEeSxxZBPlU4wFg" name="PoliticaDesconto">
@@ -1945,7 +1983,7 @@
           <defaultValue xmi:type="uml:LiteralString" xmi:id="522b2009-cef1-4b2a-8298-4e4ff4ea6514" value=""/>
         </ownedAttribute>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_ZRLUgAbOEeSxxZBPlU4wFg" name="Tarifa">
+      <packagedElement xmi:type="uml:Class" xmi:id="_ZRLUgAbOEeSxxZBPlU4wFg" clientDependency="_NA-2QGnLEeS5PLUVl44fEg _Jt-EAWnkEeS5PLUVl44fEg" name="Tarifa">
         <generalization xmi:id="678fae5d-1db9-42b1-8efd-802c151f09bd" general="_k0_W8AbDEeSxxZBPlU4wFg"/>
         <ownedAttribute xmi:id="ddf0ba8c-8c98-4898-a994-282d41e0cfa1" name="valorTarifa" visibility="public" isUnique="false">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Real"/>
@@ -1984,6 +2022,8 @@
         <ownedOperation xmi:id="_3TNyoAe8EeShLMX41Z6W2g" name="obterValorCartao" visibility="public"/>
         <ownedOperation xmi:id="_1bsQUAe8EeShLMX41Z6W2g" name="obterValorPassagem" visibility="public"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_NA-2QGnLEeS5PLUVl44fEg" client="_ZRLUgAbOEeSxxZBPlU4wFg" supplier="_x4xjMAe8EeShLMX41Z6W2g"/>
+      <packagedElement xmi:type="uml:InterfaceRealization" xmi:id="_Jt-EAWnkEeS5PLUVl44fEg" client="_ZRLUgAbOEeSxxZBPlU4wFg" supplier="_8b2gYAe8EeShLMX41Z6W2g"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="d6676731-9bdf-4ef5-9762-69cd3d0b3048" name="tempoMgr_viacaoIntegracaoTempo_1" memberEnd="0f823a52-75cd-4c1b-aaa8-ec383a0655f9 b6b501a9-b3f7-4e2a-9397-f3727d2d0883" navigableOwnedEnd="b6b501a9-b3f7-4e2a-9397-f3727d2d0883">
       <ownedEnd xmi:id="0f823a52-75cd-4c1b-aaa8-ec383a0655f9" name="TempoMgr" type="_UUj0EAbPEeSxxZBPlU4wFg" association="d6676731-9bdf-4ef5-9762-69cd3d0b3048">
@@ -2478,10 +2518,10 @@
     <packagedElement xmi:type="uml:Dependency" xmi:id="47be071c-6522-441c-86fd-44502fa6e5aa" name="" client="_OnUkYAeTEeShLMX41Z6W2g" supplier="_7JrSMAeNEeShLMX41Z6W2g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="84b7be1b-dfdb-4444-ab90-1942b727e2da" name="" client="_UvIXkAbMEeSxxZBPlU4wFg" supplier="_dS3pYAX_EeSlC6J-RY7PJg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="100f18db-48d2-4da1-a97a-922ba41cf872" name="" client="_NLLd0AXjEeSlC6J-RY7PJg" supplier="_8b2gYAe8EeShLMX41Z6W2g"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="b5006a48-bc83-4860-96ef-98d457403695" name="" client="_RCNNMAX4EeSlC6J-RY7PJg" supplier="_7BHa0AeHEeShLMX41Z6W2g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="b5006a48-bc83-4860-96ef-98d457403695" name="" client="_UN_zwAX4EeSlC6J-RY7PJg" supplier="_7BHa0AeHEeShLMX41Z6W2g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="42ac01bc-d59e-4a61-9231-f6d5206e866d" name="" client="_0GiUwAbLEeSxxZBPlU4wFg" supplier="_j2ob0AbEEeSxxZBPlU4wFg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="1d48a672-7ff8-40e2-b956-025c3f087609" name="" client="_yqlREAewEeShLMX41Z6W2g" supplier="_yx8aEAX_EeSlC6J-RY7PJg"/>
-    <packagedElement xmi:type="uml:Dependency" xmi:id="aadfa717-1e54-4233-9ea4-4fbb8696b85c" name="" client="_XMIXwAbHEeSxxZBPlU4wFg" supplier="_u3ZasAetEeShLMX41Z6W2g"/>
+    <packagedElement xmi:type="uml:Dependency" xmi:id="aadfa717-1e54-4233-9ea4-4fbb8696b85c" name="" client="_bPnbUAbHEeSxxZBPlU4wFg" supplier="_u3ZasAetEeShLMX41Z6W2g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="a4feedc3-f6d5-4563-a552-b6b1331a7f47" name="" client="_GAR7YAhqEeSdUrLW4jQprQ" supplier="_7JrSMAeNEeShLMX41Z6W2g"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="2ae45b92-33fd-4d05-9a69-ba3a4ff08c72" name="" client="_I1RykAX5EeSlC6J-RY7PJg" supplier="_loFIMAX8EeSlC6J-RY7PJg"/>
     <packagedElement xmi:type="uml:Dependency" xmi:id="ffa8bfb5-87d4-4354-8283-6f238d2e86c4" name="" client="_CXK8IAX4EeSlC6J-RY7PJg" supplier="_6LcS0AXhEeSlC6J-RY7PJg"/>

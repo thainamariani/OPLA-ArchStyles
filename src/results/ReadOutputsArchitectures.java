@@ -9,6 +9,7 @@ import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.io.ReaderConfig;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Attribute;
+import arquitetura.representation.Class;
 import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
 import arquitetura.representation.Method;
@@ -34,7 +35,7 @@ public class ReadOutputsArchitectures {
         List<String> plas = new ArrayList<>();
         //plas.add("agm");
         //plas.add("mobilemedia");
-        //plas.add("bet");
+        plas.add("bet");
         //plas.add("banking");
         //plas.add("betserver");
 
@@ -85,8 +86,8 @@ public class ReadOutputsArchitectures {
                     ReaderConfig.setPathToProfileConcerns(path + "/concerns.profile.uml");
                     ReaderConfig.setPathProfileRelationship(path + "/relationships.profile.uml");
                     ReaderConfig.setPathToProfilePatterns(path + "/patterns.profile.uml");
-                    ReaderConfig.setDirTarget("mobilemedia/manipulation/");
-                    ReaderConfig.setDirExportTarget("mobilemedia/");
+                    ReaderConfig.setDirTarget("banking1/manipulation/");
+                    ReaderConfig.setDirExportTarget("banking1/");
 
                     ArchitectureBuilder builder = new ArchitectureBuilder();
                     Architecture architecture = builder.create(solution.getAbsolutePath());
@@ -100,6 +101,7 @@ public class ReadOutputsArchitectures {
                     //getInvalidsInterfaces(architecture);
                     OutputIdentificationLayer.getInterfacesImplementors(architecture);
                     //replaceUsageforDependency(architecture);
+                    getDependents(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -107,6 +109,31 @@ public class ReadOutputsArchitectures {
             }
 
         }
+    }
+
+    public static void getDependents(Architecture architecture) {
+        List<arquitetura.representation.Interface> allInterfaces = new ArrayList<arquitetura.representation.Interface>(architecture.getAllInterfaces());
+        for (arquitetura.representation.Interface i : allInterfaces) {
+            System.out.println("\n\n\n" + i.getName());
+            for (Element e : i.getDependents()) {
+                if (e instanceof Class) {
+                    Class c = (Class) e;
+                    System.out.println("\nDependente: " + e.getName());
+                    for (Method method : c.getAllMethods()) {
+                        System.out.println("Method: " + method.getName());
+                    }
+                } else if (e instanceof Package) {
+                    System.out.println("PACOTE");
+                }
+
+                for (Element impl : i.getImplementors()) {
+                    if (impl == e) {
+                        System.out.println("Dependência e Implementador");
+                    }
+                }
+            }
+        }
+
     }
 
     public static void getConcernsforLayer(Architecture architecture, String pla) {

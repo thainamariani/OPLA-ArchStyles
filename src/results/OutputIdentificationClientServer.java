@@ -53,7 +53,7 @@ public class OutputIdentificationClientServer {
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("BeT")) {
+                if (split[0].equals("banking")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
@@ -149,6 +149,23 @@ public class OutputIdentificationClientServer {
                 ex.printStackTrace();
             }
         }
+
+        NodeList elementsByTagName3 = docUml.getElementsByTagName("ownedEnd");
+
+        for (int l = 0; l < elementsByTagName3.getLength(); l++) {
+            Node node = elementsByTagName3.item(l);
+            NamedNodeMap attributes = node.getAttributes();
+
+            for (int m = 0; m < attributes.getLength(); m++) {
+
+                Node item = attributes.item(m);
+                if (item.getNodeName().equals("type") && item.getNodeValue().equals(id)) {
+                    Node parentNode = node.getParentNode();
+                    Node parentParentNode = parentNode.getParentNode();
+                    parentParentNode.removeChild(parentNode);
+                }
+            }
+        }
     }
 
     public static void verificaExcecao(Exception ex, File output, String out) throws NodeIdNotFound, SAXException, IOException, TransformerException, ParserConfigurationException {
@@ -185,7 +202,6 @@ public class OutputIdentificationClientServer {
             }
             //break;
         } catch (Exception ex) {
-            System.out.println("AQUI");
             contProblema++;
             if (ex.getMessage().contains(".UnresolvedReferenceException")) {
                 verificaExcecao(ex, output, out);
