@@ -14,11 +14,13 @@ import jmetal.metaheuristics.nsgaII.NSGAII;
 import jmetal.operators.crossover.Crossover;
 import jmetal.operators.crossover.CrossoverFactory;
 import jmetal.operators.mutation.Mutation;
+import jmetal.operators.mutation.PLAFeatureMutation;
 import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
 import mutation.MutationFactory;
+import mutation.PLAFeatureMutationConstraints;
 import pojo.Style;
 import util.ArchitectureRepository;
 
@@ -32,8 +34,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"1", "1", "1", ArchitectureRepository.AGM, "layer", "teste"};
-        
+        //args = new String[]{"1", "1", "0", ArchitectureRepository.BET, "layer", "teste"};
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -45,7 +46,7 @@ public class Experiment {
             System.exit(0);
         }
 
-        int runsNumber = 30; //30;
+        int runsNumber = 10; //30; //10
         if (args[0] == null || args[0].trim().equals("")) {
             System.out.println("Missing population size argument.");
             System.exit(1);
@@ -100,7 +101,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = true;
+        boolean shouldPrintVariables = false;
 
         String plaName = getPlaName(pla);
 
@@ -113,10 +114,19 @@ public class Experiment {
 
         String plaDirectory = getPlaDirectory(pla);
         ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
-        ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
-        ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
-        ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
-        ReaderConfig.setPathToProfilePatterns(plaDirectory + "/patterns.profile.uml");
+        if (!plaName.equalsIgnoreCase("agm") && !plaName.equalsIgnoreCase("banking")) {
+            System.out.println("MM, BET, BetClientServer");
+            ReaderConfig.setPathToProfileSMarty(plaDirectory + "/resources/smarty.profile.uml");
+            ReaderConfig.setPathToProfileConcerns(plaDirectory + "/resources/concerns.profile.uml");
+            ReaderConfig.setPathProfileRelationship(plaDirectory + "/resources/relationships.profile.uml");
+            ReaderConfig.setPathToProfilePatterns(plaDirectory + "/resources/patterns.profile.uml");
+        } else {
+            System.out.println("AGM ou Banking");
+            ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
+            ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
+            ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
+            ReaderConfig.setPathToProfilePatterns(plaDirectory + "/patterns.profile.uml");
+        }
 
         String xmiFilePath = pla;
 
@@ -198,6 +208,10 @@ public class Experiment {
 
             Hypervolume.clearFile(directory + "/HYPERVOLUME.txt");
 
+            int totalDiscartedSolutions = 0;
+            int totalInterfacesCriadas = 0;
+            int totalChamadas = 0;
+            String stringFinal = "";
             for (int runs = 0; runs < runsNumber; runs++) {
 
                 // Execute the Algorithm
@@ -226,8 +240,29 @@ public class Experiment {
                 //Thelma - Dez2013
                 allSolutions = allSolutions.union(resultFront);
                 resultFront.printMetricsToFile(directory + "/Metrics_" + plaName + "_" + runs + ".txt");
-
+                stringFinal += "Execução " + runs + " possui " + OPLA.contDiscardedSolutions_ + " soluções descartadas \n";
+                totalDiscartedSolutions += OPLA.contDiscardedSolutions_;
+                OPLA.contDiscardedSolutions_ = 0;
+                if (style.equals("layer") || style.equals("clientserver")) {
+                    stringFinal += "Execução " + runs + " possui " + PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponent + " chamadas ao moveOperation do Feature-Driven \n";
+                    stringFinal += "Execução " + runs + " possui " + PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponentCreateInterface + " interfaces criadas no moveOperation do Feature-Driven \n\n";
+                    totalChamadas += PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponent;
+                    totalInterfacesCriadas += PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponentCreateInterface;
+                    PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponent = 0;
+                    PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponentCreateInterface = 0;
+                } else {
+                    stringFinal += "Execução " + runs + " possui " + PLAFeatureMutation.featureDrivenMoveOperationToComponent + " chamadas ao moveOperation do Feature-Driven \n";
+                    stringFinal += "Execução " + runs + " possui " + PLAFeatureMutation.featureDrivenMoveOperationToComponentCreateInterface + " interfaces criadas no moveOperation do Feature-Driven \n\n";
+                    totalChamadas += PLAFeatureMutation.featureDrivenMoveOperationToComponent;
+                    totalInterfacesCriadas += PLAFeatureMutation.featureDrivenMoveOperationToComponentCreateInterface;
+                    PLAFeatureMutation.featureDrivenMoveOperationToComponent = 0;
+                    PLAFeatureMutation.featureDrivenMoveOperationToComponentCreateInterface = 0;
+                }
             }
+            stringFinal += "Total de soluçoes descartadas: " + totalDiscartedSolutions + "\n";
+            stringFinal += "Total de chamadas: " + totalChamadas + "\n";
+            stringFinal += "Total de interfaces criadas: " + totalInterfacesCriadas + "\n";
+            System.out.println(stringFinal);
 
             todasRuns.printTimeToFile(directory + "/TIME_" + plaName, runsNumber, time, pla);
 

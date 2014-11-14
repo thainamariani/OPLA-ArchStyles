@@ -24,37 +24,58 @@ public class NSGAII_OPLA_Multithread {
     private static volatile List<String> FINISHED_THREADS;
     private static volatile Thread console;
     private static volatile String consoleToken = ">";
-
+    
+    //agm_200_20200_1.0_allComponents
+    //agm_100_30100_0.9_layer
+    //MobileMedia_50_5050_0.9_allComponents
+    //MobileMedia_200_20200_1.0_layer
+    //BeT_100_10100_0.9_allComponents
+    //BeT_50_5050_0.9_layer
+    
     private static final String[] PLAS = {
+        ArchitectureRepository.AGM,
         ArchitectureRepository.MM,
         ArchitectureRepository.BET
+        //ArchitectureRepository.BANKING,
+        //ArchitectureRepository.BETCS
+       
     };
 
     private static final int[] POPULATION_SIZE = {
-        50,
+        //50,
         //100,
-        //200
+        200
     };
 
     private static final String[] STYLES = {
-        //allComponents e sameComponent representam o escopo para quando não há estilo
         "allComponents",
-        //"sameComponent",
         //"clientserver"
-        //"layer"
+        "layer"
     };
 
     private static final int[] MAX_EVALUATIONS = {
-        //3000,
-        30000,
-        //300000
+        //50 * 101, //5000
+        //50 * 301, //15000
+        //50 * 901, //45000
+
+        //100 * 101, //10000
+        //100 * 301, //30000
+        //100 * 901, //90000
+
+        200 * 101, //20000
+        200 * 301, //60000
+        200 * 901, //180000
+        
+    //3000,
+    //30000,
+    //300000
     };
 
     private static final double[] MUTATION_PROBABILITY = {
         //0.1,
         //0.5,
         0.9,
-        //1.0
+        1.0
     };
 
     private static synchronized void initialize() {
@@ -77,7 +98,7 @@ public class NSGAII_OPLA_Multithread {
                 }
                 break;
             } catch (NumberFormatException ex) {
-                System.out.println("Number higher/lower than max/min or format invalid! Type again:");
+               System.out.println("Number higher/lower than max/min or format invalid! Type again:");
                 printConsoleToken();
             } catch (Exception ex) {
                 MAX_THREADS = 4;
