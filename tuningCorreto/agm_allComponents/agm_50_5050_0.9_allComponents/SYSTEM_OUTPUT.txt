@@ -1,0 +1,1527 @@
+AGM ou Banking
+Adicionando operadores sem restrições
+
+================ NSGAII ================
+Architectural Style: allComponents
+PLA: /home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml
+Params:
+	Pop -> 50
+	MaxEva -> 5050
+	Cross -> 0.0
+	Muta -> 0.9
+Heap Size: 964Mb
+
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>50
+==>100
+==>150
+==>200
+==>250
+==>300
+==>350
+==>400
+==>450
+==>500
+==>550
+==>600
+==>650
+==>700
+==>750
+==>800
+==>850
+==>900
+==>950
+==>1000
+==>1050
+==>1100
+==>1150
+==>1200
+==>1250
+==>1300
+==>1350
+==>1400
+==>1450
+==>1500
+==>1550
+==>1600
+==>1650
+==>1700
+==>1750
+==>1800
+==>1850
+==>1900
+==>1950
+==>2000
+==>2050
+==>2100
+==>2150
+==>2200
+==>2250
+==>2300
+==>2350
+==>2400
+==>2450
+==>2500
+==>2550
+==>2600
+==>2650
+==>2700
+==>2750
+==>2800
+==>2850
+==>2900
+==>2950
+==>3000
+==>3050
+==>3100
+==>3150
+==>3200
+==>3250
+==>3300
+==>3350
+==>3400
+==>3450
+==>3500
+==>3550
+==>3600
+==>3650
+==>3700
+==>3750
+==>3800
+==>3850
+==>3900
+==>3950
+==>4000
+==>4050
+==>4100
+==>4150
+==>4200
+==>4250
+==>4300
+==>4350
+==>4400
+==>4450
+==>4500
+==>4550
+==>4600
+==>4650
+==>4700
+==>4750
+==>4800
+==>4850
+==>4900
+==>4950
+==>5000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+Execução 0 possui 279 soluções descartadas 
+Execução 0 possui 1640 chamadas ao moveOperation do Feature-Driven 
+Execução 0 possui 73 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 1 possui 277 soluções descartadas 
+Execução 1 possui 1524 chamadas ao moveOperation do Feature-Driven 
+Execução 1 possui 86 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 2 possui 331 soluções descartadas 
+Execução 2 possui 1806 chamadas ao moveOperation do Feature-Driven 
+Execução 2 possui 102 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 3 possui 273 soluções descartadas 
+Execução 3 possui 1603 chamadas ao moveOperation do Feature-Driven 
+Execução 3 possui 87 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 4 possui 287 soluções descartadas 
+Execução 4 possui 1561 chamadas ao moveOperation do Feature-Driven 
+Execução 4 possui 43 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 5 possui 300 soluções descartadas 
+Execução 5 possui 1532 chamadas ao moveOperation do Feature-Driven 
+Execução 5 possui 93 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 6 possui 315 soluções descartadas 
+Execução 6 possui 1763 chamadas ao moveOperation do Feature-Driven 
+Execução 6 possui 95 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 7 possui 341 soluções descartadas 
+Execução 7 possui 2117 chamadas ao moveOperation do Feature-Driven 
+Execução 7 possui 91 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 8 possui 287 soluções descartadas 
+Execução 8 possui 1499 chamadas ao moveOperation do Feature-Driven 
+Execução 8 possui 74 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 9 possui 332 soluções descartadas 
+Execução 9 possui 1895 chamadas ao moveOperation do Feature-Driven 
+Execução 9 possui 123 interfaces criadas no moveOperation do Feature-Driven 
+
+Total de soluçoes descartadas: 3022
+Total de chamadas: 16940
+Total de interfaces criadas: 867
+
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+------    All Runs - Non-dominated solutions --------

@@ -1,0 +1,205 @@
+Number of solutions: 5
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 0
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7557197036345339
+NAC - ELEGANCE: 0.431534816134205
+ATMR - ELEGANCE: 0.056682147754401835
+EC - ELEGANCE: 0.26750273974592703
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 973.0
+CDAC: 113.0
+CDAI: 68.0
+CDAO: 497.0
+CIBC: 171.0
+IIBC: 20.0
+OOBC: 6.0
+LCC: 98.0
+LCCClass: 181.0
+CDAClass: 181.0
+CIBClass: 132.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: 114.72272727272727
+Cohesion: 0.022727272727272728
+Mean Dep Comps: 1.0
+Mean Num Ops: 5.7
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 104.0
+Sum DepIn: 0.0
+Sum DepOut: 0.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 1
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.7650504344359208
+NAC - ELEGANCE: 0.43375456536471874
+ATMR - ELEGANCE: 0.05663853043746643
+EC - ELEGANCE: 0.27465733863373565
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 1026.0
+CDAC: 120.0
+CDAI: 72.0
+CDAO: 527.0
+CIBC: 174.0
+IIBC: 22.0
+OOBC: 6.0
+LCC: 105.0
+LCCClass: 183.0
+CDAClass: 183.0
+CIBClass: 136.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: 104.7627688172043
+Cohesion: 0.020833333333333332
+Mean Dep Comps: 2.0
+Mean Num Ops: 5.741935483870968
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 93.0
+Sum DepIn: 0.0
+Sum DepOut: 0.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 2
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.764512034508922
+NAC - ELEGANCE: 0.43409457926422745
+ATMR - ELEGANCE: 0.05647356587051538
+EC - ELEGANCE: 0.27394388937417924
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 973.0
+CDAC: 114.0
+CDAI: 67.0
+CDAO: 492.0
+CIBC: 174.0
+IIBC: 20.0
+OOBC: 6.0
+LCC: 100.0
+LCCClass: 182.0
+CDAClass: 182.0
+CIBClass: 135.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: 105.32173913043478
+Cohesion: 0.021739130434782608
+Mean Dep Comps: 2.0
+Mean Num Ops: 6.3
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 93.0
+Sum DepIn: 0.0
+Sum DepOut: 0.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 3
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.764512034508922
+NAC - ELEGANCE: 0.43409457926422745
+ATMR - ELEGANCE: 0.05647356587051538
+EC - ELEGANCE: 0.27394388937417924
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 1022.0
+CDAC: 118.0
+CDAI: 72.0
+CDAO: 527.0
+CIBC: 174.0
+IIBC: 22.0
+OOBC: 6.0
+LCC: 103.0
+LCCClass: 182.0
+CDAClass: 182.0
+CIBClass: 136.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: 104.76321207961566
+Cohesion: 0.02127659574468085
+Mean Dep Comps: 2.0
+Mean Num Ops: 5.741935483870968
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 93.0
+Sum DepIn: 0.0
+Sum DepOut: 0.0
+
+
+-----------------------------------  NEW SOLUTION -----------------------------------
+
+Solution: 4
+
+
+--------  ELEGANCE ------------------
+
+ELEGANCE: 0.764512034508922
+NAC - ELEGANCE: 0.43409457926422745
+ATMR - ELEGANCE: 0.05647356587051538
+EC - ELEGANCE: 0.27394388937417924
+
+--------  PLA EXTENSIBILITY -----------
+
+PLA EXTENSIBILITY: 3.0
+-----  FEATURE-DRIVEN METRICS ----------
+
+MSI AGGREGATION: 972.0
+CDAC: 113.0
+CDAI: 68.0
+CDAO: 492.0
+CIBC: 174.0
+IIBC: 20.0
+OOBC: 6.0
+LCC: 99.0
+LCCClass: 182.0
+CDAClass: 182.0
+CIBClass: 135.0
+
+------  CONVENTIONAL METRICS -----------
+
+MAC AGGREGATION: 110.88992248062016
+Cohesion: 0.023255813953488372
+Mean Dep Comps: 2.0
+Mean Num Ops: 5.866666666666666
+Sum Classes DepIn: 4.0
+Sum Classes DepOut: 99.0
+Sum DepIn: 0.0
+Sum DepOut: 0.0
+

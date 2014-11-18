@@ -3,11 +3,15 @@ package results;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.io.ReaderConfig;
 import arquitetura.representation.Architecture;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -23,142 +27,217 @@ import org.apache.commons.math3.stat.descriptive.DescriptiveStatistics;
 
 public class GeraTudoAKAGodClass {
 
+    public static int EXECUTIONS = 10;
+
     //  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws Exception {
 
         HashMap<String, String[]> experiments = new HashMap();
+        //NOVOS VALORES
+        //MobileMedia_50_15050_0.9_allComponents
+        //banking_50_5050_0.9_allComponents
+        //BeT-clientserver_100_30100_0.9_clientserver
+        
 
-        experiments.put("agm", new String[]{
-            "agm_100_30100_0.9_layer",
-            "agm_200_20200_1.0_allComponents",});
-
-        experiments.put("MobileMedia", new String[]{
-            "MobileMedia_200_20200_1.0_layer",
-            "MobileMedia_50_5050_0.9_allComponents",});
-
-        experiments.put("BeT", new String[]{
-            "BeT_100_10100_0.9_allComponents",
-            "BeT_50_5050_0.9_layer",});
-
-//        experiments.put("agm_allComponents", new String[]{
-//            "agm_100_10100_0.9_allComponents",
-//            "agm_100_10100_1.0_allComponents",
-//            "agm_100_30100_0.9_allComponents",
-//            "agm_100_30100_1.0_allComponents",
-//            "agm_100_90100_0.9_allComponents",
-//            "agm_100_90100_1.0_allComponents",
-//            "agm_200_180200_0.9_allComponents",
-//            "agm_200_180200_1.0_allComponents",
-//            "agm_200_20200_0.9_allComponents",
-//            "agm_200_20200_1.0_allComponents",
-//            "agm_200_60200_0.9_allComponents",
-//            "agm_200_60200_1.0_allComponents",
-//            "agm_50_15050_0.9_allComponents",
-//            "agm_50_15050_1.0_allComponents",
-//            "agm_50_45050_0.9_allComponents",
-//            "agm_50_45050_1.0_allComponents",
-//            "agm_50_5050_0.9_allComponents",
-//            "agm_50_5050_1.0_allComponents",});
-//
-//        experiments.put("agm_layer", new String[]{
-//            "agm_100_10100_0.9_layer",
-//            "agm_100_10100_1.0_layer",
+//        experiments.put("agm", new String[]{
 //            "agm_100_30100_0.9_layer",
-//            "agm_100_30100_1.0_layer",
-//            "agm_100_90100_0.9_layer",
-//            "agm_100_90100_1.0_layer",
-//            "agm_200_180200_0.9_layer",
-//            "agm_200_180200_1.0_layer",
-//            "agm_200_20200_0.9_layer",
-//            "agm_200_20200_1.0_layer",
-//            "agm_200_60200_0.9_layer",
-//            "agm_200_60200_1.0_layer",
-//            "agm_50_15050_0.9_layer",
-//            "agm_50_15050_1.0_layer",
-//            "agm_50_45050_0.9_layer",
-//            "agm_50_45050_1.0_layer",
-//            "agm_50_5050_0.9_layer",
-//            "agm_50_5050_1.0_layer",});
-//
-//        experiments.put("MobileMedia_layer", new String[]{
-//            "MobileMedia_100_10100_0.9_layer",
+//            "agm_50_15050_0.9_allComponents",});
+//        experiments.put("MobileMedia", new String[]{
 //            "MobileMedia_100_10100_1.0_layer",
-//            "MobileMedia_100_30100_0.9_layer",
-//            "MobileMedia_100_30100_1.0_layer",
-//            "MobileMedia_100_90100_0.9_layer",
-//            "MobileMedia_100_90100_1.0_layer",
-//            "MobileMedia_200_180200_0.9_layer",
-//            "MobileMedia_200_180200_1.0_layer",
-//            "MobileMedia_200_20200_0.9_layer",
-//            "MobileMedia_200_20200_1.0_layer",
-//            "MobileMedia_200_60200_0.9_layer",
-//            "MobileMedia_200_60200_1.0_layer",
-//            "MobileMedia_50_15050_0.9_layer",
-//            "MobileMedia_50_15050_1.0_layer",
-//            "MobileMedia_50_45050_0.9_layer",
-//            "MobileMedia_50_45050_1.0_layer",
-//            "MobileMedia_50_5050_0.9_layer",
-//            "MobileMedia_50_5050_1.0_layer",});
-//
-//        experiments.put("MobileMedia_allComponents", new String[]{
-//            "MobileMedia_100_10100_0.9_allComponents",
-//            "MobileMedia_100_10100_1.0_allComponents",
-//            "MobileMedia_100_30100_0.9_allComponents",
-//            "MobileMedia_100_30100_1.0_allComponents",
-//            "MobileMedia_100_90100_0.9_allComponents",
-//            "MobileMedia_100_90100_1.0_allComponents",
-//            "MobileMedia_200_180200_0.9_allComponents",
-//            "MobileMedia_200_180200_1.0_allComponents",
-//            "MobileMedia_200_20200_0.9_allComponents",
-//            "MobileMedia_200_20200_1.0_allComponents",
-//            "MobileMedia_200_60200_0.9_allComponents",
-//            "MobileMedia_200_60200_1.0_allComponents",
-//            "MobileMedia_50_15050_0.9_allComponents",
-//            "MobileMedia_50_15050_1.0_allComponents",
-//            "MobileMedia_50_45050_0.9_allComponents",
-//            "MobileMedia_50_45050_1.0_allComponents",
-//            "MobileMedia_50_5050_0.9_allComponents",
-//            "MobileMedia_50_5050_1.0_allComponents",});
-//
+//            "MobileMedia_50_5050_0.9_allComponents",});
+//        experiments.put("banking", new String[]{
+//            "banking_100_10100_0.9_clientserver",
+//            "banking_100_10100_0.9_allComponents",});
+
 //        experiments.put("BeT_layer", new String[]{
 //            "BeT_100_10100_0.9_layer",
-//            "BeT_100_10100_1.0_layer",
-//            "BeT_100_30100_0.9_layer",
-//            "BeT_100_30100_1.0_layer",
-//            "BeT_100_90100_0.9_layer",
-//            "BeT_100_90100_1.0_layer",
-//            "BeT_200_180200_0.9_layer",
-//            "BeT_200_180200_1.0_layer",
-//            "BeT_200_20200_0.9_layer",
-//            "BeT_200_20200_1.0_layer",
-//            "BeT_200_60200_0.9_layer",
-//            "BeT_200_60200_1.0_layer",
-//            "BeT_50_15050_0.9_layer",
-//            "BeT_50_15050_1.0_layer",
-//            "BeT_50_45050_0.9_layer",
-//            "BeT_50_45050_1.0_layer",
-//            "BeT_50_5050_0.9_layer",
-//            "BeT_50_5050_1.0_layer",});
-//
-//        experiments.put("BeT_allComponents", new String[]{
-//            "BeT_100_10100_0.9_allComponents",
-//            "BeT_100_10100_1.0_allComponents",
-//            "BeT_100_30100_0.9_allComponents",
-//            "BeT_100_30100_1.0_allComponents",
-//            "BeT_100_90100_0.9_allComponents",
-//            "BeT_100_90100_1.0_allComponents",
-//            "BeT_200_180200_0.9_allComponents",
-//            "BeT_200_180200_1.0_allComponents",
-//            "BeT_200_20200_0.9_allComponents",
-//            "BeT_200_20200_1.0_allComponents",
-//            "BeT_200_60200_0.9_allComponents",
-//            "BeT_200_60200_1.0_allComponents",
-//            "BeT_50_15050_0.9_allComponents",
-//            "BeT_50_15050_1.0_allComponents",
-//            "BeT_50_45050_0.9_allComponents",
-//            "BeT_50_45050_1.0_allComponents",
-//            "BeT_50_5050_0.9_allComponents",
-//            "BeT_50_5050_1.0_allComponents",});
+//            "BeT_100_10100_1.0_clientserver"});
+//        experiments.put("BeT_layer", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
+//            "BeT_100_10100_0.9_layer"});
+//        experiments.put("BeT_clientserver", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
+//            "BeT_100_10100_1.0_clientserver"});
+        experiments.put("agm_allComponents", new String[]{
+            "agm_100_10100_0.9_allComponents",
+            "agm_100_10100_1.0_allComponents",
+            "agm_100_30100_0.9_allComponents",
+            "agm_100_30100_1.0_allComponents",
+            "agm_100_90100_0.9_allComponents",
+            "agm_100_90100_1.0_allComponents",
+            "agm_200_180200_0.9_allComponents",
+            "agm_200_180200_1.0_allComponents",
+            "agm_200_20200_0.9_allComponents",
+            "agm_200_20200_1.0_allComponents",
+            "agm_200_60200_0.9_allComponents",
+            "agm_200_60200_1.0_allComponents",
+            "agm_50_15050_0.9_allComponents",
+            "agm_50_15050_1.0_allComponents",
+            "agm_50_45050_0.9_allComponents",
+            "agm_50_45050_1.0_allComponents",
+            "agm_50_5050_0.9_allComponents",
+            "agm_50_5050_1.0_allComponents",});
+
+        experiments.put("agm_layer", new String[]{
+            "agm_100_10100_0.9_layer",
+            "agm_100_10100_1.0_layer",
+            "agm_100_30100_0.9_layer",
+            "agm_100_30100_1.0_layer",
+            "agm_100_90100_0.9_layer",
+            "agm_100_90100_1.0_layer",
+            "agm_200_180200_0.9_layer",
+            "agm_200_180200_1.0_layer",
+            "agm_200_20200_0.9_layer",
+            "agm_200_20200_1.0_layer",
+            "agm_200_60200_0.9_layer",
+            "agm_200_60200_1.0_layer",
+            "agm_50_15050_0.9_layer",
+            "agm_50_15050_1.0_layer",
+            "agm_50_45050_0.9_layer",
+            "agm_50_45050_1.0_layer",
+            "agm_50_5050_0.9_layer",
+            "agm_50_5050_1.0_layer",});
+
+        experiments.put("MobileMedia_layer", new String[]{
+            "MobileMedia_100_10100_0.9_layer",
+            "MobileMedia_100_10100_1.0_layer",
+            "MobileMedia_100_30100_0.9_layer",
+            "MobileMedia_100_30100_1.0_layer",
+            "MobileMedia_100_90100_0.9_layer",
+            "MobileMedia_100_90100_1.0_layer",
+            "MobileMedia_200_180200_0.9_layer",
+            "MobileMedia_200_180200_1.0_layer",
+            "MobileMedia_200_20200_0.9_layer",
+            "MobileMedia_200_20200_1.0_layer",
+            "MobileMedia_200_60200_0.9_layer",
+            "MobileMedia_200_60200_1.0_layer",
+            "MobileMedia_50_15050_0.9_layer",
+            "MobileMedia_50_15050_1.0_layer",
+            "MobileMedia_50_45050_0.9_layer",
+            "MobileMedia_50_45050_1.0_layer",
+            "MobileMedia_50_5050_0.9_layer",
+            "MobileMedia_50_5050_1.0_layer",});
+
+        experiments.put("MobileMedia_allComponents", new String[]{
+            "MobileMedia_100_10100_0.9_allComponents",
+            "MobileMedia_100_10100_1.0_allComponents",
+            "MobileMedia_100_30100_0.9_allComponents",
+            "MobileMedia_100_30100_1.0_allComponents",
+            "MobileMedia_100_90100_0.9_allComponents",
+            "MobileMedia_100_90100_1.0_allComponents",
+            "MobileMedia_200_180200_0.9_allComponents",
+            "MobileMedia_200_180200_1.0_allComponents",
+            "MobileMedia_200_20200_0.9_allComponents",
+            "MobileMedia_200_20200_1.0_allComponents",
+            "MobileMedia_200_60200_0.9_allComponents",
+            "MobileMedia_200_60200_1.0_allComponents",
+            "MobileMedia_50_15050_0.9_allComponents",
+            "MobileMedia_50_15050_1.0_allComponents",
+            "MobileMedia_50_45050_0.9_allComponents",
+            "MobileMedia_50_45050_1.0_allComponents",
+            "MobileMedia_50_5050_0.9_allComponents",
+            "MobileMedia_50_5050_1.0_allComponents",});
+
+        experiments.put("banking_clientserver", new String[]{
+            "banking_100_10100_0.9_clientserver",
+            "banking_100_10100_1.0_clientserver",
+            "banking_100_30100_0.9_clientserver",
+            "banking_100_30100_1.0_clientserver",
+            "banking_100_90100_0.9_clientserver",
+            "banking_100_90100_1.0_clientserver",
+            "banking_200_180200_0.9_clientserver",
+            "banking_200_180200_1.0_clientserver",
+            "banking_200_20200_0.9_clientserver",
+            "banking_200_20200_1.0_clientserver",
+            "banking_200_60200_0.9_clientserver",
+            "banking_200_60200_1.0_clientserver",
+            "banking_50_15050_0.9_clientserver",
+            "banking_50_15050_1.0_clientserver",
+            "banking_50_45050_0.9_clientserver",
+            "banking_50_45050_1.0_clientserver",
+            "banking_50_5050_0.9_clientserver",
+            "banking_50_5050_1.0_clientserver",});
+
+        experiments.put("banking_allComponents", new String[]{
+            "banking_100_10100_0.9_allComponents",
+            "banking_100_10100_1.0_allComponents",
+            "banking_100_30100_0.9_allComponents",
+            "banking_100_30100_1.0_allComponents",
+            "banking_100_90100_0.9_allComponents",
+            "banking_100_90100_1.0_allComponents",
+            "banking_200_180200_0.9_allComponents",
+            "banking_200_180200_1.0_allComponents",
+            "banking_200_20200_0.9_allComponents",
+            "banking_200_20200_1.0_allComponents",
+            "banking_200_60200_0.9_allComponents",
+            "banking_200_60200_1.0_allComponents",
+            "banking_50_15050_0.9_allComponents",
+            "banking_50_15050_1.0_allComponents",
+            "banking_50_45050_0.9_allComponents",
+            "banking_50_45050_1.0_allComponents",
+            "banking_50_5050_0.9_allComponents",
+            "banking_50_5050_1.0_allComponents",});
+
+        experiments.put("BeT_layer", new String[]{
+            "BeT_100_10100_0.9_layer",
+            "BeT_100_10100_1.0_layer",
+            "BeT_100_30100_0.9_layer",
+            "BeT_100_30100_1.0_layer",
+            "BeT_100_90100_0.9_layer",
+            "BeT_100_90100_1.0_layer",
+            "BeT_200_180200_0.9_layer",
+            "BeT_200_180200_1.0_layer",
+            "BeT_200_20200_0.9_layer",
+            "BeT_200_20200_1.0_layer",
+            "BeT_200_60200_0.9_layer",
+            "BeT_200_60200_1.0_layer",
+            "BeT_50_15050_0.9_layer",
+            "BeT_50_15050_1.0_layer",
+            "BeT_50_45050_0.9_layer",
+            "BeT_50_45050_1.0_layer",
+            "BeT_50_5050_0.9_layer",
+            "BeT_50_5050_1.0_layer",});
+
+        experiments.put("BeT_allComponents", new String[]{
+            "BeT_100_10100_0.9_allComponents",
+            "BeT_100_10100_1.0_allComponents",
+            "BeT_100_30100_0.9_allComponents",
+            "BeT_100_30100_1.0_allComponents",
+            "BeT_100_90100_0.9_allComponents",
+            "BeT_100_90100_1.0_allComponents",
+            "BeT_200_180200_0.9_allComponents",
+            "BeT_200_180200_1.0_allComponents",
+            "BeT_200_20200_0.9_allComponents",
+            "BeT_200_20200_1.0_allComponents",
+            "BeT_200_60200_0.9_allComponents",
+            "BeT_200_60200_1.0_allComponents",
+            "BeT_50_15050_0.9_allComponents",
+            "BeT_50_15050_1.0_allComponents",
+            "BeT_50_45050_0.9_allComponents",
+            "BeT_50_45050_1.0_allComponents",
+            "BeT_50_5050_0.9_allComponents",
+            "BeT_50_5050_1.0_allComponents",});
+
+        experiments.put("BeT_clientserver", new String[]{
+            "BeT_100_10100_0.9_clientserver",
+            "BeT_100_10100_1.0_clientserver",
+            "BeT_100_30100_0.9_clientserver",
+            "BeT_100_30100_1.0_clientserver",
+            "BeT_100_90100_0.9_clientserver",
+            "BeT_100_90100_1.0_clientserver",
+            "BeT_200_180200_0.9_clientserver",
+            "BeT_200_180200_1.0_clientserver",
+            "BeT_200_20200_0.9_clientserver",
+            "BeT_200_20200_1.0_clientserver",
+            "BeT_200_60200_0.9_clientserver",
+            "BeT_200_60200_1.0_clientserver",
+            "BeT_50_15050_0.9_clientserver",
+            "BeT_50_15050_1.0_clientserver",
+            "BeT_50_45050_0.9_clientserver",
+            "BeT_50_45050_1.0_clientserver",
+            "BeT_50_5050_0.9_clientserver",
+            "BeT_50_5050_1.0_clientserver",});
+
         MetricsUtil mu = new MetricsUtil();
 
         for (Map.Entry<String, String[]> entry : experiments.entrySet()) {
@@ -166,7 +245,7 @@ public class GeraTudoAKAGodClass {
             String[] plaJustName = pla.split("_");
             String[] contexts = entry.getValue();
 
-            String directoryPath = "experiment/" + pla + "/";
+            String directoryPath = "tuningCorreto/" + pla + "/";
 
             try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_" + plaJustName[0] + ".txt")) {
                 for (String contexto : contexts) {
@@ -178,10 +257,11 @@ public class GeraTudoAKAGodClass {
             }
             normalizaHypervolume(directoryPath, plaJustName[0], contexts);
             executaHypervolume(directoryPath, plaJustName[0], contexts);
-            runFriedman(directoryPath, contexts);
-            runWilcoxon(directoryPath, contexts);
-            executeEuclideanDistance(directoryPath, plaJustName[0], contexts);
-            executeParetoStats(directoryPath, plaJustName[0], contexts);
+//            runFriedman(directoryPath, contexts);
+            runKruskal(directoryPath, contexts);
+//            runWilcoxon(directoryPath, contexts);
+//            executeEuclideanDistance(directoryPath, plaJustName[0], contexts);
+//            executeParetoStats(directoryPath, plaJustName[0], contexts);
 //            executeArchitectureStats(directoryPath, pla, contexts);
         }
     }
@@ -192,7 +272,7 @@ public class GeraTudoAKAGodClass {
         SolutionSet solutionSet = new SolutionSet();
 
         for (String contexto : contexts) {
-            for (int i = 0; i < 30; i++) {
+            for (int i = 0; i < EXECUTIONS; i++) {
                 SolutionSet execution = mu.readNonDominatedSolutionSet(directoryPath + contexto + "/FUN_" + pla + "_" + i + ".txt");
                 solutionSet = solutionSet.union(execution);
             }
@@ -203,7 +283,7 @@ public class GeraTudoAKAGodClass {
         try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_N_" + pla + ".txt")) {
             for (String contexto : contexts) {
                 try (FileWriter fileWriter = new FileWriter(directoryPath + contexto + "/HYPERVOLUME_N.txt")) {
-                    for (int i = 0; i < 30; i++) {
+                    for (int i = 0; i < EXECUTIONS; i++) {
                         SolutionSet execution = mu.readNonDominatedSolutionSet(directoryPath + contexto + "/FUN_" + pla + "_" + i + ".txt");
                         for (Iterator<Solution> it = execution.iterator(); it.hasNext();) {
                             Solution solution = it.next();
@@ -411,6 +491,49 @@ public class GeraTudoAKAGodClass {
 
         ProcessBuilder processBuilder = new ProcessBuilder("R", "--no-save");
         Process process = processBuilder.redirectInput(new File("./" + directoryPath + "friedman_script.txt")).start();
+        process.waitFor();
+    }
+
+    private static void runKruskal(String directoryPath, String[] contexts) throws IOException, InterruptedException {
+        try (FileWriter kruskal = new FileWriter(directoryPath + "kruskal_script.txt")) {
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append("ARRAY").append("<- c(");
+            for (String context : contexts) {
+                Scanner scanner = new Scanner(new FileInputStream(directoryPath + context + "/HYPERVOLUME_RESULT.txt"));
+                while (scanner.hasNextLine()) {
+                    String value = scanner.nextLine().trim();
+                    if (!value.isEmpty()) {
+                        stringBuilder.append(value).append(", ");
+                    }
+                }
+            }
+            stringBuilder.delete(stringBuilder.length() - 2, stringBuilder.length());
+            stringBuilder.append(")\n");
+            stringBuilder.append("\n");
+
+            stringBuilder.append("require(pgirmess)\n");
+
+            StringBuilder contextNames = new StringBuilder();
+            for (String context : contexts) {
+                contextNames.append("\"").append(context).append("\", ");
+            }
+            contextNames.delete(contextNames.length() - 2, contextNames.length());
+
+            stringBuilder.append("categs<-as.factor(rep(c(").append(contextNames.toString()).append("),each=").append(EXECUTIONS).append("));");
+            stringBuilder.append("\n");
+            stringBuilder.append("result<-kruskal.test(ARRAY,categs)\n");
+            stringBuilder.append("\n");
+            stringBuilder.append("m<-data.frame(result$statistic,result$p.value)\n");
+            stringBuilder.append("write.csv2(m,file=\"./").append(directoryPath).append("kruskal.csv\")\n");
+            stringBuilder.append("\n");
+            stringBuilder.append("pos_teste<-kruskalmc(ARRAY,categs)\n");
+            stringBuilder.append("write.csv2(pos_teste,file=\"./").append(directoryPath).append("kruskal-compara.csv\")\n");
+
+            kruskal.write(stringBuilder.toString());
+        }
+
+        ProcessBuilder processBuilder = new ProcessBuilder("R", "--no-save");
+        Process process = processBuilder.redirectInput(new File("./" + directoryPath + "kruskal_script.txt")).start();
         process.waitFor();
     }
 

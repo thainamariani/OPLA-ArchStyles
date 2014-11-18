@@ -46,7 +46,7 @@ public class Experiment {
             System.exit(0);
         }
 
-        int runsNumber = 10; //30; //10
+        int runsNumber = 30; //30; //10
         if (args[0] == null || args[0].trim().equals("")) {
             System.out.println("Missing population size argument.");
             System.exit(1);
@@ -101,7 +101,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = false;
+        boolean shouldPrintVariables = true;
 
         String plaName = getPlaName(pla);
 

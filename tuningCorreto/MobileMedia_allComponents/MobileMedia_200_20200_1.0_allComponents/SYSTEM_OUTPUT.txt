@@ -1,0 +1,2837 @@
+MM, BET, BetClientServer
+Adicionando operadores sem restrições
+
+================ NSGAII ================
+Architectural Style: allComponents
+PLA: /home/tmariani/NetBeansProjects/OPLA-ArchStyles/mobilemedia/MobileMedia.uml
+Params:
+	Pop -> 200
+	MaxEva -> 20200
+	Cross -> 0.0
+	Muta -> 1.0
+Heap Size: 964Mb
+
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+==>200
+==>400
+==>600
+==>800
+==>1000
+==>1200
+==>1400
+==>1600
+==>1800
+==>2000
+==>2200
+==>2400
+==>2600
+==>2800
+==>3000
+==>3200
+==>3400
+==>3600
+==>3800
+==>4000
+==>4200
+==>4400
+==>4600
+==>4800
+==>5000
+==>5200
+==>5400
+==>5600
+==>5800
+==>6000
+==>6200
+==>6400
+==>6600
+==>6800
+==>7000
+==>7200
+==>7400
+==>7600
+==>7800
+==>8000
+==>8200
+==>8400
+==>8600
+==>8800
+==>9000
+==>9200
+==>9400
+==>9600
+==>9800
+==>10000
+==>10200
+==>10400
+==>10600
+==>10800
+==>11000
+==>11200
+==>11400
+==>11600
+==>11800
+==>12000
+==>12200
+==>12400
+==>12600
+==>12800
+==>13000
+==>13200
+==>13400
+==>13600
+==>13800
+==>14000
+==>14200
+==>14400
+==>14600
+==>14800
+==>15000
+==>15200
+==>15400
+==>15600
+==>15800
+==>16000
+==>16200
+==>16400
+==>16600
+==>16800
+==>17000
+==>17200
+==>17400
+==>17600
+==>17800
+==>18000
+==>18200
+==>18400
+==>18600
+==>18800
+==>19000
+==>19200
+==>19400
+==>19600
+==>19800
+==>20000
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+Execução 0 possui 1270 soluções descartadas 
+Execução 0 possui 3214 chamadas ao moveOperation do Feature-Driven 
+Execução 0 possui 672 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 1 possui 1123 soluções descartadas 
+Execução 1 possui 2687 chamadas ao moveOperation do Feature-Driven 
+Execução 1 possui 652 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 2 possui 1149 soluções descartadas 
+Execução 2 possui 2570 chamadas ao moveOperation do Feature-Driven 
+Execução 2 possui 594 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 3 possui 1256 soluções descartadas 
+Execução 3 possui 3310 chamadas ao moveOperation do Feature-Driven 
+Execução 3 possui 635 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 4 possui 1310 soluções descartadas 
+Execução 4 possui 3196 chamadas ao moveOperation do Feature-Driven 
+Execução 4 possui 609 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 5 possui 1523 soluções descartadas 
+Execução 5 possui 3735 chamadas ao moveOperation do Feature-Driven 
+Execução 5 possui 795 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 6 possui 1325 soluções descartadas 
+Execução 6 possui 3320 chamadas ao moveOperation do Feature-Driven 
+Execução 6 possui 555 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 7 possui 825 soluções descartadas 
+Execução 7 possui 2061 chamadas ao moveOperation do Feature-Driven 
+Execução 7 possui 314 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 8 possui 1098 soluções descartadas 
+Execução 8 possui 2895 chamadas ao moveOperation do Feature-Driven 
+Execução 8 possui 570 interfaces criadas no moveOperation do Feature-Driven 
+
+Execução 9 possui 1650 soluções descartadas 
+Execução 9 possui 3871 chamadas ao moveOperation do Feature-Driven 
+Execução 9 possui 638 interfaces criadas no moveOperation do Feature-Driven 
+
+Total de soluçoes descartadas: 12529
+Total de chamadas: 30859
+Total de interfaces criadas: 6034
+
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+removido Dominada
+------    All Runs - Non-dominated solutions --------

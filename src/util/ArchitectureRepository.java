@@ -28,10 +28,11 @@ public class ArchitectureRepository {
     public static final String AGM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
     public static final String MM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/mobilemedia/MobileMedia.uml";
     public static final String BET = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/BeT/BeT.uml";
+    public static final String ASPECT = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/model.uml";
     //public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT/BeT.uml";
     //public static final String AGM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
-    public static final String BETCS = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/BeT-clientserver/BeT.uml";
-    public static final String BANKING = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
+    public static final String BETCS = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/BeT-clientserver/BeT.uml";
+    public static final String BANKING = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
     //public static final String BANKING = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
 
     public static String getPlaPath(String name) {

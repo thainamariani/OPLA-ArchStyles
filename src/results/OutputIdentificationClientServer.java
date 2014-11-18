@@ -220,6 +220,7 @@ public class OutputIdentificationClientServer {
         List<arquitetura.representation.Class> allClasses = new ArrayList<arquitetura.representation.Class>(architecture.getAllClasses());
         for (arquitetura.representation.Class c : allClasses) {
             if (c.getRelationships().isEmpty()) {
+                System.out.println("Classe: " +c.getName());
                 validSolution = false;
             }
         }

@@ -1,0 +1,47 @@
+banking_100_10100_0.9_allComponents<- c(0.325834, 0.483305, 0.483413, 0.483975, 0.483735, 0.483053, 0.483477, 0.464513, 0.483811, 0.478641)
+
+banking_100_10100_1.0_allComponents<- c(0.483888, 0.980986, 0.483866, 0.465330, 0.483595, 0.484164, 0.483900, 0.482452, 0.483294, 1.017719)
+
+banking_100_30100_0.9_allComponents<- c(0.463476, 0.944023, 0.485073, 0.713366, 0.488151, 0.465901, 0.471282, 1.018883, 0.930601, 0.485132)
+
+banking_100_30100_1.0_allComponents<- c(0.484739, 0.485318, 0.485083, 0.479498, 0.959973, 0.920363, 0.465661, 0.485218, 0.485324, 0.898750)
+
+banking_100_90100_0.9_allComponents<- c(0.965438, 0.604807, 0.471892, 0.485553, 0.485474, 0.466385, 0.485349, 0.485508, 0.485270, 0.485414)
+
+banking_100_90100_1.0_allComponents<- c(0.485574, 1.008662, 0.485178, 0.485361, 0.965451, 0.491144, 1.003341, 0.491118, 0.463466, 0.463433)
+
+banking_200_180200_0.9_allComponents<- c(0.485636, 0.480146, 0.963220, 0.965485, 0.485512, 0.491048, 0.485796, 0.485680, 0.485505, 1.019541)
+
+banking_200_180200_1.0_allComponents<- c(0.485501, 0.466331, 0.971059, 0.472135, 0.485700, 0.463716, 1.019478, 0.485506, 0.485472, 0.485655)
+
+banking_200_20200_0.9_allComponents<- c(1.018401, 1.002025, 1.018285, 0.489686, 0.483377, 0.996918, 0.922160, 0.964077, 0.461824, 0.954322)
+
+banking_200_20200_1.0_allComponents<- c(0.945415, 0.484558, 0.938089, 0.483948, 0.921431, 0.483504, 0.483921, 0.490340, 0.484542, 0.483974)
+
+banking_200_60200_0.9_allComponents<- c(0.936004, 0.965304, 0.997749, 0.485309, 0.485215, 1.019376, 0.485348, 1.013908, 0.485016, 0.328894)
+
+banking_200_60200_1.0_allComponents<- c(0.485275, 0.485204, 0.485481, 0.485480, 0.488751, 1.019123, 0.485520, 0.485206, 1.019181, 0.485393)
+
+banking_50_15050_0.9_allComponents<- c(0.484917, 0.451749, 0.465756, 0.484528, 0.471249, 0.014323, 0.014375, 0.471296, 0.452237, 0.484444)
+
+banking_50_15050_1.0_allComponents<- c(0.484159, 0.484550, 0.484582, 0.484967, 0.452149, 0.485009, 0.457322, 0.452376, 0.484522, 0.484618)
+
+banking_50_45050_0.9_allComponents<- c(0.485435, 0.588295, 0.485085, 0.466058, 0.485524, 0.485402, 0.015252, 0.919899, 0.490925, 0.485098)
+
+banking_50_45050_1.0_allComponents<- c(0.987287, 0.463467, 0.885209, 0.595471, 0.485261, 0.485160, 0.955105, 0.981355, 0.485232, 0.485125)
+
+banking_50_5050_0.9_allComponents<- c(0.475053, 0.483165, 0.969698, 0.488824, 0.481852, 0.910438, 0.996411, 0.476815, 0.482933, 0.482848)
+
+banking_50_5050_1.0_allComponents<- c(0.483733, 0.481028, 0.013546, 0.483063, 0.483284, 0.476180, 0.483067, 0.483319, 0.483097, 0.483662)
+
+require(pgirmess)
+AR1 <-cbind(banking_100_10100_0.9_allComponents, banking_100_10100_1.0_allComponents, banking_100_30100_0.9_allComponents, banking_100_30100_1.0_allComponents, banking_100_90100_0.9_allComponents, banking_100_90100_1.0_allComponents, banking_200_180200_0.9_allComponents, banking_200_180200_1.0_allComponents, banking_200_20200_0.9_allComponents, banking_200_20200_1.0_allComponents, banking_200_60200_0.9_allComponents, banking_200_60200_1.0_allComponents, banking_50_15050_0.9_allComponents, banking_50_15050_1.0_allComponents, banking_50_45050_0.9_allComponents, banking_50_45050_1.0_allComponents, banking_50_5050_0.9_allComponents, banking_50_5050_1.0_allComponents)
+result<-friedman.test(AR1)
+
+m<-data.frame(result$statistic,result$p.value)
+write.csv2(m,file="./experiment/banking_allComponents/friedman.csv")
+
+pos_teste<-friedmanmc(AR1)
+write.csv2(pos_teste,file="./experiment/banking_allComponents/friedman-compara.csv")
+png(file="./experiment/banking_allComponents/friedman-boxplot.png", width=400, height=400)
+boxplot(banking_100_10100_0.9_allComponents, banking_100_10100_1.0_allComponents, banking_100_30100_0.9_allComponents, banking_100_30100_1.0_allComponents, banking_100_90100_0.9_allComponents, banking_100_90100_1.0_allComponents, banking_200_180200_0.9_allComponents, banking_200_180200_1.0_allComponents, banking_200_20200_0.9_allComponents, banking_200_20200_1.0_allComponents, banking_200_60200_0.9_allComponents, banking_200_60200_1.0_allComponents, banking_50_15050_0.9_allComponents, banking_50_15050_1.0_allComponents, banking_50_45050_0.9_allComponents, banking_50_45050_1.0_allComponents, banking_50_5050_0.9_allComponents, banking_50_5050_1.0_allComponents, names=c("banking_100_10100_0.9_allComponents", "banking_100_10100_1.0_allComponents", "banking_100_30100_0.9_allComponents", "banking_100_30100_1.0_allComponents", "banking_100_90100_0.9_allComponents", "banking_100_90100_1.0_allComponents", "banking_200_180200_0.9_allComponents", "banking_200_180200_1.0_allComponents", "banking_200_20200_0.9_allComponents", "banking_200_20200_1.0_allComponents", "banking_200_60200_0.9_allComponents", "banking_200_60200_1.0_allComponents", "banking_50_15050_0.9_allComponents", "banking_50_15050_1.0_allComponents", "banking_50_45050_0.9_allComponents", "banking_50_45050_1.0_allComponents", "banking_50_5050_0.9_allComponents", "banking_50_5050_1.0_allComponents"))

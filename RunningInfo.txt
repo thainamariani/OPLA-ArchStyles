@@ -2,12 +2,12 @@
 # It is updated every 10s.
 
 Number of Max Threads = 1
-Number of Running Threads = 1
+Number of Running Threads = 0
 Number of Remaining Threads = 1
 Number of Successfully Finished Threads = 0
 
-Active Threads = [Thread[BeT_50_30000_0.9_layer,5,main]]
+Active Threads = [Thread[BeT-clientserver_100_10100_1.0_clientserver,5,main]]
 
-Queued Threads = [Thread[BeT_50_30000_1.0_layer,5,main]]
+Queued Threads = []
 
 Finished Threads = []

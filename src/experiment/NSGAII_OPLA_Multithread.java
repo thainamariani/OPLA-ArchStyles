@@ -35,9 +35,9 @@ public class NSGAII_OPLA_Multithread {
     private static final String[] PLAS = {
         ArchitectureRepository.AGM,
         ArchitectureRepository.MM,
-        ArchitectureRepository.BET
+        ArchitectureRepository.BET,
         //ArchitectureRepository.BANKING,
-        //ArchitectureRepository.BETCS
+        ArchitectureRepository.BETCS
        
     };
 
