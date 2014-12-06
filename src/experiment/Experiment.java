@@ -34,7 +34,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        //args = new String[]{"1", "1", "0", ArchitectureRepository.BET, "layer", "teste"};
+        args = new String[]{"1", "1", "0", ArchitectureRepository.BANKING, "no", "original"};
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -46,7 +46,7 @@ public class Experiment {
             System.exit(0);
         }
 
-        int runsNumber = 30; //30; //10
+        int runsNumber = 1; //30; //10
         if (args[0] == null || args[0].trim().equals("")) {
             System.out.println("Missing population size argument.");
             System.exit(1);
@@ -101,7 +101,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = true;
+        boolean shouldPrintVariables = false;
 
         String plaName = getPlaName(pla);
 

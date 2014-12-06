@@ -57,7 +57,7 @@ public class OutputIdentificationClientServer {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
-                        if (subsubdirectory.toString().endsWith("clientserver")) {
+                        if (subsubdirectory.toString().endsWith("allComponents")) {
                             System.out.println("subsubdirectory: " + subsubdirectory.getName());
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();

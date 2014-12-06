@@ -28,20 +28,33 @@ public class GeraTabelaLatex {
         DecimalFormat formatter = new DecimalFormat("#.###");
 
         HashMap<String, String[]> experiments = new HashMap();
+//
+//        experiments.put("agm", new String[]{
+//            "agm_50_15050_0.9_allComponents",
+//            "agm_100_30100_0.9_layer",});
 
-        experiments.put("agm", new String[]{
-            "agm_200_30000_1.0_allComponents",
-            "agm_200_30000_1.0_layer"});
+//        experiments.put("MobileMedia", new String[]{
+//            "MobileMedia_50_15050_0.9_allComponents",
+//            "MobileMedia_100_10100_1.0_layer",});
+//
+        experiments.put("banking", new String[]{
+            "banking_50_5050_0.9_allComponents",
+            "banking_100_10100_0.9_clientserver",});
+//
+//        experiments.put("BeT_layer", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
+//            "BeT_100_10100_0.9_layer",});
+////
+//        experiments.put("BeT", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
+//            "BeT_100_10100_0.9_layer",
+//            "BeT-clientserver_100_30100_0.9_clientserver"});
+//
+//        experiments.put("BeT_clientserver", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
+//            "BeT-clientserver_100_30100_0.9_clientserver"});
 
-        experiments.put("MobileMedia", new String[]{
-            "MobileMedia_50_30000_0.9_allComponents",
-            "MobileMedia_50_30000_1.0_layer"});
-
-        experiments.put("BeT", new String[]{
-            "BeT_50_30000_0.9_allComponents",
-            "BeT_50_30000_1.0_layer"});
-
-        String[] plas = new String[]{"AGM", "MM", "BET"};
+        String[] plas = new String[]{"AGM", "MM", "banking", "BET_layer", "BET", "BET_clientserver"};
 
         escreveTabelao(experiments, plas, mu, formatter);
         escreveTabelaED(experiments, plas, mu, formatter);
@@ -52,6 +65,7 @@ public class GeraTabelaLatex {
             for (int i = 0; i < experiments.size(); i++) {
                 Map.Entry<String, String[]> entry = (Map.Entry<String, String[]>) experiments.entrySet().toArray()[i];
                 String pla = entry.getKey();
+                String[] plaJustName = pla.split("_");
                 String[] contexts = entry.getValue();
 
                 tabelao.append("\\begin{table}[htb]\n"
@@ -70,14 +84,14 @@ public class GeraTabelaLatex {
                 tabelao.append("\t\t\\cline{3-5}\n");
                 tabelao.append("\t\t& ");
                 tabelao.append("& \\textbf{PLAM} ");
-                tabelao.append("& \\textbf{DPM} ");
-                tabelao.append("& \\textbf{PLADPM} ");
+                tabelao.append("& \\textbf{PLAMS} ");
+                tabelao.append("& \\textbf{PLASCS} ");
                 tabelao.append("\\\\\n");
                 tabelao.append("\t\t\\midrule\n");
 
                 String directoryPath = "experiment/" + pla + "/";
 
-                SolutionSet truePareto = removeDominadas(mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_" + pla + ".txt"));
+                SolutionSet truePareto = removeDominadas(mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_" + plaJustName[0] + ".txt"));
 
                 tabelao.append("\t\t" + plas[i] + " & ");
 
@@ -104,7 +118,7 @@ public class GeraTabelaLatex {
                 double[][] trueParetoMatrix = truePareto.writeObjectivesToMatrix();
 
                 for (String context : contexts) {
-                    SolutionSet knownPareto = mu.readNonDominatedSolutionSet(directoryPath + context + "/FUN_All_" + pla + ".txt");
+                    SolutionSet knownPareto = mu.readNonDominatedSolutionSet(directoryPath + context + "/FUN_All_" + plaJustName[0] + ".txt");
                     tabelao.append("& ");
 
                     aux = 0;
@@ -206,6 +220,7 @@ public class GeraTabelaLatex {
             for (int i = 0; i < experiments.size(); i++) {
                 Map.Entry<String, String[]> entry = (Map.Entry<String, String[]>) experiments.entrySet().toArray()[i];
                 String pla = entry.getKey();
+                String[] plaJustName = pla.split("_");
                 String[] contexts = entry.getValue();
 
                 System.out.println(pla);
@@ -213,12 +228,12 @@ public class GeraTabelaLatex {
                 tabela.append("\t\t" + plas[i]);
 
                 String directoryPath = "experiment/" + pla + "/";
-                SolutionSet ss = mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_N_" + pla + ".txt");
+                SolutionSet ss = mu.readNonDominatedSolutionSet(directoryPath + "FUN_All_N_" + plaJustName[0] + ".txt");
                 ss = removeDominadas(ss);
 //        ss.printObjectivesToFile(directoryPath + "FUN_All_N_" + pla + ".txt");
 
                 double[] min = mu.getMinimumValues(ss.writeObjectivesToMatrix(), 2);
-                double[] printMin = mu.getMinimumValues(mu.readFront(directoryPath + "/FUN_All_" + pla + ".txt"), 2);
+                double[] printMin = mu.getMinimumValues(mu.readFront(directoryPath + "/FUN_All_" + plaJustName[0] + ".txt"), 2);
                 System.out.println(printMin[0] + ", " + printMin[1]);
                 for (String contexto : contexts) {
                     double menorDistancia = Double.MAX_VALUE;
@@ -228,7 +243,7 @@ public class GeraTabelaLatex {
 
 //                    double[][] front = new double[quantidadeSolucoes][numObjetivos];
 //                    for(solucoes)for(objetivos)solucoes[solucaoI][numObjJ] = valor do banco;
-                    double[][] front = mu.readFront(directoryPath + contexto + "/" + "FUN_All_N_" + pla + ".txt");
+                    double[][] front = mu.readFront(directoryPath + contexto + "/" + "FUN_All_N_" + plaJustName[0] + ".txt");
                     for (int j = 0; j < front.length; j++) {
                         double distanciaEuclidiana = mu.distance(min, front[j]);
                         if (distanciaEuclidiana < menorDistancia) {
@@ -242,7 +257,7 @@ public class GeraTabelaLatex {
                         }
                     }
 
-                    double[][] frontOriginal = mu.readFront(directoryPath + contexto + "/" + "FUN_All_" + pla + ".txt");
+                    double[][] frontOriginal = mu.readFront(directoryPath + contexto + "/" + "FUN_All_" + plaJustName[0] + ".txt");
                     double[] maiorSolucao = frontOriginal[maiorIndex];
                     double[] menorSolucao = frontOriginal[menorIndex];
 

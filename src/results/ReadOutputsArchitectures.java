@@ -12,10 +12,15 @@ import arquitetura.representation.Attribute;
 import arquitetura.representation.Class;
 import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
+import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import arquitetura.representation.Package;
 import arquitetura.representation.RelationshipsHolder;
+import arquitetura.representation.relationship.AssociationClassRelationship;
+import arquitetura.representation.relationship.AssociationEnd;
+import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.DependencyRelationship;
+import arquitetura.representation.relationship.Relationship;
 import arquitetura.representation.relationship.UsageRelationship;
 import java.io.File;
 import java.io.IOException;
@@ -24,6 +29,10 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import pojo.Layer;
+import util.ElementUtil;
+import util.OperatorUtil;
+import util.RelationshipUtil;
 
 /**
  *
@@ -33,9 +42,9 @@ public class ReadOutputsArchitectures {
 
     public static void main(String[] args) {
         List<String> plas = new ArrayList<>();
-        //plas.add("agm");
+        plas.add("agm");
         //plas.add("mobilemedia");
-        plas.add("bet");
+        //plas.add("bet");
         //plas.add("banking");
         //plas.add("betserver");
 
@@ -43,21 +52,33 @@ public class ReadOutputsArchitectures {
             List<File> solutions = new ArrayList<>();
             //menor ED
             if (pla.equals("agm")) {
-                solutions.add(new File("agm/agm.uml"));
-                //solutions.add(new File("experiment/agm/agm_200_30000_1.0_allComponents/output/VAR_All_agm16.uml"));
-                //solutions.add(new File("experiment/agm/agm_200_30000_1.0_layer/output/VAR_All_agm4.uml"));
+//                solutions.add(new File("agm/agm.uml"));
+//                //menor ED
+//                solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm4.uml"));
+//                solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm1.uml"));
+//                //maior ED
+                solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm2.uml"));
+                solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm0.uml"));
+                //solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm12.uml"));
+                //solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm2.uml"));
+               
+                
             } else if (pla.equals("mobilemedia")) {
-                solutions.add(new File("mobilemedia/MobileMedia.uml"));
-                //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/output/VAR_All_MobileMedia7.uml"));
-                //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/output/VAR_All_MobileMedia5.uml"));
+                //solutions.add(new File("mobilemedia/MobileMedia.uml"));
+                solutions.add(new File("experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/output/VAR_All_MobileMedia1.uml"));
+                solutions.add(new File("experiment/MobileMedia/MobileMedia_100_10100_1.0_layer/output/VAR_All_MobileMedia8.uml"));
             } else if (pla.equals("bet")) {
-                solutions.add(new File("BeT/BeT.uml"));
-                //solutions.add(new File("experiment/BeT/BeT_50_30000_0.9_allComponents/output/VAR_All_BeT3.uml"));
-                //solutions.add(new File("experiment/BeT/BeT_50_30000_1.0_layer/output/VAR_All_BeT10.uml"));
+                //solutions.add(new File("BeT/BeT.uml"));
+                solutions.add(new File("experiment/BeT/BeT_50_5050_1.0_allComponents/output/VAR_All_BeT4.uml"));
+                solutions.add(new File("experiment/BeT/BeT_100_10100_0.9_layer/output/VAR_All_BeT6.uml"));
             } else if (pla.equals("banking")) {
-                solutions.add(new File("banking/banking.uml"));
+                //solutions.add(new File("banking/banking.uml"));
+                solutions.add(new File("experiment/banking/banking_50_5050_0.9_allComponents/output/VAR_All_banking0.uml"));
+                solutions.add(new File("experiment/banking/banking_100_10100_0.9_clientserver/output/VAR_All_banking1.uml"));
             } else if (pla.equals("betserver")) {
                 solutions.add(new File("BeT-clientserver/BeT.uml"));
+                solutions.add(new File("experiment/BeT/BeT_50_5050_1.0_allComponents/output/VAR_All_BeT2.uml"));
+                solutions.add(new File("experiment/BeT/BeT-clientserver_100_30100_0.9_clientserver/output/VAR_All_BeT25.uml"));
             }
             //maior ED
 //            if (pla.equals("agm")) {
@@ -95,19 +116,67 @@ public class ReadOutputsArchitectures {
                     System.out.println("PLA: " + pla);
                     System.out.println("Solution: " + solution.getPath());
 
-                    //getElements(architecture, pla);
+                    getElements(architecture, pla);
                     //getConcernsforClientServer(architecture, pla);
-                    //getConcernsforLayer(architecture, pla);
+                    getConcernsforLayer(architecture, pla);
                     //getInvalidsInterfaces(architecture);
-                    OutputIdentificationLayer.getInterfacesImplementors(architecture);
+                    //OutputIdentificationLayer.getInterfacesImplementors(architecture);
                     //replaceUsageforDependency(architecture);
-                    getDependents(architecture);
+                    //getDependents(architecture);
+                    //getRelationshipsBetweenPackages(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
             }
+        }
+    }
 
+    public static void getRelationshipsBetweenPackages(Architecture architecture) {
+
+        Set<Package> allPackages = architecture.getAllPackages();
+        System.out.println("PACOTES");
+        for (Package pac : allPackages) {
+            System.out.println(pac.getName());
+        }
+        RelationshipsHolder relationshipsHolder = architecture.getRelationshipHolder();
+        Set<Relationship> allRelationships = relationshipsHolder.getAllRelationships();
+
+        for (Relationship relationship : allRelationships) {
+
+            if (relationship instanceof AssociationClassRelationship) {
+
+                AssociationClassRelationship association = (AssociationClassRelationship) relationship;
+                Package packageElement1 = ElementUtil.getPackage(association.getAssociationClass(), architecture);
+                Package packageElement2 = ElementUtil.getPackage(association.getMemebersEnd().get(0).getType(), architecture);
+                Package packageElement3 = null;
+                if (association.getMemebersEnd().size() > 1) {
+                    packageElement3 = ElementUtil.getPackage(association.getMemebersEnd().get(1).getType(), architecture);
+                }
+                System.out.println("Classe associativa: ");
+                System.out.println(packageElement1);
+                System.out.println(packageElement2);
+                System.out.println(packageElement3);
+
+            } else if (relationship instanceof AssociationRelationship) {
+                List<AssociationEnd> participants = ((AssociationRelationship) relationship).getParticipants();
+                Package packageElement1 = ElementUtil.getPackage(participants.get(0).getCLSClass(), architecture);
+                Package packageElement2 = ElementUtil.getPackage(participants.get(1).getCLSClass(), architecture);
+                if (packageElement1 != packageElement2) {
+                    System.out.println(packageElement1 + " usa " + packageElement2);
+                    System.out.println(packageElement2 + " usa " + packageElement1);
+                }
+
+            } else {
+                Element client = RelationshipUtil.getClientElementFromRelationship(relationship);
+                Element used = RelationshipUtil.getUsedElementFromRelationship(relationship);
+
+                Package packageClient = ElementUtil.getPackage(client, architecture);
+                Package packageUsed = ElementUtil.getPackage(used, architecture);
+
+                if (packageClient != packageUsed) {
+                    System.out.println(packageClient + " usa " + packageUsed);
+                }
+            }
         }
     }
 
@@ -148,8 +217,8 @@ public class ReadOutputsArchitectures {
         List<Concern> otherConcerns = new ArrayList<>();
 
         for (Package pac : allPackages) {
-            System.out.println(pac.getName());
-            System.out.println("");
+            //System.out.println(pac.getName());
+            //System.out.println("");
             List<Concern> ownConcerns = new ArrayList<>();
             for (arquitetura.representation.Class classe : pac.getAllClasses()) {
                 ownConcerns.addAll(classe.getOwnConcerns());
@@ -286,8 +355,8 @@ public class ReadOutputsArchitectures {
             List<Concern> otherConcerns = new ArrayList<>();
 
             for (Package pac : allPackages) {
-                System.out.println(pac.getName());
-                System.out.println("");
+//                System.out.println(pac.getName());
+//                System.out.println("");
                 List<Concern> ownConcerns = new ArrayList<>();
                 for (arquitetura.representation.Class classe : pac.getAllClasses()) {
                     ownConcerns.addAll(classe.getOwnConcerns());
@@ -358,6 +427,7 @@ public class ReadOutputsArchitectures {
             System.out.println("-------------------------------------");
 
             System.out.println("Concerns Client1:  ");
+            System.out.println("Size: " + client1Concerns.size());
             contTotal = 0;
             foi = new ArrayList<>();
             for (int i = 0; i < client1Concerns.size(); i++) {
@@ -384,8 +454,8 @@ public class ReadOutputsArchitectures {
             List<Concern> otherConcerns = new ArrayList<>();
 
             for (Package pac : allPackages) {
-                System.out.println(pac.getName());
-                System.out.println("");
+//                System.out.println(pac.getName());
+//                System.out.println("");
                 List<Concern> ownConcerns = new ArrayList<>();
                 for (arquitetura.representation.Class classe : pac.getAllClasses()) {
                     ownConcerns.addAll(classe.getOwnConcerns());
@@ -404,16 +474,16 @@ public class ReadOutputsArchitectures {
                     }
                 }
 
-                if (pac.getName().toUpperCase().endsWith("GUI")) {
+                if (pac.getName().toUpperCase().endsWith("SERVIDORONIBUS") || pac.getName().equalsIgnoreCase("ValidadorServidorCtrl")) {
+                    servidorOnibusConcerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("CLIENTEONIBUS") || pac.getName().equalsIgnoreCase("ValidadorOnibusCtrl") || pac.getName().equalsIgnoreCase("ValidadorMgr")) {
+                    clientOnibusConcerns.addAll(ownConcerns);
+                } else if (pac.getName().toUpperCase().endsWith("GUI")) {
                     guiConcerns.addAll(ownConcerns);
                 } else if (pac.getName().toUpperCase().endsWith("CTRL")) {
                     betConcerns.addAll(ownConcerns);
                 } else if (pac.getName().toUpperCase().endsWith("MGR")) {
                     betConcerns.addAll(ownConcerns);
-                } else if (pac.getName().toUpperCase().endsWith("SERVIDORONIBUS")) {
-                    servidorOnibusConcerns.addAll(ownConcerns);
-                } else if (pac.getName().toUpperCase().endsWith("CLIENTEONIBUS")) {
-                    clientOnibusConcerns.addAll(ownConcerns);
                 } else {
                     otherConcerns.addAll(ownConcerns);
                 }

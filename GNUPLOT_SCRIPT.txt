@@ -4,7 +4,7 @@ set output 'experiment/agm/AGM_Pareto.png'
 set key
 set xlabel 'FM'
 set ylabel 'CM'
-plot "experiment/agm/agm_200_30000_1.0_allComponents/FUN_All_N_agm.txt" using 1:2 title "PLAM" pt 4, "experiment/agm/agm_200_30000_1.0_layer/FUN_All_N_agm.txt" using 1:2 title "PLAMS" pt 3
+plot "experiment/agm/agm_50_15050_0.9_allComponents/FUN_All_N_agm.txt" using 1:2 title "PLAM  " pt 4, "experiment/agm/agm_100_30100_0.9_layer/FUN_All_N_agm.txt" using 1:2 title "PLAM-L" pt 3
 clear
 
 # Generating MM
@@ -13,7 +13,7 @@ set output 'experiment/MobileMedia/MM_Pareto.png'
 set key
 set xlabel 'FM'
 set ylabel 'CM'
-plot "experiment/MobileMedia/MobileMedia_50_30000_0.9_allComponents/FUN_All_N_MobileMedia.txt" using 1:2 title "PLAM" pt 4, "experiment/MobileMedia/MobileMedia_50_30000_1.0_layer/FUN_All_N_MobileMedia.txt" using 1:2 title "PLAMS" pt 3
+plot "experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/FUN_All_N_MobileMedia.txt" using 1:2 title "PLAM  " pt 4, "experiment/MobileMedia/MobileMedia_100_10100_1.0_layer/FUN_All_N_MobileMedia.txt" using 1:2 title "PLAM-L" pt 3
 clear
 
 # Generating BeT
@@ -22,5 +22,14 @@ set output 'experiment/BeT/BET_Pareto.png'
 set key
 set xlabel 'FM'
 set ylabel 'CM'
-plot "experiment/BeT/BeT_50_30000_0.9_allComponents/FUN_All_N_BeT.txt" using 1:2 title "PLAM" pt 4, "experiment/BeT/BeT_50_30000_1.0_layer/FUN_All_N_BeT.txt" using 1:2 title "PLAMS" pt 3
+plot "experiment/BeT/BeT_50_5050_1.0_allComponents/FUN_All_N_BeT.txt" using 1:2 title "PLAM   " pt 4, "experiment/BeT/BeT_100_10100_0.9_layer/FUN_All_N_BeT.txt" using 1:2 title "PLAM-L " pt 3, "experiment/BeT/BeT-clientserver_100_30100_0.9_clientserver/FUN_All_N_BeT.txt" using 1:2 title "PLAM-CS" pt 2
+clear
+
+# Generating banking
+set terminal png size 400,400 enhanced font 'arial' 10 butt
+set output 'experiment/banking/banking_Pareto.png'
+set key
+set xlabel 'FM'
+set ylabel 'CM'
+plot "experiment/banking/banking_50_5050_0.9_allComponents/FUN_All_N_banking.txt" using 1:2 title "PLAM   " pt 4, "experiment/banking/banking_100_10100_0.9_clientserver/FUN_All_N_banking.txt" using 1:2 title "PLAM-CS" pt 3
 clear

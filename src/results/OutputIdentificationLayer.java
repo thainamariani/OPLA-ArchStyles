@@ -51,6 +51,9 @@ public class OutputIdentificationLayer {
         List<String> sufixos = new ArrayList<>();
         List<String> prefixos = new ArrayList<>();
         sufixos.add("Mgr");
+//        sufixos.add("Ctrl");
+//        sufixos.add("ServidorOnibus");
+//        sufixos.add("ClienteOnibus");
         layer1.setSufixos(sufixos);
         layer1.setPrefixos(prefixos);
         camadas.add(layer1);
@@ -83,7 +86,7 @@ public class OutputIdentificationLayer {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
-                        if (subsubdirectory.toString().endsWith("layer")) {
+                        if (subsubdirectory.toString().endsWith("allComponents")) {
                             System.out.println("subsubdirectory: " + subsubdirectory.getName());
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();
