@@ -150,15 +150,19 @@ public class OperatorUtil {
         return listOfOwnedConcern;
     }
 
-    public static void modularizeConcernInComponent(List<? extends Style> styles, Style style, Package targetComponent, Concern concern, Architecture arch) {
+    public static void modularizeConcernInComponent(boolean considerAspect, List<? extends Style> styles, Style style, Package targetComponent, Concern concern, Architecture arch) {
         try {
             List<Package> allComponents = new ArrayList<>();
-            if (style instanceof Server) {
-                for (Server servidor : ClientServerIdentification.getLISTSERVERS()) {
-                    allComponents.addAll(servidor.getPackages());
+            if (style != null) {
+                if (style instanceof Server) {
+                    for (Server servidor : ClientServerIdentification.getLISTSERVERS()) {
+                        allComponents.addAll(servidor.getPackages());
+                    }
+                } else {
+                    allComponents = style.getPackages();
                 }
             } else {
-                allComponents = style.getPackages();
+                allComponents = new ArrayList<Package>(arch.getAllPackages());
             }
 
             Iterator<Package> itrComp = allComponents.iterator();
@@ -199,27 +203,29 @@ public class OperatorUtil {
                                     moveHierarchyToComponent(style, classComp, targetComponent, comp, arch, concern); //realiza a muta����o em classes est��o numa hierarquia de herarquia
                                 }
                             } else {
-                                if (!searchForGeneralizations(classComp)) {
-                                    if (!isVarPointOfConcern(arch, classComp, concern) && !isVariantOfConcern(arch, classComp, concern)) {
-                                        final List<Attribute> attributesClassComp = new ArrayList<Attribute>(classComp.getAllAttributes());
-                                        Iterator<Attribute> irtAttribute = attributesClassComp.iterator();
-                                        while (irtAttribute.hasNext()) {
-                                            Attribute attribute = irtAttribute.next();
-                                            if (attribute.getOwnConcerns().size() == 1 && attribute.containsConcern(concern)) {
-                                                moveAttributeToComponent(attribute, classComp, targetComponent, comp, arch, concern);
-                                            }
-                                        }
-                                        attributesClassComp.clear();
-                                        if (!classComp.getPatternsOperations().hasPatternApplied()) {
-                                            final List<Method> methodsClassComp = new ArrayList<Method>(classComp.getAllMethods());
-                                            Iterator<Method> irtMethod = methodsClassComp.iterator();
-                                            while (irtMethod.hasNext()) {
-                                                Method method = irtMethod.next();
-                                                if (method.getOwnConcerns().size() == 1 && method.containsConcern(concern)) {
-                                                    moveMethodToComponent(method, classComp, targetComponent, comp, arch, concern);
+                                if ((!considerAspect) || (considerAspect && !classComp.isAspect())) {
+                                    if (!searchForGeneralizations(classComp)) {
+                                        if (!isVarPointOfConcern(arch, classComp, concern) && !isVariantOfConcern(arch, classComp, concern)) {
+                                            final List<Attribute> attributesClassComp = new ArrayList<Attribute>(classComp.getAllAttributes());
+                                            Iterator<Attribute> irtAttribute = attributesClassComp.iterator();
+                                            while (irtAttribute.hasNext()) {
+                                                Attribute attribute = irtAttribute.next();
+                                                if (attribute.getOwnConcerns().size() == 1 && attribute.containsConcern(concern)) {
+                                                    moveAttributeToComponent(considerAspect, attribute, classComp, targetComponent, comp, arch, concern);
                                                 }
                                             }
-                                            methodsClassComp.clear();
+                                            attributesClassComp.clear();
+                                            if (!classComp.getPatternsOperations().hasPatternApplied()) {
+                                                final List<Method> methodsClassComp = new ArrayList<Method>(classComp.getAllMethods());
+                                                Iterator<Method> irtMethod = methodsClassComp.iterator();
+                                                while (irtMethod.hasNext()) {
+                                                    Method method = irtMethod.next();
+                                                    if (method.getOwnConcerns().size() == 1 && method.containsConcern(concern)) {
+                                                        moveMethodToComponent(considerAspect, method, classComp, targetComponent, comp, arch, concern);
+                                                    }
+                                                }
+                                                methodsClassComp.clear();
+                                            }
                                         }
                                     }
                                 }
@@ -238,13 +244,13 @@ public class OperatorUtil {
         sourceComp.moveClassToPackage(classComp, targetComp);
     }
 
-    public static void moveAttributeToComponent(Attribute attribute, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
+    public static void moveAttributeToComponent(boolean considerAspect, Attribute attribute, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
         final Class targetClass = findOrCreateClassWithConcern(targetComp, concern);
         classComp.moveAttributeToClass(attribute, targetClass);
         createAssociation(architecture, targetClass, classComp);
     }
 
-    public static void moveMethodToComponent(Method method, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
+    public static void moveMethodToComponent(boolean considerAspect, Method method, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
         final Class targetClass = findOrCreateClassWithConcern(targetComp, concern);
         classComp.moveMethodToClass(method, targetClass);
         createAssociation(architecture, targetClass, classComp);
@@ -253,7 +259,7 @@ public class OperatorUtil {
     //add por Édipo
     public static Class findOrCreateClassWithConcern(Package targetComp, Concern concern) throws ConcernNotFoundException {
         Class targetClass = null;
-        for (Class cls : targetComp.getAllClasses()) {
+        for (Class cls : StyleUtil.returnClassesWithoutAspect(targetComp)) {
             if (cls.containsConcern(concern)) {
                 targetClass = cls;
             }
@@ -333,7 +339,8 @@ public class OperatorUtil {
     }
 
     /**
-     * Retorna todas as classes que tiverem algum dos concerns presentes na lista ownConcerns.
+     * Retorna todas as classes que tiverem algum dos concerns presentes na
+     * lista ownConcerns.
      *
      * @param ownConcerns
      * @param allClasses
@@ -373,7 +380,14 @@ public class OperatorUtil {
             // Se quem estiver implementando a interface que teve a operacao movida for um pacote.
             if (implementor instanceof Package) {
                 /**
-                 * Verifica se o pacote tem somente um classe, recupera a mesma e verifica se a interface destino (targetInterface) possui algum interesse da classe recuperada. Caso tiver, remove implemented interface (sourceInterface) de sourceComp. Adiciona a interface tergetInterface em seu pacote ou na arquitetura Verifica se já existe um relacionamento de realização entre targetInterface e klass, caso não tiver adiciona targetInterface como sendo implemenda por klass.
+                 * Verifica se o pacote tem somente um classe, recupera a mesma
+                 * e verifica se a interface destino (targetInterface) possui
+                 * algum interesse da classe recuperada. Caso tiver, remove
+                 * implemented interface (sourceInterface) de sourceComp.
+                 * Adiciona a interface tergetInterface em seu pacote ou na
+                 * arquitetura Verifica se já existe um relacionamento de
+                 * realização entre targetInterface e klass, caso não tiver
+                 * adiciona targetInterface como sendo implemenda por klass.
                  */
                 if (targetComp.getAllClasses().size() == 1) {
                     final Class klass = targetComp.getAllClasses().iterator().next();
@@ -387,7 +401,14 @@ public class OperatorUtil {
                     }
 
                     /**
-                     * Caso o pacote destino tiver mais de uma classe. Busca dentre essas classes todas com o interesse em questão (concern), e seleciona um aleatoriamente. Remove implemented interface (sourceInterface) de sourceComp. Adiciona a interface tergetInterface em seu pacote ou na arquitetura Verifica se já existe um relacionamento de realização entre targetInterface e klass, caso não tiver adiciona targetInterface como sendo implemenda por klass.
+                     * Caso o pacote destino tiver mais de uma classe. Busca
+                     * dentre essas classes todas com o interesse em questão
+                     * (concern), e seleciona um aleatoriamente. Remove
+                     * implemented interface (sourceInterface) de sourceComp.
+                     * Adiciona a interface tergetInterface em seu pacote ou na
+                     * arquitetura Verifica se já existe um relacionamento de
+                     * realização entre targetInterface e klass, caso não tiver
+                     * adiciona targetInterface como sendo implemenda por klass.
                      */
                 } else if (targetComp.getAllClasses().size() > 1) {
                     final List<Class> targetClasses = allClassesWithConcerns(concern, targetComp.getAllClasses());
@@ -398,7 +419,8 @@ public class OperatorUtil {
                     return;
                 } else {
                     /**
-                     * Caso o pacote for vazio, faz um busca nas classes da arquitetura como um todo.
+                     * Caso o pacote for vazio, faz um busca nas classes da
+                     * arquitetura como um todo.
                      */
                     //Alterado: busca na mesma camada e na camada superior
                     List<arquitetura.representation.Package> packages = new ArrayList<>();
@@ -434,7 +456,10 @@ public class OperatorUtil {
             }
 
             /**
-             * Recupera quem estava implementando a interface que teve a operacao movida e cria uma realizacao entre a interface que recebeu a operacao (targetInterface) e quem tava implementando a interface que teve a operacao movida (sourceInterface).
+             * Recupera quem estava implementando a interface que teve a
+             * operacao movida e cria uma realizacao entre a interface que
+             * recebeu a operacao (targetInterface) e quem tava implementando a
+             * interface que teve a operacao movida (sourceInterface).
              *
              */
             if (implementor instanceof Class) {
@@ -535,6 +560,7 @@ public class OperatorUtil {
 //        return sameLayer;
 //    }
     //-------------------------------------------------------------------------------------------------
+    //-------------------------------------------------------------------------------------------------
     //Thelma: método adicionado para retornar o sufixo do nome do componente
     public static String getSuffix(Package comp) {
         String suffix;
@@ -544,6 +570,16 @@ public class OperatorUtil {
             suffix = "Ctrl";
         } else if (comp.getName().endsWith("GUI")) {
             suffix = "GUI";
+        } else if (comp.getName().endsWith("ClienteOnibus")) {
+            suffix = "ClienteOnibus";
+        } else if (comp.getName().endsWith("ServidorOnibus")) {
+            suffix = "ServidorOnibus";
+        } else if (comp.getName().endsWith("Server1")) {
+            suffix = "Server1";
+        } else if (comp.getName().endsWith("Server2")) {
+            suffix = "Server2";
+        } else if (comp.getName().endsWith("Client1")) {
+            suffix = "Client1";
         } else {
             suffix = "";
         }
@@ -593,7 +629,8 @@ public class OperatorUtil {
     }
 
     /**
-     * metodo que move a hierarquia de classes para um outro componente que esta modularizando o interesse concern
+     * metodo que move a hierarquia de classes para um outro componente que esta
+     * modularizando o interesse concern
      *
      *
      * @param style
@@ -611,7 +648,8 @@ public class OperatorUtil {
 
     //EDIPO Identifica quem é o parent para a classComp
     /**
-     * Dado um {@link Element} retorna a {@link GeneralizationRelationship} no qual o mesmo pertence.
+     * Dado um {@link Element} retorna a {@link GeneralizationRelationship} no
+     * qual o mesmo pertence.
      *
      * @param element
      * @return {@link GeneralizationRelationship}

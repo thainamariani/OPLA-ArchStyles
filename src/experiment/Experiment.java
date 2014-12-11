@@ -34,7 +34,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"1", "1", "0", ArchitectureRepository.BANKING, "no", "original"};
+        args = new String[]{"50", "50", "1", ArchitectureRepository.ASPECT, "aspect", "teste"};
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -46,7 +46,7 @@ public class Experiment {
             System.exit(0);
         }
 
-        int runsNumber = 1; //30; //10
+        int runsNumber = 10; //30; //10
         if (args[0] == null || args[0].trim().equals("")) {
             System.out.println("Missing population size argument.");
             System.exit(1);
@@ -101,7 +101,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = false;
+        boolean shouldPrintVariables = true;
 
         String plaName = getPlaName(pla);
 
@@ -114,18 +114,23 @@ public class Experiment {
 
         String plaDirectory = getPlaDirectory(pla);
         ReaderConfig.setPathToTemplateModelsDirectory(plaDirectory + "/");
-        if (!plaName.equalsIgnoreCase("agm") && !plaName.equalsIgnoreCase("banking")) {
+        if (!plaName.equalsIgnoreCase("agm") && !plaName.equalsIgnoreCase("banking") && !plaName.equalsIgnoreCase("model")) {
             System.out.println("MM, BET, BetClientServer");
             ReaderConfig.setPathToProfileSMarty(plaDirectory + "/resources/smarty.profile.uml");
             ReaderConfig.setPathToProfileConcerns(plaDirectory + "/resources/concerns.profile.uml");
             ReaderConfig.setPathProfileRelationship(plaDirectory + "/resources/relationships.profile.uml");
             ReaderConfig.setPathToProfilePatterns(plaDirectory + "/resources/patterns.profile.uml");
+            if (style.equals("aspect")) {
+                ReaderConfig.setPathToProfileAspect(plaDirectory + "/resources/aspect.profile.uml");
+            }
         } else {
             System.out.println("AGM ou Banking");
             ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
             ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
             ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
-            ReaderConfig.setPathToProfilePatterns(plaDirectory + "/patterns.profile.uml");
+            if (style.equals("aspect")) {
+                ReaderConfig.setPathToProfileAspect(plaDirectory + "/aspect.profile.uml");
+            }
         }
 
         String xmiFilePath = pla;
@@ -169,6 +174,11 @@ public class Experiment {
                 mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
                 execution = true;
             }
+        } else if (style.equals("aspect")) {
+            //falta a identificação
+            System.out.println("Adicionando operadores com restrições de aspecto");
+            mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
+            execution = true;
         } else {
             System.out.println("Adicionando operadores sem restrições");
             //parâmetro style para esse caso representa o escopo (scope) (allComponents, sameComponent)

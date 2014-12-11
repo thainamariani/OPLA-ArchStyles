@@ -1,11 +1,14 @@
 package mutation;
 
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Class;
+import arquitetura.representation.Package;
 import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import jmetal.core.Solution;
 import jmetal.operators.mutation.Mutation;
@@ -23,6 +26,7 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pojo.Style;
 import util.OperatorUtil;
+import util.StyleUtil;
 
 public class PLAFeatureMutationConstraints extends Mutation {
 
@@ -47,7 +51,7 @@ public class PLAFeatureMutationConstraints extends Mutation {
         if (solution.getDecisionVariables()[0].getVariableType().toString().equals("class " + Architecture.ARCHITECTURE_TYPE)) {
             Architecture architecture = ((Architecture) solution.getDecisionVariables()[0]);
             List<Style> list = new ArrayList<>();
-
+            
             switch (style) {
                 case "layer":
                     LayerIdentification.clearPackagesFromLayers();
@@ -97,15 +101,8 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     name = "addpackage";
                     break;
             }
+            System.out.println("Operador " +name);
 
-//            if (!StyleGui.verifyLayer(architecture)) {
-//                //ArchitectureRepository.setCurrentArchitecture(architecture);
-//                //ArchitectureRepository.saveArchitecture(name, "agmteste");
-//                //System.err.println("Arquitetura incorreta salva em agmteste/" + name);
-//                //LOGGER.info("Arquitetura incorreta salva em agmteste/" + name);
-//                System.out.println("Arquitetura incorreta");
-//                System.out.println("Operador executado: " + name);
-//            }
         } else {
             Configuration.logger_.log(Level.SEVERE, "doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());
             java.lang.Class<String> cls = java.lang.String.class;

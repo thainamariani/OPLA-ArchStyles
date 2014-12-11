@@ -42,8 +42,10 @@ public class AddClass implements OperatorConstraints {
         if (PseudoRandom.randDouble() < probability) {
             if (style.equals("layer")) {
                 doMutationLayer(probability, architecture, (List<Layer>) styles);
-            } else {
+            } else if (style.equals("clientserver")) {
                 doMutationClientServer(probability, architecture, (List<Style>) styles);
+            } else if (style.equals("aspect")) {
+                doMutationAspect(probability, architecture);
             }
         }
     }
@@ -85,6 +87,18 @@ public class AddClass implements OperatorConstraints {
             }
             mutation(sourceClass, architecture, sourceComp, targetPackage);
         }
+    }
+
+    private void doMutationAspect(double probability, Architecture architecture) {
+        final arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
+        List<arquitetura.representation.Class> ClassesComp = StyleUtil.returnClassesWithoutAspect(sourceComp);
+        OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
+        if (ClassesComp.size() > 0) {
+            final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);
+            final arquitetura.representation.Package targetPackage = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
+            mutation(sourceClass, architecture, targetPackage, sourceComp);
+        }
+        ClassesComp.clear();
     }
 
     public void mutation(arquitetura.representation.Class sourceClass, Architecture architecture, arquitetura.representation.Package sourceComp, arquitetura.representation.Package targetPackage) {

@@ -53,11 +53,11 @@ public class OutputIdentificationClientServer {
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("banking")) {
+                if (split[0].equals("BeT")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
-                        if (subsubdirectory.toString().endsWith("allComponents")) {
+                        if (subsubdirectory.toString().endsWith("clientserver")) {
                             System.out.println("subsubdirectory: " + subsubdirectory.getName());
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();
@@ -224,8 +224,7 @@ public class OutputIdentificationClientServer {
                 validSolution = false;
             }
         }
-        System.out.println("Valida? " + validSolution);
-    }
+        }
 
     public static List<Style> verifyBet() {
         List<Client> clients = new ArrayList<>();

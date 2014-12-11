@@ -5,7 +5,11 @@
  */
 package util;
 
+import arquitetura.representation.Architecture;
+import arquitetura.representation.Class;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import pojo.Layer;
 import pojo.Style;
 
@@ -42,6 +46,17 @@ public class StyleUtil {
             }
         }
         return null;
+    }
+
+    public static List<arquitetura.representation.Class> returnClassesWithoutAspect(arquitetura.representation.Package sourcePackage) {
+        List<Class> allClasses = new ArrayList<Class>(sourcePackage.getAllClasses());
+        List<Class> returnClasses = new ArrayList<Class>();
+        for (Class classe : allClasses) {
+            if (!classe.isAspect()) {
+                returnClasses.add(classe);
+            }
+        }
+        return returnClasses;
     }
 
 }

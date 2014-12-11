@@ -35,8 +35,10 @@ public class MoveMethod implements OperatorConstraints {
         if (PseudoRandom.randDouble() < probability) {
             if (style.equals("layer")) {
                 doMutationLayer(probability, architecture, (List<Layer>) styles);
-            } else {
+            } else if (style.equals("clientserver")) {
                 doMutationClientServer(probability, architecture, (List<Style>) styles);
+            } else if (style.equals("aspect")) {
+                doMutationAspect(probability, architecture);
             }
         }
     }
@@ -52,8 +54,8 @@ public class MoveMethod implements OperatorConstraints {
             final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
             Layer layerSourcePackage = OperatorUtil.findPackageLayer(layers, sourceComp);
             final Package targetPackage = OperatorUtil.randomObject(layerSourcePackage.getPackages());
-
-            mutation(sourceClass, architecture, targetPackage, sourceComp);
+            Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(targetPackage.getAllClasses()));
+            mutation(targetClass, sourceClass, architecture, targetPackage, sourceComp);
         }
         ClassesComp.clear();
     }
@@ -76,13 +78,13 @@ public class MoveMethod implements OperatorConstraints {
                 Server targetServer = OperatorUtil.randomObject(ClientServerIdentification.getLISTSERVERS());
                 targetPackage = OperatorUtil.randomObject(targetServer.getPackages());
             }
-            mutation(sourceClass, architecture, targetPackage, sourceComp);
+            Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(targetPackage.getAllClasses()));
+            mutation(targetClass, sourceClass, architecture, targetPackage, sourceComp);
         }
         ClassesComp.clear();
     }
 
-    public void mutation(arquitetura.representation.Class sourceClass, Architecture architecture, arquitetura.representation.Package targetPackage, arquitetura.representation.Package sourceComp) {
-        final Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(targetPackage.getAllClasses()));
+    public void mutation(arquitetura.representation.Class targetClass, arquitetura.representation.Class sourceClass, Architecture architecture, arquitetura.representation.Package targetPackage, arquitetura.representation.Package sourceComp) {
         if ((sourceClass != null) && (!OperatorUtil.searchForGeneralizations(sourceClass))
                 && (sourceClass.getAllAttributes().size() > 1)
                 && (sourceClass.getAllMethods().size() > 1)
@@ -115,6 +117,20 @@ public class MoveMethod implements OperatorConstraints {
                 MethodsClass.clear();
             }
         }
+    }
+
+    private void doMutationAspect(double probability, Architecture architecture) {
+        final Package sourceComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
+        List<Class> ClassesComp = StyleUtil.returnClassesWithoutAspect(sourceComp);
+        OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
+        if (ClassesComp.size() > 0) {
+            final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
+            final Package targetPackage = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
+            List<Class> targetClasses = StyleUtil.returnClassesWithoutAspect(targetPackage);
+            Class targetClass = OperatorUtil.randomObject(targetClasses);
+            mutation(targetClass, sourceClass, architecture, targetPackage, sourceComp);
+        }
+        ClassesComp.clear();
     }
 
 }

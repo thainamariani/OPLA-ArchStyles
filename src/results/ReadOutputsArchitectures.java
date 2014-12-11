@@ -30,6 +30,7 @@ import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import pojo.Layer;
+import static results.OutputIdentificationClientServer.getInvalidsInterfaces;
 import util.ElementUtil;
 import util.OperatorUtil;
 import util.RelationshipUtil;
@@ -42,11 +43,11 @@ public class ReadOutputsArchitectures {
 
     public static void main(String[] args) {
         List<String> plas = new ArrayList<>();
-        plas.add("agm");
-        //plas.add("mobilemedia");
-        //plas.add("bet");
-        //plas.add("banking");
-        //plas.add("betserver");
+        //plas.add("agm");
+        plas.add("mobilemedia");
+//        plas.add("bet");
+//        plas.add("banking");
+//        plas.add("betserver");
 
         for (String pla : plas) {
             List<File> solutions = new ArrayList<>();
@@ -64,15 +65,15 @@ public class ReadOutputsArchitectures {
                
                 
             } else if (pla.equals("mobilemedia")) {
-                //solutions.add(new File("mobilemedia/MobileMedia.uml"));
-                solutions.add(new File("experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/output/VAR_All_MobileMedia1.uml"));
+                solutions.add(new File("mobilemedia/MobileMedia.uml"));
+                solutions.add(new File("experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/output/VAR_All_MobileMedia0.uml"));
                 solutions.add(new File("experiment/MobileMedia/MobileMedia_100_10100_1.0_layer/output/VAR_All_MobileMedia8.uml"));
             } else if (pla.equals("bet")) {
                 //solutions.add(new File("BeT/BeT.uml"));
-                solutions.add(new File("experiment/BeT/BeT_50_5050_1.0_allComponents/output/VAR_All_BeT4.uml"));
+//                solutions.add(new File("experiment/BeT/BeT_50_5050_1.0_allComponents/output/VAR_All_BeT4.uml"));
                 solutions.add(new File("experiment/BeT/BeT_100_10100_0.9_layer/output/VAR_All_BeT6.uml"));
             } else if (pla.equals("banking")) {
-                //solutions.add(new File("banking/banking.uml"));
+                solutions.add(new File("banking/banking.uml"));
                 solutions.add(new File("experiment/banking/banking_50_5050_0.9_allComponents/output/VAR_All_banking0.uml"));
                 solutions.add(new File("experiment/banking/banking_100_10100_0.9_clientserver/output/VAR_All_banking1.uml"));
             } else if (pla.equals("betserver")) {
@@ -116,14 +117,14 @@ public class ReadOutputsArchitectures {
                     System.out.println("PLA: " + pla);
                     System.out.println("Solution: " + solution.getPath());
 
-                    getElements(architecture, pla);
-                    //getConcernsforClientServer(architecture, pla);
+//                    getElements(architecture, pla);
+//                    getConcernsforClientServer(architecture, pla);
                     getConcernsforLayer(architecture, pla);
-                    //getInvalidsInterfaces(architecture);
-                    //OutputIdentificationLayer.getInterfacesImplementors(architecture);
+//                   getInvalidsInterfaces(architecture);
+//                    OutputIdentificationLayer.getInterfacesImplementors(architecture);
                     //replaceUsageforDependency(architecture);
                     //getDependents(architecture);
-                    //getRelationshipsBetweenPackages(architecture);
+//                  getRelationshipsBetweenPackages(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }
