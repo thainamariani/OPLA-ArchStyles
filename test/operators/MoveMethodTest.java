@@ -6,10 +6,12 @@
 package operators;
 
 import arquitetura.builders.ArchitectureBuilder;
+import arquitetura.io.ReaderConfig;
 import arquitetura.representation.Architecture;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
+import mutation.PLAFeatureMutationConstraints;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -110,5 +112,53 @@ public class MoveMethodTest {
 
             Assert.assertTrue((targetPackage.getName().equalsIgnoreCase("Pacote1Client1")) || (targetPackage.getName().equalsIgnoreCase("Pacote2Client1")));
         }
+    }
+
+    @Test
+    public void testDoMutationAspect() throws Exception {
+        ReaderConfig.setPathToProfileSMarty("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/smarty.profile.uml");
+        ReaderConfig.setPathToProfileConcerns("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/concerns.profile.uml");
+        ReaderConfig.setPathProfileRelationship("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/relationships.profile.uml");
+        ReaderConfig.setPathToProfileAspect("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/aspect.profile.uml");
+        ArchitectureBuilder builder = new ArchitectureBuilder();
+        Architecture architecture = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/model.uml");
+
+        arquitetura.representation.Package sourceComp = architecture.findPackageByName("Package1");
+        arquitetura.representation.Class class1 = architecture.findClassByName("Class1").get(0);
+        arquitetura.representation.Class class2 = architecture.findClassByName("Class2").get(0);
+        arquitetura.representation.Class class3 = architecture.findClassByName("Class3").get(0);
+        arquitetura.representation.Class class4 = architecture.findClassByName("Class4").get(0);
+        arquitetura.representation.Class class5 = architecture.findClassByName("Class5").get(0);
+        arquitetura.representation.Class class6 = architecture.findClassByName("Class6").get(0);
+        arquitetura.representation.Class aspect = architecture.findClassByName("Aspect").get(0);
+
+        List<arquitetura.representation.Class> ClassesComp = StyleUtil.returnClassesWithoutAspect(sourceComp);
+        Assert.assertTrue(ClassesComp.size() == 6);
+        Assert.assertTrue(ClassesComp.contains(class1));
+        Assert.assertTrue(ClassesComp.contains(class2));
+        Assert.assertTrue(ClassesComp.contains(class3));
+        Assert.assertTrue(ClassesComp.contains(class4));
+        Assert.assertTrue(ClassesComp.contains(class5));
+        Assert.assertTrue(ClassesComp.contains(class6));
+        Assert.assertFalse(ClassesComp.contains(aspect));
+
+        if (ClassesComp.size() > 0) {
+            final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);
+            final arquitetura.representation.Package targetPackage = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
+            List<arquitetura.representation.Class> targetClasses = StyleUtil.returnClassesWithoutAspect(targetPackage);
+            Assert.assertTrue(targetClasses.size() == 6);
+            Assert.assertTrue(targetClasses.contains(class1));
+            Assert.assertTrue(targetClasses.contains(class2));
+            Assert.assertTrue(targetClasses.contains(class3));
+            Assert.assertTrue(targetClasses.contains(class4));
+            Assert.assertTrue(targetClasses.contains(class5));
+            Assert.assertTrue(targetClasses.contains(class6));
+            Assert.assertFalse(targetClasses.contains(aspect));
+
+            arquitetura.representation.Class targetClass = OperatorUtil.randomObject(targetClasses);
+            MoveMethod moveMethod = new MoveMethod();
+            //moveMethod.mutation(targetClass, sourceClass, architecture, targetPackage, sourceComp);
+        }
+
     }
 }
