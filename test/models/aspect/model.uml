@@ -39,6 +39,7 @@
       <packagedElement xmi:type="uml:Class" xmi:id="_jmN-wGwxEeSU24XA1TggSA" name="Class3">
         <ownedOperation xmi:id="_oA2-EGwxEeSU24XA1TggSA" name="op1Class3"/>
         <ownedOperation xmi:id="_oRSmwGwxEeSU24XA1TggSA" name="op2Class3"/>
+        <ownedOperation xmi:id="_nfFdoIRiEeSIduTmM25kQw" name="Operation1"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_it2MUGwxEeSU24XA1TggSA" name="Class1">
         <ownedOperation xmi:id="_nZ2BYGwxEeSU24XA1TggSA" name="op1Class1"/>
@@ -117,6 +118,20 @@
         <ownedOperation xmi:id="_pONiAGwxEeSU24XA1TggSA" name="op1Class4"/>
         <ownedOperation xmi:id="_pz63IGwxEeSU24XA1TggSA" name="op2Class4"/>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_S3yw4IRfEeSIduTmM25kQw" name="Aspect2">
+        <ownedAttribute xmi:id="_eAF7AIRfEeSIduTmM25kQw" name="all" type="_VaW30H_LEeSVS_0kN17jIw" association="_eAIXQIRfEeSIduTmM25kQw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eAF7AYRfEeSIduTmM25kQw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eAF7AoRfEeSIduTmM25kQw" value="1"/>
+        </ownedAttribute>
+        <ownedOperation xmi:id="_YkqNEIRfEeSIduTmM25kQw" name="Operation1"/>
+        <ownedOperation xmi:id="_Y-Q_4IRfEeSIduTmM25kQw" name="Operation2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_eAIXQIRfEeSIduTmM25kQw" name="C5" memberEnd="_eAIXQYRfEeSIduTmM25kQw _eAF7AIRfEeSIduTmM25kQw">
+        <ownedEnd xmi:id="_eAIXQYRfEeSIduTmM25kQw" name="all" type="_S3yw4IRfEeSIduTmM25kQw" association="_eAIXQIRfEeSIduTmM25kQw">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eAIXQoRfEeSIduTmM25kQw" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eAIXQ4RfEeSIduTmM25kQw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
     </packagedElement>
     <profileApplication xmi:id="_e8gMMGwyEeSU24XA1TggSA">
       <eAnnotations xmi:id="_e8gMMWwyEeSU24XA1TggSA" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -162,4 +177,8 @@
   <perfilConcerns:action xmi:id="_Y4_m4IIFEeSDZcPxj4Wsow" base_Operation="_fgITIGwxEeSU24XA1TggSA"/>
   <perfilConcerns:action xmi:id="_gco-gIIFEeSDZcPxj4Wsow" base_Property="_czGsAIIFEeSDZcPxj4Wsow"/>
   <smarty:interface xmi:id="_B0K8YIIxEeSDZcPxj4Wsow" base_Class="_lOm44GwxEeSU24XA1TggSA"/>
+  <aspectprofile:aspect xmi:id="_WG6YQIRfEeSIduTmM25kQw" base_Class="_S3yw4IRfEeSIduTmM25kQw"/>
+  <aspectprofile:around xmi:id="_ZlgmEIRfEeSIduTmM25kQw" base_Operation="_YkqNEIRfEeSIduTmM25kQw"/>
+  <aspectprofile:around xmi:id="_apQiEIRfEeSIduTmM25kQw" base_Operation="_Y-Q_4IRfEeSIduTmM25kQw"/>
+  <aspectprofile:pointcut xmi:id="_hGC_UIRfEeSIduTmM25kQw" base_Association="_eAIXQIRfEeSIduTmM25kQw"/>
 </xmi:XMI>

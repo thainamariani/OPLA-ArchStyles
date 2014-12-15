@@ -5,6 +5,7 @@
  */
 package util;
 
+import arquitetura.exceptions.ConcernNotFoundException;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
 import arquitetura.representation.Element;
@@ -66,6 +67,63 @@ public class StyleUtil {
         return returnClasses;
     }
 
+    public void updatePointcut(Architecture architecture, Class aspect, Element sourceElement, Element targetElement, Method joinpoint) throws ConcernNotFoundException {
+        boolean create = true;
+        AssociationRelationship originalPointcut = returnPointcut(joinpoint, sourceElement);
+        List<Method> sourceElementAdvices = new ArrayList<>();
+        List<Method> sourceElementJoinpoints = new ArrayList<>();
+        AssociationEnd sourceElementAdvicesEnd = getElementAssociationEnd(originalPointcut, aspect);
+        AssociationEnd sourceElementJoinpointsEnd = getElementAssociationEnd(originalPointcut, sourceElement);
+        sourceElementAdvices.addAll(getMethods(sourceElementAdvicesEnd));
+        sourceElementJoinpoints.addAll(getMethods(sourceElementJoinpointsEnd));
+
+        if (sourceElementJoinpoints.size() == 1) {
+            architecture.removeRelationship(originalPointcut);
+        } else {
+            sourceElementJoinpoints.remove(joinpoint);
+            updateEnds(sourceElementJoinpointsEnd, sourceElementJoinpoints);
+        }
+
+        List<AssociationRelationship> targetPointcuts = returnPointcutsTargetElement(aspect, targetElement);
+        for (AssociationRelationship targetPointcut : targetPointcuts) {
+            List<Method> advicesTargetPointcut = new ArrayList<>();
+            List<Method> joinpointsTargetPoincut = new ArrayList<>();
+            AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(targetPointcut, targetElement);
+            AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(targetPointcut, aspect);
+            joinpointsTargetPoincut.addAll(getMethods(targetElementJoinpointsEnd));
+            advicesTargetPointcut.addAll(getMethods(targetElementAdvicesEnd));
+
+            if ((advicesTargetPointcut.size() == sourceElementAdvices.size()) && (advicesTargetPointcut.containsAll(sourceElementAdvices))) {
+                joinpointsTargetPoincut.add(joinpoint);
+                updateEnds(targetElementJoinpointsEnd, joinpointsTargetPoincut);
+                create = false;
+                break;
+            }
+        }
+
+        if (create) {
+            AssociationRelationship pointcut = new AssociationRelationship(aspect, targetElement);
+            pointcut.addPoincut("pointcut");
+            architecture.addRelationship(pointcut);
+            AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(pointcut, targetElement);
+            AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(pointcut, aspect);
+            List<Method> joinpoints = new ArrayList<>();
+            joinpoints.add(joinpoint);
+            updateEnds(targetElementJoinpointsEnd, joinpoints);
+            updateEnds(targetElementAdvicesEnd, sourceElementAdvices);
+        }
+
+    }
+
+    public AssociationEnd getElementAssociationEnd(AssociationRelationship association, Element element) {
+        if (association.getParticipants().get(0).getCLSClass().equals(element)) {
+            return association.getParticipants().get(0);
+        } else {
+            association.getParticipants().get(1);
+        }
+        return null;
+    }
+
     //retorna todos os relacionamentos pointcut da arquitetura
     public static List<AssociationRelationship> returnPointcuts(Architecture architecture) {
         List<AssociationRelationship> pointcuts = new ArrayList<>();
@@ -123,6 +181,24 @@ public class StyleUtil {
         return methods;
     }
 
+    public static void updateEnds(AssociationEnd associationEnd, List<Method> joinpoints) {
+        String endName = "";
+        List<Method> allMethods = new ArrayList<>();
+        if (associationEnd.getCLSClass() instanceof Class) {
+            allMethods.addAll(((Class) associationEnd.getCLSClass()).getAllMethods());
+        } else {
+            allMethods.addAll(((Interface) associationEnd.getCLSClass()).getOperations());
+        }
+        if (allMethods.containsAll(joinpoints)) {
+            endName = "all";
+        } else {
+            for (Method joinpoint : joinpoints) {
+                endName += joinpoint.getName() + ",";
+            }
+        }
+        associationEnd.setName(endName);
+    }
+
     //verifica se o método é um join point
     public static boolean isJoinPoint(Element sourceElement, Method movedMethod, Architecture architecture) {
         List<Method> joinPoints = new ArrayList<>();
@@ -150,7 +226,6 @@ public class StyleUtil {
         return false;
     }
 
-    //falta testar
     public static AssociationRelationship returnPointcut(Method joinpoint, Element joinpointElement) {
         List<Relationship> relationshipsElement = ElementUtil.getRelationships(joinpointElement);
 
@@ -175,6 +250,27 @@ public class StyleUtil {
         }
         return null;
     }
-    
+
     //metodo para verificar se a classe/interface destino possui um pointcut com a classe de origem
+    public static List<AssociationRelationship> returnPointcutsTargetElement(Class aspect, Element targetElement) {
+        List<Relationship> relationships = new ArrayList<>();
+        List<AssociationRelationship> pointcuts = new ArrayList<>();
+        if (targetElement instanceof Interface) {
+            Interface targetInterface = (Interface) targetElement;
+            relationships.addAll(targetInterface.getRelationships());
+        } else if (targetElement instanceof Class) {
+            Class targetClass = (Class) targetElement;
+            relationships.addAll(targetClass.getRelationships());
+        }
+
+        for (Relationship relationship : relationships) {
+            if ((relationship instanceof AssociationRelationship)) {
+                AssociationRelationship association = (AssociationRelationship) relationship;
+                if (association.isPoincut() && (association.getParticipants().get(0).getCLSClass().equals(aspect) || association.getParticipants().get(1).getCLSClass().equals(aspect))) {
+                    pointcuts.add(association);
+                }
+            }
+        }
+        return pointcuts;
+    }
 }

@@ -148,4 +148,66 @@ public class StyleUtilTest {
             }
         }
     }
+
+    @Test
+    public void testReturnPointcut() throws Exception {
+        boolean testInterface1 = false;
+        boolean testClass1 = false;
+
+        ReaderConfig.setPathToProfileSMarty("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/smarty.profile.uml");
+        ReaderConfig.setPathToProfileConcerns("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/concerns.profile.uml");
+        ReaderConfig.setPathProfileRelationship("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/relationships.profile.uml");
+        ReaderConfig.setPathToProfileAspect("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/aspect.profile.uml");
+        ArchitectureBuilder builder = new ArchitectureBuilder();
+        Architecture architecture = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/model.uml");
+
+        Interface interface1 = architecture.findInterfaceByName("Interface1");
+        for (Method method : interface1.getOperations()) {
+            if (method.getName().equals("op1Class4")) {
+                AssociationRelationship pointcut = StyleUtil.returnPointcut(method, interface1);
+                testInterface1 = pointcut.getName().equals("I1");
+            }
+        }
+        Assert.assertTrue(testInterface1);
+
+        Class class1 = architecture.findClassByName("Class1").get(0);
+        for (Method method : class1.getAllMethods()) {
+            if (method.getName().equals("op2Class1")) {
+                AssociationRelationship pointcut = StyleUtil.returnPointcut(method, class1);
+                testClass1 = pointcut.getName().equals("C1");
+            }
+        }
+        Assert.assertTrue(testClass1);
+
+        Class class5 = architecture.findClassByName("Class5").get(0);
+        Method method = class5.getAllMethods().iterator().next();
+        AssociationRelationship pointcut = StyleUtil.returnPointcut(method, class5);
+        Assert.assertEquals(null, pointcut);
+
+    }
+
+    @Test
+    public void testReturnPointcutsTargetClass() throws Exception {
+        ReaderConfig.setPathToProfileSMarty("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/smarty.profile.uml");
+        ReaderConfig.setPathToProfileConcerns("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/concerns.profile.uml");
+        ReaderConfig.setPathProfileRelationship("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/relationships.profile.uml");
+        ReaderConfig.setPathToProfileAspect("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/aspect.profile.uml");
+        ArchitectureBuilder builder = new ArchitectureBuilder();
+        Architecture architecture = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/model.uml");
+
+        Class aspect = architecture.findClassByName("Aspect").get(0);
+        Class class1 = architecture.findClassByName("Class1").get(0);
+        List<AssociationRelationship> pointcuts = StyleUtil.returnPointcutsTargetElement(aspect, class1);
+        Assert.assertTrue(pointcuts.size() == 1);
+        Assert.assertTrue(pointcuts.get(0).getName().equals("C1"));
+
+        Class class5 = architecture.findClassByName("Class5").get(0);
+        List<AssociationRelationship> pointcuts1 = StyleUtil.returnPointcutsTargetElement(aspect, class5);
+        Assert.assertTrue(pointcuts1.isEmpty());
+
+        Class aspect2 = architecture.findClassByName("Aspect2").get(0);
+        List<AssociationRelationship> pointcuts2 = StyleUtil.returnPointcutsTargetElement(aspect2, class5);
+        Assert.assertTrue(pointcuts2.size() == 1);
+        Assert.assertTrue(pointcuts2.get(0).getName().equals("C5"));
+    }
 }
