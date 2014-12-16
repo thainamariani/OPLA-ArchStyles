@@ -67,61 +67,66 @@ public class StyleUtil {
         return returnClasses;
     }
 
-    public void updatePointcut(Architecture architecture, Class aspect, Element sourceElement, Element targetElement, Method joinpoint) throws ConcernNotFoundException {
-        boolean create = true;
-        AssociationRelationship originalPointcut = returnPointcut(joinpoint, sourceElement);
-        List<Method> sourceElementAdvices = new ArrayList<>();
-        List<Method> sourceElementJoinpoints = new ArrayList<>();
-        AssociationEnd sourceElementAdvicesEnd = getElementAssociationEnd(originalPointcut, aspect);
-        AssociationEnd sourceElementJoinpointsEnd = getElementAssociationEnd(originalPointcut, sourceElement);
-        sourceElementAdvices.addAll(getMethods(sourceElementAdvicesEnd));
-        sourceElementJoinpoints.addAll(getMethods(sourceElementJoinpointsEnd));
+    public static void updatePointcut(Architecture architecture, Class aspect, Element sourceElement, Element targetElement, Method joinpoint) {
+        //pensar em um relacionamento que já foi removido (salvar antes), talvez chamar separado o pointcut
+        try {
+            boolean create = true;
+            AssociationRelationship originalPointcut = returnPointcut(joinpoint, sourceElement);
+            System.out.println("original pointcut: " +originalPointcut);
+            List<Method> sourceElementAdvices = new ArrayList<>();
+            List<Method> sourceElementJoinpoints = new ArrayList<>();
+            AssociationEnd sourceElementAdvicesEnd = getElementAssociationEnd(originalPointcut, aspect);
+            AssociationEnd sourceElementJoinpointsEnd = getElementAssociationEnd(originalPointcut, sourceElement);
+            sourceElementAdvices.addAll(getMethods(sourceElementAdvicesEnd));
+            sourceElementJoinpoints.addAll(getMethods(sourceElementJoinpointsEnd));
 
-        if (sourceElementJoinpoints.size() == 1) {
-            architecture.removeRelationship(originalPointcut);
-        } else {
-            sourceElementJoinpoints.remove(joinpoint);
-            updateEnds(sourceElementJoinpointsEnd, sourceElementJoinpoints);
-        }
-
-        List<AssociationRelationship> targetPointcuts = returnPointcutsTargetElement(aspect, targetElement);
-        for (AssociationRelationship targetPointcut : targetPointcuts) {
-            List<Method> advicesTargetPointcut = new ArrayList<>();
-            List<Method> joinpointsTargetPoincut = new ArrayList<>();
-            AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(targetPointcut, targetElement);
-            AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(targetPointcut, aspect);
-            joinpointsTargetPoincut.addAll(getMethods(targetElementJoinpointsEnd));
-            advicesTargetPointcut.addAll(getMethods(targetElementAdvicesEnd));
-
-            if ((advicesTargetPointcut.size() == sourceElementAdvices.size()) && (advicesTargetPointcut.containsAll(sourceElementAdvices))) {
-                joinpointsTargetPoincut.add(joinpoint);
-                updateEnds(targetElementJoinpointsEnd, joinpointsTargetPoincut);
-                create = false;
-                break;
+            if (sourceElementJoinpoints.size() == 1) {
+                System.out.println("removeRelationship? " +architecture.removeRelationship(originalPointcut));
+            } else {
+                sourceElementJoinpoints.remove(joinpoint);
+                updateEnds(sourceElementJoinpointsEnd, sourceElementJoinpoints);
             }
-        }
 
-        if (create) {
-            AssociationRelationship pointcut = new AssociationRelationship(aspect, targetElement);
-            pointcut.addPoincut("pointcut");
-            architecture.addRelationship(pointcut);
-            AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(pointcut, targetElement);
-            AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(pointcut, aspect);
-            List<Method> joinpoints = new ArrayList<>();
-            joinpoints.add(joinpoint);
-            updateEnds(targetElementJoinpointsEnd, joinpoints);
-            updateEnds(targetElementAdvicesEnd, sourceElementAdvices);
-        }
+            List<AssociationRelationship> targetPointcuts = returnPointcutsTargetElement(aspect, targetElement);
+            for (AssociationRelationship targetPointcut : targetPointcuts) {
+                List<Method> advicesTargetPointcut = new ArrayList<>();
+                List<Method> joinpointsTargetPoincut = new ArrayList<>();
+                AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(targetPointcut, targetElement);
+                AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(targetPointcut, aspect);
+                joinpointsTargetPoincut.addAll(getMethods(targetElementJoinpointsEnd));
+                advicesTargetPointcut.addAll(getMethods(targetElementAdvicesEnd));
 
+                if ((advicesTargetPointcut.size() == sourceElementAdvices.size()) && (advicesTargetPointcut.containsAll(sourceElementAdvices))) {
+                    joinpointsTargetPoincut.add(joinpoint);
+                    updateEnds(targetElementJoinpointsEnd, joinpointsTargetPoincut);
+                    create = false;
+                    break;
+                }
+            }
+
+            if (create) {
+                AssociationRelationship pointcut = new AssociationRelationship(aspect, targetElement);
+                pointcut.addPoincut("pointcut");
+                architecture.addRelationship(pointcut);
+                AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(pointcut, targetElement);
+                AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(pointcut, aspect);
+                targetElementJoinpointsEnd.setNavigable(true);
+                List<Method> joinpoints = new ArrayList<>();
+                joinpoints.add(joinpoint);
+                updateEnds(targetElementJoinpointsEnd, joinpoints);
+                updateEnds(targetElementAdvicesEnd, sourceElementAdvices);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-    public AssociationEnd getElementAssociationEnd(AssociationRelationship association, Element element) {
+    public static AssociationEnd getElementAssociationEnd(AssociationRelationship association, Element element) {
         if (association.getParticipants().get(0).getCLSClass().equals(element)) {
             return association.getParticipants().get(0);
         } else {
-            association.getParticipants().get(1);
+            return association.getParticipants().get(1);
         }
-        return null;
     }
 
     //retorna todos os relacionamentos pointcut da arquitetura
@@ -148,7 +153,12 @@ public class StyleUtil {
                 methods.addAll(inter.getOperations());
             }
         } else {
-            String[] split = name.split(",");
+            String[] split = new String[100];
+            if(name.contains(",")){
+                split = name.split(",");
+            } else {
+                split[0] = name;
+            }
             for (int i = 0; i < split.length; i++) {
                 String operation = split[i];
                 if (element instanceof Class) {
@@ -195,6 +205,9 @@ public class StyleUtil {
             for (Method joinpoint : joinpoints) {
                 endName += joinpoint.getName() + ",";
             }
+        }
+        if(endName.endsWith(",")){
+            endName = endName.substring(0, endName.length()-1);
         }
         associationEnd.setName(endName);
     }
@@ -243,6 +256,7 @@ public class StyleUtil {
                 }
                 for (Method joinpointfound : joinPoints) {
                     if (joinpoint == joinpointfound) {
+                        
                         return (AssociationRelationship) relationship;
                     }
                 }
