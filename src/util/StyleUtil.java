@@ -72,7 +72,6 @@ public class StyleUtil {
         try {
             boolean create = true;
             AssociationRelationship originalPointcut = returnPointcut(joinpoint, sourceElement);
-            System.out.println("original pointcut: " +originalPointcut);
             List<Method> sourceElementAdvices = new ArrayList<>();
             List<Method> sourceElementJoinpoints = new ArrayList<>();
             AssociationEnd sourceElementAdvicesEnd = getElementAssociationEnd(originalPointcut, aspect);
@@ -81,7 +80,7 @@ public class StyleUtil {
             sourceElementJoinpoints.addAll(getMethods(sourceElementJoinpointsEnd));
 
             if (sourceElementJoinpoints.size() == 1) {
-                System.out.println("removeRelationship? " +architecture.removeRelationship(originalPointcut));
+                architecture.removeRelationship(originalPointcut);
             } else {
                 sourceElementJoinpoints.remove(joinpoint);
                 updateEnds(sourceElementJoinpointsEnd, sourceElementJoinpoints);
@@ -107,7 +106,7 @@ public class StyleUtil {
             if (create) {
                 AssociationRelationship pointcut = new AssociationRelationship(aspect, targetElement);
                 pointcut.addPoincut("pointcut");
-                architecture.addRelationship(pointcut);
+                architecture.addPointcut(pointcut);
                 AssociationEnd targetElementJoinpointsEnd = getElementAssociationEnd(pointcut, targetElement);
                 AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(pointcut, aspect);
                 targetElementJoinpointsEnd.setNavigable(true);
@@ -154,7 +153,7 @@ public class StyleUtil {
             }
         } else {
             String[] split = new String[100];
-            if(name.contains(",")){
+            if (name.contains(",")) {
                 split = name.split(",");
             } else {
                 split[0] = name;
@@ -199,15 +198,15 @@ public class StyleUtil {
         } else {
             allMethods.addAll(((Interface) associationEnd.getCLSClass()).getOperations());
         }
-        if (allMethods.containsAll(joinpoints)) {
+        if (allMethods.containsAll(joinpoints) && joinpoints.containsAll(allMethods)) {
             endName = "all";
         } else {
             for (Method joinpoint : joinpoints) {
                 endName += joinpoint.getName() + ",";
             }
         }
-        if(endName.endsWith(",")){
-            endName = endName.substring(0, endName.length()-1);
+        if (endName.endsWith(",")) {
+            endName = endName.substring(0, endName.length() - 1);
         }
         associationEnd.setName(endName);
     }
@@ -256,7 +255,7 @@ public class StyleUtil {
                 }
                 for (Method joinpointfound : joinPoints) {
                     if (joinpoint == joinpointfound) {
-                        
+
                         return (AssociationRelationship) relationship;
                     }
                 }

@@ -43,8 +43,8 @@ public class ReadOutputsArchitectures {
 
     public static void main(String[] args) {
         List<String> plas = new ArrayList<>();
-        //plas.add("agm");
-        plas.add("mobilemedia");
+        plas.add("agm");
+        //plas.add("mobilemedia");
 //        plas.add("bet");
 //        plas.add("banking");
 //        plas.add("betserver");
@@ -53,17 +53,16 @@ public class ReadOutputsArchitectures {
             List<File> solutions = new ArrayList<>();
             //menor ED
             if (pla.equals("agm")) {
-//                solutions.add(new File("agm/agm.uml"));
+                solutions.add(new File("agm/agm.uml"));
 //                //menor ED
-//                solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm4.uml"));
-//                solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm1.uml"));
+                solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm4.uml"));
+                solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm1.uml"));
 //                //maior ED
-                solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm2.uml"));
-                solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm0.uml"));
+                //solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm2.uml"));
+                //solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm0.uml"));
                 //solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm12.uml"));
                 //solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm2.uml"));
-               
-                
+
             } else if (pla.equals("mobilemedia")) {
                 solutions.add(new File("mobilemedia/MobileMedia.uml"));
                 solutions.add(new File("experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/output/VAR_All_MobileMedia0.uml"));
@@ -119,12 +118,12 @@ public class ReadOutputsArchitectures {
 
 //                    getElements(architecture, pla);
 //                    getConcernsforClientServer(architecture, pla);
-                    getConcernsforLayer(architecture, pla);
+//                    getConcernsforLayer(architecture, pla);
 //                   getInvalidsInterfaces(architecture);
 //                    OutputIdentificationLayer.getInterfacesImplementors(architecture);
                     //replaceUsageforDependency(architecture);
                     //getDependents(architecture);
-//                  getRelationshipsBetweenPackages(architecture);
+                    getRelationshipsBetweenPackages(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }

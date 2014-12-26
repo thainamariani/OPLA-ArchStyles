@@ -1,15 +1,11 @@
 package mutation;
 
 import arquitetura.representation.Architecture;
-import arquitetura.representation.Class;
-import arquitetura.representation.Method;
-import arquitetura.representation.Package;
 import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 import java.util.logging.Level;
 import jmetal.core.Solution;
 import jmetal.operators.mutation.Mutation;
@@ -27,7 +23,6 @@ import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import pojo.Style;
 import util.OperatorUtil;
-import util.StyleUtil;
 
 public class PLAFeatureMutationConstraints extends Mutation {
 
@@ -69,51 +64,39 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     break;
             }
 
-            //teste updatePointcut
-            Class aspect = architecture.findClassByName("Aspect").get(0);
-            Class class1 = architecture.findClassByName("Class1").get(0);
-            Class class5 = architecture.findClassByName("Class5").get(0);
-
-            for (Method method : class1.getAllMethods()) {
-                if (method.getName().equals("op2Class1")) {
-                    System.out.println("Achou joinpoint");
-                    StyleUtil.updatePointcut(architecture, aspect, class1, class5, method);
-                }
+            int r = PseudoRandom.randInt(0, 5);
+            switch (r) {
+                case 0:
+                    FeatureDriven featureDriven = new FeatureDriven();
+                    featureDriven.doMutation(probability, architecture, style, list);
+                    name = "featuredriven";
+                    break;
+                case 1:
+                    MoveMethod moveMethod = new MoveMethod();
+                    moveMethod.doMutation(probability, architecture, style, list);
+                    name = "movemethod";
+                    break;
+                case 2:
+                    MoveAttribute moveAttribute = new MoveAttribute();
+                    moveAttribute.doMutation(probability, architecture, style, list);
+                    name = "moveattribute";
+                    break;
+                case 3:
+                    MoveOperation moveOperation = new MoveOperation();
+                    moveOperation.doMutation(probability, architecture, style, list);
+                    name = "moveoperation";
+                    break;
+                case 4:
+                    AddClass addClass = new AddClass();
+                    addClass.doMutation(probability, architecture, style, list);
+                    name = "addclass";
+                    break;
+                case 5:
+                    AddPackage addPackage = new AddPackage();
+                    addPackage.doMutation(probability, architecture, style, list);
+                    name = "addpackage";
+                    break;
             }
-
-//            int r = PseudoRandom.randInt(0, 5);
-//            switch (r) {
-//                case 0:
-//                    FeatureDriven featureDriven = new FeatureDriven();
-//                    featureDriven.doMutation(probability, architecture, style, list);
-//                    name = "featuredriven";
-//                    break;
-//                case 1:
-//                    MoveMethod moveMethod = new MoveMethod();
-//                    moveMethod.doMutation(probability, architecture, style, list);
-//                    name = "movemethod";
-//                    break;
-//                case 2:
-//                    MoveAttribute moveAttribute = new MoveAttribute();
-//                    moveAttribute.doMutation(probability, architecture, style, list);
-//                    name = "moveattribute";
-//                    break;
-//                case 3:
-//                    MoveOperation moveOperation = new MoveOperation();
-//                    moveOperation.doMutation(probability, architecture, style, list);
-//                    name = "moveoperation";
-//                    break;
-//                case 4:
-//                    AddClass addClass = new AddClass();
-//                    addClass.doMutation(probability, architecture, style, list);
-//                    name = "addclass";
-//                    break;
-//                case 5:
-//                    AddPackage addPackage = new AddPackage();
-//                    addPackage.doMutation(probability, architecture, style, list);
-//                    name = "addpackage";
-//                    break;
-//            }
             System.out.println("Operador " + name);
 
         } else {
@@ -143,7 +126,7 @@ public class PLAFeatureMutationConstraints extends Mutation {
 
         if (!OperatorUtil.isValidSolution(((Architecture) solution.getDecisionVariables()[0]))) {
             Architecture clone;
-                //substituido para corrigir bug da solução inválida
+            //substituido para corrigir bug da solução inválida
             //clone = ((Architecture) solution.getDecisionVariables()[0]).deepClone();
             clone = ((Architecture) solutionBeforeMutation.getDecisionVariables()[0]).deepClone();
             solution.getDecisionVariables()[0] = clone;

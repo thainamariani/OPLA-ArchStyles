@@ -119,17 +119,27 @@
         <ownedOperation xmi:id="_pz63IGwxEeSU24XA1TggSA" name="op2Class4"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_S3yw4IRfEeSIduTmM25kQw" name="Aspect2">
-        <ownedAttribute xmi:id="_eAF7AIRfEeSIduTmM25kQw" name="all" type="_VaW30H_LEeSVS_0kN17jIw" association="_eAIXQIRfEeSIduTmM25kQw">
+        <ownedAttribute xmi:id="_eAF7AIRfEeSIduTmM25kQw" name="op1Class5,op2Class5" type="_VaW30H_LEeSVS_0kN17jIw" association="_eAIXQIRfEeSIduTmM25kQw">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eAF7AYRfEeSIduTmM25kQw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eAF7AoRfEeSIduTmM25kQw" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_To8aUI0NEeStvvSMF1QXRQ" name="op1Class6" type="_VyMwEH_LEeSVS_0kN17jIw" association="_TpB54I0NEeStvvSMF1QXRQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_To8aUY0NEeStvvSMF1QXRQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_To8aUo0NEeStvvSMF1QXRQ" value="1"/>
         </ownedAttribute>
         <ownedOperation xmi:id="_YkqNEIRfEeSIduTmM25kQw" name="Operation1"/>
         <ownedOperation xmi:id="_Y-Q_4IRfEeSIduTmM25kQw" name="Operation2"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_eAIXQIRfEeSIduTmM25kQw" name="C5" memberEnd="_eAIXQYRfEeSIduTmM25kQw _eAF7AIRfEeSIduTmM25kQw">
-        <ownedEnd xmi:id="_eAIXQYRfEeSIduTmM25kQw" name="all" type="_S3yw4IRfEeSIduTmM25kQw" association="_eAIXQIRfEeSIduTmM25kQw">
+        <ownedEnd xmi:id="_eAIXQYRfEeSIduTmM25kQw" name="operation1" type="_S3yw4IRfEeSIduTmM25kQw" association="_eAIXQIRfEeSIduTmM25kQw">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_eAIXQoRfEeSIduTmM25kQw" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_eAIXQ4RfEeSIduTmM25kQw" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_TpB54I0NEeStvvSMF1QXRQ" name="" memberEnd="_TpB54Y0NEeStvvSMF1QXRQ _To8aUI0NEeStvvSMF1QXRQ">
+        <ownedEnd xmi:id="_TpB54Y0NEeStvvSMF1QXRQ" name="operation1" type="_S3yw4IRfEeSIduTmM25kQw" association="_TpB54I0NEeStvvSMF1QXRQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_TpB54o0NEeStvvSMF1QXRQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TpB5440NEeStvvSMF1QXRQ" value="1"/>
         </ownedEnd>
       </packagedElement>
     </packagedElement>
@@ -181,4 +191,5 @@
   <aspectprofile:around xmi:id="_ZlgmEIRfEeSIduTmM25kQw" base_Operation="_YkqNEIRfEeSIduTmM25kQw"/>
   <aspectprofile:around xmi:id="_apQiEIRfEeSIduTmM25kQw" base_Operation="_Y-Q_4IRfEeSIduTmM25kQw"/>
   <aspectprofile:pointcut xmi:id="_hGC_UIRfEeSIduTmM25kQw" base_Association="_eAIXQIRfEeSIduTmM25kQw"/>
+  <aspectprofile:pointcut xmi:id="_VkoD4I0NEeStvvSMF1QXRQ" base_Association="_TpB54I0NEeStvvSMF1QXRQ"/>
 </xmi:XMI>

@@ -690,4 +690,35 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_eANPwoRfEeSIduTmM25kQw" points="[-6, -32, 61, 106]$[36, -139, 103, -1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_eAe8kIRfEeSIduTmM25kQw" id="(0.5254237288135594,0.24242424242424243)"/>
   </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_TpOuMI0NEeStvvSMF1QXRQ" type="4001" source="_S5vRoIRfEeSIduTmM25kQw" target="_VyYWQH_LEeSVS_0kN17jIw" lineColor="0">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_Vk6XwI0NEeStvvSMF1QXRQ" source="Stereotype_Annotation">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Vk6XwY0NEeStvvSMF1QXRQ" key="StereotypeWithQualifiedNameList" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Vk6Xwo0NEeStvvSMF1QXRQ" key="StereotypeList" value="aspect::pointcut"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Vk6Xw40NEeStvvSMF1QXRQ" key="Stereotype_Presentation_Kind" value="HorizontalStereo"/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Vk6XxI0NEeStvvSMF1QXRQ" key="PropStereoDisplay" value=""/>
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_Vk6XxY0NEeStvvSMF1QXRQ" key="StereotypePropertyLocation" value="Compartment"/>
+    </eAnnotations>
+    <children xmi:type="notation:DecorationNode" xmi:id="_TpRxgI0NEeStvvSMF1QXRQ" type="6001">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TpRxgY0NEeStvvSMF1QXRQ" y="-20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_TpSYkI0NEeStvvSMF1QXRQ" type="6002">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TpSYkY0NEeStvvSMF1QXRQ" y="20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_TpSYko0NEeStvvSMF1QXRQ" type="6003">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TpSYk40NEeStvvSMF1QXRQ" y="-20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_TpSYlI0NEeStvvSMF1QXRQ" type="6005">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TpSYlY0NEeStvvSMF1QXRQ" y="20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_TpSYlo0NEeStvvSMF1QXRQ" type="6033">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TpSYl40NEeStvvSMF1QXRQ" y="20"/>
+    </children>
+    <children xmi:type="notation:DecorationNode" xmi:id="_TpSYmI0NEeStvvSMF1QXRQ" type="6034">
+      <layoutConstraint xmi:type="notation:Location" xmi:id="_TpSYmY0NEeStvvSMF1QXRQ" y="-20"/>
+    </children>
+    <styles xmi:type="notation:FontStyle" xmi:id="_TpOuMY0NEeStvvSMF1QXRQ" fontName="Ubuntu" fontHeight="11"/>
+    <element xmi:type="uml:Association" href="model.uml#_TpB54I0NEeStvvSMF1QXRQ"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_TpOuMo0NEeStvvSMF1QXRQ" points="[16, -15, -179, 158]$[110, -103, -85, 70]"/>
+    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_TpbigI0NEeStvvSMF1QXRQ" id="(0.8587570621468926,0.11363636363636363)"/>
+  </edges>
 </notation:Diagram>
