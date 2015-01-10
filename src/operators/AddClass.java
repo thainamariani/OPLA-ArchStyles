@@ -8,6 +8,7 @@ package operators;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Attribute;
 import arquitetura.representation.Method;
+import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
@@ -91,7 +92,7 @@ public class AddClass implements OperatorConstraints {
 
     private void doMutationAspect(double probability, Architecture architecture) {
         final arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-        List<arquitetura.representation.Class> ClassesComp = StyleUtil.returnClassesWithoutAspect(sourceComp);
+        List<arquitetura.representation.Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
         if (ClassesComp.size() > 0) {
             final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);

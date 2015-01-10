@@ -15,6 +15,7 @@ import arquitetura.representation.Method;
 import arquitetura.representation.Package;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
+import aspect.AspectManipulation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -48,7 +49,7 @@ public class StyleUtilTest {
         ArchitectureBuilder builder = new ArchitectureBuilder();
         Architecture architecture = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/model.uml");
 
-        List<AssociationRelationship> pointcuts = StyleUtil.returnPointcuts(architecture);
+        List<AssociationRelationship> pointcuts = AspectManipulation.returnPointcuts(architecture);
         Assert.assertTrue(pointcuts.size() == 4);
     }
 
@@ -65,7 +66,7 @@ public class StyleUtilTest {
 
         Set<Method> methodsClass1 = class1.getAllMethods();
         for (Method methodClass1 : methodsClass1) {
-            boolean joinPoint = StyleUtil.isJoinPoint(class1, methodClass1, architecture);
+            boolean joinPoint = AspectManipulation.isJoinPoint(class1, methodClass1, architecture);
             if (methodClass1.getName().equalsIgnoreCase("op1Class1")) {
                 Assert.assertFalse(joinPoint);
             } else if (methodClass1.getName().equalsIgnoreCase("op2Class1")) {
@@ -77,7 +78,7 @@ public class StyleUtilTest {
 
         Set<Method> methodsClass2 = class2.getAllMethods();
         for (Method methodClass2 : methodsClass2) {
-            boolean joinPoint = StyleUtil.isJoinPoint(class2, methodClass2, architecture);
+            boolean joinPoint = AspectManipulation.isJoinPoint(class2, methodClass2, architecture);
             if (methodClass2.getName().equalsIgnoreCase("op1Class2")) {
                 Assert.assertTrue(joinPoint);
             } else if (methodClass2.getName().equalsIgnoreCase("op2Class2")) {
@@ -89,7 +90,7 @@ public class StyleUtilTest {
 
         Set<Method> methodsClass3 = class3.getAllMethods();
         for (Method methodClass3 : methodsClass3) {
-            boolean joinPoint = StyleUtil.isJoinPoint(class3, methodClass3, architecture);
+            boolean joinPoint = AspectManipulation.isJoinPoint(class3, methodClass3, architecture);
             Assert.assertTrue(joinPoint);
         }
 
@@ -97,7 +98,7 @@ public class StyleUtilTest {
 
         Set<Method> methodsClass4 = class4.getOperations();
         for (Method methodClass4 : methodsClass4) {
-            boolean joinPoint = StyleUtil.isJoinPoint(class4, methodClass4, architecture);
+            boolean joinPoint = AspectManipulation.isJoinPoint(class4, methodClass4, architecture);
             if (methodClass4.getName().equalsIgnoreCase("op1Class4")) {
                 Assert.assertTrue(joinPoint);
             } else if (methodClass4.getName().equalsIgnoreCase("op2Class4")) {
@@ -108,14 +109,14 @@ public class StyleUtilTest {
         Class class5 = architecture.findClassByName("Class5").get(0);
         Set<Method> methodsClass5 = class5.getAllMethods();
         for (Method methodClass5 : methodsClass5) {
-            boolean joinPoint = StyleUtil.isJoinPoint(class5, methodClass5, architecture);
+            boolean joinPoint = AspectManipulation.isJoinPoint(class5, methodClass5, architecture);
             Assert.assertFalse(joinPoint);
         }
 
         Class class6 = architecture.findClassByName("Class6").get(0);
         Set<Method> methodsClass6 = class6.getAllMethods();
         for (Method methodClass6 : methodsClass6) {
-            boolean joinPoint = StyleUtil.isJoinPoint(class6, methodClass6, architecture);
+            boolean joinPoint = AspectManipulation.isJoinPoint(class6, methodClass6, architecture);
             Assert.assertFalse(joinPoint);
         }
     }
@@ -136,10 +137,10 @@ public class StyleUtilTest {
                 List<Method> advices = new ArrayList<>();
                 AssociationRelationship association = (AssociationRelationship) relationship;
                 if (association.getParticipants().get(0).getCLSClass().getName().equals(aspect.getName())) {
-                    advices.addAll(StyleUtil.getMethods(association.getParticipants().get(0)));
+                    advices.addAll(AspectManipulation.getMethods(association.getParticipants().get(0)));
                     System.out.println("Advices com: " + association.getParticipants().get(1).getCLSClass().getName());
                 } else {
-                    advices.addAll(StyleUtil.getMethods(association.getParticipants().get(1)));
+                    advices.addAll(AspectManipulation.getMethods(association.getParticipants().get(1)));
                     System.out.println("Advices com: " + association.getParticipants().get(0).getCLSClass().getName());
                 }
                 for (Method advice : advices) {
@@ -164,7 +165,7 @@ public class StyleUtilTest {
         Interface interface1 = architecture.findInterfaceByName("Interface1");
         for (Method method : interface1.getOperations()) {
             if (method.getName().equals("op1Class4")) {
-                AssociationRelationship pointcut = StyleUtil.returnPointcut(method, interface1);
+                AssociationRelationship pointcut = AspectManipulation.returnPointcut(method, interface1);
                 testInterface1 = pointcut.getName().equals("I1");
             }
         }
@@ -173,7 +174,7 @@ public class StyleUtilTest {
         Class class1 = architecture.findClassByName("Class1").get(0);
         for (Method method : class1.getAllMethods()) {
             if (method.getName().equals("op2Class1")) {
-                AssociationRelationship pointcut = StyleUtil.returnPointcut(method, class1);
+                AssociationRelationship pointcut = AspectManipulation.returnPointcut(method, class1);
                 testClass1 = pointcut.getName().equals("C1");
             }
         }
@@ -181,7 +182,7 @@ public class StyleUtilTest {
 
         Class class5 = architecture.findClassByName("Class5").get(0);
         Method method = class5.getAllMethods().iterator().next();
-        AssociationRelationship pointcut = StyleUtil.returnPointcut(method, class5);
+        AssociationRelationship pointcut = AspectManipulation.returnPointcut(method, class5);
         Assert.assertEquals(null, pointcut);
 
     }
@@ -197,16 +198,16 @@ public class StyleUtilTest {
 
         Class aspect = architecture.findClassByName("Aspect").get(0);
         Class class1 = architecture.findClassByName("Class1").get(0);
-        List<AssociationRelationship> pointcuts = StyleUtil.returnPointcutsTargetElement(aspect, class1);
+        List<AssociationRelationship> pointcuts = AspectManipulation.returnPointcutsTargetElement(aspect, class1);
         Assert.assertTrue(pointcuts.size() == 1);
         Assert.assertTrue(pointcuts.get(0).getName().equals("C1"));
 
         Class class5 = architecture.findClassByName("Class5").get(0);
-        List<AssociationRelationship> pointcuts1 = StyleUtil.returnPointcutsTargetElement(aspect, class5);
+        List<AssociationRelationship> pointcuts1 = AspectManipulation.returnPointcutsTargetElement(aspect, class5);
         Assert.assertTrue(pointcuts1.isEmpty());
 
         Class aspect2 = architecture.findClassByName("Aspect2").get(0);
-        List<AssociationRelationship> pointcuts2 = StyleUtil.returnPointcutsTargetElement(aspect2, class5);
+        List<AssociationRelationship> pointcuts2 = AspectManipulation.returnPointcutsTargetElement(aspect2, class5);
         Assert.assertTrue(pointcuts2.size() == 1);
         Assert.assertTrue(pointcuts2.get(0).getName().equals("C5"));
     }

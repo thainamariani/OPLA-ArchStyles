@@ -22,6 +22,7 @@ import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
 import arquitetura.representation.relationship.RealizationRelationship;
 import arquitetura.representation.relationship.Relationship;
+import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -259,7 +260,7 @@ public class OperatorUtil {
     //add por Édipo
     public static Class findOrCreateClassWithConcern(Package targetComp, Concern concern) throws ConcernNotFoundException {
         Class targetClass = null;
-        for (Class cls : StyleUtil.returnClassesWithoutAspect(targetComp)) {
+        for (Class cls : AspectManipulation.returnClassesWithoutAspect(targetComp)) {
             if (cls.containsConcern(concern)) {
                 targetClass = cls;
             }

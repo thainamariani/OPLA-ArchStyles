@@ -35,7 +35,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"1", "1", "0", ArchitectureRepository.ASPECT, "aspect", "teste"};
+        args = new String[]{"10", "10", "0", ArchitectureRepository.ASPECT, "aspect", "teste"};
         String plaName = "aspect";
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");

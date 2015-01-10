@@ -8,6 +8,7 @@ package operators;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.io.ReaderConfig;
 import arquitetura.representation.Architecture;
+import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
@@ -132,7 +133,7 @@ public class MoveMethodTest {
         arquitetura.representation.Class class6 = architecture.findClassByName("Class6").get(0);
         arquitetura.representation.Class aspect = architecture.findClassByName("Aspect").get(0);
 
-        List<arquitetura.representation.Class> ClassesComp = StyleUtil.returnClassesWithoutAspect(sourceComp);
+        List<arquitetura.representation.Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);
         Assert.assertTrue(ClassesComp.size() == 6);
         Assert.assertTrue(ClassesComp.contains(class1));
         Assert.assertTrue(ClassesComp.contains(class2));
@@ -145,7 +146,7 @@ public class MoveMethodTest {
         if (ClassesComp.size() > 0) {
             final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);
             final arquitetura.representation.Package targetPackage = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-            List<arquitetura.representation.Class> targetClasses = StyleUtil.returnClassesWithoutAspect(targetPackage);
+            List<arquitetura.representation.Class> targetClasses = AspectManipulation.returnClassesWithoutAspect(targetPackage);
             Assert.assertTrue(targetClasses.size() == 6);
             Assert.assertTrue(targetClasses.contains(class1));
             Assert.assertTrue(targetClasses.contains(class2));
