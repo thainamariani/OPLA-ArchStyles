@@ -158,7 +158,20 @@ public class AddClass implements OperatorConstraints {
                         PLAFeatureMutationConstraints.LOGGER.info("Source Class: " + sourceClass);
                         PLAFeatureMutationConstraints.LOGGER.info("Method: " + targetMethod);
 
-                        OperatorUtil.moveMethodToNewClass(architecture, sourceClass, targetMethod, newClass);
+                        boolean isJoinpoint = false;
+                        AspectManipulation aspectManipulation = new AspectManipulation();
+                        if (AspectManipulation.isJoinPoint(sourceClass, targetMethod, architecture)) {
+                            aspectManipulation.getInformationPointcut(architecture, sourceClass, newClass, targetMethod);
+                            isJoinpoint = true;
+                        }
+                        if (OperatorUtil.moveMethodToNewClass(architecture, sourceClass, targetMethod, newClass)) {
+                            if (isJoinpoint) {
+                                System.out.println("source class: " +sourceClass.getName());
+                                System.out.println("Method:" + targetMethod);
+                                System.out.println("new class: " + newClass.getName());
+                                aspectManipulation.updatePoincut(architecture);
+                            }
+                        }
                     } catch (Exception ex) {
                         Logger.getLogger(AddClass.class.getName()).log(Level.SEVERE, null, ex);
                     }

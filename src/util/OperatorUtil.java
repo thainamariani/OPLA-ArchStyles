@@ -95,13 +95,14 @@ public class OperatorUtil {
         }
     }
 
-    public static void moveMethodToNewClass(Architecture arch, Class sourceClass, Method targetMethod, Class newClass) throws Exception {
-        sourceClass.moveMethodToClass(targetMethod, newClass);
+    public static boolean moveMethodToNewClass(Architecture arch, Class sourceClass, Method targetMethod, Class newClass) throws Exception {
+        boolean moved = sourceClass.moveMethodToClass(targetMethod, newClass);
         //if (targetMethod.isAbstract()) targetMethod.setAbstract(false);
         for (Concern con : targetMethod.getOwnConcerns()) {
             newClass.addConcern(con.getName());
         }
         createAssociation(arch, newClass, sourceClass);
+        return moved;
     }
 
     //	public static void moveMethodAllComponents(Architecture arch, Class sourceClass, List<Method> MethodsClass, Class newClass) throws JMException {

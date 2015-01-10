@@ -65,7 +65,7 @@ public class PLAFeatureMutationConstraints extends Mutation {
             }
 
             int r = PseudoRandom.randInt(0, 5);
-            r = 1;
+            r = 3;
             switch (r) {
                 case 0:
                     FeatureDriven featureDriven = new FeatureDriven();

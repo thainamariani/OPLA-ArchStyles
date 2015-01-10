@@ -64,7 +64,7 @@
         <ownedOperation xmi:id="_Xo9dYH_LEeSVS_0kN17jIw" name="op2Class5"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ZXx00GwxEeSU24XA1TggSA" name="Aspect">
-        <ownedAttribute xmi:id="_uv7BoGwyEeSU24XA1TggSA" name="op1Class4" type="_lOm44GwxEeSU24XA1TggSA" association="_uv7osGwyEeSU24XA1TggSA">
+        <ownedAttribute xmi:id="_uv7BoGwyEeSU24XA1TggSA" name="op1Interface1" type="_lOm44GwxEeSU24XA1TggSA" association="_uv7osGwyEeSU24XA1TggSA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uv7BoWwyEeSU24XA1TggSA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uv7BomwyEeSU24XA1TggSA" value="1"/>
         </ownedAttribute>
@@ -87,16 +87,24 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_XtgGQJjREeSJVtSINupTyQ" name="op1Interface2" type="_VyO_UJjEEeSJVtSINupTyQ" association="_XtgtUJjREeSJVtSINupTyQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XtgGQZjREeSJVtSINupTyQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XtgGQpjREeSJVtSINupTyQ" value="1"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_skBCIJjREeSJVtSINupTyQ" name="op2Interface2,op3Interface2" type="_VyO_UJjEEeSJVtSINupTyQ" association="_skBpMJjREeSJVtSINupTyQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_skBCIZjREeSJVtSINupTyQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_skBCIpjREeSJVtSINupTyQ" value="1"/>
+        </ownedAttribute>
         <ownedOperation xmi:id="_fgITIGwxEeSU24XA1TggSA" name="operation1"/>
         <ownedOperation xmi:id="_f0zioGwxEeSU24XA1TggSA" name="operation2"/>
         <ownedOperation xmi:id="_gGXzwGwxEeSU24XA1TggSA" name="operation3"/>
         <ownedOperation xmi:id="_giV-EGwxEeSU24XA1TggSA" name="operation4"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_jU-dwGwxEeSU24XA1TggSA" name="Class2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_jU-dwGwxEeSU24XA1TggSA" clientDependency="_h1QNAJkLEeSwLJ0VOpeuvQ" name="Class2">
         <ownedOperation xmi:id="_oka-IGwxEeSU24XA1TggSA" name="op1Class2"/>
         <ownedOperation xmi:id="_o7sOoGwxEeSU24XA1TggSA" name="op2Class2"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_VyMwEH_LEeSVS_0kN17jIw" name="Class6">
+      <packagedElement xmi:type="uml:Class" xmi:id="_VyMwEH_LEeSVS_0kN17jIw" clientDependency="_QL7tQJkIEeSJVtSINupTyQ" name="Class6">
         <ownedAttribute xmi:id="_b44MwIFzEeSqsvDgmXqL2w" name="Property1" visibility="public">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_b-o2gIFzEeSqsvDgmXqL2w" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_b-tH8IFzEeSqsvDgmXqL2w" value="1"/>
@@ -115,8 +123,8 @@
         <ownedOperation xmi:id="_YQnTQH_LEeSVS_0kN17jIw" name="op2Class6"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_lOm44GwxEeSU24XA1TggSA" name="Interface1">
-        <ownedOperation xmi:id="_pONiAGwxEeSU24XA1TggSA" name="op1Class4"/>
-        <ownedOperation xmi:id="_pz63IGwxEeSU24XA1TggSA" name="op2Class4"/>
+        <ownedOperation xmi:id="_pONiAGwxEeSU24XA1TggSA" name="op1Interface1"/>
+        <ownedOperation xmi:id="_pz63IGwxEeSU24XA1TggSA" name="op2Interface1"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_S3yw4IRfEeSIduTmM25kQw" name="Aspect2">
         <ownedAttribute xmi:id="_eAF7AIRfEeSIduTmM25kQw" name="op1Class5,op2Class5" type="_VaW30H_LEeSVS_0kN17jIw" association="_eAIXQIRfEeSIduTmM25kQw">
@@ -142,6 +150,25 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TpB5440NEeStvvSMF1QXRQ" value="1"/>
         </ownedEnd>
       </packagedElement>
+      <packagedElement xmi:type="uml:Class" xmi:id="_VyO_UJjEEeSJVtSINupTyQ" name="Interface2">
+        <ownedOperation xmi:id="_bUUu4JjEEeSJVtSINupTyQ" name="op1Interface2"/>
+        <ownedOperation xmi:id="_ca9m0JjEEeSJVtSINupTyQ" name="op2Interface2"/>
+        <ownedOperation xmi:id="_dULt0JjEEeSJVtSINupTyQ" name="op3Interface2"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_XtgtUJjREeSJVtSINupTyQ" name="I21" memberEnd="_XtgtUZjREeSJVtSINupTyQ _XtgGQJjREeSJVtSINupTyQ">
+        <ownedEnd xmi:id="_XtgtUZjREeSJVtSINupTyQ" name="operation1,operation2" type="_ZXx00GwxEeSU24XA1TggSA" association="_XtgtUJjREeSJVtSINupTyQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XtgtUpjREeSJVtSINupTyQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XtgtU5jREeSJVtSINupTyQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Association" xmi:id="_skBpMJjREeSJVtSINupTyQ" name="I22" memberEnd="_skBpMZjREeSJVtSINupTyQ _skBCIJjREeSJVtSINupTyQ">
+        <ownedEnd xmi:id="_skBpMZjREeSJVtSINupTyQ" name="all" type="_ZXx00GwxEeSU24XA1TggSA" association="_skBpMJjREeSJVtSINupTyQ">
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_skBpMpjREeSJVtSINupTyQ" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_skBpM5jREeSJVtSINupTyQ" value="1"/>
+        </ownedEnd>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Dependency" xmi:id="_QL7tQJkIEeSJVtSINupTyQ" name="Dependency1" client="_VyMwEH_LEeSVS_0kN17jIw" supplier="_VaW30H_LEeSVS_0kN17jIw"/>
+      <packagedElement xmi:type="uml:Realization" xmi:id="_h1QNAJkLEeSwLJ0VOpeuvQ" name="Realization1" client="_jU-dwGwxEeSU24XA1TggSA" supplier="_lOm44GwxEeSU24XA1TggSA"/>
     </packagedElement>
     <profileApplication xmi:id="_e8gMMGwyEeSU24XA1TggSA">
       <eAnnotations xmi:id="_e8gMMWwyEeSU24XA1TggSA" source="http://www.eclipse.org/uml2/2.0.0/UML">
@@ -192,4 +219,7 @@
   <aspectprofile:around xmi:id="_apQiEIRfEeSIduTmM25kQw" base_Operation="_Y-Q_4IRfEeSIduTmM25kQw"/>
   <aspectprofile:pointcut xmi:id="_hGC_UIRfEeSIduTmM25kQw" base_Association="_eAIXQIRfEeSIduTmM25kQw"/>
   <aspectprofile:pointcut xmi:id="_VkoD4I0NEeStvvSMF1QXRQ" base_Association="_TpB54I0NEeStvvSMF1QXRQ"/>
+  <smarty:interface xmi:id="_92_4wJjEEeSJVtSINupTyQ" base_Class="_VyO_UJjEEeSJVtSINupTyQ"/>
+  <aspectprofile:pointcut xmi:id="_mWFgQJjREeSJVtSINupTyQ" base_Association="_XtgtUJjREeSJVtSINupTyQ"/>
+  <aspectprofile:pointcut xmi:id="_b4s2YJkIEeSJVtSINupTyQ" base_Association="_skBpMJjREeSJVtSINupTyQ"/>
 </xmi:XMI>

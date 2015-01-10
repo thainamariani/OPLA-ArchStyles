@@ -11,11 +11,14 @@ import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import arquitetura.representation.Package;
+import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import jmetal.util.Configuration;
 import jmetal.util.JMException;
 import jmetal.util.PseudoRandom;
 import mutation.PLAFeatureMutationConstraints;
@@ -39,8 +42,10 @@ public class MoveOperation implements OperatorConstraints {
         if (PseudoRandom.randDouble() < probability) {
             if (style.equals("layer")) {
                 doMutationLayer(probability, architecture, (List<Layer>) styles);
-            } else {
+            } else if (style.equals("clientserver")) {
                 doMutationClientServer(probability, architecture, (List<Style>) styles);
+            } else if (style.equals("aspect")) {
+                doMutationAspect(probability, architecture);
             }
         }
     }
@@ -180,7 +185,21 @@ public class MoveOperation implements OperatorConstraints {
                         PLAFeatureMutationConstraints.LOGGER.info("Implementor: " + element.getName());
                     }
 
-                    sourceInterface.moveOperationToInterface(operation, targetInterface);
+                    boolean isJoinpoint = false;
+                    AspectManipulation aspectManipulation = new AspectManipulation();
+                    if (AspectManipulation.isJoinPoint(sourceInterface, operation, architecture)) {
+                        aspectManipulation.getInformationPointcut(architecture, sourceInterface, targetInterface, operation);
+                        isJoinpoint = true;
+                    }
+
+                    if (sourceInterface.moveOperationToInterface(operation, targetInterface)) {
+                        if (isJoinpoint) {
+                            System.out.println("source interface: " + sourceInterface.getName());
+                            System.out.println("operation:" + operation);
+                            System.out.println("targetInterface: " + targetInterface.getName());
+                            aspectManipulation.updatePoincut(architecture);
+                        }
+                    }
                     for (Element implementor : sourceInterface.getImplementors()) {
                         if (implementor instanceof arquitetura.representation.Package) {
                             architecture.addImplementedInterface(targetInterface, (arquitetura.representation.Package) implementor);
@@ -194,6 +213,28 @@ public class MoveOperation implements OperatorConstraints {
             }
         }
 
+    }
+
+    private void doMutationAspect(double probability, Architecture architecture) {
+        try {
+            Package sourceComp = randomObject(new ArrayList<Package>(architecture.getAllPackages()));
+            Package targetComp = randomObject(new ArrayList<Package>(architecture.getAllPackages()));
+
+            List<Interface> InterfacesSourceComp = new ArrayList<Interface>();
+            List<Interface> InterfacesTargetComp = new ArrayList<Interface>();
+
+            InterfacesSourceComp.addAll(sourceComp.getAllInterfaces());
+            removeInterfacesInPatternStructureFromArray(InterfacesSourceComp);
+
+            InterfacesTargetComp.addAll(targetComp.getAllInterfaces());
+
+            if (InterfacesSourceComp.size() >= 1) {
+                Interface sourceInterface = randomObject(InterfacesSourceComp);
+                mutation(InterfacesTargetComp, sourceInterface, targetComp, architecture);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
