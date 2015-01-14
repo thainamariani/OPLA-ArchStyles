@@ -8,6 +8,8 @@ package operators;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Attribute;
 import arquitetura.representation.Method;
+import arquitetura.representation.relationship.AssociationEnd;
+import arquitetura.representation.relationship.AssociationRelationship;
 import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
@@ -58,7 +60,7 @@ public class AddClass implements OperatorConstraints {
             //if (solution.getDecisionVariables()[0].getVariableType() == java.lang.Class.forName(Architecture.ARCHITECTURE_TYPE)) {
             //Architecture arch = ((Architecture) solution.getDecisionVariables()[0]);
             arquitetura.representation.Package sourceComp = randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-            List<arquitetura.representation.Class> ClassesComp = new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
+            List<arquitetura.representation.Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);//new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
             removeClassesInPatternStructureFromArray(ClassesComp);
             if (ClassesComp.size() > 0) {
                 arquitetura.representation.Class sourceClass = randomObject(ClassesComp);
@@ -73,7 +75,7 @@ public class AddClass implements OperatorConstraints {
     @Override
     public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
         final arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-        List<arquitetura.representation.Class> ClassesComp = new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
+        List<arquitetura.representation.Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);//new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
         if (ClassesComp.size() > 0) {
             final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);
@@ -166,10 +168,12 @@ public class AddClass implements OperatorConstraints {
                         }
                         if (OperatorUtil.moveMethodToNewClass(architecture, sourceClass, targetMethod, newClass)) {
                             if (isJoinpoint) {
-                                System.out.println("source class: " +sourceClass.getName());
+                                System.out.println("source class: " + sourceClass.getName());
                                 System.out.println("Method:" + targetMethod);
                                 System.out.println("new class: " + newClass.getName());
                                 aspectManipulation.updatePoincut(architecture);
+                            } else {
+                                aspectManipulation.updatePointcutEnd(targetMethod, newClass);
                             }
                         }
                     } catch (Exception ex) {

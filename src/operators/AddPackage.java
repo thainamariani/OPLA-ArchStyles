@@ -12,6 +12,9 @@ import arquitetura.representation.Concern;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
+import arquitetura.representation.relationship.AssociationEnd;
+import arquitetura.representation.relationship.AssociationRelationship;
+import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
@@ -28,6 +31,7 @@ import pojo.Layer;
 import pojo.Style;
 import util.OperatorUtil;
 import static util.OperatorUtil.randomObject;
+import static util.OperatorUtil.removeInterfacesInPatternStructureFromArray;
 import util.ParametersRepository;
 import util.StyleUtil;
 
@@ -46,8 +50,10 @@ public class AddPackage implements OperatorConstraints {
         if (PseudoRandom.randDouble() < probability) {
             if (style.equals("layer")) {
                 doMutationLayer(probability, architecture, (List<Layer>) styles);
-            } else {
+            } else if (style.equals("clientserver")) {
                 doMutationClientServer(probability, architecture, (List<Style>) styles);
+            } else if (style.equals("aspect")) {
+                doMutationAspect(probability, architecture);
             }
         }
     }
@@ -176,6 +182,14 @@ public class AddPackage implements OperatorConstraints {
             layersImplementors.add(OperatorUtil.findPackageLayer(list, pac));
         }
 
+        //adiciona os pointcuts como implementadores (se tiver aspectos)
+        //nao testado
+        for (AssociationRelationship pointcut : AspectManipulation.returnPointcutsByElement(sourceInterface)) {
+            Element aspect = AspectManipulation.returnAspect(pointcut);
+            arquitetura.representation.Package packageAspect = architecture.findPackageByName(UtilResources.extractPackageName(aspect.getNamespace()));
+            layersImplementors.add(OperatorUtil.findPackageLayer(list, packageAspect));
+        }
+
         //lista que contém as possiveis camadas para criar o novo pacote
         List<Layer> layersSelect = new ArrayList<>();
 
@@ -232,6 +246,14 @@ public class AddPackage implements OperatorConstraints {
             clientsServersImplementors.add(StyleUtil.returnClientServer(pac, list));
         }
 
+        //adiciona os pointcuts como implementadores (se tiver aspectos)
+        //nao testado
+        for (AssociationRelationship pointcut : AspectManipulation.returnPointcutsByElement(sourceInterface)) {
+            Element aspect = AspectManipulation.returnAspect(pointcut);
+            arquitetura.representation.Package packageAspect = architecture.findPackageByName(UtilResources.extractPackageName(aspect.getNamespace()));
+            clientsServersImplementors.add(StyleUtil.returnClientServer(packageAspect, list));
+        }
+
         //cria lista de possíveis targets
         List<Style> targetClientServer = new ArrayList<>();
         //adiciona todos os servidores
@@ -269,7 +291,23 @@ public class AddPackage implements OperatorConstraints {
     }
 
     public void mutation(Interface sourceInterface, Interface newInterface, Method op, Architecture architecture) {
-        sourceInterface.moveOperationToInterface(op, newInterface);
+
+        boolean isJoinpoint = false;
+        AspectManipulation aspectManipulation = new AspectManipulation();
+        if (AspectManipulation.isJoinPoint(sourceInterface, op, architecture)) {
+            aspectManipulation.getInformationPointcut(architecture, sourceInterface, newInterface, op);
+            isJoinpoint = true;
+        }
+        if (sourceInterface.moveOperationToInterface(op, newInterface)) {
+            if (isJoinpoint) {
+                System.out.println("source interface: " + sourceInterface.getName());
+                System.out.println("operation:" + op);
+                System.out.println("newInterface: " + newInterface.getName());
+                aspectManipulation.updatePoincut(architecture);
+            } else {
+                aspectManipulation.updatePointcutEnd(op, newInterface);
+            }
+        }
         for (Element implementor : sourceInterface.getImplementors()) {
             if (implementor instanceof arquitetura.representation.Package) {
                 architecture.addImplementedInterface(newInterface, (arquitetura.representation.Package) implementor);
@@ -287,4 +325,25 @@ public class AddPackage implements OperatorConstraints {
         }
     }
 
+    private void doMutationAspect(double probability, Architecture architecture) {
+        arquitetura.representation.Package sourceComp = randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
+        List<Interface> InterfacesComp = new ArrayList<Interface>();
+        InterfacesComp.addAll(sourceComp.getAllInterfaces());
+
+        removeInterfacesInPatternStructureFromArray(InterfacesComp);
+
+        if (InterfacesComp.size() >= 1) {
+            Interface sourceInterface = randomObject(InterfacesComp);
+            List<Method> OpsInterface = new ArrayList<Method>();
+            OpsInterface.addAll(sourceInterface.getOperations());
+            if (OpsInterface.size() >= 1) {
+                Method op = randomObject(OpsInterface);
+                arquitetura.representation.Package newComp = architecture.createPackage("Package" + OPLA.contComp_ + OperatorUtil.getSuffix(sourceComp));
+                OPLA.contComp_++;
+                Interface newInterface = newComp.createInterface("Interface" + OPLA.contInt_++);
+                mutation(sourceInterface, newInterface, op, architecture);
+            }
+            OpsInterface.clear();
+        }
+    }
 }

@@ -9,6 +9,8 @@ import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
 import arquitetura.representation.Method;
 import arquitetura.representation.Package;
+import arquitetura.representation.relationship.AssociationEnd;
+import arquitetura.representation.relationship.AssociationRelationship;
 import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
@@ -30,7 +32,7 @@ import util.StyleUtil;
  * @author Thainá
  */
 public class MoveMethod implements OperatorConstraints {
-    
+
     @Override
     public void doMutation(double probability, Architecture architecture, String style, List<? extends Style> styles) throws JMException {
         if (PseudoRandom.randDouble() < probability) {
@@ -43,30 +45,30 @@ public class MoveMethod implements OperatorConstraints {
             }
         }
     }
-    
+
     @Override
     public void doMutationLayer(double probability, Architecture architecture, List<Layer> layers) {
         //TODO: Experimento: mudar para solution ao realizar os testes na MOA4PLA
         //final Architecture arch = ((Architecture) solution.getDecisionVariables()[0]);
         final Package sourceComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
-        List<Class> ClassesComp = new ArrayList<Class>(sourceComp.getAllClasses());
+        List<Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);//new ArrayList<Class>(sourceComp.getAllClasses());
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
         if (ClassesComp.size() > 0) {
             final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
             Layer layerSourcePackage = OperatorUtil.findPackageLayer(layers, sourceComp);
             final Package targetPackage = OperatorUtil.randomObject(layerSourcePackage.getPackages());
-            Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(targetPackage.getAllClasses()));
+            Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(AspectManipulation.returnClassesWithoutAspect(targetPackage)/*targetPackage.getAllClasses()*/));
             mutation(targetClass, sourceClass, architecture, targetPackage, sourceComp);
         }
         ClassesComp.clear();
     }
-    
+
     @Override
     public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
         //TODO: Experimento: mudar para solution ao realizar os testes na MOA4PLA
         //final Architecture arch = ((Architecture) solution.getDecisionVariables()[0]);
         final Package sourceComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
-        List<Class> ClassesComp = new ArrayList<Class>(sourceComp.getAllClasses());
+        List<Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
         if (ClassesComp.size() > 0) {
             final Class sourceClass = OperatorUtil.randomObject(ClassesComp);
@@ -79,12 +81,12 @@ public class MoveMethod implements OperatorConstraints {
                 Server targetServer = OperatorUtil.randomObject(ClientServerIdentification.getLISTSERVERS());
                 targetPackage = OperatorUtil.randomObject(targetServer.getPackages());
             }
-            Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(targetPackage.getAllClasses()));
+            Class targetClass = OperatorUtil.randomObject(new ArrayList<Class>(AspectManipulation.returnClassesWithoutAspect(targetPackage)));
             mutation(targetClass, sourceClass, architecture, targetPackage, sourceComp);
         }
         ClassesComp.clear();
     }
-    
+
     public void mutation(arquitetura.representation.Class targetClass, arquitetura.representation.Class sourceClass, Architecture architecture, arquitetura.representation.Package targetPackage, arquitetura.representation.Package sourceComp) {
         if ((sourceClass != null) && (!OperatorUtil.searchForGeneralizations(sourceClass))
                 && (sourceClass.getAllAttributes().size() > 1)
@@ -110,7 +112,7 @@ public class MoveMethod implements OperatorConstraints {
                     PLAFeatureMutationConstraints.LOGGER.info("Source Package: " + sourceComp);
                     PLAFeatureMutationConstraints.LOGGER.info("Source Class: " + sourceClass);
                     PLAFeatureMutationConstraints.LOGGER.info("Method: " + method);
-                    
+
                     boolean isJoinpoint = false;
                     AspectManipulation aspectManipulation = new AspectManipulation();
                     if (AspectManipulation.isJoinPoint(sourceClass, method, architecture)) {
@@ -119,10 +121,12 @@ public class MoveMethod implements OperatorConstraints {
                     }
                     if (sourceClass.moveMethodToClass(method, targetClass)) {
                         if (isJoinpoint) {
-                            System.out.println("sourceClass: " +sourceClass.getName());
+                            System.out.println("sourceClass: " + sourceClass.getName());
                             System.out.println("Method:" + method);
-                            System.out.println("targetClass: " +targetClass.getName());
+                            System.out.println("targetClass: " + targetClass.getName());
                             aspectManipulation.updatePoincut(architecture);
+                        } else {
+                            aspectManipulation.updatePointcutEnd(method, targetClass);
                         }
                         OperatorUtil.createAssociation(architecture, targetClass, sourceClass);
                     }
@@ -131,7 +135,7 @@ public class MoveMethod implements OperatorConstraints {
             }
         }
     }
-    
+
     private void doMutationAspect(double probability, Architecture architecture) {
         final Package sourceComp = OperatorUtil.randomObject(new ArrayList<Package>(architecture.getAllPackages()));
         List<Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);
@@ -145,5 +149,5 @@ public class MoveMethod implements OperatorConstraints {
         }
         ClassesComp.clear();
     }
-    
+
 }

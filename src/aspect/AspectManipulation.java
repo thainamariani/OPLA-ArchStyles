@@ -5,7 +5,6 @@
  */
 package aspect;
 
-import arquitetura.exceptions.ConcernNotFoundException;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
 import arquitetura.representation.Element;
@@ -18,8 +17,6 @@ import arquitetura.representation.relationship.Relationship;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import util.ElementUtil;
 
 /**
@@ -90,6 +87,8 @@ public class AspectManipulation {
             } else {
                 updateEnds(targetElementJoinpointsEnd, joinpointsTargetPoincut);
             }
+            
+            updatePointcutEnd(targetElementJoinpointsEnd, joinpoint, targetElement);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -287,6 +286,65 @@ public class AspectManipulation {
             }
         }
         return pointcuts;
+    }
+
+    //retorna todos os pointcuts do elemento
+    public static List<AssociationRelationship> returnPointcutsByElement(Element element) {
+        List<Relationship> relationships = new ArrayList<>();
+        List<AssociationRelationship> pointcuts = new ArrayList<>();
+        if (element instanceof Interface) {
+            Interface targetInterface = (Interface) element;
+            relationships.addAll(targetInterface.getRelationships());
+        } else if (element instanceof Class) {
+            Class targetClass = (Class) element;
+            relationships.addAll(targetClass.getRelationships());
+        }
+        for (Relationship relationship : relationships) {
+            if (relationship instanceof AssociationRelationship) {
+                AssociationRelationship association = (AssociationRelationship) relationship;
+                if (association.isPoincut()) {
+                    pointcuts.add(association);
+                }
+            }
+        }
+        return pointcuts;
+    }
+    
+    public void updatePointcutEnd(Method method, Element element){
+        updatePointcutEnd(new AssociationEnd(), method, element);
+    }
+    
+    //método chamado para alterar o pointcut após mover um método que não seja um joinpoint
+    public void updatePointcutEnd(AssociationEnd removedEnd, Method method, Element element) {
+        System.out.println("Update Pointcut End");
+        System.out.println("Element:" + element.getName());
+        System.out.println("Method: " + method.getName());
+        List<AssociationRelationship> pointcuts = returnPointcutsByElement(element);
+        AssociationEnd associationEnd;
+        for (AssociationRelationship pointcut : pointcuts) {
+            List<Method> methods = new ArrayList<>();
+            if (pointcut.getParticipants().get(0).getCLSClass().equals(element)) {
+                associationEnd = pointcut.getParticipants().get(0);
+            } else {
+                associationEnd = pointcut.getParticipants().get(1);
+            }
+            if (removedEnd != associationEnd) {
+                if (associationEnd.getName().equals("all")) {
+                    methods.addAll(getMethods(associationEnd));
+                    methods.remove(method);
+
+                    String nameEnd = "";
+                    for (Method m : methods) {
+                        nameEnd += m.getName() + ",";
+                    }
+                    if (nameEnd.endsWith(",")) {
+                        nameEnd = nameEnd.substring(0, nameEnd.length() - 1);
+                    }
+                    associationEnd.setName(nameEnd);
+                }
+            }
+        }
+
     }
 
 }

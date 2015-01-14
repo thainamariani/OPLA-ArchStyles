@@ -35,7 +35,7 @@
         <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Yn05Yn_LEeSVS_0kN17jIw" value="1"/>
       </ownedEnd>
     </packagedElement>
-    <packagedElement xmi:type="uml:Package" xmi:id="_xAntQIFMEeSqsvDgmXqL2w" name="Package1">
+    <packagedElement xmi:type="uml:Package" xmi:id="_xAntQIFMEeSqsvDgmXqL2w" name="P1">
       <packagedElement xmi:type="uml:Class" xmi:id="_jmN-wGwxEeSU24XA1TggSA" name="Class3">
         <ownedOperation xmi:id="_oA2-EGwxEeSU24XA1TggSA" name="op1Class3"/>
         <ownedOperation xmi:id="_oRSmwGwxEeSU24XA1TggSA" name="op2Class3"/>
@@ -122,7 +122,7 @@
         <ownedOperation xmi:id="_X8OXoH_LEeSVS_0kN17jIw" name="op1Class6"/>
         <ownedOperation xmi:id="_YQnTQH_LEeSVS_0kN17jIw" name="op2Class6"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_lOm44GwxEeSU24XA1TggSA" name="Interface1">
+      <packagedElement xmi:type="uml:Class" xmi:id="_lOm44GwxEeSU24XA1TggSA" name="I1">
         <ownedOperation xmi:id="_pONiAGwxEeSU24XA1TggSA" name="op1Interface1"/>
         <ownedOperation xmi:id="_pz63IGwxEeSU24XA1TggSA" name="op2Interface1"/>
       </packagedElement>
@@ -150,7 +150,7 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_TpB5440NEeStvvSMF1QXRQ" value="1"/>
         </ownedEnd>
       </packagedElement>
-      <packagedElement xmi:type="uml:Class" xmi:id="_VyO_UJjEEeSJVtSINupTyQ" name="Interface2">
+      <packagedElement xmi:type="uml:Class" xmi:id="_VyO_UJjEEeSJVtSINupTyQ" name="I2">
         <ownedOperation xmi:id="_bUUu4JjEEeSJVtSINupTyQ" name="op1Interface2"/>
         <ownedOperation xmi:id="_ca9m0JjEEeSJVtSINupTyQ" name="op2Interface2"/>
         <ownedOperation xmi:id="_dULt0JjEEeSJVtSINupTyQ" name="op3Interface2"/>

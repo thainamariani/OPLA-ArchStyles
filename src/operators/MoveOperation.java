@@ -11,6 +11,8 @@ import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import arquitetura.representation.Package;
+import arquitetura.representation.relationship.AssociationEnd;
+import arquitetura.representation.relationship.AssociationRelationship;
 import aspect.AspectManipulation;
 import identification.ClientServerIdentification;
 import java.util.ArrayList;
@@ -79,6 +81,14 @@ public class MoveOperation implements OperatorConstraints {
                     layersImplementors.add(OperatorUtil.findPackageLayer(list, pac));
                 }
 
+                //adiciona os pointcuts como implementadores (se tiver aspectos)
+                //nao testado
+                for (AssociationRelationship pointcut : AspectManipulation.returnPointcutsByElement(sourceInterface)) {
+                    Element aspect = AspectManipulation.returnAspect(pointcut);
+                    Package packageAspect = architecture.findPackageByName(UtilResources.extractPackageName(aspect.getNamespace()));
+                    layersImplementors.add(OperatorUtil.findPackageLayer(list, packageAspect));
+                }
+
                 arquitetura.representation.Package targetComp = null;
 
                 //if - seleciona o targetPackage da mesma camada que a sourceInterface
@@ -134,6 +144,14 @@ public class MoveOperation implements OperatorConstraints {
                         pac = architecture.findPackageByName(UtilResources.extractPackageName(element.getNamespace()));
                     }
                     clientsServersImplementors.add(StyleUtil.returnClientServer(pac, list));
+                }
+
+                //adiciona os pointcuts como implementadores (se tiver aspectos)
+                //nao testado
+                for (AssociationRelationship pointcut : AspectManipulation.returnPointcutsByElement(sourceInterface)) {
+                    Element aspect = AspectManipulation.returnAspect(pointcut);
+                    Package packageAspect = architecture.findPackageByName(UtilResources.extractPackageName(aspect.getNamespace()));
+                    clientsServersImplementors.add(StyleUtil.returnClientServer(packageAspect, list));
                 }
 
                 //cria lista de possíveis targets
@@ -198,6 +216,8 @@ public class MoveOperation implements OperatorConstraints {
                             System.out.println("operation:" + operation);
                             System.out.println("targetInterface: " + targetInterface.getName());
                             aspectManipulation.updatePoincut(architecture);
+                        } else {
+                            aspectManipulation.updatePointcutEnd(operation, targetInterface);
                         }
                     }
                     for (Element implementor : sourceInterface.getImplementors()) {

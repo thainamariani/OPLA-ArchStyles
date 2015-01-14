@@ -18,6 +18,7 @@ import arquitetura.representation.Package;
 import arquitetura.representation.Variability;
 import arquitetura.representation.Variant;
 import arquitetura.representation.VariationPoint;
+import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.GeneralizationRelationship;
 import arquitetura.representation.relationship.RealizationRelationship;
@@ -213,7 +214,7 @@ public class OperatorUtil {
                                             while (irtAttribute.hasNext()) {
                                                 Attribute attribute = irtAttribute.next();
                                                 if (attribute.getOwnConcerns().size() == 1 && attribute.containsConcern(concern)) {
-                                                    moveAttributeToComponent(considerAspect, attribute, classComp, targetComponent, comp, arch, concern);
+                                                    moveAttributeToComponent(attribute, classComp, targetComponent, comp, arch, concern);
                                                 }
                                             }
                                             attributesClassComp.clear();
@@ -223,7 +224,7 @@ public class OperatorUtil {
                                                 while (irtMethod.hasNext()) {
                                                     Method method = irtMethod.next();
                                                     if (method.getOwnConcerns().size() == 1 && method.containsConcern(concern)) {
-                                                        moveMethodToComponent(considerAspect, method, classComp, targetComponent, comp, arch, concern);
+                                                        moveMethodToComponent(method, classComp, targetComponent, comp, arch, concern);
                                                     }
                                                 }
                                                 methodsClassComp.clear();
@@ -246,16 +247,31 @@ public class OperatorUtil {
         sourceComp.moveClassToPackage(classComp, targetComp);
     }
 
-    public static void moveAttributeToComponent(boolean considerAspect, Attribute attribute, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
+    public static void moveAttributeToComponent(Attribute attribute, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
         final Class targetClass = findOrCreateClassWithConcern(targetComp, concern);
         classComp.moveAttributeToClass(attribute, targetClass);
         createAssociation(architecture, targetClass, classComp);
     }
 
-    public static void moveMethodToComponent(boolean considerAspect, Method method, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
+    public static void moveMethodToComponent(Method method, Class classComp, Package targetComp, Package sourceComp, Architecture architecture, Concern concern) throws ConcernNotFoundException {
         final Class targetClass = findOrCreateClassWithConcern(targetComp, concern);
-        classComp.moveMethodToClass(method, targetClass);
-        createAssociation(architecture, targetClass, classComp);
+        boolean isJoinpoint = false;
+        AspectManipulation aspectManipulation = new AspectManipulation();
+        if (AspectManipulation.isJoinPoint(classComp, method, architecture)) {
+            aspectManipulation.getInformationPointcut(architecture, classComp, targetClass, method);
+            isJoinpoint = true;
+        }
+        if (classComp.moveMethodToClass(method, targetClass)) {
+            if (isJoinpoint) {
+                System.out.println("source class: " + classComp.getName());
+                System.out.println("operation:" + method);
+                System.out.println("targetClass: " + targetClass.getName());
+                aspectManipulation.updatePoincut(architecture);
+            } else {
+                aspectManipulation.updatePointcutEnd(method, targetClass);
+            }
+            createAssociation(architecture, targetClass, classComp);
+        }
     }
 
     //add por Édipo
@@ -368,13 +384,28 @@ public class OperatorUtil {
         if (targetInterface == null) {
             PLAFeatureMutationConstraints.featureDrivenMoveOperationToComponentCreateInterface++;
             targetInterface = targetComp.createInterface("Interface" + OPLA.contInt_++);
-            sourceInterface.moveOperationToInterface(operation, targetInterface);
+            //sourceInterface.moveOperationToInterface(operation, targetInterface);
             targetInterface.addConcern(concern.getName());
-        } else {
-            sourceInterface.moveOperationToInterface(operation, targetInterface);
         }
 
-        addRelationship(styles, style, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
+        boolean isJoinpoint = false;
+        AspectManipulation aspectManipulation = new AspectManipulation();
+        if (AspectManipulation.isJoinPoint(sourceInterface, operation, architecture)) {
+            aspectManipulation.getInformationPointcut(architecture, sourceInterface, targetInterface, operation);
+            isJoinpoint = true;
+        } else {
+            aspectManipulation.updatePointcutEnd(operation, targetInterface);
+        }
+
+        if (sourceInterface.moveOperationToInterface(operation, targetInterface)) {
+            if (isJoinpoint) {
+                System.out.println("source interface: " + sourceInterface.getName());
+                System.out.println("operation:" + operation);
+                System.out.println("targetInterface: " + targetInterface.getName());
+                aspectManipulation.updatePoincut(architecture);
+                addRelationship(styles, style, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
+            }
+        }
     }
 
     public static void addRelationship(List<Style> styles, Style style, Interface sourceInterface, Package targetComp, Package sourceComp, Architecture architecture, Concern concern, Interface targetInterface) {

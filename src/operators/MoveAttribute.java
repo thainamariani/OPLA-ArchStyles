@@ -54,12 +54,12 @@ public class MoveAttribute implements OperatorConstraints {
                 //if (solution.getDecisionVariables()[0].getVariableType() == java.lang.Class.forName(Architecture.ARCHITECTURE_TYPE)) {
                 //Architecture arch = ((Architecture) solution.getDecisionVariables()[0]);
                 final arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-                List<arquitetura.representation.Class> ClassesComp = new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
+                List<arquitetura.representation.Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);
                 if (ClassesComp.size() > 0) {
                     final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);
                     Layer layerSourcePackage = OperatorUtil.findPackageLayer(layers, sourceComp);
                     final arquitetura.representation.Package targetPackage = OperatorUtil.randomObject(layerSourcePackage.getPackages());
-                    arquitetura.representation.Class targetClass = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Class>(targetPackage.getAllClasses()));
+                    arquitetura.representation.Class targetClass = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Class>(AspectManipulation.returnClassesWithoutAspect(targetPackage)));
                     mutation(targetClass, sourceClass, architecture, sourceComp, targetPackage);
                 }
                 ClassesComp.clear();
@@ -73,7 +73,7 @@ public class MoveAttribute implements OperatorConstraints {
     @Override
     public void doMutationClientServer(double probability, Architecture architecture, List<Style> list) {
         final arquitetura.representation.Package sourceComp = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Package>(architecture.getAllPackages()));
-        List<arquitetura.representation.Class> ClassesComp = new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
+        List<arquitetura.representation.Class> ClassesComp = AspectManipulation.returnClassesWithoutAspect(sourceComp);//new ArrayList<arquitetura.representation.Class>(sourceComp.getAllClasses());
         OperatorUtil.removeClassesInPatternStructureFromArray(ClassesComp);
         if (ClassesComp.size() > 0) {
             final arquitetura.representation.Class sourceClass = OperatorUtil.randomObject(ClassesComp);
@@ -86,7 +86,7 @@ public class MoveAttribute implements OperatorConstraints {
                 Server targetServer = OperatorUtil.randomObject(ClientServerIdentification.getLISTSERVERS());
                 targetPackage = OperatorUtil.randomObject(targetServer.getPackages());
             }
-            arquitetura.representation.Class targetClass = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Class>(targetPackage.getAllClasses()));
+            arquitetura.representation.Class targetClass = OperatorUtil.randomObject(new ArrayList<arquitetura.representation.Class>(AspectManipulation.returnClassesWithoutAspect(targetPackage)/*targetPackage.getAllClasses()*/));
             mutation(targetClass, sourceClass, architecture, sourceComp, targetPackage);
         }
     }
