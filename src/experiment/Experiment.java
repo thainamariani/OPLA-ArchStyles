@@ -1,6 +1,9 @@
 package experiment;
 
+import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.io.ReaderConfig;
+import arquitetura.representation.Architecture;
+import identification.AspectIdentification;
 import identification.ClientServerIdentification;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -35,6 +38,8 @@ public class Experiment {
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
         args = new String[]{"1", "1", "1", ArchitectureRepository.ASPECT, "aspect", "teste"};
+        //boolean criado para contemplar aspectos com outros estilos
+        boolean aspect = false;
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -120,7 +125,7 @@ public class Experiment {
             ReaderConfig.setPathToProfileConcerns(plaDirectory + "/resources/concerns.profile.uml");
             ReaderConfig.setPathProfileRelationship(plaDirectory + "/resources/relationships.profile.uml");
             ReaderConfig.setPathToProfilePatterns(plaDirectory + "/resources/patterns.profile.uml");
-            if (style.equals("aspect")) {
+            if (style.equals("aspect") || aspect) {
                 ReaderConfig.setPathToProfileAspect(plaDirectory + "/resources/aspect.profile.uml");
             }
         } else {
@@ -128,7 +133,7 @@ public class Experiment {
             ReaderConfig.setPathToProfileSMarty(plaDirectory + "/smarty.profile.uml");
             ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
             ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
-            if (style.equals("aspect")) {
+            if (style.equals("aspect") || aspect) {
                 ReaderConfig.setPathToProfileAspect(plaDirectory + "/aspect.profile.uml");
             }
         }
@@ -175,15 +180,24 @@ public class Experiment {
                 execution = true;
             }
         } else if (style.equals("aspect")) {
-            //falta a identificação
-            System.out.println("Adicionando operadores com restrições de aspecto");
-            mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
-            execution = true;
+            if (AspectIdentification.isCorrectAspect(pla)) {
+                System.out.println("Adicionando operadores com restrições de aspecto");
+                mutation = MutationFactory.getMutationOperator("PLAFeatureMutationConstraints", parameters, style);
+                execution = true;
+            }
         } else {
             System.out.println("Adicionando operadores sem restrições");
             //parâmetro style para esse caso representa o escopo (scope) (allComponents, sameComponent)
             mutation = jmetal.operators.mutation.MutationFactory.getMutationOperator("PLAFeatureMutation", parameters);
             execution = true;
+        }
+
+        if (aspect) {
+            if (AspectIdentification.isCorrectAspect(pla)) {
+                System.out.println("Adicionando operadores com restrições de aspecto");
+            } else {
+                execution = false;
+            }
         }
 
         // Mutation and Crossover

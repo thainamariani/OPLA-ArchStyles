@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aspectprofile="http:///schemas/aspectprofile/_gRY0YH8eEeSVS_0kN17jIw/4" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:perfilConcerns="http:///schemas/perfilConcerns/_SsrrUBWgEeObs-pQrJ2skQ/19" xmlns:smarty="http:///schemas/smarty/_cl6_wI9OEeO5S8PTmh49hw/3" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/aspectprofile/_gRY0YH8eEeSVS_0kN17jIw/4 aspect.profile.uml#_gRb3sH8eEeSVS_0kN17jIw http:///schemas/perfilConcerns/_SsrrUBWgEeObs-pQrJ2skQ/19 concerns.profile.uml#_SsrrURWgEeObs-pQrJ2skQ http:///schemas/smarty/_cl6_wI9OEeO5S8PTmh49hw/3 smarty.profile.uml#_cl7m0I9OEeO5S8PTmh49hw">
   <uml:Model xmi:id="_YMrToGwxEeSU24XA1TggSA" name="model">
-    <packagedElement xmi:type="uml:Association" xmi:id="_uv7osGwyEeSU24XA1TggSA" name="I1" memberEnd="_uv7osWwyEeSU24XA1TggSA _uv7BoGwyEeSU24XA1TggSA">
-      <ownedEnd xmi:id="_uv7osWwyEeSU24XA1TggSA" name="operation1,operation2" type="_ZXx00GwxEeSU24XA1TggSA" association="_uv7osGwyEeSU24XA1TggSA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uv7osmwyEeSU24XA1TggSA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uv7os2wyEeSU24XA1TggSA" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_xhgYcGwyEeSU24XA1TggSA" name="C2" memberEnd="_xhgYcWwyEeSU24XA1TggSA _xhfxYGwyEeSU24XA1TggSA">
-      <ownedEnd xmi:id="_xhgYcWwyEeSU24XA1TggSA" name="operation2" type="_ZXx00GwxEeSU24XA1TggSA" association="_xhgYcGwyEeSU24XA1TggSA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xhgYcmwyEeSU24XA1TggSA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xhgYc2wyEeSU24XA1TggSA" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_z0fuwGwyEeSU24XA1TggSA" name="C1" memberEnd="_z0fuwWwyEeSU24XA1TggSA _z0fHsGwyEeSU24XA1TggSA">
-      <ownedEnd xmi:id="_z0fuwWwyEeSU24XA1TggSA" name="all" type="_ZXx00GwxEeSU24XA1TggSA" association="_z0fuwGwyEeSU24XA1TggSA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z0fuwmwyEeSU24XA1TggSA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z0fuw2wyEeSU24XA1TggSA" value="1"/>
-      </ownedEnd>
-    </packagedElement>
-    <packagedElement xmi:type="uml:Association" xmi:id="_221eYGwyEeSU24XA1TggSA" name="C3" memberEnd="_221eYWwyEeSU24XA1TggSA _2203UGwyEeSU24XA1TggSA">
-      <ownedEnd xmi:id="_221eYWwyEeSU24XA1TggSA" name="operation4,operation3" type="_ZXx00GwxEeSU24XA1TggSA" association="_221eYGwyEeSU24XA1TggSA">
-        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_221eYmwyEeSU24XA1TggSA" value="1"/>
-        <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_221eY2wyEeSU24XA1TggSA" value="1"/>
-      </ownedEnd>
-    </packagedElement>
     <packagedElement xmi:type="uml:Association" xmi:id="_Yn05Y3_LEeSVS_0kN17jIw" name="class5_class6_1" memberEnd="_Yn05ZH_LEeSVS_0kN17jIw _Yn05YH_LEeSVS_0kN17jIw">
       <ownedEnd xmi:id="_Yn05ZH_LEeSVS_0kN17jIw" name="class5" type="_VaW30H_LEeSVS_0kN17jIw" association="_Yn05Y3_LEeSVS_0kN17jIw">
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Yn05ZX_LEeSVS_0kN17jIw" value="1"/>
@@ -64,19 +40,19 @@
         <ownedOperation xmi:id="_Xo9dYH_LEeSVS_0kN17jIw" name="op2Class5"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ZXx00GwxEeSU24XA1TggSA" name="Aspect">
-        <ownedAttribute xmi:id="_uv7BoGwyEeSU24XA1TggSA" name="op1Interface1" type="_lOm44GwxEeSU24XA1TggSA" association="_uv7osGwyEeSU24XA1TggSA">
+        <ownedAttribute xmi:id="_uv7BoGwyEeSU24XA1TggSA" name="op1Interface1" type="_lOm44GwxEeSU24XA1TggSA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_uv7BoWwyEeSU24XA1TggSA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_uv7BomwyEeSU24XA1TggSA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_xhfxYGwyEeSU24XA1TggSA" name="op1Class2" type="_jU-dwGwxEeSU24XA1TggSA" association="_xhgYcGwyEeSU24XA1TggSA">
+        <ownedAttribute xmi:id="_xhfxYGwyEeSU24XA1TggSA" name="op1Class2" type="_jU-dwGwxEeSU24XA1TggSA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xhfxYWwyEeSU24XA1TggSA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xhfxYmwyEeSU24XA1TggSA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_z0fHsGwyEeSU24XA1TggSA" name="op2Class1" type="_it2MUGwxEeSU24XA1TggSA" association="_z0fuwGwyEeSU24XA1TggSA">
+        <ownedAttribute xmi:id="_z0fHsGwyEeSU24XA1TggSA" name="op2Class1" type="_it2MUGwxEeSU24XA1TggSA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_z0fHsWwyEeSU24XA1TggSA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_z0fHsmwyEeSU24XA1TggSA" value="1"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_2203UGwyEeSU24XA1TggSA" name="all" type="_jmN-wGwxEeSU24XA1TggSA" association="_221eYGwyEeSU24XA1TggSA">
+        <ownedAttribute xmi:id="_2203UGwyEeSU24XA1TggSA" name="all" type="_jmN-wGwxEeSU24XA1TggSA">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_2203UWwyEeSU24XA1TggSA" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2203UmwyEeSU24XA1TggSA" value="1"/>
         </ownedAttribute>
@@ -87,7 +63,7 @@
             <value xsi:nil="true"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_XtgGQJjREeSJVtSINupTyQ" name="op1Interface2" type="_VyO_UJjEEeSJVtSINupTyQ" association="_XtgtUJjREeSJVtSINupTyQ">
+        <ownedAttribute xmi:id="_XtgGQJjREeSJVtSINupTyQ" name="op1Interface2" type="_VyO_UJjEEeSJVtSINupTyQ">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XtgGQZjREeSJVtSINupTyQ" value="1"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XtgGQpjREeSJVtSINupTyQ" value="1"/>
         </ownedAttribute>
@@ -155,12 +131,6 @@
         <ownedOperation xmi:id="_ca9m0JjEEeSJVtSINupTyQ" name="op2Interface2"/>
         <ownedOperation xmi:id="_dULt0JjEEeSJVtSINupTyQ" name="op3Interface2"/>
       </packagedElement>
-      <packagedElement xmi:type="uml:Association" xmi:id="_XtgtUJjREeSJVtSINupTyQ" name="I21" memberEnd="_XtgtUZjREeSJVtSINupTyQ _XtgGQJjREeSJVtSINupTyQ">
-        <ownedEnd xmi:id="_XtgtUZjREeSJVtSINupTyQ" name="operation1,operation2" type="_ZXx00GwxEeSU24XA1TggSA" association="_XtgtUJjREeSJVtSINupTyQ">
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XtgtUpjREeSJVtSINupTyQ" value="1"/>
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XtgtU5jREeSJVtSINupTyQ" value="1"/>
-        </ownedEnd>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_skBpMJjREeSJVtSINupTyQ" name="I22" memberEnd="_skBpMZjREeSJVtSINupTyQ _skBCIJjREeSJVtSINupTyQ">
         <ownedEnd xmi:id="_skBpMZjREeSJVtSINupTyQ" name="all" type="_ZXx00GwxEeSU24XA1TggSA" association="_skBpMJjREeSJVtSINupTyQ">
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_skBpMpjREeSJVtSINupTyQ" value="1"/>
@@ -201,10 +171,6 @@
   <aspectprofile:around xmi:id="_YPlZwH8hEeSVS_0kN17jIw" base_Operation="_f0zioGwxEeSU24XA1TggSA"/>
   <aspectprofile:before xmi:id="_Y3o4QH8hEeSVS_0kN17jIw" base_Operation="_gGXzwGwxEeSU24XA1TggSA"/>
   <aspectprofile:replace xmi:id="_ZzmxQH8hEeSVS_0kN17jIw" base_Operation="_giV-EGwxEeSU24XA1TggSA"/>
-  <aspectprofile:pointcut xmi:id="_bH2nYH8hEeSVS_0kN17jIw" base_Association="_xhgYcGwyEeSU24XA1TggSA"/>
-  <aspectprofile:pointcut xmi:id="_bvRMsH8hEeSVS_0kN17jIw" base_Association="_uv7osGwyEeSU24XA1TggSA"/>
-  <aspectprofile:pointcut xmi:id="_cb0JoH8hEeSVS_0kN17jIw" base_Association="_z0fuwGwyEeSU24XA1TggSA"/>
-  <aspectprofile:pointcut xmi:id="_dH-FAH8hEeSVS_0kN17jIw" base_Association="_221eYGwyEeSU24XA1TggSA"/>
   <perfilConcerns:action xmi:id="_PtwE0ICQEeSVS_0kN17jIw" base_Operation="_XVHUUH_LEeSVS_0kN17jIw"/>
   <perfilConcerns:collision xmi:id="_QpOOkICQEeSVS_0kN17jIw" base_Operation="_YQnTQH_LEeSVS_0kN17jIw"/>
   <perfilConcerns:action xmi:id="_ysqbsIF1EeSqsvDgmXqL2w" base_Operation="_nZ2BYGwxEeSU24XA1TggSA"/>
@@ -220,6 +186,5 @@
   <aspectprofile:pointcut xmi:id="_hGC_UIRfEeSIduTmM25kQw" base_Association="_eAIXQIRfEeSIduTmM25kQw"/>
   <aspectprofile:pointcut xmi:id="_VkoD4I0NEeStvvSMF1QXRQ" base_Association="_TpB54I0NEeStvvSMF1QXRQ"/>
   <smarty:interface xmi:id="_92_4wJjEEeSJVtSINupTyQ" base_Class="_VyO_UJjEEeSJVtSINupTyQ"/>
-  <aspectprofile:pointcut xmi:id="_mWFgQJjREeSJVtSINupTyQ" base_Association="_XtgtUJjREeSJVtSINupTyQ"/>
   <aspectprofile:pointcut xmi:id="_b4s2YJkIEeSJVtSINupTyQ" base_Association="_skBpMJjREeSJVtSINupTyQ"/>
 </xmi:XMI>
