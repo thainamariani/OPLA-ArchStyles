@@ -7,14 +7,18 @@ package identification;
 
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Attribute;
+import arquitetura.representation.Class;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
 import arquitetura.representation.Method;
 import arquitetura.representation.relationship.AssociationEnd;
 import arquitetura.representation.relationship.AssociationRelationship;
+import arquitetura.representation.relationship.GeneralizationRelationship;
 import aspect.AspectManipulation;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,6 +32,37 @@ public class AspectIdentification {
     }
 
     public void verifyAspectArchitecture(Architecture architecture) {
+        List<GeneralizationRelationship> generalizations = architecture.getRelationshipHolder().getAllGeneralizations();
+        Set<Class> allClasses = architecture.getAllClasses();
+        for (Class classe : allClasses) {
+            if (classe.isAspect()) {
+                System.out.println("");
+                System.out.println("Aspect " +classe.getName());
+                System.out.println("");
+                System.out.println("Atributos");
+                for (Attribute atr : classe.getAllAttributes()) {
+                    System.out.println(atr.getName());
+                }
+                System.out.println("");
+                System.out.println("Métodos");
+                for (Method method : classe.getAllMethods()) {
+                    System.out.println(method.getName());
+                }
+                System.out.println("");
+                if (classe.belongsToGeneralization()) {
+                    for (GeneralizationRelationship generalization : generalizations) {
+                        Set<Element> children = generalization.getAllChildrenForGeneralClass();
+                        if (classe.equals(generalization.getParent()) || children.contains(classe)) {
+                            System.out.println("Parent: " +generalization.getParent().getName());
+                            for (Element c : children) {
+                                System.out.println(c.getName());
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
         List<AssociationRelationship> pointcuts = AspectManipulation.returnPointcuts(architecture);
         for (AssociationRelationship pointcut : pointcuts) {
             AssociationEnd end0 = pointcut.getParticipants().get(0);
@@ -86,7 +121,6 @@ public class AspectIdentification {
 //                    }
 //                }
 //            }
-
             correct = checkPointcutsElements(pointcuts, correct);
             if (correct) {
                 correct = analyzeEnds(pointcuts, correct);

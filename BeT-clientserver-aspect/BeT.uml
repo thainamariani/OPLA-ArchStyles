@@ -1714,17 +1714,22 @@
       </ownedComment>
       <packagedElement xmi:type="uml:Class" xmi:id="_2OwjoAfKEeS-gNTI-k3Ftw" name="LinhaIntegradaViagemCtrl">
         <generalization xmi:id="d96c5e56-4858-41ea-b337-e563eba1214d" general="_fnL50AfKEeS-gNTI-k3Ftw"/>
+        <ownedAttribute xmi:id="_lowhQJ9VEeSsNJaHKyfsoQ" name="interfaceLinhaIntegradaMgt"/>
         <ownedOperation xmi:id="_7ZRgsAfKEeS-gNTI-k3Ftw" name="verificarIntegracao" visibility="public"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="__9O0EAfKEeS-gNTI-k3Ftw" name="NumeroViagensCtrl">
         <generalization xmi:id="64efabfb-28f5-4df0-be65-f90283ac99e5" general="_fnL50AfKEeS-gNTI-k3Ftw"/>
+        <ownedAttribute xmi:id="_gt5JwJ9VEeSsNJaHKyfsoQ" name="interfaceNumViagensMgt"/>
         <ownedOperation xmi:id="_DKv48AfLEeS-gNTI-k3Ftw" name="verificarIntegracao" visibility="public"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_w1_vMAfKEeS-gNTI-k3Ftw" clientDependency="949ddbf4-75e3-49a6-bdb9-f1bee82b5f4c bb409a40-7bfe-425b-9c5b-af86954d8277 c56f6012-0ba8-4a94-be2b-fbb6fa1e74e6 55416302-95d6-4f5b-913c-86d152c7417d" name="TempoViagemCtrl">
         <generalization xmi:id="4fb93df9-df53-4a05-adf0-f63fcf3c09e4" general="_fnL50AfKEeS-gNTI-k3Ftw"/>
+        <ownedAttribute xmi:id="_b-mJEJ9VEeSsNJaHKyfsoQ" name="interfaceTempoMgt"/>
         <ownedOperation xmi:id="_z-me4AfKEeS-gNTI-k3Ftw" name="verificarIntegracao" visibility="public"/>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_fnL50AfKEeS-gNTI-k3Ftw" clientDependency="8fd4ef01-0268-45b3-83c9-4d930204d5de 41633831-2d27-4ca6-b24d-c7a817748e04" name="ViagemIntegracaoCtrl">
+        <ownedAttribute xmi:id="_rIVvYJ9VEeSsNJaHKyfsoQ" name="interfaceRegistrarViagem"/>
+        <ownedAttribute xmi:id="_vQEZwJ9VEeSsNJaHKyfsoQ" name="interfaceRegistrarArrecadacao"/>
         <ownedOperation xmi:id="_pqRIUAfKEeS-gNTI-k3Ftw" name="processarIntegracao" visibility="public"/>
         <ownedOperation xmi:id="_nXcKEAfKEeS-gNTI-k3Ftw" name="validarIntegracao" visibility="public"/>
         <ownedOperation xmi:id="_qjEYkAfKEeS-gNTI-k3Ftw" name="verificarIntegracao" visibility="public" isAbstract="true"/>

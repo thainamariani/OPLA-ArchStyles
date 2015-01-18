@@ -33,216 +33,13 @@ public class GeraTudoAKAGodClass {
     public static void main(String[] args) throws Exception {
 
         HashMap<String, String[]> experiments = new HashMap();
-        //NOVOS VALORES
-        //MobileMedia_50_15050_0.9_allComponents
-        //banking_50_5050_0.9_allComponents
-        //BeT-clientserver_100_30100_0.9_clientserver
 
-//        experiments.put("MobileMedia", new String[]{
-//            "MobileMedia_50_15050_0.9_allComponents",
-//            "MobileMedia_100_10100_1.0_layer",});
-//
-//        experiments.put("agm", new String[]{
-//            "agm_100_30100_0.9_layer",
-//            "agm_50_15050_0.9_allComponents",});
-//        
-//        experiments.put("MobileMedia", new String[]{
-//            "MobileMedia_100_10100_1.0_layer",
-//            "MobileMedia_50_15050_0.9_allComponents",});
-//        
-//        experiments.put("banking", new String[]{
-//            "banking_100_10100_0.9_clientserver",
-//            "banking_50_5050_0.9_allComponents",});
-//
-        experiments.put("BeT_layer", new String[]{
-            "BeT_100_10100_0.9_layer",
-            "BeT_50_5050_1.0_allComponents"});
-//        experiments.put("BeT", new String[]{
-//            "BeT_50_5050_1.0_allComponents",
-//            "BeT_100_10100_0.9_layer",
-//            "BeT-clientserver_100_30100_0.9_clientserver"});
-//        experiments.put("BeT_clientserver", new String[]{
-//            "BeT_50_5050_1.0_allComponents",
-//            "BeT-clientserver_100_30100_0.9_clientserver"});
-//        experiments.put("agm_allComponents", new String[]{
-//            "agm_100_10100_0.9_allComponents",
-//            "agm_100_10100_1.0_allComponents",
-//            "agm_100_30100_0.9_allComponents",
-//            "agm_100_30100_1.0_allComponents",
-//            "agm_100_90100_0.9_allComponents",
-//            "agm_100_90100_1.0_allComponents",
-//            "agm_200_180200_0.9_allComponents",
-//            "agm_200_180200_1.0_allComponents",
-//            "agm_200_20200_0.9_allComponents",
-//            "agm_200_20200_1.0_allComponents",
-//            "agm_200_60200_0.9_allComponents",
-//            "agm_200_60200_1.0_allComponents",
-//            "agm_50_15050_0.9_allComponents",
-//            "agm_50_15050_1.0_allComponents",
-//            "agm_50_45050_0.9_allComponents",
-//            "agm_50_45050_1.0_allComponents",
-//            "agm_50_5050_0.9_allComponents",
-//            "agm_50_5050_1.0_allComponents",});
-//
-//        experiments.put("agm_layer", new String[]{
-//            "agm_100_10100_0.9_layer",
-//            "agm_100_10100_1.0_layer",
-//            "agm_100_30100_0.9_layer",
-//            "agm_100_30100_1.0_layer",
-//            "agm_100_90100_0.9_layer",
-//            "agm_100_90100_1.0_layer",
-//            "agm_200_180200_0.9_layer",
-//            "agm_200_180200_1.0_layer",
-//            "agm_200_20200_0.9_layer",
-//            "agm_200_20200_1.0_layer",
-//            "agm_200_60200_0.9_layer",
-//            "agm_200_60200_1.0_layer",
-//            "agm_50_15050_0.9_layer",
-//            "agm_50_15050_1.0_layer",
-//            "agm_50_45050_0.9_layer",
-//            "agm_50_45050_1.0_layer",
-//            "agm_50_5050_0.9_layer",
-//            "agm_50_5050_1.0_layer",});
-//
-//        experiments.put("MobileMedia_layer", new String[]{
-//            "MobileMedia_100_10100_0.9_layer",
-//            "MobileMedia_100_10100_1.0_layer",
-//            "MobileMedia_100_30100_0.9_layer",
-//            "MobileMedia_100_30100_1.0_layer",
-//            "MobileMedia_100_90100_0.9_layer",
-//            "MobileMedia_100_90100_1.0_layer",
-//            "MobileMedia_200_180200_0.9_layer",
-//            "MobileMedia_200_180200_1.0_layer",
-//            "MobileMedia_200_20200_0.9_layer",
-//            "MobileMedia_200_20200_1.0_layer",
-//            "MobileMedia_200_60200_0.9_layer",
-//            "MobileMedia_200_60200_1.0_layer",
-//            "MobileMedia_50_15050_0.9_layer",
-//            "MobileMedia_50_15050_1.0_layer",
-//            "MobileMedia_50_45050_0.9_layer",
-//            "MobileMedia_50_45050_1.0_layer",
-//            "MobileMedia_50_5050_0.9_layer",
-//            "MobileMedia_50_5050_1.0_layer",});
-//
-//        experiments.put("MobileMedia_allComponents", new String[]{
-//            "MobileMedia_100_10100_0.9_allComponents",
-//            "MobileMedia_100_10100_1.0_allComponents",
-//            "MobileMedia_100_30100_0.9_allComponents",
-//            "MobileMedia_100_30100_1.0_allComponents",
-//            "MobileMedia_100_90100_0.9_allComponents",
-//            "MobileMedia_100_90100_1.0_allComponents",
-//            "MobileMedia_200_180200_0.9_allComponents",
-//            "MobileMedia_200_180200_1.0_allComponents",
-//            "MobileMedia_200_20200_0.9_allComponents",
-//            "MobileMedia_200_20200_1.0_allComponents",
-//            "MobileMedia_200_60200_0.9_allComponents",
-//            "MobileMedia_200_60200_1.0_allComponents",
-//            "MobileMedia_50_15050_0.9_allComponents",
-//            "MobileMedia_50_15050_1.0_allComponents",
-//            "MobileMedia_50_45050_0.9_allComponents",
-//            "MobileMedia_50_45050_1.0_allComponents",
-//            "MobileMedia_50_5050_0.9_allComponents",
-//            "MobileMedia_50_5050_1.0_allComponents",});
-//
-//        experiments.put("banking_clientserver", new String[]{
-//            "banking_100_10100_0.9_clientserver",
-//            "banking_100_10100_1.0_clientserver",
-//            "banking_100_30100_0.9_clientserver",
-//            "banking_100_30100_1.0_clientserver",
-//            "banking_100_90100_0.9_clientserver",
-//            "banking_100_90100_1.0_clientserver",
-//            "banking_200_180200_0.9_clientserver",
-//            "banking_200_180200_1.0_clientserver",
-//            "banking_200_20200_0.9_clientserver",
-//            "banking_200_20200_1.0_clientserver",
-//            "banking_200_60200_0.9_clientserver",
-//            "banking_200_60200_1.0_clientserver",
-//            "banking_50_15050_0.9_clientserver",
-//            "banking_50_15050_1.0_clientserver",
-//            "banking_50_45050_0.9_clientserver",
-//            "banking_50_45050_1.0_clientserver",
-//            "banking_50_5050_0.9_clientserver",
-//            "banking_50_5050_1.0_clientserver",});
-//
-//        experiments.put("banking_allComponents", new String[]{
-//            "banking_100_10100_0.9_allComponents",
-//            "banking_100_10100_1.0_allComponents",
-//            "banking_100_30100_0.9_allComponents",
-//            "banking_100_30100_1.0_allComponents",
-//            "banking_100_90100_0.9_allComponents",
-//            "banking_100_90100_1.0_allComponents",
-//            "banking_200_180200_0.9_allComponents",
-//            "banking_200_180200_1.0_allComponents",
-//            "banking_200_20200_0.9_allComponents",
-//            "banking_200_20200_1.0_allComponents",
-//            "banking_200_60200_0.9_allComponents",
-//            "banking_200_60200_1.0_allComponents",
-//            "banking_50_15050_0.9_allComponents",
-//            "banking_50_15050_1.0_allComponents",
-//            "banking_50_45050_0.9_allComponents",
-//            "banking_50_45050_1.0_allComponents",
-//            "banking_50_5050_0.9_allComponents",
-//            "banking_50_5050_1.0_allComponents",});
-//
+        experiments.put("agm", new String[]{
+            "agm_100_30100_0.9_layer"});
+
 //        experiments.put("BeT_layer", new String[]{
 //            "BeT_100_10100_0.9_layer",
-//            "BeT_100_10100_1.0_layer",
-//            "BeT_100_30100_0.9_layer",
-//            "BeT_100_30100_1.0_layer",
-//            "BeT_100_90100_0.9_layer",
-//            "BeT_100_90100_1.0_layer",
-//            "BeT_200_180200_0.9_layer",
-//            "BeT_200_180200_1.0_layer",
-//            "BeT_200_20200_0.9_layer",
-//            "BeT_200_20200_1.0_layer",
-//            "BeT_200_60200_0.9_layer",
-//            "BeT_200_60200_1.0_layer",
-//            "BeT_50_15050_0.9_layer",
-//            "BeT_50_15050_1.0_layer",
-//            "BeT_50_45050_0.9_layer",
-//            "BeT_50_45050_1.0_layer",
-//            "BeT_50_5050_0.9_layer",
-//            "BeT_50_5050_1.0_layer",});
-//
-//        experiments.put("BeT_allComponents", new String[]{
-//            "BeT_100_10100_0.9_allComponents",
-//            "BeT_100_10100_1.0_allComponents",
-//            "BeT_100_30100_0.9_allComponents",
-//            "BeT_100_30100_1.0_allComponents",
-//            "BeT_100_90100_0.9_allComponents",
-//            "BeT_100_90100_1.0_allComponents",
-//            "BeT_200_180200_0.9_allComponents",
-//            "BeT_200_180200_1.0_allComponents",
-//            "BeT_200_20200_0.9_allComponents",
-//            "BeT_200_20200_1.0_allComponents",
-//            "BeT_200_60200_0.9_allComponents",
-//            "BeT_200_60200_1.0_allComponents",
-//            "BeT_50_15050_0.9_allComponents",
-//            "BeT_50_15050_1.0_allComponents",
-//            "BeT_50_45050_0.9_allComponents",
-//            "BeT_50_45050_1.0_allComponents",
-//            "BeT_50_5050_0.9_allComponents",
-//            "BeT_50_5050_1.0_allComponents",});
-//
-//        experiments.put("BeT_clientserver", new String[]{
-//            "BeT_100_10100_0.9_clientserver",
-//            "BeT_100_10100_1.0_clientserver",
-//            "BeT_100_30100_0.9_clientserver",
-//            "BeT_100_30100_1.0_clientserver",
-//            "BeT_100_90100_0.9_clientserver",
-//            "BeT_100_90100_1.0_clientserver",
-//            "BeT_200_180200_0.9_clientserver",
-//            "BeT_200_180200_1.0_clientserver",
-//            "BeT_200_20200_0.9_clientserver",
-//            "BeT_200_20200_1.0_clientserver",
-//            "BeT_200_60200_0.9_clientserver",
-//            "BeT_200_60200_1.0_clientserver",
-//            "BeT_50_15050_0.9_clientserver",
-//            "BeT_50_15050_1.0_clientserver",
-//            "BeT_50_45050_0.9_clientserver",
-//            "BeT_50_45050_1.0_clientserver",
-//            "BeT_50_5050_0.9_clientserver",
-//            "BeT_50_5050_1.0_clientserver",});
+//            "BeT_50_5050_1.0_allComponents"});
         MetricsUtil mu = new MetricsUtil();
 
         for (Map.Entry<String, String[]> entry : experiments.entrySet()) {
@@ -250,7 +47,7 @@ public class GeraTudoAKAGodClass {
             String[] plaJustName = pla.split("_");
             String[] contexts = entry.getValue();
 
-            String directoryPath = "experiment/" + pla + "/";
+            String directoryPath = "experiment/aspect/" + pla + "/";
 
             try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_" + plaJustName[0] + ".txt")) {
                 for (String contexto : contexts) {
@@ -654,7 +451,8 @@ public class GeraTudoAKAGodClass {
                 ReaderConfig.setPathToProfileConcerns(resourcesDirectory + "concerns.profile.uml");
                 ReaderConfig.setPathProfileRelationship(resourcesDirectory + "relationships.profile.uml");
                 ReaderConfig.setPathToProfilePatterns(resourcesDirectory + "patterns.profile.uml");
-
+                ReaderConfig.setPathToProfileAspect(resourcesDirectory + "aspect.profile.uml");
+                
                 File[] files = outputFolder.listFiles();
                 for (File file : files) {
                     if (file.getName().endsWith(".uml")) {

@@ -82,7 +82,7 @@ public class OutputIdentificationLayer {
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("MobileMedia")) {
+                if (split[0].equals("agm")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
