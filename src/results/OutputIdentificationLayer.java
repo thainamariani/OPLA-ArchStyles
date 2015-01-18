@@ -76,17 +76,17 @@ public class OutputIdentificationLayer {
         layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
         
-        File directory = new File("experiment/");
+        File directory = new File("experiment/aspect");
         if (directory.exists()) {
             String[] list = directory.list();
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("agm")) {
+                if (split[0].equals("MobileMedia")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);
-                        if (subsubdirectory.toString().endsWith("allComponents")) {
+                        if (subsubdirectory.toString().endsWith("layer")) {
                             System.out.println("subsubdirectory: " + subsubdirectory.getName());
                             File output = new File(subsubdirectory + "/output");
                             String[] outputs = output.list();
@@ -98,6 +98,7 @@ public class OutputIdentificationLayer {
                                         ReaderConfig.setPathToProfileConcerns(output + "/resources/concerns.profile.uml");
                                         ReaderConfig.setPathProfileRelationship(output + "/resources/relationships.profile.uml");
                                         ReaderConfig.setPathToProfilePatterns(output + "/resources/patterns.profile.uml");
+                                        ReaderConfig.setPathToProfileAspect(output + "/resources/aspect.profile.uml");
                                         ReaderConfig.setDirTarget(subsubdirectory + "/manipulation/");
                                         ReaderConfig.setDirExportTarget(subsubdirectory + "/output/");
 

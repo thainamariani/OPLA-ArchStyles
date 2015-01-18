@@ -25,28 +25,28 @@ public class ArchitectureRepository {
     public static Architecture CURRENT_ARCHITECTURE = null;
 
     //public static final String AGM = "/home/ppginf/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
-    public static final String AGM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
-    public static final String MM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/mobilemedia/MobileMedia.uml";
+    //public static final String AGM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
+    //public static final String MM = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/mobilemedia/MobileMedia.uml";
+    public static final String MMAspect = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/mobilemedia-aspect/MobileMedia.uml";
     public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT/BeT.uml";
     public static final String ASPECT = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/aspect/model.uml";
     //public static final String BET = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT/BeT.uml";
     //public static final String AGM = "/home/tmariani/NetBeansProjects/OPLA-ArchStyles/agm/agm.uml";
+    public static final String AGMAspect = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/agm-aspect/agm.uml";
     public static final String BETCS = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT-clientserver/BeT.uml";
+    public static final String BETCSAspect = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/BeT-clientserver-aspect/BeT.uml";
     public static final String BANKING = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
     //public static final String BANKING = "/home/thaina/NetBeansProjects/OPLA-ArchStyles/banking/banking.uml";
 
+    //MUDAR ISSO CONFORME MUDAR A PLA!!!!! (SE EXECUTAR POR LINHA)
     public static String getPlaPath(String name) {
         switch (name) {
             case "agm":
-                return AGM;
-            case "banking":
-                return BANKING;
+                return AGMAspect;
             case "MobileMedia":
-                return MM;
+                return MMAspect;
             case "BeT":
-                return BET;
-            case "BeT-clientserver":
-                return BETCS;
+                return BETCSAspect;
             default:
                 return null;
         }

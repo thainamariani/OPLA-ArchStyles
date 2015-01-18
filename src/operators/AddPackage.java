@@ -300,9 +300,6 @@ public class AddPackage implements OperatorConstraints {
         }
         if (sourceInterface.moveOperationToInterface(op, newInterface)) {
             if (isJoinpoint) {
-                System.out.println("source interface: " + sourceInterface.getName());
-                System.out.println("operation:" + op);
-                System.out.println("newInterface: " + newInterface.getName());
                 aspectManipulation.updatePoincut(architecture);
             } else {
                 aspectManipulation.updatePointcutEnd(op, newInterface);

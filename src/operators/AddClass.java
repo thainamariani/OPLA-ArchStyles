@@ -168,9 +168,6 @@ public class AddClass implements OperatorConstraints {
                         }
                         if (OperatorUtil.moveMethodToNewClass(architecture, sourceClass, targetMethod, newClass)) {
                             if (isJoinpoint) {
-                                System.out.println("source class: " + sourceClass.getName());
-                                System.out.println("Method:" + targetMethod);
-                                System.out.println("new class: " + newClass.getName());
                                 aspectManipulation.updatePoincut(architecture);
                             } else {
                                 aspectManipulation.updatePointcutEnd(targetMethod, newClass);

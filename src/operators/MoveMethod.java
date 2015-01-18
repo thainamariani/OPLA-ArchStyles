@@ -121,9 +121,6 @@ public class MoveMethod implements OperatorConstraints {
                     }
                     if (sourceClass.moveMethodToClass(method, targetClass)) {
                         if (isJoinpoint) {
-                            System.out.println("sourceClass: " + sourceClass.getName());
-                            System.out.println("Method:" + method);
-                            System.out.println("targetClass: " + targetClass.getName());
                             aspectManipulation.updatePoincut(architecture);
                         } else {
                             aspectManipulation.updatePointcutEnd(method, targetClass);

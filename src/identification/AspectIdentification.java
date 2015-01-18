@@ -24,6 +24,49 @@ import java.util.logging.Logger;
  */
 public class AspectIdentification {
 
+    public AspectIdentification() {
+    }
+
+    public void verifyAspectArchitecture(Architecture architecture) {
+        List<AssociationRelationship> pointcuts = AspectManipulation.returnPointcuts(architecture);
+        for (AssociationRelationship pointcut : pointcuts) {
+            AssociationEnd end0 = pointcut.getParticipants().get(0);
+            AssociationEnd end1 = pointcut.getParticipants().get(1);
+
+            Element element0 = end0.getCLSClass();
+            Element element1 = end1.getCLSClass();
+
+            List<Method> methodsElement0 = new ArrayList<>();
+            List<Method> methodsElement1 = new ArrayList<>();
+
+            if (element0 instanceof arquitetura.representation.Class) {
+                methodsElement0.addAll(((arquitetura.representation.Class) element0).getAllMethods());
+            } else {
+                methodsElement0.addAll(((arquitetura.representation.Interface) element0).getOperations());
+            }
+
+            if (element1 instanceof arquitetura.representation.Class) {
+                methodsElement1.addAll(((arquitetura.representation.Class) element1).getAllMethods());
+            } else {
+                methodsElement1.addAll(((arquitetura.representation.Interface) element1).getOperations());
+            }
+            System.out.println("");
+            System.out.println("");
+            System.out.println("Association End0: " + end0.getName());
+            System.out.println("Element 0: " + element0.getName());
+            for (Method mElement0 : methodsElement0) {
+                System.out.println(mElement0.getName());
+            }
+            System.out.println("");
+            System.out.println("");
+            System.out.println("Association End1: " + end1.getName());
+            System.out.println("Element 1: " + element1.getName());
+            for (Method mElement1 : methodsElement1) {
+                System.out.println(mElement1.getName());
+            }
+        }
+    }
+
     public static boolean isCorrectAspect(String plaPath) {
         ArchitectureBuilder builder = new ArchitectureBuilder();
         boolean correct = true;
@@ -35,14 +78,14 @@ public class AspectIdentification {
                 return false;
             }
 
-            for (arquitetura.representation.Class classe : architecture.getAllClasses()) {
-                if (classe.isAspect()) {
-                    if (AspectManipulation.returnPointcutsByElement(classe).isEmpty()) {
-                        System.out.println("O aspecto " + classe.getName() + " não possui pointcuts.");
-                        correct = false;
-                    }
-                }
-            }
+//            for (arquitetura.representation.Class classe : architecture.getAllClasses()) {
+//                if (classe.isAspect()) {
+//                    if (AspectManipulation.returnPointcutsByElement(classe).isEmpty()) {
+//                        System.out.println("O aspecto " + classe.getName() + " não possui pointcuts.");
+//                        correct = false;
+//                    }
+//                }
+//            }
 
             correct = checkPointcutsElements(pointcuts, correct);
             if (correct) {
@@ -139,23 +182,25 @@ public class AspectIdentification {
                 correct = false;
             } else {
                 aspect = AspectManipulation.returnAspect(pointcut);
-                if (associationEnd0.getCLSClass().isAspect()) {
-                    if (associationEnd0.isNavigable()) {
-                        System.out.println("Extremidade da associação " + pointcut.getName() + " do aspecto " + aspect.getName() + " não pode ter navegabilidade");
-                        correct = false;
-                    }
-                    if (!associationEnd1.isNavigable()) {
-                        System.out.println("Extremidade da associação " + pointcut.getName() + " do elemento " + associationEnd1.getCLSClass().getName() + " deve ter navegabilidade");
-                        correct = false;
-                    }
-                } else {
-                    if (associationEnd1.isNavigable()) {
-                        System.out.println("Extremidade da associação" + pointcut.getName() + "do aspecto" + aspect.getName() + "não pode ter navegabilidade");
-                        correct = false;
-                    }
-                    if (!associationEnd0.isNavigable()) {
-                        System.out.println("Extremidade da associação" + pointcut.getName() + "do elemento" + associationEnd0.getCLSClass().getName() + "deve ter navegabilidade");
-                        correct = false;
+                if (!(associationEnd0.getCLSClass().isAspect() && associationEnd1.getCLSClass().isAspect())) {
+                    if (associationEnd0.getCLSClass().isAspect()) {
+                        if (associationEnd0.isNavigable()) {
+                            System.out.println("Extremidade da associação " + pointcut.getName() + " do aspecto " + aspect.getName() + " não pode ter navegabilidade");
+                            correct = false;
+                        }
+                        if (!associationEnd1.isNavigable()) {
+                            System.out.println("Extremidade da associação " + pointcut.getName() + " do elemento " + associationEnd1.getCLSClass().getName() + " deve ter navegabilidade");
+                            correct = false;
+                        }
+                    } else {
+                        if (associationEnd1.isNavigable()) {
+                            System.out.println("Extremidade da associação" + pointcut.getName() + "do aspecto" + aspect.getName() + "não pode ter navegabilidade");
+                            correct = false;
+                        }
+                        if (!associationEnd0.isNavigable()) {
+                            System.out.println("Extremidade da associação" + pointcut.getName() + "do elemento" + associationEnd0.getCLSClass().getName() + "deve ter navegabilidade");
+                            correct = false;
+                        }
                     }
                 }
             }

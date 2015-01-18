@@ -10,6 +10,7 @@ import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
 import java.util.List;
+import pojo.Client;
 import pojo.Layer;
 import pojo.Server;
 import pojo.Style;
@@ -47,9 +48,11 @@ public class OperationsOverGeneralization {
     }
 
     /**
-     * Cria um relacionamento de generalização e o adiciona na arquitetura<br/><br/>
+     * Cria um relacionamento de generalização e o adiciona na
+     * arquitetura<br/><br/>
      *
-     * NOTA: usando este método você não precisa chamar explicitamente algo como<br/><br/> {@code architecture.addRelationship(relationship)}.
+     * NOTA: usando este método você não precisa chamar explicitamente algo
+     * como<br/><br/> {@code architecture.addRelationship(relationship)}.
      *
      * @param parent
      * @param child
@@ -62,9 +65,11 @@ public class OperationsOverGeneralization {
     }
 
     /**
-     * Dada uma generalização {@link GeneralizationRelationship} move a mesma o pacote {@link Package} destino.<br/><br/>
+     * Dada uma generalização {@link GeneralizationRelationship} move a mesma o
+     * pacote {@link Package} destino.<br/><br/>
      *
-     * Este método irá pegar o pai (parent) e os filhos (childreen) da generalização passada como paramêtros e mover para o pacote destino.
+     * Este método irá pegar o pai (parent) e os filhos (childreen) da
+     * generalização passada como paramêtros e mover para o pacote destino.
      *
      * @param style
      * @param generalization - Generalização a ser movida
@@ -88,7 +93,7 @@ public class OperationsOverGeneralization {
                 }
             }
 
-        } else {
+        } else if ((style instanceof Client) || (style instanceof Server)) {
             List<Style> clientsservers = new ArrayList<>();
             clientsservers.addAll(ClientServerIdentification.getLISTCLIENTS());
             clientsservers.addAll(ClientServerIdentification.getLISTSERVERS());
@@ -103,6 +108,12 @@ public class OperationsOverGeneralization {
                     contElement++;
                 }
             }
+        } else {
+            architecture.moveElementToPackage(generalization.getParent(), targetPackage);
+            for (Element element : generalization.getAllChildrenForGeneralClass()) {
+                architecture.moveElementToPackage(element, targetPackage);
+            }
+            contElement = -1;
         }
 
         //movimentacao
@@ -112,7 +123,7 @@ public class OperationsOverGeneralization {
                 architecture.moveElementToPackage(element, targetPackage);
             }
         } else {
-            System.out.println("Movimentação da generalização não realizada: " + sout);
+            System.out.println("Movimentação da generalização não realizada: (ou sim se for aspecto) " + sout);
         }
     }
 }

@@ -263,9 +263,6 @@ public class OperatorUtil {
         }
         if (classComp.moveMethodToClass(method, targetClass)) {
             if (isJoinpoint) {
-                System.out.println("source class: " + classComp.getName());
-                System.out.println("operation:" + method);
-                System.out.println("targetClass: " + targetClass.getName());
                 aspectManipulation.updatePoincut(architecture);
             } else {
                 aspectManipulation.updatePointcutEnd(method, targetClass);
@@ -393,18 +390,15 @@ public class OperatorUtil {
         if (AspectManipulation.isJoinPoint(sourceInterface, operation, architecture)) {
             aspectManipulation.getInformationPointcut(architecture, sourceInterface, targetInterface, operation);
             isJoinpoint = true;
-        } else {
-            aspectManipulation.updatePointcutEnd(operation, targetInterface);
         }
 
         if (sourceInterface.moveOperationToInterface(operation, targetInterface)) {
             if (isJoinpoint) {
-                System.out.println("source interface: " + sourceInterface.getName());
-                System.out.println("operation:" + operation);
-                System.out.println("targetInterface: " + targetInterface.getName());
                 aspectManipulation.updatePoincut(architecture);
-                addRelationship(styles, style, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
+            } else {
+                aspectManipulation.updatePointcutEnd(operation, targetInterface);
             }
+            addRelationship(styles, style, sourceInterface, targetComp, sourceComp, architecture, concern, targetInterface);
         }
     }
 
@@ -466,6 +460,8 @@ public class OperatorUtil {
                         packages.addAll(architecture.getAllPackages());
                     } else if (style instanceof Client) {
                         packages.addAll(style.getPackages());
+                    } else{
+                        packages.addAll(architecture.getAllPackages());
                     }
 
                     final List<Class> targetClasses = new ArrayList<>();
@@ -496,7 +492,8 @@ public class OperatorUtil {
              *
              */
             if (implementor instanceof Class) {
-                architecture.removeImplementedInterface(sourceInterface, sourceComp);
+                //Apaguei linha abaixo, estava errada e dando problemas com aspectos
+                //architecture.removeImplementedInterface(sourceInterface, sourceComp);
                 addExternalInterface(targetComp, architecture, targetInterface);
                 addImplementedInterface(targetComp, architecture, targetInterface, (Class) implementor);
             }

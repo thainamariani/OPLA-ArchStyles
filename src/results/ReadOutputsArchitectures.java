@@ -53,10 +53,10 @@ public class ReadOutputsArchitectures {
             List<File> solutions = new ArrayList<>();
             //menor ED
             if (pla.equals("agm")) {
-                solutions.add(new File("agm/agm.uml"));
+                solutions.add(new File("agm-aspect/agm.uml"));
 //                //menor ED
-                solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm4.uml"));
-                solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm1.uml"));
+                //solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm4.uml"));
+                //solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm1.uml"));
 //                //maior ED
                 //solutions.add(new File("experiment/agm/agm_50_15050_0.9_allComponents/output/VAR_All_agm2.uml"));
                 //solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm0.uml"));
@@ -64,9 +64,10 @@ public class ReadOutputsArchitectures {
                 //solutions.add(new File("experiment/agm/agm_100_30100_0.9_layer/output/VAR_All_agm2.uml"));
 
             } else if (pla.equals("mobilemedia")) {
-                solutions.add(new File("mobilemedia/MobileMedia.uml"));
-                solutions.add(new File("experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/output/VAR_All_MobileMedia0.uml"));
-                solutions.add(new File("experiment/MobileMedia/MobileMedia_100_10100_1.0_layer/output/VAR_All_MobileMedia8.uml"));
+                solutions.add(new File("mobilemedia-aspect/MobileMedia.uml"));
+                //solutions.add(new File("mobilemedia/MobileMedia.uml"));
+                //solutions.add(new File("experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/output/VAR_All_MobileMedia0.uml"));
+                //solutions.add(new File("experiment/MobileMedia/MobileMedia_100_10100_1.0_layer/output/VAR_All_MobileMedia8.uml"));
             } else if (pla.equals("bet")) {
                 //solutions.add(new File("BeT/BeT.uml"));
 //                solutions.add(new File("experiment/BeT/BeT_50_5050_1.0_allComponents/output/VAR_All_BeT4.uml"));
@@ -99,16 +100,18 @@ public class ReadOutputsArchitectures {
 
                 try {
                     String path = solution.getParent();
-                    if (path.contains("output") || pla.equals("betserver") || pla.equals("mobilemedia") || pla.equals("bet")) {
+                    if (path.contains("output") || pla.equals("betserver") || pla.equals("bet") || pla.equals("mobilemedia")) {
                         path += "/resources";
                     }
 
+                    ReaderConfig.setPathToTemplateModelsDirectory(path + "/");
                     ReaderConfig.setPathToProfileSMarty(path + "/smarty.profile.uml");
                     ReaderConfig.setPathToProfileConcerns(path + "/concerns.profile.uml");
                     ReaderConfig.setPathProfileRelationship(path + "/relationships.profile.uml");
                     ReaderConfig.setPathToProfilePatterns(path + "/patterns.profile.uml");
-                    ReaderConfig.setDirTarget("banking1/manipulation/");
-                    ReaderConfig.setDirExportTarget("banking1/");
+                    ReaderConfig.setPathToProfileAspect(path + "/aspect.profile.uml");
+                    ReaderConfig.setDirTarget("mobilemedia-aspect/manipulation/");
+                    ReaderConfig.setDirExportTarget("mobilemedia-aspect/");
 
                     ArchitectureBuilder builder = new ArchitectureBuilder();
                     Architecture architecture = builder.create(solution.getAbsolutePath());
@@ -123,11 +126,37 @@ public class ReadOutputsArchitectures {
 //                    OutputIdentificationLayer.getInterfacesImplementors(architecture);
                     //replaceUsageforDependency(architecture);
                     //getDependents(architecture);
-                    getRelationshipsBetweenPackages(architecture);
+                    //getRelationshipsBetweenPackages(architecture);
+                    //replaceUsageforDependency(architecture);
+                    getMethods(architecture);
                 } catch (Exception ex) {
                     Logger.getLogger(ReadOutputsArchitectures.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+        }
+    }
+
+    public static void getMethods(Architecture architecture) {
+        Set<Class> allClasses = architecture.getAllClasses();
+        for (Class classe : allClasses) {
+            System.out.println(classe.getName());
+            System.out.println("");
+            for (Method method : classe.getAllMethods()) {
+                System.out.println(method.getName());
+            }
+            System.out.println("");
+            System.out.println("");
+        }
+
+        Set<Interface> allInterfaces = architecture.getAllInterfaces();
+        for (Interface allInterface : allInterfaces) {
+            System.out.println(allInterface.getName());
+            System.out.println("");
+            for (Method method : allInterface.getOperations()) {
+                System.out.println(method.getName());
+            }
+            System.out.println("");
+            System.out.println("");
         }
     }
 

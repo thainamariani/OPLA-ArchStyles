@@ -212,9 +212,6 @@ public class MoveOperation implements OperatorConstraints {
 
                     if (sourceInterface.moveOperationToInterface(operation, targetInterface)) {
                         if (isJoinpoint) {
-                            System.out.println("source interface: " + sourceInterface.getName());
-                            System.out.println("operation:" + operation);
-                            System.out.println("targetInterface: " + targetInterface.getName());
                             aspectManipulation.updatePoincut(architecture);
                         } else {
                             aspectManipulation.updatePointcutEnd(operation, targetInterface);

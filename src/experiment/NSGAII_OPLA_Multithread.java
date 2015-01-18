@@ -33,33 +33,33 @@ public class NSGAII_OPLA_Multithread {
     //BeT_50_5050_0.9_layer
     
     private static final String[] PLAS = {
-        //ArchitectureRepository.AGM,
+        //ArchitectureRepository.AGMAspect,
         //ArchitectureRepository.MM,
         //ArchitectureRepository.BET,
-        ArchitectureRepository.BANKING,
+        //ArchitectureRepository.BANKING,
         //ArchitectureRepository.BETCS
        
     };
 
     private static final int[] POPULATION_SIZE = {
-        50,
-        //100,
+        //50,
+        100,
         //200
     };
 
     private static final String[] STYLES = {
         "allComponents",
         //"clientserver"
-        //"layer"
+        "layer"
     };
 
     private static final int[] MAX_EVALUATIONS = {
-        50 * 101, //5000
+        //50 * 101, //5000
         //50 * 301, //15000
         //50 * 901, //45000
 
         //100 * 101, //10000
-        //100 * 301, //30000
+        100 * 301, //30000
         //100 * 901, //90000
 
         //200 * 101, //20000
@@ -74,8 +74,8 @@ public class NSGAII_OPLA_Multithread {
     private static final double[] MUTATION_PROBABILITY = {
         //0.1,
         //0.5,
-        0.9,
-        //1.0
+        //0.9,
+        1.0
     };
 
     private static synchronized void initialize() {

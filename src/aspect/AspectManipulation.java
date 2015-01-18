@@ -5,6 +5,7 @@
  */
 package aspect;
 
+import arquitetura.exceptions.ConcernNotFoundException;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
 import arquitetura.representation.Element;
@@ -35,6 +36,7 @@ public class AspectManipulation {
     private Class aspect;
     private Element targetElement;
     private boolean create = true;
+    private Element sourceElement;
 
     public AspectManipulation() {
     }
@@ -57,7 +59,7 @@ public class AspectManipulation {
             }
         }
         for (Method joinpoint : joinPoints) {
-            if (joinpoint.equals(movedMethod)) {
+            if (joinpoint.getName().equalsIgnoreCase(movedMethod.getName())) {
                 return true;
             }
         }
@@ -80,6 +82,7 @@ public class AspectManipulation {
                 targetElementJoinpointsEnd = getElementAssociationEnd(pointcut, targetElement);
                 AssociationEnd targetElementAdvicesEnd = getElementAssociationEnd(pointcut, aspect);
                 targetElementJoinpointsEnd.setNavigable(true);
+                targetElementAdvicesEnd.setNavigable(false);
                 List<Method> joinpoints = new ArrayList<>();
                 joinpoints.add(joinpoint);
                 updateEnds(targetElementJoinpointsEnd, joinpoints);
@@ -87,8 +90,11 @@ public class AspectManipulation {
             } else {
                 updateEnds(targetElementJoinpointsEnd, joinpointsTargetPoincut);
             }
-            
+
             updatePointcutEnd(targetElementJoinpointsEnd, joinpoint, targetElement);
+
+            updateAspectsPointcuts(architecture, joinpoint, sourceElement, aspect, targetElement);
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -218,6 +224,7 @@ public class AspectManipulation {
     public void getInformationPointcut(Architecture architecture, Element sourceElement, Element targetElement, Method joinpoint) {
         try {
             this.targetElement = targetElement;
+            this.sourceElement = sourceElement;
             this.joinpoint = joinpoint;
             originalPointcut = returnPointcut(joinpoint, sourceElement);
             aspect = (Class) returnAspect(originalPointcut);
@@ -309,16 +316,102 @@ public class AspectManipulation {
         }
         return pointcuts;
     }
-    
-    public void updatePointcutEnd(Method method, Element element){
+
+    public List<AssociationRelationship> returnPointcutByElementWithoutAspect(Element element, Class aspect, Method joinpoint) {
+        List<AssociationRelationship> tempPointcuts = new ArrayList<>();
+        List<AssociationRelationship> returnPointcuts = new ArrayList<>();
+        List<AssociationRelationship> pointcuts = returnPointcutsByElement(sourceElement);
+        for (AssociationRelationship pointcut : pointcuts) {
+            if (!returnAspect(pointcut).equals(aspect)) {
+                tempPointcuts.add(pointcut);
+            }
+        }
+
+        for (AssociationRelationship pointcut : tempPointcuts) {
+            if (pointcut.getParticipants().get(0).getCLSClass().equals(element)) {
+                if ((pointcut.getParticipants().get(0).getName().equals("all")) || (pointcut.getParticipants().get(0).getName().contains(joinpoint.getName()))) {
+                    returnPointcuts.add(pointcut);
+                }
+            } else {
+                if ((pointcut.getParticipants().get(1).getName().equals("all")) || (pointcut.getParticipants().get(1).getName().contains(joinpoint.getName()))) {
+                    returnPointcuts.add(pointcut);
+                }
+            }
+        }
+        return returnPointcuts;
+    }
+
+    public void updateAspectsPointcuts(Architecture architecture, Method joinpoint, Element sourceElement, Class aspect, Element targetElement) throws ConcernNotFoundException {
+        List<AssociationRelationship> pointcuts = returnPointcutByElementWithoutAspect(sourceElement, aspect, joinpoint);
+        for (AssociationRelationship pointcut : pointcuts) {
+            AssociationEnd end;
+            AssociationEnd endAspect;
+            if (pointcut.getParticipants().get(0).getCLSClass().equals(sourceElement)) {
+                end = pointcut.getParticipants().get(0);
+                endAspect = pointcut.getParticipants().get(1);
+            } else {
+                end = pointcut.getParticipants().get(1);
+                endAspect = pointcut.getParticipants().get(0);
+            }
+
+            boolean continua = true;
+            List<AssociationRelationship> pointcutsTargetElement = returnPointcutsByElement(targetElement);
+            for (AssociationRelationship pointcutTargetElement : pointcutsTargetElement) {
+                Element aspectTargetElement = returnAspect(pointcutTargetElement);
+                if (aspectTargetElement.equals(endAspect.getCLSClass())) {
+                    AssociationEnd endAspectTargetElement = null;
+                    AssociationEnd endTargetElement = null;
+                    if (pointcutTargetElement.getParticipants().get(0).getCLSClass().equals(aspectTargetElement)) {
+                        endAspectTargetElement = pointcutTargetElement.getParticipants().get(0);
+                        endTargetElement = pointcutTargetElement.getParticipants().get(1);
+                    } else {
+                        endAspectTargetElement = pointcutTargetElement.getParticipants().get(1);
+                        endTargetElement = pointcutTargetElement.getParticipants().get(0);
+                    }
+
+                    if (endAspectTargetElement.getName().equalsIgnoreCase(endAspect.getName())) {
+                        continua = false;
+                        List<Method> methods1 = getMethods(endTargetElement);
+                        if (!methods1.contains(joinpoint)) {
+                            methods1.add(joinpoint);
+                        }
+                        updateEnds(endTargetElement, methods1);
+
+                        List<Method> methods = getMethods(end);
+                        updateEnds(end, methods);
+                        break;
+                    }
+                }
+            }
+            if (continua) {
+                List<Method> methods = getMethods(end);
+                methods.add(joinpoint);
+                if (methods.size() == 1) {
+                    end.setCLSClass(targetElement);
+                } else {
+                    AssociationRelationship newPointcut = new AssociationRelationship(endAspect.getCLSClass(), targetElement);
+                    newPointcut.addPoincut("pointcut");
+                    architecture.addPointcut(newPointcut);
+                    AssociationEnd newEndElement = getElementAssociationEnd(newPointcut, targetElement);
+                    AssociationEnd newEndAspect = getElementAssociationEnd(newPointcut, endAspect.getCLSClass());
+                    newEndElement.setNavigable(true);
+                    newEndAspect.setNavigable(false);
+                    newEndElement.setName(joinpoint.getName());
+                    newEndAspect.setName(endAspect.getName());
+
+                    methods.remove(joinpoint);
+                    updateEnds(end, methods);
+                }
+            }
+        }
+    }
+
+    public void updatePointcutEnd(Method method, Element element) {
         updatePointcutEnd(new AssociationEnd(), method, element);
     }
-    
+
     //método chamado para alterar o pointcut após mover um método que não seja um joinpoint
     public void updatePointcutEnd(AssociationEnd removedEnd, Method method, Element element) {
-        System.out.println("Update Pointcut End");
-        System.out.println("Element:" + element.getName());
-        System.out.println("Method: " + method.getName());
         List<AssociationRelationship> pointcuts = returnPointcutsByElement(element);
         AssociationEnd associationEnd;
         for (AssociationRelationship pointcut : pointcuts) {

@@ -1,6 +1,8 @@
 package mutation;
 
 import arquitetura.representation.Architecture;
+import arquitetura.representation.Class;
+import arquitetura.representation.Method;
 import identification.ClientServerIdentification;
 import identification.LayerIdentification;
 import java.util.ArrayList;
@@ -97,7 +99,6 @@ public class PLAFeatureMutationConstraints extends Mutation {
                     name = "addpackage";
                     break;
             }
-            System.out.println("Operador " + name);
 
         } else {
             Configuration.logger_.log(Level.SEVERE, "doMutation: invalid type. " + "{0}", solution.getDecisionVariables()[0].getVariableType());
