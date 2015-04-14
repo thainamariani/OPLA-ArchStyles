@@ -12,7 +12,7 @@ import arquitetura.io.ReaderConfig;
 import arquitetura.io.SaveAndMove;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
-import identification.LayerIdentification;
+import project.identification.LayerIdentification;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,8 +28,8 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import pojo.Layer;
-import util.OperatorUtil;
+import project.pojo.Layer;
+import project.util.OperatorUtil;
 
 /**
  *
@@ -76,13 +76,13 @@ public class OutputIdentificationLayer {
         layer3.setPrefixos(prefixos3);
         camadas.add(layer3);
         
-        File directory = new File("experiment/aspect");
+        File directory = new File("experiment/aspect/MobileMedia");
         if (directory.exists()) {
             String[] list = directory.list();
             for (int i = 0; i < list.length; i++) {
                 File subdirectory = new File(directory + "/" + list[i]);
                 String[] split = list[i].split("_");
-                if (split[0].equals("agm")) {
+                if (split[0].equals("nometrics")) {
                     String[] configs = subdirectory.list();
                     for (int j = 0; j < configs.length; j++) {
                         File subsubdirectory = new File(subdirectory + "/" + configs[j]);

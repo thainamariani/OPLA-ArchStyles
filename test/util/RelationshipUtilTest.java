@@ -5,6 +5,7 @@
  */
 package util;
 
+import project.util.RelationshipUtil;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;

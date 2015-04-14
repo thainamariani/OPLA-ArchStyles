@@ -5,6 +5,7 @@
  */
 package identification;
 
+import project.identification.ClientServerIdentification;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import java.util.ArrayList;
@@ -12,10 +13,10 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.BeforeClass;
-import pojo.Client;
-import pojo.Layer;
-import pojo.Server;
-import pojo.Style;
+import project.pojo.Client;
+import project.pojo.Layer;
+import project.pojo.Server;
+import project.pojo.Style;
 
 /**
  *

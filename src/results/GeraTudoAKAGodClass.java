@@ -34,12 +34,92 @@ public class GeraTudoAKAGodClass {
 
         HashMap<String, String[]> experiments = new HashMap();
 
+//        String style = "aspect";
+//        experiments.put("agm", new String[]{
+//            "agm_50_15050_0.9_aspect_metrics",
+//            "agm_50_15050_0.9_aspect_nometrics"});
+//        String style = "allComponents";
+//        experiments.put("agm", new String[]{
+//            "agm_50_15050_0.9_allComponents_metrics",
+//            "agm_50_15050_0.9_allComponents_nometrics"});
+//        
+//        String style = "layer";
+//        experiments.put("agm", new String[]{
+//            "agm_100_30100_0.9_layer_metrics",
+//            "agm_100_30100_0.9_layer_nometrics"});
+//        String style = "allComponents";
+//        experiments.put("MobileMedia", new String[]{
+//            "MobileMedia_50_15050_0.9_allComponents_metrics",
+//            "MobileMedia_50_15050_0.9_allComponents_nometrics"});
+//        String style = "aspect";
+//        experiments.put("MobileMedia", new String[]{
+//            "MobileMedia_50_15050_0.9_aspect_metrics",
+//            "MobileMedia_50_15050_0.9_aspect_nometrics"});
+//        String style = "layer";
+//        experiments.put("MobileMedia", new String[]{
+//            "MobileMedia_100_10100_1.0_layer_metrics",
+//            "MobileMedia_100_10100_1.0_layer_nometrics"});
+//        String style = "aspect";
+//        experiments.put("BeT", new String[]{
+//            "BeT_50_5050_1.0_aspect_metrics",
+//            "BeT_50_5050_1.0_aspect_nometrics"});
+//        //String style = "nometrics";
+        
+//segunda versão - comparando somente aspect
+//        experiments.put("MobileMedia", new String[]{
+//            "MobileMedia_50_15050_0.9_allComponents",
+//            "MobileMedia_50_15050_0.9_aspect"
+//        });
+//        experiments.put("agm", new String[]{
+//            "agm_50_15050_0.9_allComponents",
+//            "agm_50_15050_0.9_aspect"
+//        });
+//        experiments.put("BeT", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
+//            "BeT_50_5050_1.0_aspect"
+//        });
+        
+////segunda versão - comparando os três   
+        experiments.put("MobileMedia", new String[]{
+            "MobileMedia_50_15050_0.9_allComponents",
+            "MobileMedia_50_15050_0.9_aspect",
+            "MobileMedia_100_10100_1.0_layer"
+        });
         experiments.put("agm", new String[]{
-            "agm_100_30100_0.9_layer"});
-
-//        experiments.put("BeT_layer", new String[]{
+            "agm_50_15050_0.9_allComponents",
+            "agm_50_15050_0.9_aspect",
+            "agm_100_30100_0.9_layer"
+        });
+        experiments.put("BeT", new String[]{
+            "BeT_50_5050_1.0_allComponents",
+            "BeT_50_5050_1.0_aspect",
+            "BeT_100_30100_0.9_clientserver"
+        });
+        
+        
+        
+        //primeira versão
+//        experiments.put("agm", new String[]{
+//            "agm_50_15050_0.9_allComponents",
+//            "agm_100_30100_0.9_layer"
+//        });
+//        
+//        experiments.put("MobileMedia", new String[]{
+//            "MobileMedia_50_15050_0.9_allComponents",
+//            "MobileMedia_100_10100_1.0_layer"
+//        });
+//        
+//        experiments.put("banking", new String[]{
+//            "banking_50_5050_0.9_allComponents",
+//            "banking_100_10100_0.9_clientserver"
+//        });
+//        
+//        experiments.put("BeT", new String[]{
+//            "BeT_50_5050_1.0_allComponents",
 //            "BeT_100_10100_0.9_layer",
-//            "BeT_50_5050_1.0_allComponents"});
+//            "BeT-clientserver_100_30100_0.9_clientserver"
+//        });
+        
         MetricsUtil mu = new MetricsUtil();
 
         for (Map.Entry<String, String[]> entry : experiments.entrySet()) {
@@ -47,7 +127,8 @@ public class GeraTudoAKAGodClass {
             String[] plaJustName = pla.split("_");
             String[] contexts = entry.getValue();
 
-            String directoryPath = "experiment/aspect/" + pla + "/";
+            String directoryPath = "experiment/aspect/" + pla + "/nometrics/"; //" + style + "/";
+            //String directoryPath = "experiment/" + pla + "/";
 
             try (FileWriter funAll = new FileWriter(directoryPath + "FUN_All_" + plaJustName[0] + ".txt")) {
                 for (String contexto : contexts) {
@@ -61,7 +142,7 @@ public class GeraTudoAKAGodClass {
             executaHypervolume(directoryPath, plaJustName[0], contexts);
             runFriedman(directoryPath, contexts);
             runKruskal(directoryPath, contexts);
-            runWilcoxon(directoryPath, contexts);
+//            runWilcoxon(directoryPath, contexts);
             executeEuclideanDistance(directoryPath, plaJustName[0], contexts);
             executeParetoStats(directoryPath, plaJustName[0], contexts);
             executeArchitectureStats(directoryPath, pla, contexts);
@@ -247,7 +328,7 @@ public class GeraTudoAKAGodClass {
         try (FileWriter friedman = new FileWriter(directoryPath + "friedman_script.txt")) {
             StringBuilder stringBuilder = new StringBuilder();
             for (String context : contexts) {
-                stringBuilder.append(context).append("<- c(");
+                stringBuilder.append(context.replaceAll("-", "_")).append("<- c(");
                 Scanner scanner = new Scanner(new FileInputStream(directoryPath + context + "/HYPERVOLUME_RESULT.txt"));
                 while (scanner.hasNextLine()) {
                     String value = scanner.nextLine().trim();
@@ -261,24 +342,24 @@ public class GeraTudoAKAGodClass {
             }
 
             stringBuilder.append("require(pgirmess)\n");
-            stringBuilder.append("AR1 <-cbind(");
-
+//            stringBuilder.append("AR1 <-cbind(");
+//
             StringBuilder contextNames = new StringBuilder();
             for (String context : contexts) {
                 contextNames.append(context).append(", ");
             }
             contextNames.delete(contextNames.length() - 2, contextNames.length());
-
-            stringBuilder.append(contextNames.toString()).append(")\n");
-            stringBuilder.append("result<-friedman.test(AR1)\n");
-            stringBuilder.append("\n");
-            stringBuilder.append("m<-data.frame(result$statistic,result$p.value)\n");
-            stringBuilder.append("write.csv2(m,file=\"./").append(directoryPath).append("friedman.csv\")\n");
-            stringBuilder.append("\n");
-            stringBuilder.append("pos_teste<-friedmanmc(AR1)\n");
-            stringBuilder.append("write.csv2(pos_teste,file=\"./").append(directoryPath).append("friedman-compara.csv\")\n");
+//
+//            stringBuilder.append(contextNames.toString()).append(")\n");
+//            stringBuilder.append("result<-friedman.test(AR1)\n");
+//            stringBuilder.append("\n");
+//            stringBuilder.append("m<-data.frame(result$statistic,result$p.value)\n");
+//            stringBuilder.append("write.csv2(m,file=\"./").append(directoryPath).append("friedman.csv\")\n");
+//            stringBuilder.append("\n");
+//            stringBuilder.append("pos_teste<-friedmanmc(AR1)\n");
+//            stringBuilder.append("write.csv2(pos_teste,file=\"./").append(directoryPath).append("friedman-compara.csv\")\n");
             stringBuilder.append("png(file=\"./").append(directoryPath).append("friedman-boxplot.png\", width=400, height=400)\n");
-            stringBuilder.append("boxplot(").append(contextNames.toString());
+            stringBuilder.append("boxplot(").append(contextNames.toString().replaceAll("-", "_"));
 
             contextNames = new StringBuilder();
             for (String context : contexts) {
@@ -330,7 +411,7 @@ public class GeraTudoAKAGodClass {
             stringBuilder.append("\n");
             stringBuilder.append("pos_teste<-kruskalmc(ARRAY,categs)\n");
             stringBuilder.append("write.csv2(pos_teste,file=\"./").append(directoryPath).append("kruskal-compara.csv\")\n");
-
+            
             kruskal.write(stringBuilder.toString());
         }
 
@@ -452,7 +533,7 @@ public class GeraTudoAKAGodClass {
                 ReaderConfig.setPathProfileRelationship(resourcesDirectory + "relationships.profile.uml");
                 ReaderConfig.setPathToProfilePatterns(resourcesDirectory + "patterns.profile.uml");
                 ReaderConfig.setPathToProfileAspect(resourcesDirectory + "aspect.profile.uml");
-                
+
                 File[] files = outputFolder.listFiles();
                 for (File file : files) {
                     if (file.getName().endsWith(".uml")) {

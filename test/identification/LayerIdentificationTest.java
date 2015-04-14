@@ -5,6 +5,7 @@
  */
 package identification;
 
+import project.identification.LayerIdentification;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.Map;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.BeforeClass;
-import pojo.Layer;
+import project.pojo.Layer;
 
 /**
  *

@@ -29,11 +29,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import pojo.Layer;
-import static results.OutputIdentificationClientServer.getInvalidsInterfaces;
-import util.ElementUtil;
-import util.OperatorUtil;
-import util.RelationshipUtil;
+import project.util.ElementUtil;
+import project.util.RelationshipUtil;
 
 /**
  *

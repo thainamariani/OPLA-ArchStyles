@@ -5,22 +5,23 @@
  */
 package operators;
 
+import project.operators.MoveMethod;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.io.ReaderConfig;
 import arquitetura.representation.Architecture;
-import aspect.AspectManipulation;
-import identification.ClientServerIdentification;
+import project.aspect.AspectManipulation;
+import project.identification.ClientServerIdentification;
 import java.util.ArrayList;
 import java.util.List;
-import mutation.PLAFeatureMutationConstraints;
+import project.mutation.PLAFeatureMutationConstraints;
 import org.junit.Assert;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import pojo.Client;
-import pojo.Server;
-import pojo.Style;
-import util.OperatorUtil;
-import util.StyleUtil;
+import project.pojo.Client;
+import project.pojo.Server;
+import project.pojo.Style;
+import project.util.OperatorUtil;
+import project.util.StyleUtil;
 
 /**
  *

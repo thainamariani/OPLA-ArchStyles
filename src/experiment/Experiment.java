@@ -1,10 +1,9 @@
 package experiment;
 
-import arquitetura.builders.ArchitectureBuilder;
+import gui.StyleGui;
 import arquitetura.io.ReaderConfig;
-import arquitetura.representation.Architecture;
-import identification.AspectIdentification;
-import identification.ClientServerIdentification;
+import project.identification.AspectIdentification;
+import project.identification.ClientServerIdentification;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -22,10 +21,11 @@ import jmetal.operators.selection.Selection;
 import jmetal.operators.selection.SelectionFactory;
 import jmetal.problems.OPLA;
 import jmetal.util.JMException;
-import mutation.MutationFactory;
-import mutation.PLAFeatureMutationConstraints;
-import pojo.Style;
-import util.ArchitectureRepository;
+import project.mutation.MutationFactory;
+import project.mutation.PLAFeatureMutationConstraints;
+import project.pojo.Style;
+import results.Hypervolume;
+import project.util.ArchitectureRepository;
 
 public class Experiment {
 
@@ -37,7 +37,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"1", "1", "0", ArchitectureRepository.MMAspect, "no", "mm-original-newmetrics"};
+        args = new String[]{"1", "1", "1", ArchitectureRepository.BETCSAspect, "clientserver", "teste"};
         //boolean criado para contemplar aspectos com outros estilos
         boolean aspect = true;
         if (args.length < 6) {
@@ -46,7 +46,7 @@ public class Experiment {
                     + "\n\t2 - Max Evaluations (Integer);"
                     + "\n\t3 - Mutation Probability (Double);"
                     + "\n\t4 - PLA path;"
-                    + "\n\t5 - Architectural Style;"
+                    + "\n\t5 - Arshochitectural Style;"
                     + "\n\t6 - Context"); //nostyle, layer, clientserver
             System.exit(0);
         }
@@ -106,7 +106,7 @@ public class Experiment {
         }
         String context = args[5];
 
-        boolean shouldPrintVariables = false;
+        boolean shouldPrintVariables = true;
 
         String plaName = getPlaName(pla);
 
@@ -239,7 +239,6 @@ public class Experiment {
             int totalChamadas = 0;
             String stringFinal = "";
             for (int runs = 0; runs < runsNumber; runs++) {
-
                 // Execute the Algorithm
                 long initTime = System.currentTimeMillis();
                 SolutionSet resultFront = algorithm.execute();

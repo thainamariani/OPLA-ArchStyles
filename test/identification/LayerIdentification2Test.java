@@ -5,6 +5,7 @@
  */
 package identification;
 
+import project.identification.LayerIdentification;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Class;
@@ -20,9 +21,9 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import pojo.Layer;
-import util.ElementUtil;
-import util.RelationshipUtil;
+import project.pojo.Layer;
+import project.util.ElementUtil;
+import project.util.RelationshipUtil;
 
 /**
  *

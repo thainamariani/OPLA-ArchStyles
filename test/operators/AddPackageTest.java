@@ -10,19 +10,17 @@ import arquitetura.helpers.UtilResources;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
-import identification.LayerIdentification;
+import project.identification.LayerIdentification;
 import java.util.ArrayList;
-import static java.util.Collections.list;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import jmetal.util.PseudoRandom;
 import junit.framework.Assert;
 import org.junit.Test;
-import pojo.Layer;
-import util.OperatorUtil;
-import static util.OperatorUtil.randomObject;
-import util.StyleUtil;
+import project.pojo.Layer;
+import project.util.OperatorUtil;
+import project.util.StyleUtil;
 
 /**
  *

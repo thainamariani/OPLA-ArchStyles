@@ -1,26 +1,25 @@
-# Generating AGM
+# Generating aspect-bet
 set terminal png size 400,400 enhanced font 'arial' 10 butt
-set output 'experiment/agm/AGM_Pareto.png'
+set output '/home/thaina/Dropbox/Mestrado/Artigos/ssbse2015/imagens/BETAspect_Pareto.png'
 set key
 set xlabel 'FM'
 set ylabel 'CM'
-plot "experiment/agm/agm_50_15050_0.9_allComponents/FUN_All_N_agm.txt" using 1:2 title "SO" pt 3, "experiment/agm/agm_100_30100_0.9_layer/FUN_All_N_agm.txt" using 1:2 title "SO4LAR" pt 2
+plot "experiment/aspect/BeT/nometrics/BeT_50_5050_1.0_allComponents/FUN_All_N_BeT.txt" using 1:2 title "SO" pt 5, "experiment/aspect/BeT/nometrics/BeT_50_5050_1.0_aspect/FUN_All_N_BeT.txt" using 1:2 title "SO4ASPAR" pt 8
+
+# Generating aspect-agm
+set terminal png size 400,400 enhanced font 'arial' 10 butt
+set output '/home/thaina/Dropbox/Mestrado/Artigos/ssbse2015/imagens/AGMAspect_Pareto.png'
+set key
+set xlabel 'FM'
+set ylabel 'CM'
+plot "experiment/aspect/agm/nometrics/agm_50_15050_0.9_allComponents/FUN_All_N_agm.txt" using 1:2 title "SO" pt 5, "experiment/aspect/agm/nometrics/agm_50_15050_0.9_aspect/FUN_All_N_agm.txt" using 1:2 title "SO4ASPAR" pt 8
 clear
 
-# Generating MM
+# Generating aspect-mobilemedia
 set terminal png size 400,400 enhanced font 'arial' 10 butt
-set output 'experiment/MobileMedia/MM_Pareto.png'
+set output '/home/thaina/Dropbox/Mestrado/Artigos/ssbse2015/imagens/MMAspect_Pareto.png'
 set key
 set xlabel 'FM'
 set ylabel 'CM'
-plot "experiment/MobileMedia/MobileMedia_50_15050_0.9_allComponents/FUN_All_N_MobileMedia.txt" using 1:2 title "SO" pt 3, "experiment/MobileMedia/MobileMedia_100_10100_1.0_layer/FUN_All_N_MobileMedia.txt" using 1:2 title "SO4LAR" pt 2
-clear
-
-# Generating BeT
-set terminal png size 400,400 enhanced font 'arial' 10 butt
-set output 'experiment/BeT/BET_Pareto.png'
-set key
-set xlabel 'FM'
-set ylabel 'CM'
-plot "experiment/BeT/BeT_50_5050_1.0_allComponents/FUN_All_N_BeT.txt" using 1:2 title "SO" pt 3, "experiment/BeT/BeT_100_10100_0.9_layer/FUN_All_N_BeT.txt" using 1:2 title "SO4LAR" pt 2
+plot "experiment/aspect/MobileMedia/nometrics/MobileMedia_50_15050_0.9_allComponents/FUN_All_N_MobileMedia.txt" using 1:2 title "SO" pt 5, "experiment/aspect/MobileMedia/nometrics/MobileMedia_50_15050_0.9_aspect/FUN_All_N_MobileMedia.txt" using 1:2 title "SO4ASPAR" pt 8
 clear

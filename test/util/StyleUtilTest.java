@@ -15,7 +15,7 @@ import arquitetura.representation.Method;
 import arquitetura.representation.Package;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
-import aspect.AspectManipulation;
+import project.aspect.AspectManipulation;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
@@ -26,8 +26,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import pojo.Layer;
-import pojo.Style;
+import project.pojo.Layer;
+import project.pojo.Style;
 
 /**
  *

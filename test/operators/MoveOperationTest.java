@@ -10,8 +10,8 @@ import arquitetura.helpers.UtilResources;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
 import arquitetura.representation.Interface;
-import identification.ClientServerIdentification;
-import identification.LayerIdentification;
+import project.identification.ClientServerIdentification;
+import project.identification.LayerIdentification;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.HashMap;
@@ -22,15 +22,15 @@ import java.util.Set;
 import org.apache.log4j.lf5.util.ResourceUtils;
 import org.junit.Assert;
 import org.junit.Test;
-import pojo.Client;
-import pojo.Layer;
-import pojo.Server;
-import pojo.Style;
-import util.OperatorUtil;
-import static util.OperatorUtil.randomObject;
-import static util.OperatorUtil.removeInterfacesInPatternStructureFromArray;
-import util.ParametersRepository;
-import util.StyleUtil;
+import project.pojo.Client;
+import project.pojo.Layer;
+import project.pojo.Server;
+import project.pojo.Style;
+import project.util.OperatorUtil;
+import static project.util.OperatorUtil.randomObject;
+import static project.util.OperatorUtil.removeInterfacesInPatternStructureFromArray;
+import project.util.ParametersRepository;
+import project.util.StyleUtil;
 
 /**
  *

@@ -11,7 +11,7 @@ import arquitetura.helpers.XmiHelper;
 import arquitetura.io.ReaderConfig;
 import arquitetura.io.SaveAndMove;
 import arquitetura.representation.Architecture;
-import identification.ClientServerIdentification;
+import project.identification.ClientServerIdentification;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,10 +27,10 @@ import org.w3c.dom.NamedNodeMap;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
-import pojo.Client;
-import pojo.Server;
-import pojo.Style;
-import util.OperatorUtil;
+import project.pojo.Client;
+import project.pojo.Server;
+import project.pojo.Style;
+import project.util.OperatorUtil;
 
 /**
  *
