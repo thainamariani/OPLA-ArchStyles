@@ -30,9 +30,8 @@ public class LayerIdentificationTest {
 
     @BeforeClass
     public static void before() throws Exception {
-        //instância agm
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architectureAgm = builder.create("C:/Users/Thainá/workspace/AGM/agm.uml");
+        Architecture architectureAgm = builder.create("test/models/agm/agm.uml");
         layerIdentificationAgm = new LayerIdentification(architectureAgm);
     }
 

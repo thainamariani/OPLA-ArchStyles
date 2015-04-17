@@ -43,7 +43,7 @@ public class RelationshipUtilTest {
     public static void before() throws Exception {
         //instância archteste
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
+        architectureTest = builder.create("test/models/archtest1/model.uml");
         class3 = architectureTest.findClassByName("Class3L1").get(0);
         class4 = architectureTest.findClassByName("Class4L1").get(0);
         class5 = architectureTest.findClassByName("Class5L1").get(0);

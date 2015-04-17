@@ -1,8 +1,9 @@
 --- !DirTarget
-directoryToSaveModels: "experiment/agm/teste/manipulation/"
-directoryToExportModels: "experiment/agm/teste/output/"
-pathToTemplateModelsDirectory: "config/"
-pathToProfile: "config/smarty.profile.uml"
-pathToProfileConcern: "config/concerns.profile.uml"
-pathToProfileRelationships: "config/relationships.profile.uml"
-pathToProfilePatterns: "config/patterns.profile.uml"
+pathToTemplateModelsDirectory: templates/
+directoryToSaveModels: manipulation/
+directoryToExportModels: test/
+pathToProfile: perfis/smarty.profile.uml
+pathToProfileConcern: perfis/concerns.profile.uml
+pathToProfileRelationships: perfis/relationships.profile.uml
+pathToProfilePatterns:  perfis/patterns.profile.uml
+pathToProfileAspect: perfis/aspect.profile.uml

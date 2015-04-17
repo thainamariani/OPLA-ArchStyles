@@ -14,7 +14,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.BeforeClass;
 import project.pojo.Client;
-import project.pojo.Layer;
 import project.pojo.Server;
 import project.pojo.Style;
 
@@ -33,7 +32,7 @@ public class ClientServerIdentificationTest {
     @BeforeClass
     public static void before() throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest4/model.uml");
+        architectureTest = builder.create("test/models/archtest4/model.uml");
         clientServerIdentification = new ClientServerIdentification(architectureTest);
     }
 

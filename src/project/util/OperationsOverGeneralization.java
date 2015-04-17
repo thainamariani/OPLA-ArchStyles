@@ -122,8 +122,6 @@ public class OperationsOverGeneralization {
             for (Element element : generalization.getAllChildrenForGeneralClass()) {
                 architecture.moveElementToPackage(element, targetPackage);
             }
-        } else {
-            System.out.println("Movimentação da generalização não realizada: (ou sim se for aspecto) " + sout);
         }
     }
 }

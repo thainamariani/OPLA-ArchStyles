@@ -1,4 +1,7 @@
-/build/
-/dist/
-/experiment/
-/nbproject/private/
+/build*
+/dist*
+/experiment*
+/nbproject*
+/PLAs*
+/*.txt
+/*.xml

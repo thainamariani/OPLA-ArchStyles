@@ -10,9 +10,7 @@ import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import project.identification.LayerIdentification;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import junit.framework.Assert;
 import org.junit.Test;
 import org.junit.BeforeClass;
@@ -35,7 +33,7 @@ public class OperatorUtilTest {
     public static void before() throws Exception {
         //instância archteste
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
+        architectureTest = builder.create("test/models/archtest1/model.uml");
         layerIdentificationTest = new LayerIdentification(architectureTest);
         camadas = new ArrayList<>();
         Layer layer1 = new Layer();

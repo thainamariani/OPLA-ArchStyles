@@ -39,10 +39,8 @@ public class LayerIdentification2Test {
 
     @BeforeClass
     public static void before() throws Exception {
-        //instância archteste
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        //architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
-        architectureTest = builder.create("/home/thaina/NetBeansProjects/OPLA-ArchStyles/test/models/archtest1/model.uml");
+        architectureTest = builder.create("test/models/archtest1/model.uml");
         layerIdentificationTest = new LayerIdentification(architectureTest);
         
         List<Layer> camadas = new ArrayList<>();

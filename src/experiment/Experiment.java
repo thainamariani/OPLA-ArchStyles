@@ -37,9 +37,9 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"1", "1", "1", ArchitectureRepository.BETCSAspect, "clientserver", "teste"};
+        args = new String[]{"2", "2", "1", ArchitectureRepository.AGM, "no", "teste"};
         //boolean criado para contemplar aspectos com outros estilos
-        boolean aspect = true;
+        boolean aspect = false;
         if (args.length < 6) {
             System.out.println("You need to inform the following parameters:");
             System.out.println("\t1 - Population Size (Integer);"
@@ -126,7 +126,7 @@ public class Experiment {
             ReaderConfig.setPathProfileRelationship(plaDirectory + "/resources/relationships.profile.uml");
             ReaderConfig.setPathToProfilePatterns(plaDirectory + "/resources/patterns.profile.uml");
             if (style.equals("aspect") || aspect) {
-                ReaderConfig.setPathToProfileAspect(plaDirectory + "/resources/aspect.profile.uml");
+                //ReaderConfig.setPathToProfileAspect(plaDirectory + "/resources/aspect.profile.uml");
             }
         } else {
             System.out.println("AGM ou Banking");
@@ -134,7 +134,7 @@ public class Experiment {
             ReaderConfig.setPathToProfileConcerns(plaDirectory + "/concerns.profile.uml");
             ReaderConfig.setPathProfileRelationship(plaDirectory + "/relationships.profile.uml");
             if (style.equals("aspect") || aspect) {
-                ReaderConfig.setPathToProfileAspect(plaDirectory + "/aspect.profile.uml");
+                //ReaderConfig.setPathToProfileAspect(plaDirectory + "/aspect.profile.uml");
             }
         }
 

@@ -9,19 +9,16 @@ import project.identification.ClientServerIdentification;
 import arquitetura.builders.ArchitectureBuilder;
 import arquitetura.representation.Architecture;
 import arquitetura.representation.Element;
-import arquitetura.representation.OperationsOverAbstraction;
 import arquitetura.representation.relationship.AbstractionRelationship;
 import arquitetura.representation.relationship.AssociationClassRelationship;
 import arquitetura.representation.relationship.AssociationRelationship;
 import arquitetura.representation.relationship.Relationship;
-import arquitetura.representation.relationship.UsageRelationship;
 import java.util.ArrayList;
 import java.util.List;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import project.pojo.Client;
-import project.pojo.Layer;
 import project.pojo.Server;
 import project.pojo.Style;
 import project.util.ElementUtil;
@@ -44,7 +41,7 @@ public class ClientServerIdentification2Test {
     @BeforeClass
     public static void before() throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        architectureTest = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest4/model.uml");
+        architectureTest = builder.create("test/models/archtest4/model.uml");
         clientServerIdentification = new ClientServerIdentification(architectureTest);
         List<Client> clients = new ArrayList<>();
 

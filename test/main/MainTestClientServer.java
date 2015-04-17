@@ -20,11 +20,13 @@ import project.util.ArchitectureRepository;
  *
  * @author Thainá
  */
+//this class generate archictures that should be analysed manually
+//the architectures are saved in: path/experiment/operatorName
 public class MainTestClientServer {
 
     public static void main(String[] args) throws Exception {
         ArchitectureBuilder builder = new ArchitectureBuilder();
-        Architecture architecture = builder.create("C:/Users/Thainá/Documents/NetBeansProjects/OPLA-ArchStyles/test/models/archtest7/model.uml");
+        Architecture architecture = builder.create("test/models/archtest7/model.uml");
         ClientServerIdentification clientServerIdentification = new ClientServerIdentification(architecture);
 
         List<Client> clients = new ArrayList<>();
@@ -68,6 +70,7 @@ public class MainTestClientServer {
         clientsservers.addAll(clients);
         clientsservers.addAll(servers);
 
+        //change the operator you want to test
         if (clientServerIdentification.isCorrect(clientsservers)) {
             clientsservers.clear();
             clientsservers.addAll(ClientServerIdentification.getLISTCLIENTS());
@@ -83,10 +86,10 @@ public class MainTestClientServer {
             //moveOperation.doMutation(1, architecture, "clientserver", clientsservers);
             //AddPackage addPackage = new AddPackage();
             //addPackage.doMutation(1, architecture, "clientserver", clientsservers);
-            
             FeatureDriven featureDriven = new FeatureDriven();
             featureDriven.doMutation(1, architecture, "clientserver", clientsservers);
 
+            //save the architecture
             ArchitectureRepository.setCurrentArchitecture(architecture);
             ArchitectureRepository.saveArchitecture("featuredriven", "archtest7");
         }
