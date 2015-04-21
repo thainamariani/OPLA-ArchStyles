@@ -25,7 +25,7 @@ This project is a module of OPLA-Tool, which is needed to make OPLA-ArchStyles w
 
 For running, you must pass to the experiment class (src.experiment.Experiment), respectively, the following information as parameters:
 
-* Populazion size (example: 100);
+* Population size (example: 100);
 * Max Evaluations (example: 10000);
 * Mutation Probability (example: 0.9);
 * Absolute PLA path (example: /home/plas/agm/agm.uml);
