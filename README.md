@@ -34,6 +34,6 @@ For running, you must pass to the experiment class (src.experiment.Experiment), 
 
 If you want to preserve aspects in addition to the architectural style given as parameter, then the boolean parameter *aspect* in the Experiment class must be true. Otherwise, such value must be *false*. If the architectural style given as parameter is *aspect*, this boolean value is unnecessary and ignored.
 
-After that, the architectural style informed is validate in the PLA. If it is not designed correctly, a message is showed as output.
+After that, the architectural style informed is validate in the PLA. If it is not designed correctly, a message is showed as output. Otherwise, the PLA is optimized.
 
 
