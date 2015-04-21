@@ -36,4 +36,7 @@ If you want to preserve aspects in addition to the architectural style given as 
 
 After that, the architectural style informed is validate in the PLA. If it is not designed correctly, a message is showed as output. Otherwise, the PLA is optimized.
 
+-------------------------------------------------------------------------------------------------------------------
 
+
+For more information visit https://github.com/thainamariani/OPLA-ArchStyles/blob/master/Information.pdf
