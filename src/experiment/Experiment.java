@@ -37,7 +37,7 @@ public class Experiment {
 //--  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --  --
     public static void main(String[] args) throws FileNotFoundException, IOException, JMException, ClassNotFoundException, Exception {
 
-        args = new String[]{"2", "2", "1", ArchitectureRepository.AGM, "no", "teste"};
+        //args = new String[]{"2", "2", "1", ArchitectureRepository.AGM, "no", "teste"};
         //boolean criado para contemplar aspectos com outros estilos
         boolean aspect = false;
         if (args.length < 6) {
